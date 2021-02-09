@@ -1,0 +1,16 @@
+.header {
+  background: black;
+  @media screen and (min-width: 900px) {
+    padding: 40px 0;
+    ul {
+      margin-left: auto;
+      li {
+        a {
+          color: white;
+          margin-left: 19px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

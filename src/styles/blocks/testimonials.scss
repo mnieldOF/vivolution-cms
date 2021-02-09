@@ -1,0 +1,41 @@
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  .img {
+    position: absolute;
+    width: 130%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .title {
+    color: white;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 506px 1fr;
+    .left {
+      img {
+        width: 100%;
+        display: block;
+        height: 100%;
+      }
+    }
+    .right {
+      .swiper-container {
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (min-width: 900px) {
+    padding: 145px 0;
+    .title {
+      font-size: 40px;
+      margin-bottom: 50px;
+    }
+    .grid {
+      gap: 113px;
+    }
+  }
+}

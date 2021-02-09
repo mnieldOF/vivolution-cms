@@ -3,29 +3,46 @@ import { Link, graphql } from 'gatsby'
 import Masonry from 'react-masonry-component'
 import Img from 'gatsby-image'
 import Layout from "../components/layout"
+import Header from "../components/header"
+import TextBlock from "../components/text-block";
+import HelpBlock from "../components/help-block";
+import GrowthBlock from "../components/growth-block";
+import Testimonial from "../components/testimonial";
+import SubFooter from "../components/sub-footer";
 
 const IndexPage = ({ data }) => (
-  <Layout>
-    <Masonry className="showcase">
-      {data.allDatoCmsWork.edges.map(({ node: work }) => (
-        <div key={work.id} className="showcase__item">
-          <figure className="card">
-            <Link to={`/works/${work.slug}`} className="card__image">
-              <Img fluid={work.coverImage.fluid} />
-            </Link>
-            <figcaption className="card__caption">
-              <h6 className="card__title">
-                <Link to={`/works/${work.slug}`}>{work.title}</Link>
-              </h6>
-              <div className="card__description">
-                <p>{work.excerpt}</p>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      ))}
-    </Masonry>
-  </Layout>
+  <>
+    <Header />
+    <TextBlock 
+      title='We give our clients the team they need, when they need it most - at the start of the journey.'  
+      text='From Devs to Directors, bringing you a wealth of experience and expertise to build your business. On your terms. Invested in your business and there for the long term, no matter how bumpy the ride.'
+    />
+    <HelpBlock />
+    <GrowthBlock />
+    <Testimonial />
+    <SubFooter />
+    <Layout>
+      <Masonry className="showcase">
+        {data.allDatoCmsWork.edges.map(({ node: work }) => (
+          <div key={work.id} className="showcase__item">
+            <figure className="card">
+              <Link to={`/works/${work.slug}`} className="card__image">
+                <Img fluid={work.coverImage.fluid} />
+              </Link>
+              <figcaption className="card__caption">
+                <h6 className="card__title">
+                  <Link to={`/works/${work.slug}`}>{work.title}</Link>
+                </h6>
+                <div className="card__description">
+                  <p>{work.excerpt}</p>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        ))}
+      </Masonry>
+    </Layout>
+  </>
 )
 
 export default IndexPage
