@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import Header from "../components/header"
 import Hero from "../components/hero"
 import TextBlock from "../components/text-block";
+import Partners from "../components/partners";
 import HelpBlock from "../components/help-block";
 import GrowthBlock from "../components/growth-block";
 import Testimonial from "../components/testimonial";
@@ -23,9 +24,10 @@ const IndexPage = ({ data }) => (
     <HelpBlock />
     <GrowthBlock />
     <Testimonial />
+    <Partners />
     <SubFooter />
     <Footer />
-    <Layout>
+    {/* <Layout>
       <Masonry className="showcase">
         {data.allDatoCmsWork.edges.map(({ node: work }) => (
           <div key={work.id} className="showcase__item">
@@ -45,7 +47,7 @@ const IndexPage = ({ data }) => (
           </div>
         ))}
       </Masonry>
-    </Layout>
+    </Layout> */}
   </>
 )
 

@@ -1,4 +1,7 @@
 .sub-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: -1;
   .box {
     width: 100%;
     display: flex;

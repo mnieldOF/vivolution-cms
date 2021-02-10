@@ -1,0 +1,16 @@
+.partners {
+  background: white;
+  z-index: 1;
+  @media screen and (min-width: 900px) {
+    padding: 100px 0;
+    .container {
+      justify-content: center;
+    }
+    .grid {
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: space-between;
+      width: 1000px;
+    }
+  }
+}
