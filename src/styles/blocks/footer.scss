@@ -1,0 +1,19 @@
+.footer {
+  padding: 60px 0;
+  background: #00365c;
+  @media screen and (min-width: 900px) {
+    .container {
+      justify-content: space-between;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      li {
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
