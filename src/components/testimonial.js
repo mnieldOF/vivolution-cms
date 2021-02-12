@@ -1,10 +1,23 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore from 'swiper';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
 import img from '../images/help-bg.png'
 import img2 from '../images/ex-bg.png'
 
+SwiperCore.use([Pagination]);
+
 const HelpBlock = () => {
+    
+    const slides = [];
+
+    for(let i = 0; i < 5; i += 1){
+        slides.push(
+            <SwiperSlide key={`slide-${i}`}>
+                <img src={`https://picsum.photos/id/${i+1}/500/300`}/>
+            </SwiperSlide>
+        )
+    }
+
     return(
         <div className="testimonials">
             <picture>
@@ -20,19 +33,8 @@ const HelpBlock = () => {
                         <img src={img2} />
                     </div>
                     <div className="right">
-                        <Swiper
-                            spaceBetween={50}
-                            slidesPerView={1}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
-                        >
-                            <SwiperSlide>
-                                <p>The Vivolution team has been of great support, primarily through a number of funding clinics, but also by facilitating introductions to the Business Gateway, LINC, SIB and other key players in the start-up funding environment.</p>
-                                <span></span>
-                            </SwiperSlide>
-                            <SwiperSlide>Slide 2</SwiperSlide>
-                            <SwiperSlide>Slide 3</SwiperSlide>
-                            <SwiperSlide>Slide 4</SwiperSlide>
+                        <Swiper id='main' pagination> 
+                            {slides}
                         </Swiper> 
                     </div>
                 </div>                
