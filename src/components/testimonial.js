@@ -1,6 +1,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
+import Icon from './icon';
 import img from '../images/help-bg.png'
 import img2 from '../images/ex-bg.png'
 
@@ -13,6 +14,7 @@ const HelpBlock = () => {
     for(let i = 0; i < 5; i += 1){
         slides.push(
             <SwiperSlide key={`slide-${i}`}>
+                <Icon icon='quote' size='50'/>
                 <img src={`https://picsum.photos/id/${i+1}/500/300`}/>
             </SwiperSlide>
         )
