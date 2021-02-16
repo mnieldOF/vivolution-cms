@@ -1,5 +1,5 @@
 .hero {
-  padding: 50px 0;
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
   .hero-img {
@@ -8,7 +8,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+    z-index: -1;
     width: 100%;
   }
   .curve {
@@ -20,7 +20,8 @@
     pointer-events: none;
   }
   .title {
-    font-size: 30px;
+    font-size: 25px;
+    max-width: 60%;
     line-height: 35px;
     color: white;
     font-weight: 700;

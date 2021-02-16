@@ -6,6 +6,7 @@ const Header = () => {
         <div className='header'>
             <div className="container">
                 <Icon icon='vivo-logo' width='100px'/>
+                {/* <Icon icon='v-logo' width='50px' size={50}/> */}
                 <ul>
                     <li>
                         <a href="">start up/scale up</a>
