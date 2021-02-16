@@ -5,7 +5,7 @@ const Header = () => {
     return(
         <div className='header'>
             <div className="container">
-                <Icon icon='vivo-logo'/>
+                <Icon icon='vivo-logo' width='100px'/>
                 <ul>
                     <li>
                         <a href="">start up/scale up</a>

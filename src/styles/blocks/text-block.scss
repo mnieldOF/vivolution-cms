@@ -1,33 +1,36 @@
 .text-block {
-  padding: 250px 0;
+  padding: 50px 0;
   background: white;
   .container {
     flex-direction: column;
   }
   .title {
     color: #be00ab;
+    font-size: 25px;
   }
   .box {
     max-width: 850px;
     .title {
-      font-size: 48px;
+      font-size: 25px;
       font-weight: 700;
-      line-height: 63px;
+      line-height: 33px;
     }
     .text {
+      margin-top: 20px;
       font-size: 16px;
       color: #494949;
     }
   }
   @media screen and (min-width: 900px) {
+    padding: 250px 0;
     .box {
       max-width: 850px;
       .title {
         font-size: 48px;
-        font-weight: 700;
         line-height: 63px;
       }
       .text {
+        margin-top: 0;
         max-width: 600px;
         font-size: 16px;
         color: #494949;

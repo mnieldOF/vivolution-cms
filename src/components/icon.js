@@ -5,6 +5,7 @@ import iconSet from '../images/selection.js';
 
 
 const DynamicComponetStyled = styled.div`
+  width: ${props => props.width};
   ${props =>
     props.bg &&
     `
