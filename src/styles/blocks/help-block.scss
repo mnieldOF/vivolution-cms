@@ -3,7 +3,8 @@
   overflow: hidden;
   img {
     position: absolute;
-    width: 100%;
+    max-width: none;
+    width: 120%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -11,6 +12,7 @@
   }
   .title {
     color: white;
+    font-weight: 700;
   }
   .grid {
     display: grid;
@@ -19,22 +21,23 @@
         font-size: 20px;
         color: white;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin: 20px auto 10px;
       }
       p {
         font-size: 16px;
         color: white;
       }
       a {
+        display: flex;
+        align-items: center;
         margin-top: 20px;
-        display: block;
         color: white;
         font-size: 16px;
       }
     }
   }
   @media screen and (min-width: 900px) {
-    padding: 145px 0;
+    padding: 120px 0;
     .title {
       font-size: 40px;
       margin-bottom: 50px;

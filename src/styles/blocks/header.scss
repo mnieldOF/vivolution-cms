@@ -2,6 +2,10 @@
   position: fixed;
   width: 100%;
   z-index: 3;
+  .container {
+    justify-content: space-between;
+    align-items: center;
+  }
   @media screen and (min-width: 900px) {
     padding: 40px 0;
     ul {

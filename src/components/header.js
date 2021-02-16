@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import Icon from './icon';
 
 const Header = () => {
     return(
         <div className='header'>
             <div className="container">
+                <Icon icon='vivo-logo'/>
                 <ul>
                     <li>
                         <a href="">start up/scale up</a>
