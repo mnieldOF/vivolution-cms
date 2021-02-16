@@ -5,12 +5,27 @@
     .container {
       justify-content: space-between;
     }
+    svg {
+      width: 200px;
+    }
     ul {
       display: flex;
       align-items: center;
       li {
         a {
           color: white;
+          text-decoration: none;
+          font-weight: 700;
+        }
+      }
+      &.left-menu {
+        a {
+          margin-right: 20px;
+        }
+      }
+      &.right-menu {
+        a {
+          margin-left: 20px;
         }
       }
     }
