@@ -1,4 +1,5 @@
 import React from 'react'
+import Icon from './icon';
 import Img from '../images/growth-bg.png'
 import Img2 from '../images/growth2-bg.png'
 import Img3 from '../images/growth3-bg.png'
@@ -21,9 +22,10 @@ const GrowthBlock = () => {
                             <img src={Img} />
                         </picture>  
                         <div className="content">
+                            <Icon icon='growth' size={45}/>
                             <h4 className='e-title'>title</h4>
                             <p>text</p>
-                            <a href="">link</a>                            
+                            <a href=""><Icon icon='right' size={25}/>link</a>                            
                         </div>                      
                     </div>
                     <div className="item">
@@ -34,9 +36,10 @@ const GrowthBlock = () => {
                             <img src={Img2} />
                         </picture>    
                         <div className="content">
+                            <Icon icon='people-square' size={45}/>
                             <h4 className='e-title'>title</h4>
                             <p>text</p>
-                            <a href="">link</a>                            
+                            <a href=""><Icon icon='right' size={25}/>link</a>                            
                         </div>                     
                     </div>
                     <div className="item">
@@ -47,9 +50,10 @@ const GrowthBlock = () => {
                             <img src={Img3} />
                         </picture>    
                         <div className="content">
+                            <Icon icon='strategy' size={45}/>
                             <h4 className='e-title'>title</h4>
                             <p>text</p>
-                            <a href="">link</a>                            
+                            <a href=""><Icon icon='right' size={25}/>link</a>                            
                         </div>                     
                     </div>
                     <div className="item">
@@ -60,9 +64,10 @@ const GrowthBlock = () => {
                             <img src={Img4} />
                         </picture>    
                         <div className="content">
+                            <Icon icon='tech' size={45}/>
                             <h4 className='e-title'>title</h4>
                             <p>text</p>
-                            <a href="">link</a>                            
+                            <a href=""><Icon icon='right' size={25}/>link</a>                            
                         </div>                     
                     </div>
                     <div className="item">
@@ -73,9 +78,10 @@ const GrowthBlock = () => {
                             <img src={Img5} />
                         </picture>    
                         <div className="content">
+                            <Icon icon='strategy-alt' size={45}/>
                             <h4 className='e-title'>title</h4>
                             <p>text</p>
-                            <a href="">link</a>                            
+                            <a href=""><Icon icon='right' size={25}/>link</a>                            
                         </div>                     
                     </div>
                     <div className="item">
@@ -86,9 +92,10 @@ const GrowthBlock = () => {
                             <img src={Img6} />
                         </picture>    
                         <div className="content">
+                            <Icon icon='structure' size={45}/>
                             <h4 className='e-title'>title</h4>
                             <p>text</p>
-                            <a href="">link</a>                            
+                            <a href=""><Icon icon='right' size={25}/>link</a>                            
                         </div>                     
                     </div>
                 </div>

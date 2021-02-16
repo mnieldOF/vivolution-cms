@@ -24,12 +24,18 @@
           color: white;
           font-size: 20px;
           font-weight: 700;
+          margin: 10px 0;
         }
         p {
           color: white;
         }
         a {
+          display: flex;
+          align-items: center;
           color: white;
+          svg {
+            margin-right: 5px;
+          }
         }
       }
     }
