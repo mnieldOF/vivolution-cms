@@ -12,10 +12,12 @@
   }
   .title {
     color: white;
+    font-weight: 700;
   }
   .grid {
     display: grid;
     grid-template-columns: 506px 1fr;
+    align-items: center;
     .left {
       img {
         width: 100%;
@@ -28,6 +30,35 @@
       .swiper-container {
         width: 500px;
         color: white;
+        padding-bottom: 60px;
+        .slide {
+          display: flex;
+          flex-direction: column;
+          p {
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 10px;
+          }
+          .client {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            .position {
+              margin-left: 10px;
+              color: #bdbcbc;
+            }
+          }
+        }
+        .swiper-pagination {
+          text-align: left;
+          .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+          }
+          .swiper-pagination-bullet-active {
+            background: #ff9900;
+          }
+        }
       }
     }
   }
