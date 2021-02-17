@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import Icon from './icon';
 import img from '../images/help-bg.png'
+import imgMob from '../images/help-bg-mob.png'
 import img2 from '../images/ex-bg.png'
 
 SwiperCore.use([Pagination]);
@@ -28,6 +29,9 @@ const HelpBlock = () => {
             <picture>
                 <source media="(min-width: 960px)"  
                         srcset={img}
+                />
+                <source media="(min-width: 0)"  
+                        srcset={imgMob}
                 />
                 <img className='img' src={img} />
             </picture>

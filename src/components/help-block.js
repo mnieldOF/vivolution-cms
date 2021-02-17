@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from './icon';
 import img from '../images/help-bg.png'
+import imgMob from '../images/help-bg-mob.png'
 
 const HelpBlock = () => {
     return(
@@ -9,7 +10,10 @@ const HelpBlock = () => {
                 <source media="(min-width: 960px)"  
                         srcset={img}
                 />
-                <img src={img} />
+                <source media="(min-width: 0)"  
+                        srcset={imgMob}
+                />
+                <img className='img' src={img} />
             </picture>
             <div className="container column">
                 <h2 className='title'>Who we help</h2>
