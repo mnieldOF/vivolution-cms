@@ -1,6 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Pagination } from 'swiper';
 import Icon from './icon';
 import img from '../images/help-bg.png'
 import imgMob from '../images/help-bg-mob.png'
