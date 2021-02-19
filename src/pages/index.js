@@ -10,6 +10,7 @@ import Partners from "../components/partners";
 import HelpBlock from "../components/help-block";
 import GrowthBlock from "../components/growth-block";
 import Testimonial from "../components/testimonial";
+import ImageGallery from "../components/image-gallery";
 import Slider from "../components/slider";
 import SubFooter from "../components/sub-footer";
 import Footer from "../components/footer";
@@ -27,6 +28,7 @@ const IndexPage = ({ data }) => (
     <Testimonial />
     <Partners />
     <Slider />
+    <ImageGallery />
     <SubFooter />
     <Footer />
     {/* <Layout>
