@@ -71,9 +71,15 @@
       margin-bottom: 50px;
     }
     .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 5%;
+      width: 100%;
+      .swiper-container {
+        width: 100%;
+      }
+      .help-card {
+        img {
+          display: none;
+        }
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
 .testimonials {
+  padding: 30px 0;
   position: relative;
   overflow: hidden;
   .img {
@@ -7,11 +8,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+    z-index: -1;
     max-width: none;
   }
   .title {
     color: white;
+    font-size: 25px;
+    margin-bottom: 30px;
     font-weight: 700;
   }
   .grid {
@@ -19,6 +22,7 @@
     grid-template-columns: 506px 1fr;
     align-items: center;
     .left {
+      display: none;
       img {
         width: 100%;
         display: block;
@@ -50,7 +54,7 @@
           }
         }
         .swiper-pagination {
-          text-align: left;
+          text-align: center;
           .swiper-pagination-bullet {
             width: 12px;
             height: 12px;
@@ -70,6 +74,17 @@
     }
     .grid {
       gap: 113px;
+      .left {
+        display: block;
+      }
+      .right {
+        width: 100%;
+        .swiper-container {
+          .swiper-pagination {
+            text-align: left;
+          }
+        }
+      }
     }
   }
 }
