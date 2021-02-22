@@ -13,6 +13,7 @@
   .grid {
     display: grid;
     grid-gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
     .item {
       position: relative;
       border-radius: 8px;
@@ -33,9 +34,10 @@
         }
         p {
           color: white;
+          display: none;
         }
         a {
-          display: flex;
+          display: none;
           align-items: center;
           color: white;
           svg {
@@ -57,8 +59,17 @@
       margin-bottom: 40px;
     }
     .grid {
-      display: grid;
       grid-template-columns: repeat(3, 1fr);
+      .item {
+        .content {
+          p {
+            display: flex;
+          }
+          a {
+            display: flex;
+          }
+        }
+      }
     }
   }
 }
