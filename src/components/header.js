@@ -1,24 +1,42 @@
 import React, { useState } from "react";
 import Icon from './icon';
+import CoverMenu from './cover-menu';
+import { BrowserView, isBrowser } from 'react-device-detect';
+
 
 const Header = () => {
+
+    const [ active, setActive ] = useState(false);
+
+
+    const openMenu = () => {
+        setActive(!active);
+    }
+
     return(
-        <div className='header'>
-            <div className="container">
-                <Icon icon='vivo-logo' width='100px'/>
-                {/* <Icon icon='v-logo' width='50px' size={50}/> */}
-                <ul>
-                    <li>
-                        <a href="">start up/scale up</a>
-                        <a href="">corporates</a>
-                        <a href="">investors</a>
-                        <a href="">ecosystem builder</a>
-                        <a href="">who we are</a>
-                        <a href="">contact us</a>
-                    </li>
-                </ul>
+        <>
+            <div className='header'>
+                    <div className="container">
+                        <Icon icon='vivo-logo' width='100px'/>
+                        <div className="hamburger">
+                            <div className="hamburger-wrapper">
+                                <div className="button">
+                                    <button>
+                                        <div className="background-hamburger"></div>
+                                        <div className="icon-hamburger">
+                                            <div className="line-center"></div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <button className="click-layer"
+                                onClick={(e) => openMenu(e)}
+                            ></button>
+                        </div>
+                </div>
             </div>
-        </div>
+            <CoverMenu active={active} />
+        </>
     )
 }
 

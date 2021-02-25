@@ -1,0 +1,120 @@
+.nav-container {
+  top: 0;
+  left: 0;
+  transform: translateX(100vw);
+  &.move-nav {
+    transform: translateX(0);
+  }
+}
+
+.cover-menu {
+  color: var(--color-primary-black-2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  pointer-events: none;
+  overflow: hidden;
+  .cover-background {
+    position: absolute;
+    top: calc(90px - 112vw);
+    right: calc(100px - 112vw);
+    width: 224vw;
+    height: 224vw;
+    border-radius: 50%;
+    background-color: var(--color-primary-white);
+    transform-origin: center;
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+  }
+  &.active {
+    pointer-events: all;
+    .cover-background {
+      transform: scale(1);
+    }
+  }
+
+  .content-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .content-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .primary-nav {
+    ul {
+      margin-left: 60px;
+      transform: translate3d(0, -20px, 0);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .menu-item {
+      transition: color 0.45s var(--primary-ease);
+      position: relative;
+      backface-visibility: hidden;
+      box-sizing: border-box;
+      font-size: 59px;
+      line-height: 79px;
+      font-weight: 700;
+      transform: scaleX(0.98);
+      transform-origin: left;
+      letter-spacing: -0.01em;
+      transform: none;
+      .menu-word {
+        color: black;
+        display: block;
+        position: relative;
+        z-index: 3;
+        transition: all 0.75s var(--custom-ease-4);
+        clip-path: inset(0 0 0 0);
+        text-decoration: none;
+      }
+      &.focused-out {
+        .menu-word {
+          clip-path: inset(0 100% 0 0);
+        }
+      }
+      &.focused {
+        .menu-word {
+          clip-path: inset(0 0 0 0);
+          transform: translate3d(35px, 0, 0);
+        }
+        .menu-word,
+        .grayed {
+          transform: translate3d(35px, 0, 0);
+        }
+      }
+    }
+    .grayed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      color: #eee;
+      z-index: 1;
+      transition: transform 0.75s var(--custom-ease-4);
+    }
+    .label {
+      display: inline-block;
+      text-transform: uppercase;
+      transform: rotate(-90deg) translate3d(-45px, 0, 0);
+      transform-origin: bottom left;
+    }
+    .company-info {
+      align-self: flex-end;
+      margin-bottom: -38px;
+      position: relative;
+      z-index: 22;
+    }
+  }
+}
