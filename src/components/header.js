@@ -9,7 +9,8 @@ const Header = () => {
     const [ active, setActive ] = useState(false);
 
 
-    const openMenu = () => {
+    const openMenu = (e) => {
+        e.preventDefault();
         setActive(!active);
     }
 
@@ -29,9 +30,9 @@ const Header = () => {
                                     </button>
                                 </div>
                             </div>
-                            <button className="click-layer"
+                            <div className="click-layer"
                                 onClick={(e) => openMenu(e)}
-                            ></button>
+                            ></div>
                         </div>
                 </div>
             </div>

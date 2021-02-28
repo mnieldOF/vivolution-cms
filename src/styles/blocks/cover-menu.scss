@@ -1,12 +1,3 @@
-.nav-container {
-  top: 0;
-  left: 0;
-  transform: translateX(100vw);
-  &.move-nav {
-    transform: translateX(0);
-  }
-}
-
 .cover-menu {
   color: var(--color-primary-black-2);
   position: fixed;
@@ -15,7 +6,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 20;
-  pointer-events: none;
+  // pointer-events: none;
   overflow: hidden;
   .cover-background {
     position: absolute;
@@ -25,15 +16,6 @@
     height: 224vw;
     border-radius: 50%;
     background-color: var(--color-primary-white);
-    transform-origin: center;
-    transform: scale(0);
-    transition: transform 0.5s ease-in-out;
-  }
-  &.active {
-    pointer-events: all;
-    .cover-background {
-      transform: scale(1);
-    }
   }
 
   .content-container {

@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { motion } from "framer"
+import React from 'react'
+import styled from '@emotion/styled'
+import { motion } from 'framer-motion';
 
 
 const Links = ["Work", "Services", "About", "Insights", "Contact"];
@@ -7,14 +8,43 @@ const Links = ["Work", "Services", "About", "Insights", "Contact"];
 
 const CoverMenu = ({ active }) => {
 
-    const test = {
-        inactive: { 
-            x: '100vw',
+    const OffCanvas = {
+        closed:{
+          x: '100vw',
+          transition: {
+            duration: 0,
+            delay: 2,
+          }
         },
-        active: { 
-            x: '0',
-        },
+        open:{
+          x: 0,
+          transition: {
+           duration: 0,
+         }
+        }
       }
+
+    const Cover = styled.div`
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 40;
+   `
+  
+    const StyledCircle = styled(motion.div)`
+      position: absolute;
+      background: white;
+      transform-origin: center;
+      top: calc(90px - 112vw);
+      right: calc(100px - 112vw);
+      width: 220vw;
+      height: 220vw;
+      border-radius: 50%; 
+      transform-origin: center;  
+    `
 
       const container = {
         hidden: { opacity: 0 },
@@ -33,20 +63,35 @@ const CoverMenu = ({ active }) => {
             skewX: 5,
             transition: {
               duration: 0.5,
-              ease: 'cubicBezier(0.475, 0.425, 0, 0.995)'
+            //   ease: 'cubicBezier(0.475, 0.425, 0, 0.995)'
             },
         },
         show: { 
-            opacity: 1,
             opacity: 1,
             x: 0,
             skewX: 0,
             transition: {
               duration: 0.6,
-              ease: 'cubicBezier(0.475, 0.425, 0, 0.995)'
+            //   ease: 'cubicBezier(0.475, 0.425, 0, 0.995)'
             },
         }
       };
+
+      const variants = {
+        visible: { 
+          scaleX: [0,1],
+          scaleY: [0,1],
+          transition: {
+            duration: 0.5,
+          }
+        },
+        close: { 
+          scale: [1,0],
+          transition: {
+            duration: 0.5,
+          }
+        },
+      }
 
    
     const onHover = (e, index) => {
@@ -92,41 +137,38 @@ const CoverMenu = ({ active }) => {
     }
 
     return(
-        <>
-        <motion.div
-            initial='inactive'
-            animate={active ? 'active' : 'inactive'}
-            variants={test}
-            transition={{
-                duration: 0,
-            }}
-        >
-            <div className={`cover-menu ${active ? 'active' : ''}`}>
-                <motion.div 
-                    className={`cover-background ${active? 'active' : null}`}
-                    // initial={{scale: 0}}
-                    // animate={{scale: 1}}
-                />
-                <div className="content-container">
-                    <div className="content-wrapper">
-                        <nav className="primary-nav">
-                            <div className="label type-comp2">Menu</div>
-                            { active ? (
-                                <motion.ul variants={container} initial="hidden" animate="show">
-                                    <NavLink />
-                                </motion.ul>
-                             ) : null } 
-                        </nav>
-                        <div className="comapny-info">
-                            <a href="">hello@vivolution.com</a>
-                            <br/>
-                            <a href="">01417777777</a>
+        <div className='prevent-container' style={{position: 'relative'}}>
+            <motion.div
+                initial="closed"
+                animate={active ? "open" : "closed"}
+                variants={OffCanvas}
+                style={{position: 'fixed', top: 0, zIndex: 29}}
+            >
+                <Cover className='cover-menu'>
+                    <StyledCircle
+                        animate={active ? "visible" : "close"}
+                        variants={variants}
+                    />
+                    <div className="content-container">
+                        <div className="content-wrapper">
+                            <nav className="primary-nav">
+                                <div className="label type-comp2">Menu</div>
+                                { active ? (
+                                    <motion.ul variants={container} initial="hidden" animate="show">
+                                        <NavLink />
+                                    </motion.ul>
+                                ) : null } 
+                            </nav>
+                            <div className="comapny-info">
+                                <a href="">hello@vivolution.com</a>
+                                <br/>
+                                <a href="">01417777777</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </motion.div>
-        </>
+                </Cover>
+            </motion.div>
+        </div>
     )
 
 }
