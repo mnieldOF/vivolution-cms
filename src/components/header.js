@@ -19,21 +19,26 @@ const Header = () => {
             <div className='header'>
                     <div className="container">
                         <Icon icon='vivo-logo' width='100px'/>
-                        <div className="hamburger">
-                            <div className="hamburger-wrapper">
-                                <div className="button">
-                                    <button>
-                                        <div className="background-hamburger"></div>
-                                        <div className="icon-hamburger">
-                                            <div className="line-center"></div>
-                                        </div>
-                                    </button>
-                                </div>
+                        <nav>
+                            <div>
+                                <a href="">let's chat</a>
                             </div>
-                            <div className="click-layer"
-                                onClick={(e) => openMenu(e)}
-                            ></div>
-                        </div>
+                            <div className="hamburger">
+                                <div className="hamburger-wrapper">
+                                    <div className="button">
+                                        <button>
+                                            <div className="background-hamburger"></div>
+                                            <div className="icon-hamburger">
+                                                <div className="line-center"></div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="click-layer"
+                                    onClick={(e) => openMenu(e)}
+                                ></div>
+                            </div>
+                        </nav>  
                 </div>
             </div>
             <CoverMenu active={active} />
