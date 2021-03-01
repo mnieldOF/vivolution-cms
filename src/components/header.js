@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Icon from './icon';
 import CoverMenu from './cover-menu';
-import { BrowserView, isBrowser } from 'react-device-detect';
+import { motion } from "framer-motion"
 
 
 const Header = () => {
@@ -23,7 +23,15 @@ const Header = () => {
                             <div>
                                 <a href="">let's chat</a>
                             </div>
-                            <div className="hamburger">
+                            <motion.div className="hamburger"
+                                drag
+                                dragConstraints={{
+                                    top: -50,
+                                    left: -50,
+                                    right: 50,
+                                    bottom: 50,
+                                }}                                                            
+                            >
                                 <div className="hamburger-wrapper">
                                     <div className="button">
                                         <button>
@@ -37,7 +45,7 @@ const Header = () => {
                                 <div className="click-layer"
                                     onClick={(e) => openMenu(e)}
                                 ></div>
-                            </div>
+                            </motion.div>
                         </nav>  
                 </div>
             </div>

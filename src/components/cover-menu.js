@@ -63,7 +63,6 @@ const CoverMenu = ({ active }) => {
             skewX: 5,
             transition: {
               duration: 0.5,
-            //   ease: 'cubicBezier(0.475, 0.425, 0, 0.995)'
             },
         },
         show: { 
@@ -72,7 +71,6 @@ const CoverMenu = ({ active }) => {
             skewX: 0,
             transition: {
               duration: 0.6,
-            //   ease: 'cubicBezier(0.475, 0.425, 0, 0.995)'
             },
         }
       };
