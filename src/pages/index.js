@@ -14,7 +14,6 @@ import ImageGallery from "../components/image-gallery";
 import Slider from "../components/slider";
 import SubFooter from "../components/sub-footer";
 import Footer from "../components/footer";
-import { motion } from "framer"
 
 const IndexPage = ({ data }) => (
   <> 
