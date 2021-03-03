@@ -18,20 +18,15 @@ const Header = () => {
         <>
             <div className='header'>
                     <div className="container">
-                        <Icon icon='vivo-logo' width='100px'/>
+                        <div className={`logo-container ${active ? 'active' : ''}`}>
+                            <Icon icon='vivo-logo' width='100px' className='logo'/>
+                            <Icon icon='v-logo' size='30px' className='logo-small'/>
+                        </div>
                         <nav>
                             <div>
-                                <a href="">let's chat</a>
+                                <a href="" className={`chat-cta ${active ? 'active' : ''}`}>let's chat</a>
                             </div>
-                            <motion.div className="hamburger"
-                                drag
-                                dragConstraints={{
-                                    top: -50,
-                                    left: -50,
-                                    right: 50,
-                                    bottom: 50,
-                                }}                                                            
-                            >
+                            <motion.div className={`hamburger ${active ? 'active' : ''}`}>
                                 <div className="hamburger-wrapper">
                                     <div className="button">
                                         <button>

@@ -26,12 +26,14 @@
     align-items: center;
     position: relative;
   }
+
   .content-wrapper {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
   }
+
   .primary-nav {
     ul {
       margin-left: 60px;

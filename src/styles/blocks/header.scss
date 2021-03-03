@@ -18,6 +18,26 @@
       text-decoration: none;
       margin-right: 30px;
       letter-spacing: 2px;
+      transition: all 0.45s var(--primary-ease);
+      &.active {
+        color: black;
+      }
+    }
+  }
+  .logo-container {
+    .logo {
+      display: block;
+    }
+    .logo-small {
+      display: none;
+    }
+    &.active {
+      .logo {
+        display: none;
+      }
+      .logo-small {
+        display: block;
+      }
     }
   }
   svg {

@@ -142,7 +142,7 @@ const CoverMenu = ({ active }) => {
                 variants={OffCanvas}
                 style={{position: 'fixed', top: 0, zIndex: 29}}
             >
-                <Cover className='cover-menu'>
+                <Cover className={`cover-menu ${active ? 'active' : ''}`}>
                     <StyledCircle
                         animate={active ? "visible" : "close"}
                         variants={variants}
