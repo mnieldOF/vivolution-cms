@@ -3,7 +3,7 @@ import Img from '../images/hero-bg.png';
 import ImgMob from '../images/hero-bg-mob.png';
 import Curve from '../images/Header-Curve-01.svg';
 
-const Hero = () => {
+const Hero = ({ title }) => {
     return(
         <div className="hero">
             <picture>
@@ -17,7 +17,7 @@ const Hero = () => {
             </picture> 
             <img src={Curve} className='curve' alt=""/>
             <div className="container">
-                <h2 className="title">Building ventures that make a difference</h2>
+                <h2 className="title">{title}</h2>
             </div>
         </div>
     )

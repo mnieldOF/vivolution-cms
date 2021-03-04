@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Masonry from 'react-masonry-component'
 import Img from 'gatsby-image'
 import Layout from "../components/layout"
-import Header from "../components/header"
+import ImageText from "../components/image-text"
 import Hero from "../components/hero"
 import TextBlock from "../components/text-block";
 import Partners from "../components/partners";
@@ -12,13 +12,13 @@ import GrowthBlock from "../components/growth-block";
 import Testimonial from "../components/testimonial";
 import ImageGallery from "../components/image-gallery";
 import Slider from "../components/slider";
+import ContentReveal from "../components/content-reveal"
 import SubFooter from "../components/sub-footer";
 import Footer from "../components/footer";
 
 const IndexPage = ({ data }) => (
-  <> 
-    <Header />
-    <Hero />
+  <Layout> 
+    <Hero title='Building ventures that make a difference' />
     <TextBlock 
       title='We give our clients the team they need, when they need it most - at the start of the journey.'  
       text='From Devs to Directors, bringing you a wealth of experience and expertise to build your business. On your terms. Invested in your business and there for the long term, no matter how bumpy the ride.'
@@ -29,6 +29,11 @@ const IndexPage = ({ data }) => (
     <Partners />
     <Slider />
     <ImageGallery />
+    <ImageText 
+      title="We help startups succeed and grow" 
+      text="Scaling a new business can be frustrating – your team of the future is also the team you need now to get you there. Vivolution can get you to that next level, by dropping in the right people for as long as you need them. From Execs to Devs, on terms that match the stage of your business."
+    />
+    <ContentReveal />
     <SubFooter />
     <Footer />
     {/* <Layout>
@@ -52,7 +57,7 @@ const IndexPage = ({ data }) => (
         ))}
       </Masonry>
     </Layout> */}
-  </>
+  </Layout>
 )
 
 export default IndexPage

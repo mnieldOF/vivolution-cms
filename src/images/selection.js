@@ -6,6 +6,49 @@ export default {
     {
       "icon": {
         "paths": [
+          "M560 256l-224 256 224 256"
+        ],
+        "attrs": [
+          {
+            "fill": "none",
+            "stroke": "rgb(255, 255, 255)",
+            "strokeLinejoin": "round",
+            "strokeLinecap": "round",
+            "strokeMiterlimit": "4",
+            "strokeWidth": 85.33333333333333
+          }
+        ],
+        "width": 896,
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": [
+          "down"
+        ]
+      },
+      "attrs": [
+        {
+          "fill": "none",
+          "stroke": "rgb(255, 255, 255)",
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round",
+          "strokeMiterlimit": "4",
+          "strokeWidth": 85.33333333333333
+        }
+      ],
+      "properties": {
+        "order": 2,
+        "id": 39,
+        "name": "down",
+        "prevSize": 32
+      },
+      "setIdx": 0,
+      "setId": 2,
+      "iconIdx": 0
+    },    
+    {
+      "icon": {
+        "paths": [
           "M1.836 45.691l310.244 926.574c27.069 57.588 75.378 51.554 75.378 51.554s48.31 0 66.297-57.588l119.063-362.077-193.24-580.532c-4.627-14.138-17.818-23.621-32.549-23.621h-312.644c-23.47 0-40.087 23.276-32.549 45.691z",
           "M792.448 1.722c-14.904 0-28.095 9.655-32.721 23.794l-306.134 939.679c-18.157 57.588-66.297 57.588-66.297 57.588h376.713c69.383-15.174 72.294-60.693 72.294-60.693s192.382-574.152 302.364-915.022c7.196-22.414-9.421-45.346-32.719-45.346h-313.5z"
         ],
