@@ -4,14 +4,14 @@ import Icon from './icon'
 const Footer = () => {
     return(
         <div className="footer">
-            <div className="container">
+            <div className="content-container">
                 <ul className='left-menu'>
                     <li><a href="">Facebook</a></li>
                     <li><a href="">Linkedin</a></li>
                     <li><a href="">Instagram</a></li>
                     <li><a href="">Twitter</a></li>
                 </ul>
-                <Icon icon='vivo-logo'/>
+                <Icon icon='vivo-logo' size='150px'/>
                 <ul className='right-menu'>
                     <li><a href="">Home</a></li>
                     <li><a href="">About</a></li>
