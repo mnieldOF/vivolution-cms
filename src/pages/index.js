@@ -34,8 +34,6 @@ const IndexPage = ({ data }) => (
       text="Scaling a new business can be frustrating – your team of the future is also the team you need now to get you there. Vivolution can get you to that next level, by dropping in the right people for as long as you need them. From Execs to Devs, on terms that match the stage of your business."
     />
     <ContentReveal />
-    <SubFooter />
-    <Footer />
     {/* <Layout>
       <Masonry className="showcase">
         {data.allDatoCmsWork.edges.map(({ node: work }) => (
