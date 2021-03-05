@@ -9,12 +9,6 @@ import imgMob from '../images/help-card-bg.png'
 const HelpBlock = () => {
     return(
         <div className="help-block">
-            <picture>
-                <source media="(min-width: 960px)"  
-                        srcset={img}
-                />
-                <img className='img' src={img} />
-            </picture>
             <div className="container column">
                 <h2 className='title'>Who we help</h2>
                     <div className="grid">
