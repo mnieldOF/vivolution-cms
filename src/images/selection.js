@@ -550,11 +550,6 @@ export default {
         "paths": [
           "M468.066 0l-88.015 486.107h160.037v537.893h-540.087v-545.89l144.018-478.11h324.047zM1220.169 0l-88.015 486.107h160.037v537.893h-540.087v-545.89l144.018-478.11h324.047z"
         ],
-        "attrs": [
-          {
-            "fill": "rgb(255, 255, 255)"
-          }
-        ],
         "width": 1292,
         "isMulticolor": false,
         "isMulticolor2": false,
@@ -563,11 +558,6 @@ export default {
           "quote"
         ]
       },
-      "attrs": [
-        {
-          "fill": "rgb(255, 255, 255)"
-        }
-      ],
       "properties": {
         "order": 37,
         "id": 24,

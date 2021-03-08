@@ -1,0 +1,47 @@
+.quote-block {
+  background: var(--color-primary-white);
+  display: grid;
+  .right {
+    padding: 30px 0;
+    .quote-icons {
+      display: flex;
+      margin-bottom: 10px;
+      svg {
+        fill: var(--color-primary-blue);
+        margin-right: 10px;
+      }
+    }
+    .flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .text {
+      color: #494949;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .quotee {
+      .position {
+        color: #bdbcbc;
+        margin-left: 5px;
+      }
+    }
+  }
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-primary-white);
+    img {
+      max-width: 200px;
+    }
+  }
+  @media screen and (min-width: 900px) {
+    .right {
+      background: linear-gradient(96.42deg, #3026dd -9.97%, #c1259a 107.69%);
+    }
+  }
+}
