@@ -5,6 +5,9 @@ import Icon from './icon'
 
 const RotateIcon = styled(Icon)`
     transform: rotate(180deg);
+    @media screen and (min-width: 900px){
+        display: none;
+    }
 `
 
 const QuoteBlock = () => {
