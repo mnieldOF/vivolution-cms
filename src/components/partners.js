@@ -12,7 +12,7 @@ import Img8 from '../images/ibm.png'
 const Partners = () => {
     return(
         <div className="partners">
-            <div className="container">
+            <div className="content-container">
                 <div className="grid">
                     <img src={Img} alt=""/>
                     <img src={Img2} alt=""/>
