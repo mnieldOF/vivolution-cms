@@ -344,61 +344,24 @@ export default {
     {
       "icon": {
         "paths": [
-          "M290.266 512h812.698",
-          "M696.6 213.333l406.351 298.667-406.351 298.667"
+          "M691.016 62.872l7.186 4.351 558.078 410.526 5.040 5.449 3.469 4.994 1.527 2.839c6.631 13.125 6.631 28.814 0.027 41.941l-3.527 5.873-3.667 4.542-6.833 6.118-554.114 407.273c-20.713 15.224-49.846 10.774-65.071-9.939-13.533-18.412-11.52-43.476 3.641-59.511l6.297-5.559 439.736-323.226-966.284 0.003c-25.706 0-46.545-20.839-46.545-46.545 0-22.85 16.465-41.854 38.179-45.796l8.367-0.75 966.284-0.003-439.736-323.219c-18.412-13.533-23.973-38.055-14.29-57.885l4.351-7.186c13.533-18.412 38.055-23.973 57.885-14.29z"
         ],
-        "attrs": [
-          {
-            "fill": "none",
-            "stroke": "rgb(255, 255, 255)",
-            "strokeLinejoin": "round",
-            "strokeLinecap": "round",
-            "strokeMiterlimit": "4",
-            "strokeWidth": 68.26666666666667
-          },
-          {
-            "fill": "none",
-            "stroke": "rgb(255, 255, 255)",
-            "strokeLinejoin": "round",
-            "strokeLinecap": "round",
-            "strokeMiterlimit": "4",
-            "strokeWidth": 68.26666666666667
-          }
-        ],
-        "width": 1434,
+        "width": 1303,
         "isMulticolor": false,
         "isMulticolor2": false,
-        "grid": 0,
+        "grid": 16,
         "tags": [
           "right"
         ]
       },
-      "attrs": [
-        {
-          "fill": "none",
-          "stroke": "rgb(255, 255, 255)",
-          "strokeLinejoin": "round",
-          "strokeLinecap": "round",
-          "strokeMiterlimit": "4",
-          "strokeWidth": 68.26666666666667
-        },
-        {
-          "fill": "none",
-          "stroke": "rgb(255, 255, 255)",
-          "strokeLinejoin": "round",
-          "strokeLinecap": "round",
-          "strokeMiterlimit": "4",
-          "strokeWidth": 68.26666666666667
-        }
-      ],
       "properties": {
-        "order": 43,
-        "id": 28,
+        "order": 2,
+        "id": 492,
         "name": "right",
         "prevSize": 32
       },
       "setIdx": 0,
-      "setId": 2,
+      "setId": 1,
       "iconIdx": 0
     },
     {

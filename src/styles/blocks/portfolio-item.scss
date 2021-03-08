@@ -34,5 +34,20 @@
         text-align: right;
       }
     }
+    .link {
+      margin-top: 20px;
+      a {
+        display: flex;
+        align-items: center;
+        color: var(--color-primary-blue);
+        svg {
+          fill: var(--color-primary-blue);
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 900px) {
+    grid-template-rows: 300px auto;
   }
 }

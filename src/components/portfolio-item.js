@@ -22,7 +22,7 @@ const PortfolioItem = () => {
                     <p>Bringing OCB and IBM together to advance survival from colon cancer</p>
                 </div>
                 <div className="link">
-                    <a href=""><Icon icon='' />read more</a>
+                    <a href=""><Icon icon='right' size='20' />read more</a>
                 </div>
             </div>
         </div>  

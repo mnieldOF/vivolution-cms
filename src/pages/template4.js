@@ -11,6 +11,13 @@ const Grid = styled.div`
         grid-template-columns: repeat(3, 1fr);
     }
 `
+const Section = styled.div`
+    background: var(--color-primary-white);
+    padding: 30px 0;
+    @media screen and (min-width: 900px) {
+        padding: 60px 0;
+    }
+`
 
 const TemplateFour = () => {
     return(
@@ -18,11 +25,13 @@ const TemplateFour = () => {
             <Hero 
                 title='Portfolio'
             />
-            <div className="content-container">
-                <Grid>
-                    <PortfolioItem />
-                </Grid>
-            </div>
+            <Section>
+                <div className="content-container">
+                    <Grid>
+                        <PortfolioItem />
+                    </Grid>
+                </div>
+            </Section>
         </Layout>
     )
 }
