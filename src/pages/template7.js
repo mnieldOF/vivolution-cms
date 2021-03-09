@@ -7,6 +7,7 @@ import QuoteBlock from "../components/quote-block";
 import Cards from "../components/cards";
 import FullwidthImage from "../components/fullwidth-image";
 import TwocolText from "../components/twocol-text";
+import Slider from "../components/slider";
 
 const TemplateSeven = () => {
     return(
@@ -35,6 +36,11 @@ const TemplateSeven = () => {
             </section>
             <FullwidthImage />
             <TwocolText />
+            <FullwidthImage />
+            <TwocolText />
+            <FullwidthImage />
+            <TwocolText />
+            <Slider />
         </Layout>
     )
 }
