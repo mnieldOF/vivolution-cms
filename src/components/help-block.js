@@ -9,7 +9,7 @@ import imgMob from '../images/help-card-bg.png'
 const HelpBlock = () => {
     return(
         <div className="help-block">
-            <div className="container column">
+            <div className="content-container column">
                 <h2 className='title'>Who we help</h2>
                     <div className="grid">
                         <Swiper id='main' slidesPerView={2}  

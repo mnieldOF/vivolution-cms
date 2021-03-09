@@ -10,7 +10,7 @@ import Img6 from '../images/growth6-bg.png'
 const GrowthBlock = () => {
     return(
         <div className="growth-block">
-            <div className="container column">
+            <div className="content-container column">
                 <h2 className='title'>Supporting Growth</h2>
                 <p>From Devs to Directors, bringing you a wealth of experience and expertise to build your business. On your terms. Invested in your business and there for the long term, no matter how bumpy the ride.</p>
                 <div className="grid">

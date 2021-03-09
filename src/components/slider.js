@@ -11,7 +11,7 @@ const Slider = () => {
                 />
                 <img className='img' src={img} />
             </picture>
-            <div className="container">
+            <div className="content-container">
                 <div className="grid">
                     <div className="left">
                         <h2 className="title">Case studies</h2>

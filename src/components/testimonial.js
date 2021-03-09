@@ -35,7 +35,7 @@ const HelpBlock = () => {
                 />
                 <img className='img' src={img} />
             </picture>
-            <div className="container column">
+            <div className="content-container column">
                 <h2 className='title'>What our Customers Say</h2>
                 <div className="grid">
                     <div className="left">

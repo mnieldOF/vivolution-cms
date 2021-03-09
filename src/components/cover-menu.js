@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion';
+import Icon from './icon'
 
 
 const Links = ["Work", "Services", "About", "Insights", "Contact"];
@@ -163,10 +164,21 @@ const CoverMenu = ({ active }) => {
                                     </motion.ul>
                                 ) : null } 
                             </nav>
-                            <div className="comapny-info">
-                                <a href="">hello@vivolution.com</a>
-                                <br/>
-                                <a href="">01417777777</a>
+                            <div className="company-info">
+                                <div className="contact-cta">
+                                  <a href="">hello@vivolution.com</a>
+                                  <br/>
+                                  <a href="">01417777777</a>
+                                </div>
+                                <div className="address">
+                                  <p>Suite 2/2, 14 Mitchell Lane, <br/>Glasgow G1 3NU<br/>Scotland, UK</p> 
+                                </div>
+                                <div className="social-cta">
+                                  <Icon icon='instagram' size='20px'/>
+                                  <Icon icon='facebook' size='20px'/>
+                                  <Icon icon='twitter' size='20px'/>
+                                  <Icon icon='linkedin2' size='20px'/>
+                                </div>
                             </div>
                         </div>
                     </div>
