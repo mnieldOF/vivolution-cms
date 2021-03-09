@@ -46,7 +46,7 @@ const HelpBlock = () => {
                                     <Icon icon='scaleup-Icon' size='65'/>
                                     <h4 className='c-title'>Start up / Scale up</h4>
                                     <p>Investing in companies that we believe will make a positive difference. Our team will super-charge your business by providing the expertise you need to get to the next level.</p>
-                                    <a href=""><Icon icon='right' size='30'/>How we support start ups/ scale ups</a>
+                                    <a href=""><Icon icon='right' size='20' color='white'/>How we support start ups/ scale ups</a>
                                 </div>                         
                             </SwiperSlide>
                             <SwiperSlide className="help-card">
@@ -60,7 +60,7 @@ const HelpBlock = () => {
                                     <Icon icon='arrows' size='65'/>
                                     <h4 className='c-title'>Investors</h4>
                                     <p>Investing in companies that we believe will make a positive difference. Our team will super-charge your business by providing the expertise you need to get to the next level.</p>
-                                    <a href=""><Icon icon='right' size='30'/>How we support Investors</a>
+                                    <a href=""><Icon icon='right' size='20' color='white'/>How we support Investors</a>
                                 </div>                      
                             </SwiperSlide>
                             <SwiperSlide className="help-card">
@@ -74,7 +74,7 @@ const HelpBlock = () => {
                                     <Icon icon='people' size='65'/>
                                     <h4 className='c-title'>Corporate</h4>
                                     <p>Identifying opportunities for potential Ventures. Through our portfolio of companies and collaborative projects, we have our finger on the pulse of the latest emerging tech.</p>
-                                    <a href=""><Icon icon='right' size='30'/>How we support Corporates</a>
+                                    <a href=""><Icon icon='right' size='20' color='white'/>How we support Corporates</a>
                                 </div>                   
                             </SwiperSlide>
                         </Swiper>
