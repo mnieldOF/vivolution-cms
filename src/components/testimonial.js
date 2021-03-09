@@ -15,7 +15,7 @@ const HelpBlock = () => {
     for(let i = 0; i < 5; i += 1){
         slides.push(
             <SwiperSlide key={`slide-${i}`} className='slide'>
-                <Icon icon='quote' size='45'/>
+                <Icon icon='quote' size='45' color='white'/>
                 <p>The Vivolution team has been of great support, primarily through a number of funding clinics, but also by facilitating introductions to the Business Gateway, LINC, SIB and other key players in the start-up funding environment.</p>
                 <div className="client">
                     <span className='name'>Gabriele Dado</span><span className='position'>CEO / BLK Global</span>
