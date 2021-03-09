@@ -5,6 +5,8 @@ import Layout from "../components/layout";
 import Hero from "../components/hero";
 import QuoteBlock from "../components/quote-block";
 import Cards from "../components/cards";
+import FullwidthImage from "../components/fullwidth-image";
+import TwocolText from "../components/twocol-text";
 
 const TemplateSeven = () => {
     return(
@@ -31,6 +33,8 @@ const TemplateSeven = () => {
                     </div>
                 </div>
             </section>
+            <FullwidthImage />
+            <TwocolText />
         </Layout>
     )
 }
