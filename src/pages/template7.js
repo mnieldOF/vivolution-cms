@@ -10,15 +10,10 @@ import TwocolText from "../components/twocol-text";
 import Slider from "../components/slider";
 
 const TemplateSeven = () => {
+  const profileQuote = null;
   return (
     <Layout>
       <Hero />
-      <QuoteBlock
-        data={profileQuote ? profileQuote : null}
-        companyImage={logo ? logo : null}
-        quote={quote ? quote : null}
-      />
-      <QuoteBlock />
       <Cards />
       <section className="case-about">
         <div className="content-container column">
