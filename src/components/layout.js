@@ -29,11 +29,6 @@ const TemplateWrapper = ({ children }) => {
             seoMetaTags {
               ...GatsbyDatoCmsSeoMetaTags
             }
-            introTextNode {
-              childMarkdownRemark {
-                html
-              }
-            }
             copyright
           }
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
@@ -46,7 +41,7 @@ const TemplateWrapper = ({ children }) => {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <>
           <Header />
           <div>
@@ -54,9 +49,7 @@ const TemplateWrapper = ({ children }) => {
               favicon={data.datoCmsSite.faviconMetaTags}
               seo={data.datoCmsHome.seoMetaTags}
             />
-            <div>
-              {children}
-            </div>
+            <div>{children}</div>
           </div>
           <SubFooter />
           <Footer />
@@ -67,7 +60,7 @@ const TemplateWrapper = ({ children }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.object,
 };
 
 export default TemplateWrapper;

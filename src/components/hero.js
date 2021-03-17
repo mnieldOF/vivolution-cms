@@ -1,26 +1,25 @@
-import React from 'react'
-import Img from '../images/hero-bg.png';
-import ImgMob from '../images/hero-bg-mob.png';
-import Curve from '../images/Header-Curve-01.svg';
+import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Img from "../images/hero-bg.png";
+import ImgMob from "../images/hero-bg-mob.png";
+import Curve from "../images/Header-Curve-01.svg";
 
-const Hero = ({ title }) => {
-    return(
-        <div className="hero">
-            <picture>
-                <source media="(min-width: 960px)"  
-                        srcset={Img}
-                />
-              <source media="(min-width: 0px)"  
-                        srcset={ImgMob}
-                />                  
-                <img className='hero-img'src={ImgMob} />
-            </picture> 
-            <img src={Curve} className='curve' alt=""/>
-            <div className="container">
-                <h2 className="title">{title}</h2>
-            </div>
-        </div>
-    )
-}
+const Hero = ({ title, image }) => {
+  const heroImg = getImage(image);
+  return (
+    <div className="hero">
+      <GatsbyImage
+        className="hero-img"
+        layout="fullWidth"
+        image={heroImg}
+        alt="test"
+      />
+      <img src={Curve} className="curve" alt="" />
+      <div className="container">
+        <h2 className="title">{title}</h2>
+      </div>
+    </div>
+  );
+};
 
 export default Hero;

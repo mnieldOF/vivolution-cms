@@ -1,31 +1,37 @@
-import React from 'react'
-import Img from '../images/strathclyde.png'
-import Img2 from '../images/classforkids.png'
-import Img3 from '../images/clinspec.png'
-import Img4 from '../images/embark.png'
-import Img5 from '../images/pulse.png'
-import Img6 from '../images/fintech.png'
-import Img7 from '../images/ibis.png'
-import Img8 from '../images/ibm.png'
-
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Partners = () => {
-    return(
+  return (
+    <StaticQuery
+      query={graphql`
+        {
+          allDatoCmsPartner(sort: { fields: [position], order: ASC }) {
+            edges {
+              node {
+                partnerImage {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={(data) => (
         <div className="partners">
-            <div className="content-container">
-                <div className="grid">
-                    <img src={Img} alt=""/>
-                    <img src={Img2} alt=""/>
-                    <img src={Img3} alt=""/>
-                    <img src={Img4} alt=""/>
-                    <img src={Img5} alt=""/>
-                    <img src={Img6} alt=""/>
-                    <img src={Img7} alt=""/>
-                    <img src={Img8} alt=""/>
-                </div>
+          <div className="content-container">
+            <div className="grid">
+              {data.allDatoCmsPartner.edges.map(({ node: partner, i }) => {
+                const image = getImage(partner.partnerImage);
+                return <GatsbyImage image={image} alt="test" />;
+              })}
             </div>
+          </div>
         </div>
-    )
-}
+      )}
+    ></StaticQuery>
+  );
+};
 
 export default Partners;

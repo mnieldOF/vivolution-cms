@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Masonry from 'react-masonry-component'
-import Img from 'gatsby-image'
 import Layout from "../components/layout"
 import ImageText from "../components/image-text"
 import Hero from "../components/hero"
@@ -28,8 +26,7 @@ const IndexPage = ({ data }) => (
     <Testimonial />
     <Partners />
     <Slider />
-    {/* <Layout>
-      <Masonry className="showcase">
+      {/* <Masonry className="showcase">
         {data.allDatoCmsWork.edges.map(({ node: work }) => (
           <div key={work.id} className="showcase__item">
             <figure className="card">
@@ -47,8 +44,7 @@ const IndexPage = ({ data }) => (
             </figure>
           </div>
         ))}
-      </Masonry>
-    </Layout> */}
+      </Masonry> */}
   </Layout>
 )
 
