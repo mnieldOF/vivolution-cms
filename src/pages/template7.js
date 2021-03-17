@@ -13,6 +13,11 @@ const TemplateSeven = () => {
   return (
     <Layout>
       <Hero />
+      <QuoteBlock
+        data={profileQuote ? profileQuote : null}
+        companyImage={logo ? logo : null}
+        quote={quote ? quote : null}
+      />
       <QuoteBlock />
       <Cards />
       <section className="case-about">
