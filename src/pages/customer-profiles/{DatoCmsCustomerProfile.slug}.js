@@ -19,7 +19,10 @@ const CustomerProfile = ({ data }) => {
         title={data.datoCmsCustomerProfile.title}
         image={data.datoCmsCustomerProfile.featuredImage}
       />
-      <QuoteBlock data={profileQuote} companyImage={logo} quote={quote} />
+      {profileQuote ? (
+        <QuoteBlock data={profileQuote} companyImage={logo} quote={quote} />
+      ) : null}
+
       <section className="case-about">
         <StructuredText className="case-about" data={featuredText} />
       </section>
