@@ -6,6 +6,7 @@ import Hero from "../../components/hero";
 import QuoteBlock from "../../components/quote-block";
 
 const CustomerProfile = ({ data }) => {
+  console.log(data);
   const {
     quote,
     logo,
@@ -24,7 +25,25 @@ const CustomerProfile = ({ data }) => {
       ) : null}
 
       <section className="case-about">
-        <StructuredText className="case-about" data={featuredText} />
+        <div className="content-container">
+          <div className="grid">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.datoCmsCustomerProfile.blocks[0].column1,
+              }}
+            />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.datoCmsCustomerProfile.blocks[0].column2,
+              }}
+            />
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.datoCmsCustomerProfile.blocks[0].column3,
+              }}
+            />
+          </div>
+        </div>
       </section>
     </Layout>
   );
@@ -39,17 +58,20 @@ export const query = graphql`
       logo {
         gatsbyImageData(width: 200)
       }
-      featuredText {
-        value
-      }
       featuredImage {
         gatsbyImageData
+      }
+      blocks {
+        column1
+        column2
+        column3
       }
       profileQuote {
         links {
           person
-          role
+          company
           quote
+          role
         }
       }
     }
