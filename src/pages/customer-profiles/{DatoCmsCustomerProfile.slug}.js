@@ -70,11 +70,13 @@ export const query = graphql`
         gatsbyImageData
       }
       blocks {
-        sectionTitle
-        title
-        column1
-        column2
-        column3
+        ... on DatoCmsThreeColumnText {
+          sectionTitle
+          title
+          column1
+          column2
+          column3
+        }
       }
       profileQuote {
         links {
