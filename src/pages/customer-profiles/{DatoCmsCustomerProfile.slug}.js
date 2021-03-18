@@ -25,7 +25,15 @@ const CustomerProfile = ({ data }) => {
       ) : null}
 
       <section className="case-about">
-        <div className="content-container">
+        <div className="content-container column">
+          <div className="meta">
+            <h5 className="section-title">
+              {data.datoCmsCustomerProfile.blocks[0].sectionTitle}
+            </h5>
+            <h3 className="title">
+              {data.datoCmsCustomerProfile.blocks[0].title}
+            </h3>
+          </div>
           <div className="grid">
             <div
               dangerouslySetInnerHTML={{
@@ -62,6 +70,8 @@ export const query = graphql`
         gatsbyImageData
       }
       blocks {
+        sectionTitle
+        title
         column1
         column2
         column3
