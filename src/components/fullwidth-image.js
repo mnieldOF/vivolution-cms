@@ -1,12 +1,18 @@
-import React from 'react'
-import Img from '../images/case-bg.png';
+import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const FullwidthImage = () => {
-    return(
-        <div className="fullwidth-image">
-            <img src={Img} alt=""/>
-        </div>
-    )
-}
+const FullwidthImage = ({ image }) => {
+  const heroImg = getImage(image);
+  return (
+    <div className="fullwidth-image">
+      <GatsbyImage
+        className="hero-img"
+        layout="fullWidth"
+        image={heroImg}
+        alt="test"
+      />
+    </div>
+  );
+};
 
-export default FullwidthImage
+export default FullwidthImage;
