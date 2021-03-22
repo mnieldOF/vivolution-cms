@@ -1,7 +1,5 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import Img from "../images/hero-bg.png";
-import ImgMob from "../images/hero-bg-mob.png";
 import Curve from "../images/Header-Curve-01.svg";
 
 const Hero = ({ title, image }) => {
