@@ -13,7 +13,7 @@ const RotateIcon = styled(Icon)`
 
 const QuoteBlock = ({ companyImage, data }) => {
   const logo = getImage(companyImage);
-  const { person, role, quote } = data.links[0];
+  const { person, role, quote } = data;
 
   console.log(person);
   return (
