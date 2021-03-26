@@ -6,12 +6,17 @@ const Hero = ({ title, image }) => {
   const heroImg = getImage(image);
   return (
     <div className="hero">
-      <GatsbyImage
-        className="hero-img"
-        layout="fullWidth"
-        image={heroImg}
-        alt="test"
-      />
+      {heroImg ? (
+        <GatsbyImage
+          className="hero-img"
+          layout="fullWidth"
+          image={heroImg}
+          alt="test"
+        />
+      ) : (
+        <img src={image} alt="" />
+      )}
+
       <img src={Curve} className="curve" alt="" />
       <div className="container">
         <h2 className="title">{title}</h2>

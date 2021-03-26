@@ -7,7 +7,6 @@ import TeamMember from "../components/team-member";
 const About = ({ data }) => {
   console.log(data);
   const team = data.allDatoCmsTeam.edges;
-  console.log(team);
   const { aboutUsBlocks } = data.datoCmsAboutPage;
   return (
     <Layout>
@@ -16,13 +15,22 @@ const About = ({ data }) => {
         <div className="content-container">
           <div className="grid">
             {team.map((member) => {
-              const { role, description, name, profileImage } = member.node;
+              const {
+                role,
+                description,
+                name,
+                profileImage,
+                categories,
+                slug,
+              } = member.node;
               return (
                 <TeamMember
                   role={role}
                   description={description}
                   name={name}
                   image={profileImage}
+                  categories={categories}
+                  slug={slug}
                 />
               );
             })}
@@ -66,8 +74,15 @@ export const query = graphql`
           profileImage {
             gatsbyImageData
           }
+          categories {
+            category
+          }
           role
           description
+          name
+          slug
+        }
+        next {
           name
         }
       }

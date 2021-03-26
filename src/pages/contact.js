@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
@@ -21,20 +21,39 @@ const response = [
 ];
 
 const Contact = ({ data }) => {
+  const [department, setDepartment] = useState("");
+  const [thanks, setThanks] = useState("");
   const blocks = data.datoCmsContact.blocks;
+
+  const handleDepartment = (e) => {
+    setDepartment(e.value);
+  };
+  const handleResponse = (e) => {
+    setThanks(e.value);
+  };
+
   return (
     <Layout>
       <DatoBlocks blocks={blocks} />
       <section className="contact">
         <div className="content-container">
           <div className="form">
-            <form action="">
+            <form method="post" action="https://rake.red/api/vivo-contact/vivo">
               <h2 className="title">Hi, there!</h2>
               <div className="select">
-                <label htmlFor="">
+                <label htmlFor="department">
                   <span>I’m contacting you about</span>
                 </label>
-                <Select options={options} />
+                <Select
+                  options={options}
+                  onChange={(e) => handleDepartment(e)}
+                />
+                <input
+                  name="department"
+                  type="text"
+                  hidden
+                  value={department}
+                />
               </div>
               <label htmlFor="email">
                 <span>You can reply to me at</span>
@@ -45,18 +64,23 @@ const Contact = ({ data }) => {
                   required
                 />
               </label>
-              <label htmlFor="">
+              <label htmlFor="subject">
                 <span>It would be great to have a chat about</span>
                 <input
+                  name="subject"
                   type="text"
                   placeholder="let us know how we can help you "
                 />
               </label>
               <div className="select">
-                <label htmlFor="">
+                <label htmlFor="response">
                   <span>One last thing</span>
                 </label>
-                <Select options={response} />
+                <Select
+                  options={response}
+                  onChange={(e) => handleResponse(e)}
+                />
+                <input name="response" type="text" hidden value={thanks} />
               </div>
               <button type="submit">Lets Go!</button>
             </form>
