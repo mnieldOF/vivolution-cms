@@ -12,7 +12,8 @@ const About = ({ data }) => {
     <Layout>
       <DatoBlocks blocks={aboutUsBlocks} />
       <section className="team">
-        <div className="content-container">
+        <div className="content-container column">
+          <h3 className="title">Meet the Vivolution Team</h3>
           <div className="grid">
             {team.map((member) => {
               const {

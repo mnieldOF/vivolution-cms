@@ -14,7 +14,7 @@ const Hero = ({ title, image }) => {
           alt="test"
         />
       ) : (
-        <img src={image} alt="" />
+        <img src={image} alt="" className="hero-img" />
       )}
 
       <img src={Curve} className="curve" alt="" />

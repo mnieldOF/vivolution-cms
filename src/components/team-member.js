@@ -1,20 +1,17 @@
 import React from "react";
+import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const TeamMember = ({ role, description, image, name, categories, slug }) => {
+const TeamMember = ({ role, image, name, slug }) => {
   const profileImg = getImage(image);
   return (
-    <div className="item">
+    <Link className="item" to={`/team/${slug}`}>
       <GatsbyImage className="profile-img" image={profileImg} alt="test" />
-      <p>{name}</p>
-      {categories.map((cat) => {
-        return (
-          <>
-            <div>{cat.category}</div>
-          </>
-        );
-      })}
-    </div>
+      <div className="meta">
+        <h4 className="name">{name}</h4>
+        <p className="role">{role}</p>
+      </div>
+    </Link>
   );
 };
 
