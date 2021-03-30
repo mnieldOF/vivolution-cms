@@ -21,6 +21,7 @@ const response = [
 ];
 
 const Contact = ({ data }) => {
+  console.log(data);
   const [department, setDepartment] = useState("");
   const [thanks, setThanks] = useState("");
   const blocks = data.datoCmsContact.blocks;

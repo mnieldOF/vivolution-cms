@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
-import PortfolioItem from "../components/portfolio-item";
+import ProfileList from "../components/profile-list";
 import PortfolioFilter from "../components/portfolio-filter";
 
 const Grid = styled.div`
@@ -35,6 +35,29 @@ const Section = styled.div`
 `;
 
 const Portfolio = ({ data }) => {
+  console.log(data);
+  const [profiles, setProfiles] = useState(
+    data.allDatoCmsCustomerProfile.edges
+  );
+
+  const allCategories = [
+    ...new Set(profiles.map((item) => item.node.customerCategory.category)),
+  ];
+
+  const [buttons, setButton] = useState(allCategories);
+
+  const filter = (button) => {
+    if (button === "All") {
+      setProfiles(data.allDatoCmsCustomerProfile.edges);
+      return;
+    }
+    const filteredData = data.allDatoCmsCustomerProfile.edges.filter(
+      (item) => item.node.customerCategory.category === button
+    );
+    console.log(filteredData);
+    setProfiles(filteredData);
+  };
+
   const { blocks, description } = data.datoCmsPortfolio;
   return (
     <Layout>
@@ -44,27 +67,9 @@ const Portfolio = ({ data }) => {
       </TextBlock>
       <Section>
         <div className="content-container column">
-          <PortfolioFilter />
+          <PortfolioFilter filter={filter} buttons={buttons} />
           <Grid>
-            {data.allDatoCmsCustomerProfile.edges.map((item) => {
-              console.log(item.node.shortDescription);
-              const {
-                featuredImage,
-                title,
-                logo,
-                shortDescription,
-                slug,
-              } = item.node;
-              return (
-                <PortfolioItem
-                  image={featuredImage}
-                  title={title}
-                  slug={slug}
-                  logo={logo}
-                  shortText={shortDescription}
-                />
-              );
-            })}
+            <ProfileList profiles={profiles} />
           </Grid>
         </div>
       </Section>
@@ -90,6 +95,10 @@ export const query = graphql`
         node {
           featuredImage {
             gatsbyImageData
+          }
+          customerCategory {
+            id
+            category
           }
           title
           slug

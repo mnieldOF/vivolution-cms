@@ -8,7 +8,7 @@ const Links = [
   { text: "Services", link: " " },
   { text: "About", link: "about" },
   { text: "Insights", link: " " },
-  { text: "Contact", link: "contacts" },
+  { text: "Contact", link: "contact" },
 ];
 
 const CoverMenu = ({ active }) => {
