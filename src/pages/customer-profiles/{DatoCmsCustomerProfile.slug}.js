@@ -67,6 +67,16 @@ export const query = graphql`
             }
           }
         }
+        ... on DatoCmsTab {
+          id
+          title
+          tabContent {
+            value
+          }
+          model {
+            name
+          }
+        }
       }
     }
   }

@@ -9,7 +9,8 @@ import HelpBlock from "../components/help-block";
 import GrowthBlock from "../components/growth-block";
 import Testimonial from "../components/testimonial";
 import ImageGallery from "../components/image-gallery";
-import Slider from "../components/slider";
+import ProfileSlider from "../components/slider";
+import Test from "../components/test";
 import ContentReveal from "../components/content-reveal";
 import SubFooter from "../components/sub-footer";
 import Footer from "../components/footer";
@@ -32,7 +33,8 @@ const IndexPage = ({ data }) => {
       <GrowthBlock />
       <Testimonial />
       <Partners />
-      <Slider />
+      <Test data={data.allDatoCmsCustomerProfile} />
+      <ProfileSlider />
     </Layout>
   );
 };
@@ -49,6 +51,21 @@ export const query = graphql`
             gatsbyImageData
           }
           title
+        }
+      }
+    }
+    allDatoCmsCustomerProfile {
+      edges {
+        node {
+          featuredImage {
+            gatsbyImageData
+          }
+          title
+          logo {
+            gatsbyImageData(width: 100)
+          }
+          slug
+          shortDescription
         }
       }
     }
