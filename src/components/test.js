@@ -5,7 +5,7 @@ import PortfolioItem from "./portfolio-item";
 const Test = ({ data }) => {
   console.log(data);
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
