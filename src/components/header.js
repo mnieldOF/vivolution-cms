@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import Icon from "./icon";
 import CoverMenu from "./cover-menu";
 import { motion } from "framer-motion";
@@ -16,8 +17,10 @@ const Header = () => {
       <div className="header">
         <div className="container">
           <div className={`logo-container ${active ? "active" : ""}`}>
-            <Icon icon="vivo-logo" width="100px" className="logo" />
-            <Icon icon="v-logo" size="30px" className="logo-small" />
+            <Link to={`/`}>
+              <Icon icon="vivo-logo" width="100px" className="logo" />
+              <Icon icon="v-logo" size="30px" className="logo-small" />
+            </Link>
           </div>
           <nav>
             <div>
