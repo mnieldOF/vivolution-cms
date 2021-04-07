@@ -7,7 +7,7 @@ const Links = [
   { text: "Portfolio", link: "/portfolio" },
   { text: "Services", link: "/services" },
   { text: "About", link: "/about" },
-  { text: "Insights", link: " " },
+  { text: "Sectors", link: "/sectors" },
   { text: "Contact", link: "/contact" },
 ];
 

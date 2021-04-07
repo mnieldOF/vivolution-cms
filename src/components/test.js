@@ -19,17 +19,19 @@ const Test = ({ data }) => {
             <h2>Profile</h2>
           </div>
           <div className="right">
-            <Slider {...settings}>
-              {data.edges.map(({ node: item }) => (
-                <PortfolioItem
-                  image={item.featuredImage}
-                  title={item.title}
-                  slug={item.slug}
-                  logo={item.logo}
-                  shortText={item.shortDescription}
-                />
-              ))}
-            </Slider>
+            <div className="slider">
+              <Slider {...settings}>
+                {data.edges.map(({ node: item }) => (
+                  <PortfolioItem
+                    image={item.featuredImage}
+                    title={item.title}
+                    slug={item.slug}
+                    logo={item.logo}
+                    shortText={item.shortDescription}
+                  />
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
       </div>

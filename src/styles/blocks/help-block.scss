@@ -14,7 +14,6 @@
   }
 
   .help-card {
-    width: 40%;
     border-radius: 10px;
     overflow: hidden;
     padding: 20px;
@@ -61,8 +60,22 @@
     }
     .grid {
       width: 100%;
+      position: relative;
+      .slider {
+        // width: 500px;
+      }
       .swiper-container {
         width: 100%;
+        padding-bottom: 20px;
+        .swiper-wrapper {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          margin-bottom: 20px;
+          .swiper-slide {
+            width: 100%;
+            margin-right: 0px;
+          }
+        }
       }
     }
   }
