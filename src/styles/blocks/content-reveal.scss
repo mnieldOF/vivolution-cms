@@ -1,6 +1,61 @@
 .content-reveal {
   background: var(--color-primary-white);
-  @media screen and (min-width: 900px) {
+  .grid {
+    display: none;
+  }
+  .accordion {
+    padding: 30px 0;
+    background: var(--background-blue-gradient);
+    .item {
+      h4 {
+        color: var(--color-primary-white);
+        font-weight: 700;
+      }
+      .content {
+        color: var(--color-primary-white);
+        padding-bottom: 30px;
+      }
+    }
+  }
+  ul {
+    svg {
+      transition: all 0.1s ease-in-out;
+    }
+    .active {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  a {
+    color: var(--color-primary-white);
+    padding-bottom: 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    &:after {
+      content: " ";
+      height: 2px;
+      display: block;
+      width: 100%;
+      border-radius: 2px;
+      position: absolute;
+      bottom: 0;
+      background: var(--color-primary-white);
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .accordion {
+      display: none;
+    }
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);

@@ -15,8 +15,9 @@ const Services = ({ data }) => {
         image={data.datoCmsServiceSingle.hero[0].background}
       />
       <ImageText
-        title="We help startups succeed and grow"
-        text="Scaling a new business can be frustrating – your team of the future is also the team you need now to get you there. Vivolution can get you to that next level, by dropping in the right people for as long as you need them. From Execs to Devs, on terms that match the stage of your business."
+        title={data.datoCmsServiceSingle.textImage[0].title}
+        text={data.datoCmsServiceSingle.textImage[0].subText}
+        image={data.datoCmsServiceSingle.textImage[0].image}
       />
       <ContentReveal tabs={data.datoCmsServiceSingle.tab} />
       <Partners />
@@ -29,12 +30,18 @@ export default Services;
 export const query = graphql`
   {
     datoCmsServiceSingle {
-      title
       hero {
-        title
         background {
           gatsbyImageData
+          title
         }
+      }
+      textImage {
+        image {
+          gatsbyImageData
+        }
+        subText
+        title
       }
       tab {
         title

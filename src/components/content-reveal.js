@@ -13,6 +13,26 @@ const Content = styled.div`
 const ContentReveal = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
 
+  const accordion = tabs.map((item, i) => {
+    return (
+      <li className="item">
+        <a
+          className={activeTab === i ? "active" : " "}
+          onClick={(e) => {
+            e.preventDefault();
+            setActiveTab(i);
+          }}
+        >
+          {item.title}
+          <Icon icon="down" size="20px" />
+        </a>
+        <Content className={`content ${activeTab === i ? "active" : "hidden"}`}>
+          <StructuredText data={item.tabContent} />
+        </Content>
+      </li>
+    );
+  });
+
   const tabTitles = tabs.map((tab, i) => {
     return (
       <li
@@ -50,6 +70,11 @@ const ContentReveal = ({ tabs }) => {
           </div>
         </div>
         <div className="right">{tabText}</div>
+      </div>
+      <div className="accordion">
+        <div className="content-container column">
+          <ul>{accordion}</ul>
+        </div>
       </div>
     </div>
   );
