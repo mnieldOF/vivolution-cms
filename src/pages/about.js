@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
 import TeamMember from "../components/team-member";
+import GrowthBlock from "../components/growth-block";
 
 const About = ({ data }) => {
   console.log(data);
@@ -38,6 +39,7 @@ const About = ({ data }) => {
           </div>
         </div>
       </section>
+      <GrowthBlock data={data.allDatoCmsService} title="Explore Vivolution" />
     </Layout>
   );
 };
@@ -85,6 +87,16 @@ export const query = graphql`
         }
         next {
           name
+        }
+      }
+    }
+    allDatoCmsService {
+      edges {
+        node {
+          slug
+          logo {
+            url
+          }
         }
       }
     }

@@ -30,7 +30,12 @@ const IndexPage = ({ data }) => {
         text="From Devs to Directors, bringing you a wealth of experience and expertise to build your business. On your terms. Invested in your business and there for the long term, no matter how bumpy the ride."
       />
       <HelpBlock />
-      <GrowthBlock data={data.allDatoCmsService} />
+      <GrowthBlock
+        data={data.allDatoCmsService}
+        title="Supporting Growth"
+        text="From Devs to Directors, bringing you a wealth of experience and expertise to build your business. On your terms. Invested in your business and there for the long term, no matter how bumpy the ride.
+"
+      />
       <Testimonial />
       <Partners />
       <Test data={data.allDatoCmsCustomerProfile} />
