@@ -1,6 +1,16 @@
-.slider {
+.m-slider {
+  padding-top: 0px;
+  background: transparent;
   .slick-track {
     display: flex !important;
+    padding: 0 0 5px;
+  }
+
+  .slick-slide > div {
+    margin: 0 10px;
+  }
+  .slick-list {
+    margin: 0 -10px;
   }
 
   .slick-slide {

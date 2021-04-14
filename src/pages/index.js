@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
         title="We give our clients the team they need, when they need it most - at the start of the journey."
         text="From Devs to Directors, bringing you a wealth of experience and expertise to build your business. On your terms. Invested in your business and there for the long term, no matter how bumpy the ride."
       />
-      <HelpBlock />
+      <HelpBlock data={data.allDatoCmsSector} />
       <GrowthBlock
         data={data.allDatoCmsService}
         title="Supporting Growth"
@@ -79,6 +79,16 @@ export const query = graphql`
         node {
           slug
           logo {
+            url
+          }
+        }
+      }
+    }
+    allDatoCmsSector {
+      edges {
+        node {
+          title
+          icon {
             url
           }
         }

@@ -1,76 +1,77 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Slider from "react-slick";
+
 import Icon from "./icon";
 import img from "../images/help-bg.png";
 import imgMob from "../images/help-card-bg.png";
 
-const HelpBlock = () => {
+const HelpBlock = ({ data }) => {
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="help-block">
       <div className="content-container column">
         <h2 className="title">Who we help</h2>
-        <div className="grid">
-          <div className="slider">
-            <Swiper id="main" slidesPerView={3} spaceBetween={10}>
-              <SwiperSlide className="help-card">
-                <picture>
-                  <source media="(min-width: 0px)" srcset={imgMob} />
-                  <img className="card-img" src={imgMob} />
-                </picture>
-                <div className="content">
-                  <Icon icon="scaleup-Icon" size="65" />
-                  <h4 className="c-title">Start up / Scale up</h4>
-                  {/* <p>
-                    Investing in companies that we believe will make a positive
-                    difference. Our team will super-charge your business by
-                    providing the expertise you need to get to the next level.
-                  </p> */}
-                  <a href="">
-                    <Icon icon="right" size="20" color="white" />
-                    How we support start ups/ scale ups
-                  </a>
+        <div className="m-slider">
+          <Slider {...settings}>
+            {data.edges.map(({ node: item }) => (
+              <div className="help-card">
+                <div className="inner">
+                  <picture>
+                    <source media="(min-width: 0px)" srcset={imgMob} />
+                    <img className="card-img" src={imgMob} />}
+                  </picture>
+                  <div className="content">
+                    <div className="icon">
+                      <img src={item.icon.url} alt="" />
+                    </div>
+                    <h4 className="c-title">{item.title}</h4>
+                    <p>
+                      Investing in companies that we believe will make a
+                      positive difference. Our team will super-charge your
+                      business by providing the expertise you need to get to the
+                      next level.
+                    </p>
+                    <a href="">
+                      <Icon icon="right" size="20" color="white" />
+                      Find out more
+                    </a>
+                  </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide className="help-card">
-                <picture>
-                  <source media="(min-width: 0px)" srcset={imgMob} />
-                  <img className="card-img" src={imgMob} />
-                </picture>
-                <div className="content">
-                  <Icon icon="arrows" size="65" />
-                  <h4 className="c-title">Investors</h4>
-                  {/* <p>
-                    Investing in companies that we believe will make a positive
-                    difference. Our team will super-charge your business by
-                    providing the expertise you need to get to the next level.
-                  </p> */}
-                  <a href="">
-                    <Icon icon="right" size="20" color="white" />
-                    How we support Investors
-                  </a>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="help-card">
-                <picture>
-                  <source media="(min-width: 0px)" srcset={imgMob} />
-                  <img className="card-img" src={imgMob} />
-                </picture>
-                <div className="content">
-                  <Icon icon="people" size="65" />
-                  <h4 className="c-title">Corporate</h4>
-                  {/* <p>
-                    Identifying opportunities for potential Ventures. Through
-                    our portfolio of companies and collaborative projects, we
-                    have our finger on the pulse of the latest emerging tech.
-                  </p> */}
-                  <a href="">
-                    <Icon icon="right" size="20" color="white" />
-                    How we support Corporates
-                  </a>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
     </div>
