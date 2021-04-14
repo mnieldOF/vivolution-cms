@@ -91,6 +91,7 @@ export const query = graphql`
           icon {
             url
           }
+          slug
         }
       }
     }

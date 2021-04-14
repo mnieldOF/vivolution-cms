@@ -1,5 +1,5 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "gatsby";
 import Slider from "react-slick";
 
 import Icon from "./icon";
@@ -63,10 +63,10 @@ const HelpBlock = ({ data }) => {
                       business by providing the expertise you need to get to the
                       next level.
                     </p>
-                    <a href="">
+                    <Link to={`/sectors/${item.slug}`}>
                       <Icon icon="right" size="20" color="white" />
                       Find out more
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -11,8 +11,8 @@ const Sector = ({ data }) => {
   return (
     <Layout>
       <Hero
-        title={data.datoCmsSector.hero[0].title}
-        image={data.datoCmsSector.hero[0].background}
+        title={data.datoCmsSector.heroBanner[0].title}
+        image={data.datoCmsSector.heroBanner[0].background}
       />
       <ImageText
         title="We help startups succeed and grow"

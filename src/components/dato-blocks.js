@@ -4,11 +4,9 @@ import TwocolText from "./twocol-text";
 import QuoteBlock from "./quote-block";
 import Hero from "./hero";
 import TextBlock from "./text-block";
-import Tabs from "./tabs";
 
 const DatoBlocks = ({ blocks }) => {
   console.log(blocks);
-  const tabs = [];
   return blocks.map((block) => {
     if (block.model.name === "Customer Profile Details") {
       return (
