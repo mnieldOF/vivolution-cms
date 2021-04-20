@@ -33,33 +33,47 @@
     .content-container {
       justify-content: space-between;
     }
+    .flex {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      .logo {
+        display: inline-flex;
+        order: 2;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        li {
+          a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+          }
+        }
+        &.left-menu {
+          order: 3;
+          a {
+            margin-right: 20px;
+          }
+        }
+        &.right-menu {
+          order: 1;
+          a {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+    .logo-small {
+      display: none;
+    }
     svg {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
       width: 150px;
-    }
-    ul {
-      display: flex;
-      align-items: center;
-      li {
-        a {
-          color: white;
-          text-decoration: none;
-          font-weight: 700;
-        }
-      }
-      &.left-menu {
-        a {
-          margin-right: 20px;
-        }
-      }
-      &.right-menu {
-        a {
-          margin-left: 20px;
-        }
-      }
     }
   }
 }
