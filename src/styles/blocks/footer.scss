@@ -2,6 +2,33 @@
   padding: 60px 0;
   background: #00365c;
   position: relative;
+  .flex {
+    display: flex;
+    flex-direction: column;
+    .logo-small {
+      order: 1;
+      margin-bottom: 10px;
+    }
+    .logo {
+      display: none;
+    }
+    ul {
+      &.left-menu {
+        order: 3;
+      }
+      &.right-menu {
+        order: 2;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
   @media screen and (min-width: 900px) {
     .content-container {
       justify-content: space-between;
