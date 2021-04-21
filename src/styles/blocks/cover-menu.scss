@@ -8,6 +8,11 @@
   z-index: 20;
   // pointer-events: none;
   overflow: hidden;
+  &.active {
+    .content-container {
+      opacity: 1;
+    }
+  }
   .cover-background {
     position: absolute;
     top: calc(90px - 112vw);
@@ -19,6 +24,7 @@
   }
 
   .content-container {
+    opacity: 0;
     padding: 0 20px;
     box-sizing: border-box;
     max-width: calc(100% - 40px);
