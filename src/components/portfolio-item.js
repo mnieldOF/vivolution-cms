@@ -13,22 +13,24 @@ const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
         <GatsbyImage className="hero-img" image={featImg} alt="test" />
       </div>
       <div className="bottom">
-        <div className="flex">
-          <div className="left">
-            <h5>{title}</h5>
+        <div className="inner">
+          <div className="flex">
+            <div className="left">
+              <h5>{title}</h5>
+            </div>
+            <div className="right">
+              <GatsbyImage image={profileLogo} alt="test" />
+            </div>
           </div>
-          <div className="right">
-            <GatsbyImage image={profileLogo} alt="test" />
+          <div className="text">
+            <p>{shortText}</p>
           </div>
-        </div>
-        <div className="text">
-          <p>{shortText}</p>
-        </div>
-        <div className="link">
-          <Link to={`/customer-profiles/${slug}`}>
-            <Icon icon="right" size="20" />
-            read more
-          </Link>
+          <div className="link">
+            <Link to={`/customer-profiles/${slug}`}>
+              <Icon icon="right" size="20" />
+              read more
+            </Link>
+          </div>
         </div>
       </div>
     </div>
