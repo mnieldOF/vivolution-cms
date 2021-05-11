@@ -15,8 +15,9 @@ const Sector = ({ data }) => {
         image={data.datoCmsSector.heroBanner[0].background}
       />
       <ImageText
-        title="We help startups succeed and grow"
-        text="Scaling a new business can be frustrating – your team of the future is also the team you need now to get you there. Vivolution can get you to that next level, by dropping in the right people for as long as you need them. From Execs to Devs, on terms that match the stage of your business."
+        title={data.datoCmsSector.imageText[0].title}
+        text={data.datoCmsSector.imageText[0].subText}
+        image={data.datoCmsSector.imageText[0].image}
       />
       <ContentReveal tabs={data.datoCmsSector.tabs} />
       <Partners />
@@ -38,6 +39,7 @@ export const query = graphql`
       }
       imageText {
         title
+        subText
         image {
           gatsbyImageData
         }

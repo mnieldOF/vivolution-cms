@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const TeamMember = ({ role, image, name, slug }) => {
+const TeamMember = ({ role, image, name, slug, next }) => {
+  console.log("hi", next);
   const profileImg = getImage(image);
   return (
     <Link className="item" to={`/team/${slug}`}>

@@ -25,6 +25,7 @@ const About = ({ data }) => {
                 categories,
                 slug,
               } = member.node;
+              const next = member.next !== null ? member.next : null;
               return (
                 <TeamMember
                   role={role}
@@ -33,6 +34,7 @@ const About = ({ data }) => {
                   image={profileImage}
                   categories={categories}
                   slug={slug}
+                  next={next}
                 />
               );
             })}
@@ -73,6 +75,9 @@ export const query = graphql`
     }
     allDatoCmsTeam {
       edges {
+        next {
+          slug
+        }
         node {
           profileImage {
             gatsbyImageData
