@@ -73,7 +73,7 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsTeam {
+    allDatoCmsTeam(sort: { fields: position, order: ASC }) {
       edges {
         next {
           slug
