@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 
 const SubFooter = () => {
   return (
@@ -13,7 +14,9 @@ const SubFooter = () => {
             direction.
           </p>
           <span>Do you have a question we can answer? </span>
-          <button>Get in touch here</button>
+          <button>
+            <Link to={`contact`}>Get in touch here</Link>
+          </button>
         </div>
       </div>
     </div>

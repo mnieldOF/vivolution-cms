@@ -7,7 +7,9 @@ const TeamMember = ({ role, image, name, slug, next }) => {
   const profileImg = getImage(image);
   return (
     <Link className="item" to={`/team/${slug}`}>
-      <GatsbyImage className="profile-img" image={profileImg} alt="test" />
+      <div className="image-container">
+        <GatsbyImage className="profile-img" image={profileImg} alt="test" />
+      </div>
       <div className="meta">
         <h4 className="name">{name}</h4>
         <p className="role">{role}</p>
