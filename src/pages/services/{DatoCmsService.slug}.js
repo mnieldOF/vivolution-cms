@@ -15,9 +15,9 @@ const Service = ({ data }) => {
         image={data.datoCmsService.hero[0].background}
       />
       <ImageText
-        title={data.datoCmsSector.imageText[0].title}
-        text={data.datoCmsSector.imageText[0].subText}
-        image={data.datoCmsSector.imageText[0].image}
+        title={data.datoCmsService.imageText[0].title}
+        text={data.datoCmsService.imageText[0].subText}
+        image={data.datoCmsService.imageText[0].image}
       />
       <ContentReveal tabs={data.datoCmsService.tabs} />
       <Partners />
