@@ -46,7 +46,7 @@ const HelpBlock = ({ data }) => {
         <div className="m-slider">
           <Slider {...settings}>
             {data.edges.map(({ node: item }) => (
-              <div className="help-card">
+              <Link to={`/sectors/${item.slug}`} className="help-card">
                 <div className="inner">
                   <picture>
                     <source media="(min-width: 0px)" srcset={imgMob} />
@@ -64,7 +64,7 @@ const HelpBlock = ({ data }) => {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </Slider>
         </div>
