@@ -19,7 +19,8 @@
       margin-right: 30px;
       letter-spacing: 2px;
       transition: all 0.45s var(--primary-ease);
-      &.active {
+      &.active,
+      &:hover {
         color: black;
       }
     }
