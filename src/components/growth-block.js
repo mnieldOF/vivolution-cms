@@ -12,7 +12,7 @@ const GrowthBlock = ({ data, title, text }) => {
           {data.edges.map(({ node: item }) => {
             console.log(item);
             return (
-              <div className="item">
+              <Link className="item" to={`services/${item.slug}`}>
                 <img src={item.logo.url} />
                 <div className="content">
                   <Link to={`services/${item.slug}`}>
@@ -20,7 +20,7 @@ const GrowthBlock = ({ data, title, text }) => {
                     Find out more
                   </Link>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
