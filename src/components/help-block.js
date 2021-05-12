@@ -57,12 +57,7 @@ const HelpBlock = ({ data }) => {
                       <img src={item.icon.url} alt="" />
                     </div>
                     <h4 className="c-title">{item.title}</h4>
-                    <p>
-                      Investing in companies that we believe will make a
-                      positive difference. Our team will super-charge your
-                      business by providing the expertise you need to get to the
-                      next level.
-                    </p>
+                    <p>{item.shortDescription}</p>
                     <Link to={`/sectors/${item.slug}`}>
                       <Icon icon="right" size="20" color="white" />
                       Find out more

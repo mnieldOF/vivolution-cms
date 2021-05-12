@@ -88,6 +88,7 @@ export const query = graphql`
       edges {
         node {
           title
+          shortDescription
           icon {
             url
           }
