@@ -17,9 +17,9 @@ const ContentReveal = ({ tabs }) => {
   const renderLinkToRecord = ({ record, children }) => {
     switch (record.__typename) {
       case "DatoCmsSector":
-        return <Link href={`${record.slug}`}>{children[0]}</Link>;
+        return <Link href={`/sectors/${record.slug}`}>{children[0]}</Link>;
       case "DatoCmsService":
-        return <Link href={`${record.slug}`}>{children[0]}</Link>;
+        return <Link href={`/services/${record.slug}`}>{children[0]}</Link>;
       default:
         return "";
     }
