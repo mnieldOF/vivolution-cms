@@ -34,7 +34,19 @@ export const query = graphql`
         title
         tabContent {
           value
-          links
+          links {
+            __typename
+            ... on DatoCmsSector {
+              id: originalId
+              slug
+              title
+            }
+            ... on DatoCmsService {
+              id: originalId
+              slug
+              title
+            }
+          }
         }
         model {
           name

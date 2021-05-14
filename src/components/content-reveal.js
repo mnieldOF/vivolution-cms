@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import { StructuredText } from "react-datocms";
 import Icon from "../components/icon";
@@ -12,6 +13,17 @@ const Content = styled.div`
 
 const ContentReveal = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
+
+  const renderLinkToRecord = ({ record, children }) => {
+    switch (record.__typename) {
+      case "DatoCmsSector":
+        return <Link href={`${record.slug}`}>{children[0]}</Link>;
+      case "DatoCmsService":
+        return <Link href={`${record.slug}`}>{children[0]}</Link>;
+      default:
+        return "";
+    }
+  };
 
   const accordion = tabs.map((item, i) => {
     return (
@@ -27,7 +39,10 @@ const ContentReveal = ({ tabs }) => {
           <Icon icon="down" size="20px" />
         </a>
         <Content className={`content ${activeTab === i ? "active" : "hidden"}`}>
-          <StructuredText data={item.tabContent} />
+          <StructuredText
+            data={item.tabContent}
+            renderLinkToRecord={renderLinkToRecord}
+          />
         </Content>
       </li>
     );
@@ -53,7 +68,10 @@ const ContentReveal = ({ tabs }) => {
   const tabText = tabs.map((tab, i) => {
     return (
       <Content className={`content ${activeTab === i ? "active" : "hidden"}`}>
-        <StructuredText data={tab.tabContent} />
+        <StructuredText
+          data={tab.tabContent}
+          renderLinkToRecord={renderLinkToRecord}
+        />
       </Content>
     );
   });
