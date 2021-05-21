@@ -29,7 +29,9 @@
   @media screen and (min-width: 900px) {
     padding: 0;
     height: 100vh;
-    .container {
+    .content-container {
+      position: relative;
+      z-index: 9999999;
       height: 100%;
       align-items: center;
     }
@@ -50,7 +52,7 @@
     .title {
       font-size: 65px;
       line-height: 80px;
-      max-width: 50%;
+      max-width: 70%;
       color: white;
       font-weight: 700;
     }

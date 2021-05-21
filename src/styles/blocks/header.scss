@@ -31,8 +31,12 @@
     }
     .logo-small {
       display: none;
+      svg {
+        width: 50px;
+      }
     }
-    &.active {
+    &.active,
+    &.scrolled {
       .logo {
         display: none;
       }

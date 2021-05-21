@@ -18,7 +18,7 @@ const Hero = ({ title, image }) => {
       )}
 
       <img src={Curve} className="curve" alt="" />
-      <div className="container">
+      <div className="content-container">
         <h2 className="title">{title}</h2>
       </div>
     </div>

@@ -6,17 +6,32 @@ import { motion } from "framer-motion";
 
 const Header = () => {
   const [active, setActive] = useState(false);
+  const [logoSwap, setLogoSwap] = useState(false);
 
   const openMenu = (e) => {
     e.preventDefault();
     setActive(!active);
   };
 
+  const changeLogo = () => {
+    if (window.scrollY >= 80) {
+      setLogoSwap(true);
+    } else {
+      setLogoSwap(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeLogo);
+
   return (
     <>
       <div className="header">
         <div className="container">
-          <div className={`logo-container ${active ? "active" : ""}`}>
+          <div
+            className={`logo-container ${active ? "active" : ""} ${
+              logoSwap ? "scrolled" : ""
+            }`}
+          >
             <Link to={`/`}>
               <Icon icon="vivo-logo" width="100px" className="logo" />
               <Icon icon="v-logo" size="30px" className="logo-small" />
