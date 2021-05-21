@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import Icon from "./icon";
 import CoverMenu from "./cover-menu";
@@ -21,7 +21,9 @@ const Header = () => {
     }
   };
 
-  window.addEventListener("scroll", changeLogo);
+  useEffect(() => {
+    window.addEventListener("scroll", changeLogo);
+  });
 
   return (
     <>

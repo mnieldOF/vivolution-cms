@@ -27,24 +27,30 @@
   }
   .logo-container {
     .logo {
-      display: block;
+      transition: all 0.3s ease-in;
+      opacity: 1;
+      right: 0;
+      position: relative;
     }
     .logo-small {
-      display: none;
-      transition: opacity 500ms;
-      opacity: 0;
+      position: relative;
       svg {
+        transition: opacity 0.3s ease-in;
         width: 50px;
+        opacity: 0;
       }
     }
     &.active,
     &.scrolled {
       .logo {
-        display: none;
+        opacity: 0;
+        right: 300%;
       }
       .logo-small {
         display: block;
-        opacity: 1;
+        svg {
+          opacity: 1;
+        }
       }
     }
   }
