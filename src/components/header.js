@@ -15,9 +15,9 @@ const Header = () => {
 
   const changeLogo = () => {
     if (window.scrollY >= 80) {
-      setLogoSwap(true);
+      document.getElementById("logo-id").classList.add("scrolled");
     } else {
-      setLogoSwap(false);
+      document.getElementById("logo-id").classList.remove("scrolled");
     }
   };
 
@@ -28,9 +28,8 @@ const Header = () => {
       <div className="header">
         <div className="container">
           <div
-            className={`logo-container ${active ? "active" : ""} ${
-              logoSwap ? "scrolled" : ""
-            }`}
+            id="logo-id"
+            className={`logo-container ${active ? "active" : ""}}`}
           >
             <Link to={`/`}>
               <Icon icon="vivo-logo" width="100px" className="logo" />

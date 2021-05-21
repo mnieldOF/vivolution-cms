@@ -31,6 +31,8 @@
     }
     .logo-small {
       display: none;
+      transition: opacity 500ms;
+      opacity: 0;
       svg {
         width: 50px;
       }
@@ -42,6 +44,7 @@
       }
       .logo-small {
         display: block;
+        opacity: 1;
       }
     }
   }
