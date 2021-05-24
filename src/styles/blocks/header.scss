@@ -34,8 +34,8 @@
     }
     .logo-small {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 30px;
+      left: 20px;
       svg {
         transition: opacity 0.3s ease-in;
         width: 50px;
@@ -61,6 +61,12 @@
   }
   @media screen and (min-width: 900px) {
     padding: 40px 0;
+    .logo-container {
+      .logo-small {
+        top: 0;
+        left: 0;
+      }
+    }
     svg {
       width: 200px;
     }
