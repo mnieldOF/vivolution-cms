@@ -31,7 +31,7 @@ const Header = () => {
         <div className="container">
           <div
             id="logo-id"
-            className={`logo-container ${active ? "active" : ""}}`}
+            className={`logo-container ${active ? "active" : ""}`}
           >
             <Link to={`/`}>
               <Icon icon="vivo-logo" width="100px" className="logo" />
