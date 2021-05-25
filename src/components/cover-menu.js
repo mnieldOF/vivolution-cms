@@ -44,8 +44,8 @@ const CoverMenu = ({ active }) => {
     transform-origin: center;
     top: calc(90px - 140vw);
     right: calc(100px - 140vw);
-    width: 290vw;
-    height: 290vw;
+    width: 310vw;
+    height: 310vw;
     border-radius: 50%;
     transform-origin: center;
     @media screen and (min-width: 900px) {
