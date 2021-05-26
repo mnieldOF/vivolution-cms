@@ -3,8 +3,14 @@ import { graphql } from "gatsby";
 import Layout from "../../components/layout";
 import DatoBlocks from "../../components/dato-blocks";
 import Hero from "../../components/hero";
+import Test from "../../components/test";
 
 const CustomerProfile = ({ data }) => {
+  const filter = data.datoCmsCustomerProfile.customerCategory.category;
+  const relatedProfiles = data.allDatoCmsCustomerProfile.edges.filter(
+    (item) => item.node.customerCategory.category === filter
+  );
+
   return (
     <Layout>
       <Hero
@@ -12,6 +18,7 @@ const CustomerProfile = ({ data }) => {
         image={data.datoCmsCustomerProfile.featuredImage}
       />
       <DatoBlocks blocks={data.datoCmsCustomerProfile.blocks} />
+      <Test data={relatedProfiles} />
     </Layout>
   );
 };
@@ -22,6 +29,9 @@ export const query = graphql`
   query($id: String!) {
     datoCmsCustomerProfile(id: { eq: $id }) {
       title
+      customerCategory {
+        category
+      }
       featuredImage {
         gatsbyImageData
       }
@@ -66,6 +76,24 @@ export const query = graphql`
               role
             }
           }
+        }
+      }
+    }
+    allDatoCmsCustomerProfile {
+      edges {
+        node {
+          customerCategory {
+            category
+          }
+          featuredImage {
+            gatsbyImageData
+          }
+          title
+          logo {
+            gatsbyImageData(width: 100)
+          }
+          slug
+          shortDescription
         }
       }
     }

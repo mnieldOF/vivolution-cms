@@ -38,8 +38,7 @@ const IndexPage = ({ data }) => {
       />
       <Testimonial />
       <Partners />
-      <Test data={data.allDatoCmsCustomerProfile} />
-      {/* <ProfileSlider /> */}
+      <Test data={data.allDatoCmsCustomerProfile.edges} />
     </Layout>
   );
 };

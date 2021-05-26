@@ -38,7 +38,7 @@ const Test = ({ data }) => {
           <div className="right">
             <div className="m-slider">
               <Slider {...settings}>
-                {data.edges.map(({ node: item }) => (
+                {data.map(({ node: item }) => (
                   <PortfolioItem
                     image={item.featuredImage}
                     title={item.title}
