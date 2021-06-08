@@ -19,7 +19,10 @@ const Sector = ({ data }) => {
         text={data.datoCmsSector.imageText[0].subText}
         image={data.datoCmsSector.imageText[0].image}
       />
-      <ContentReveal tabs={data.datoCmsSector.tabs} />
+      <ContentReveal
+        tabs={data.datoCmsSector.tabs}
+        tabTitle={data.datoCmsSector.tabTitle}
+      />
       <Partners />
     </Layout>
   );
@@ -30,6 +33,7 @@ export default Sector;
 export const query = graphql`
   query($id: String!) {
     datoCmsSector(id: { eq: $id }) {
+      tabTitle
       tabs {
         title
         tabContent {

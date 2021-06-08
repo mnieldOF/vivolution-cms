@@ -19,7 +19,10 @@ const Services = ({ data }) => {
         text={data.datoCmsServiceSingle.textImage[0].subText}
         image={data.datoCmsServiceSingle.textImage[0].image}
       />
-      <ContentReveal tabs={data.datoCmsServiceSingle.tab} />
+      <ContentReveal
+        tabs={data.datoCmsServiceSingle.tab}
+        tabTitle={data.datoCmsServiceSingle.tabTitle}
+      />
       <Partners />
     </Layout>
   );
@@ -43,6 +46,7 @@ export const query = graphql`
         subText
         title
       }
+      tabTitle
       tab {
         title
         tabContent {

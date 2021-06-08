@@ -11,7 +11,7 @@ const Content = styled.div`
   }
 `;
 
-const ContentReveal = ({ tabs }) => {
+const ContentReveal = ({ tabs, tabTitle }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const renderLinkToRecord = ({ record, children }) => {
@@ -81,9 +81,7 @@ const ContentReveal = ({ tabs }) => {
       <div className="grid">
         <div className="left">
           <div className="content">
-            <h3 className="title">
-              Resource and Expertise for every step of the way
-            </h3>
+            <h3 className="title">{tabTitle}</h3>
             <ul>{tabTitles}</ul>
           </div>
         </div>

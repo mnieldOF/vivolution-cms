@@ -19,7 +19,10 @@ const Service = ({ data }) => {
         text={data.datoCmsService.imageText[0].subText}
         image={data.datoCmsService.imageText[0].image}
       />
-      <ContentReveal tabs={data.datoCmsService.tabs} />
+      <ContentReveal
+        tabs={data.datoCmsService.tabs}
+        tabTitle={data.datoCmsService.tabTitle}
+      />
       <Partners />
     </Layout>
   );
@@ -30,6 +33,7 @@ export default Service;
 export const query = graphql`
   query($id: String!) {
     datoCmsService(id: { eq: $id }) {
+      tabTitle
       tabs {
         title
         tabContent {

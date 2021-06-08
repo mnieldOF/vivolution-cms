@@ -15,7 +15,10 @@ const Sectors = ({ data }) => {
         title={data.datoCmsSectorSingle.hero[0].title}
       />
       <ImageText />
-      <ContentReveal tabs={data.datoCmsSectorSingle.tabs} />
+      <ContentReveal
+        tabs={data.datoCmsSectorSingle.tabs}
+        tabTitle={data.datoCmsSectorSingle.tabTitle}
+      />
       <Partners />
     </Layout>
   );
@@ -26,6 +29,7 @@ export default Sectors;
 export const query = graphql`
   {
     datoCmsSectorSingle {
+      tabTitle
       tabs {
         title
         tabContent {
