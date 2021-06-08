@@ -12,12 +12,14 @@ const ImageText = ({ title, text, image }) => {
             <p className="text">{text}</p>
           </div>
           <div className="right">
-            <GatsbyImage
-              className="img"
-              layout="fullWidth"
-              image={Image}
-              alt="test"
-            />
+            <div className="image-container">
+              <GatsbyImage
+                className="img"
+                layout="fullWidth"
+                image={Image}
+                alt="test"
+              />
+            </div>
           </div>
         </div>
       </div>
