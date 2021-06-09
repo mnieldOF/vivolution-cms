@@ -122,15 +122,16 @@
         .content {
           max-width: 500px;
           a {
+            display: inline-block;
             transition: opacity 0.3s ease-in-out;
-            background: linear-gradient(
-              96.42deg,
-              #3026dd -9.97%,
-              #c1259a 107.69%
-            );
+            background: radial-gradient(
+                circle farthest-corner at center center,
+                #3026dd,
+                #c1259a
+              )
+              no-repeat;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-decoration: none;
             &:hover {
               opacity: 0.5;
             }
