@@ -13,6 +13,7 @@ const Service = ({ data }) => {
       <Hero
         title={data.datoCmsService.hero[0].title}
         image={data.datoCmsService.hero[0].background}
+        logo={data.datoCmsService.logo}
       />
       <ImageText
         title={data.datoCmsService.imageText[0].title}
@@ -67,7 +68,7 @@ export const query = graphql`
         }
       }
       logo {
-        gatsbyImageData
+        url
       }
       hero {
         background {

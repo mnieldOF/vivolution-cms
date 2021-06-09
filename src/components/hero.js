@@ -2,7 +2,7 @@ import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Curve from "../images/Header-Curve-01.svg";
 
-const Hero = ({ title, image }) => {
+const Hero = ({ title, image, logo }) => {
   const heroImg = getImage(image);
   return (
     <div className="hero">
@@ -19,7 +19,13 @@ const Hero = ({ title, image }) => {
 
       <img src={Curve} className="curve" alt="" />
       <div className="content-container">
-        <h2 className="title">{title}</h2>
+        {logo ? (
+          <div className="logo-container">
+            <img src={logo.url} alt="" className="logo" />
+          </div>
+        ) : (
+          <h2 className="title">{title}</h2>
+        )}
       </div>
     </div>
   );

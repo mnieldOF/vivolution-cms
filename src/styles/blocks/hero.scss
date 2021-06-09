@@ -37,6 +37,12 @@
     color: white;
     font-weight: 700;
   }
+  .logo-container {
+    width: 200px;
+    .logo {
+      width: 100%;
+    }
+  }
   @media screen and (min-width: 900px) {
     padding: 0;
     height: 100vh;
@@ -66,6 +72,12 @@
       max-width: 70%;
       color: white;
       font-weight: 700;
+    }
+    .logo-container {
+      width: 500px;
+      .logo {
+        width: 100%;
+      }
     }
   }
 }
