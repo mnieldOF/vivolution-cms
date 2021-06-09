@@ -121,6 +121,23 @@
         background: var(--color-primary-gray);
         .content {
           max-width: 500px;
+          a {
+            transition: opacity 0.3s ease-in-out;
+            background: linear-gradient(
+              96.42deg,
+              #3026dd -9.97%,
+              #c1259a 107.69%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            &:hover {
+              opacity: 0.5;
+            }
+            &:after {
+              content: none;
+            }
+          }
         }
       }
     }
