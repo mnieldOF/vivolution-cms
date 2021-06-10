@@ -15,7 +15,7 @@ const SubFooter = () => {
           </p>
           <span>Do you have a question we can answer? </span>
           <button>
-            <Link to={`contact`}>Get in touch here</Link>
+            <Link to={`/contact`}>Get in touch here</Link>
           </button>
         </div>
       </div>
