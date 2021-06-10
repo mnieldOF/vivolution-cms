@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   const changeLogo = () => {
-    if (window.scrollY >= 80) {
+    if (window.scrollY >= 80 && window.screen.width >= 576) {
       document.getElementById("logo-id").classList.add("scrolled");
       document.getElementById("header").classList.add("scrolled");
     } else {

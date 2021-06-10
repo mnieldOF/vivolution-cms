@@ -29,7 +29,7 @@
   .logo-container {
     .logo {
       transition: all 0.3s ease-in;
-      opacity: 1;
+      opacity: 0;
       right: 0;
       position: relative;
     }
@@ -40,7 +40,7 @@
       svg {
         transition: opacity 0.3s ease-in;
         width: 50px;
-        opacity: 0;
+        opacity: 1;
       }
     }
     &.active,
@@ -87,9 +87,34 @@
   @media screen and (min-width: 900px) {
     padding: 40px 0;
     .logo-container {
+      .logo {
+        transition: all 0.3s ease-in;
+        opacity: 1;
+        right: 0;
+        position: relative;
+      }
       .logo-small {
+        position: absolute;
         top: 0;
         left: 0;
+        svg {
+          transition: opacity 0.3s ease-in;
+          width: 50px;
+          opacity: 0;
+        }
+      }
+      &.active,
+      &.scrolled {
+        .logo {
+          opacity: 0;
+          right: 300%;
+        }
+        .logo-small {
+          display: block;
+          svg {
+            opacity: 1;
+          }
+        }
       }
     }
     svg {
