@@ -13,7 +13,9 @@ const GrowthBlock = ({ data, title, text }) => {
             console.log(item);
             return (
               <Link className="item" to={`services/${item.slug}`}>
-                <img src={item.logo.url} />
+                <div className="logo-continaer">
+                  <img src={item.logo.url} />
+                </div>
                 <div className="content">
                   <Link to={`services/${item.slug}`}>
                     <Icon color="white" icon="right" size={20} />

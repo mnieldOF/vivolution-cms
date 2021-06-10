@@ -26,8 +26,8 @@ const IndexPage = ({ data }) => {
         image={datoCmsHome.content[0].background}
       />
       <TextBlock
-        title="We give our clients the team they need, when they need it most - at the start of the journey."
-        text="From Devs to Directors, bringing you a wealth of experience and expertise to build your business. On your terms. Invested in your business and there for the long term, no matter how bumpy the ride."
+        title={datoCmsHome.content[1].title}
+        text={datoCmsHome.content[1].subText}
       />
       <HelpBlock data={data.allDatoCmsSector} />
       <GrowthBlock
@@ -54,6 +54,11 @@ export const query = graphql`
           background {
             gatsbyImageData
           }
+          title
+        }
+        ... on DatoCmsTitleText {
+          id
+          subText
           title
         }
       }
