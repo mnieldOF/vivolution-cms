@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     a {
+      font-weight: 500;
       text-transform: uppercase;
       color: white;
       text-decoration: none;
@@ -58,6 +59,30 @@
   }
   svg {
     width: 100px;
+  }
+  &.scrolled {
+    nav {
+      a {
+        background: radial-gradient(
+            circle farthest-corner at center center,
+            #3026dd,
+            #c1259a
+          )
+          no-repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        &:hover {
+          background: radial-gradient(
+              circle farthest-corner at center center,
+              #c1259a,
+              #3026dd
+            )
+            no-repeat;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
   }
   @media screen and (min-width: 900px) {
     padding: 40px 0;

@@ -16,8 +16,10 @@ const Header = () => {
   const changeLogo = () => {
     if (window.scrollY >= 80) {
       document.getElementById("logo-id").classList.add("scrolled");
+      document.getElementById("header").classList.add("scrolled");
     } else {
       document.getElementById("logo-id").classList.remove("scrolled");
+      document.getElementById("header").classList.remove("scrolled");
     }
   };
 
@@ -27,7 +29,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="header">
+      <div className="header" id="header">
         <div className="container">
           <div
             id="logo-id"
