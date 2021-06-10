@@ -6,16 +6,18 @@ const Hero = ({ title, image, logo }) => {
   const heroImg = getImage(image);
   return (
     <div className="hero">
-      {heroImg ? (
-        <GatsbyImage
-          className="hero-img"
-          layout="fullWidth"
-          image={heroImg}
-          alt="test"
-        />
-      ) : (
-        <img src={image} alt="" className="hero-img" />
-      )}
+      <div className="hero-image">
+        {heroImg ? (
+          <GatsbyImage
+            className="hero-img"
+            layout="fullWidth"
+            image={heroImg}
+            alt="test"
+          />
+        ) : (
+          <img src={image} alt="" className="hero-img" />
+        )}
+      </div>
 
       <img src={Curve} className="curve" alt="" />
       <div className="content-container">
