@@ -24,13 +24,13 @@
     .item {
       background: #1c0833;
       position: relative;
-      border-radius: 8px;
+      border-radius: 16px;
       height: 272px;
       width: 272px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       .logo-continaer {
         display: flex;
         flex-direction: column;
