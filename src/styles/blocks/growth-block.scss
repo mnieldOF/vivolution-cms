@@ -67,6 +67,11 @@
         }
       }
     }
+    &:nth-child(n) {
+      & > * {
+        scroll-snap-align: start !important;
+      }
+    }
   }
   @media screen and (min-width: 900px) {
     padding: 100px 0;
