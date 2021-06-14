@@ -86,6 +86,7 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      grid-gap: 25px !important;
       scroll-padding: 0px;
       grid-auto-flow: initial !important;
       overflow: none !important;
