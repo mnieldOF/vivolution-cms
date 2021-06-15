@@ -66,10 +66,15 @@
       }
     }
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 768px) {
     grid-template-rows: 300px 1fr;
     .top {
-      height: 300px;
+      // height: 300px;
+      .gatsby-image-wrapper {
+        border-radius: 0px;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+      }
     }
     .bottom {
       position: relative;
