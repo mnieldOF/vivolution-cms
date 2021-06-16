@@ -44,6 +44,29 @@ const HelpBlock = ({ data }) => {
       <div className="content-container column">
         <h2 className="title">Who we help</h2>
         <div className="m-slider">
+          <div className="grid">
+            {data.edges.map(({ node: item }) => (
+              <Link to={`/sectors/${item.slug}`} className="help-card">
+                <div className="inner">
+                  <picture>
+                    <source media="(min-width: 0px)" srcset={imgMob} />
+                    <img className="card-img" src={imgMob} />}
+                  </picture>
+                  <div className="content">
+                    <div className="icon">
+                      <img src={item.icon.url} alt="" />
+                    </div>
+                    <h4 className="c-title">{item.title}</h4>
+                    <p>{item.shortDescription}</p>
+                    <Link to={`/sectors/${item.slug}`}>
+                      <Icon icon="right" size="20" color="white" />
+                      Find out more
+                    </Link>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
           <Slider {...settings}>
             {data.edges.map(({ node: item }) => (
               <Link to={`/sectors/${item.slug}`} className="help-card">
