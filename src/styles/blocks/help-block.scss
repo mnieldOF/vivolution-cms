@@ -90,6 +90,24 @@
     .slick-slider {
       display: block;
     }
+    .slick-track {
+      display: flex !important;
+      padding: 0 0 5px;
+    }
+
+    .slick-slide > div {
+      margin: 0 10px;
+    }
+    .slick-list {
+      margin: 0 -10px;
+    }
+
+    .slick-slide {
+      height: inherit !important;
+      & > div {
+        height: 100%;
+      }
+    }
     .grid {
       display: none;
     }
