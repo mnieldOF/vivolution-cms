@@ -43,22 +43,20 @@ const Test = ({ data }) => {
           </div>
           <div className="right">
             <div className="m-slider">
-              {isMobile ? (
-                <>
-                  <div className="grid">
-                    {data.map(({ node: item }) => (
-                      <PortfolioItem
-                        image={item.featuredImage}
-                        title={item.title}
-                        slug={item.slug}
-                        logo={item.logo}
-                        shortText={item.shortDescription}
-                      />
-                    ))}
-                  </div>
-                  <h1>Mobile</h1>
-                </>
-              ) : (
+              <MobileView>
+                <div className="grid">
+                  {data.map(({ node: item }) => (
+                    <PortfolioItem
+                      image={item.featuredImage}
+                      title={item.title}
+                      slug={item.slug}
+                      logo={item.logo}
+                      shortText={item.shortDescription}
+                    />
+                  ))}
+                </div>
+              </MobileView>
+              <BrowserView>
                 <Slider {...settings}>
                   {data.map(({ node: item }) => (
                     <PortfolioItem
@@ -70,7 +68,7 @@ const Test = ({ data }) => {
                     />
                   ))}
                 </Slider>
-              )}
+              </BrowserView>
             </div>
           </div>
         </div>
