@@ -1,6 +1,11 @@
 import React from "react";
 import Slider from "react-slick";
-import { isMobile } from "react-device-detect";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 import PortfolioItem from "./portfolio-item";
 
 const Test = ({ data }) => {
@@ -39,17 +44,20 @@ const Test = ({ data }) => {
           <div className="right">
             <div className="m-slider">
               {isMobile ? (
-                <div className="grid">
-                  {data.map(({ node: item }) => (
-                    <PortfolioItem
-                      image={item.featuredImage}
-                      title={item.title}
-                      slug={item.slug}
-                      logo={item.logo}
-                      shortText={item.shortDescription}
-                    />
-                  ))}
-                </div>
+                <>
+                  <div className="grid">
+                    {data.map(({ node: item }) => (
+                      <PortfolioItem
+                        image={item.featuredImage}
+                        title={item.title}
+                        slug={item.slug}
+                        logo={item.logo}
+                        shortText={item.shortDescription}
+                      />
+                    ))}
+                  </div>
+                  <h1>Mobile</h1>
+                </>
               ) : (
                 <Slider {...settings}>
                   {data.map(({ node: item }) => (
