@@ -1,22 +1,40 @@
-.m-slider {
-  padding-top: 0px;
-  background: transparent;
-  .slick-track {
-    display: flex !important;
-    padding: 0 0 5px;
-  }
+.test {
+  width: 100%;
+  overflow: hidden;
+  .m-slider {
+    padding-top: 0px;
+    background: transparent;
+    .slick-track {
+      display: flex !important;
+      padding: 0 0 5px;
+    }
 
-  .slick-slide > div {
-    margin: 0 10px;
-  }
-  .slick-list {
-    margin: 0 -10px;
-  }
+    .slick-slide > div {
+      margin: 0 10px;
+    }
+    .slick-list {
+      margin: 0 -10px;
+    }
 
-  .slick-slide {
-    height: inherit !important;
-    & > div {
-      height: 100%;
+    .slick-slide {
+      height: inherit !important;
+      & > div {
+        height: 100%;
+      }
+    }
+    .grid {
+      display: grid;
+      grid-gap: 20px;
+      margin: 0px -24px;
+      padding: 4px 24px 8px;
+      scroll-padding: 0px 24px;
+      grid-auto-flow: column !important;
+      overflow: auto hidden !important;
+      scroll-snap-type: x mandatory !important;
+      gap: 12px !important;
+      .portfolio-item {
+        width: 250px;
+      }
     }
   }
 }

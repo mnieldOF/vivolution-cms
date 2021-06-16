@@ -37,7 +37,18 @@ const Test = ({ data }) => {
           </div>
           <div className="right">
             <div className="m-slider">
-              <Slider {...settings}>
+              <div className="grid">
+                {/* <Slider {...settings}>
+                  {data.map(({ node: item }) => (
+                    <PortfolioItem
+                      image={item.featuredImage}
+                      title={item.title}
+                      slug={item.slug}
+                      logo={item.logo}
+                      shortText={item.shortDescription}
+                    />
+                  ))}
+                </Slider> */}
                 {data.map(({ node: item }) => (
                   <PortfolioItem
                     image={item.featuredImage}
@@ -47,7 +58,7 @@ const Test = ({ data }) => {
                     shortText={item.shortDescription}
                   />
                 ))}
-              </Slider>
+              </div>
             </div>
           </div>
         </div>
