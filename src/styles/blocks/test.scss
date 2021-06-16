@@ -4,6 +4,9 @@
   .m-slider {
     padding-top: 0px;
     background: transparent;
+    .slick-slider {
+      display: none;
+    }
     .slick-track {
       display: flex !important;
       padding: 0 0 5px;
@@ -34,6 +37,16 @@
       gap: 12px !important;
       .portfolio-item {
         width: 250px;
+      }
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .m-slider {
+      .grid {
+        display: none;
+      }
+      .slick-slider {
+        display: block;
       }
     }
   }
