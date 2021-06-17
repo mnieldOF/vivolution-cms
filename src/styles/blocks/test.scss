@@ -40,6 +40,9 @@
       }
     }
   }
+  .arrows {
+    display: none;
+  }
   @media screen and (min-width: 768px) {
     .m-slider {
       .grid {
@@ -47,6 +50,23 @@
       }
       .slick-slider {
         display: block;
+      }
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .arrows {
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+        position: relative;
+        bottom: 10px;
+        button {
+          &:nth-of-type(2) {
+            margin-right: 30px;
+          }
+        }
       }
     }
   }

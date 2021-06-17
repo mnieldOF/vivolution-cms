@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import Slider from "react-slick";
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from "react-device-detect";
 import PortfolioItem from "./portfolio-item";
 
 const Test = ({ data }) => {
+  const sliderRef = useRef();
+  console.log(sliderRef);
+
+  // function next() {
+  //   slider.slickNext();
+  // }
+  const renderArrows = () => {
+    return (
+      <div className="arrows">
+        <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
+        <button onClick={() => sliderRef.current.slickNext()}>Next</button>
+      </div>
+    );
+  };
   console.log(data);
   const settings = {
     dots: false,
@@ -16,6 +24,9 @@ const Test = ({ data }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
+    edgeFriction: 0.2,
+    touchThreshold: 20,
+    swipeToSlide: true,
     slidesToScroll: 1,
     responsive: [
       {
@@ -40,6 +51,7 @@ const Test = ({ data }) => {
         <div className="flex">
           <div className="left">
             <h2>Profile</h2>
+            {renderArrows()}
           </div>
           <div className="right">
             <div className="m-slider">
@@ -54,7 +66,7 @@ const Test = ({ data }) => {
                   />
                 ))}
               </div>
-              <Slider {...settings}>
+              <Slider {...settings} ref={sliderRef}>
                 {data.map(({ node: item }) => (
                   <PortfolioItem
                     image={item.featuredImage}
