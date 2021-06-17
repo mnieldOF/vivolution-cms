@@ -63,8 +63,21 @@
         position: relative;
         bottom: 10px;
         button {
+          background: white;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 0px;
+          &:nth-of-type(1) {
+            svg {
+              transform: rotate(-180deg);
+            }
+          }
           &:nth-of-type(2) {
             margin-right: 30px;
+          }
+          &:hover {
+            cursor: pointer;
           }
         }
       }

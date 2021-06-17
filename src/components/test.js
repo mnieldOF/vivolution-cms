@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Icon from "./icon";
 import Slider from "react-slick";
 import PortfolioItem from "./portfolio-item";
 
@@ -6,14 +7,15 @@ const Test = ({ data }) => {
   const sliderRef = useRef();
   console.log(sliderRef);
 
-  // function next() {
-  //   slider.slickNext();
-  // }
   const renderArrows = () => {
     return (
       <div className="arrows">
-        <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
-        <button onClick={() => sliderRef.current.slickNext()}>Next</button>
+        <button onClick={() => sliderRef.current.slickPrev()}>
+          <Icon color="black" size="20px" icon="chevron-right" />
+        </button>
+        <button onClick={() => sliderRef.current.slickNext()}>
+          <Icon color="black" size="20px" icon="chevron-right" />
+        </button>
       </div>
     );
   };
