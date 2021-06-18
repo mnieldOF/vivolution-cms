@@ -44,7 +44,7 @@
       color: #fff;
       p,
       a {
-        opacity: 0.5;
+        opacity: 0.7;
         margin: 0 0 10px;
       }
       ul {
@@ -89,6 +89,12 @@
         p,
         a {
           margin: 0;
+          &[href^="tel:"] {
+            margin-left: 20px;
+            color: #fff;
+            opacity: 0.7;
+            text-decoration: none;
+          }
         }
         ul {
           margin-left: auto;

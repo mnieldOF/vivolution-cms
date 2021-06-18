@@ -45,7 +45,7 @@ const Footer = () => {
           </ul>
           <div className="lower">
             <p>14 Mitchell Lane, Suite 2, 2, Glasgow, G1 3NU</p>
-            <a tel="0141 212 2533">0141 212 2533</a>
+            <a href="tel:0141 212 2533">0141 212 2533</a>
             <ul>
               <li>
                 <a href="">Cookie policy</a>
