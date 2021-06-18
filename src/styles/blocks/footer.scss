@@ -1,5 +1,5 @@
 .footer {
-  padding: 30px 0;
+  padding: 40px 0;
   background: #00365c;
   position: relative;
   .flex {
@@ -7,7 +7,7 @@
     flex-direction: column;
     width: 100%;
     .logo {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
     ul {
       li {
@@ -15,7 +15,7 @@
       }
       a {
         color: white;
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 600;
         text-decoration: none;
         transition: all 0.3s ease-in-out;
@@ -25,10 +25,10 @@
       }
       &.social-menu {
         margin-top: 20px;
-        margin-bottom: 55px;
+        margin-bottom: 35px;
         display: flex;
         li {
-          margin: 0 20px 0 0;
+          margin: 0 15px 0 0;
           a {
             padding: 0 10px;
             display: block;
@@ -39,7 +39,7 @@
     .lower {
       width: 100%;
       border-top: 1px solid #494949;
-      padding-top: 35px;
+      padding-top: 15px;
       font-size: 12px;
       color: #fff;
       p,
@@ -73,51 +73,27 @@
       }
     }
   }
-  @media screen and (min-width: 900px) {
-    .content-container {
-      justify-content: space-between;
-    }
+  @media screen and (min-width: 768px) {
     .flex {
-      width: 100%;
-      flex-direction: row;
-      justify-content: space-between;
-      .logo {
-        display: inline-flex;
-        order: 2;
-      }
-      ul {
+      .menu {
         display: flex;
-        align-items: center;
+        flex-direction: row;
         li {
-          a {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-          }
-        }
-        &.left-menu {
-          order: 3;
-          a {
-            margin-right: 20px;
-          }
-        }
-        &.right-menu {
-          order: 1;
-          a {
-            margin-left: 20px;
-          }
+          margin-right: 30px;
         }
       }
-    }
-    .logo-small {
-      // display: none;
-    }
-    svg {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 150px;
+      .lower {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p,
+        a {
+          margin: 0;
+        }
+        ul {
+          margin-left: auto;
+        }
+      }
     }
   }
 }

@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="content-container">
         <div className="flex">
           <Icon icon="vivo-logo" width="150px" className="logo" />
-          <ul className="right-menu">
+          <ul className="menu">
             <li>
               <a href="">Home</a>
             </li>
@@ -24,22 +24,22 @@ const Footer = () => {
           <ul className="social-menu">
             <li>
               <a href="">
-                <Icon icon="twitter" color="white" width="30px" />
+                <Icon icon="twitter" color="white" width="25px" />
               </a>
             </li>
             <li>
               <a href="">
-                <Icon icon="facebook" color="white" width="30px" />
+                <Icon icon="facebook" color="white" width="25px" />
               </a>
             </li>
             <li>
               <a href="">
-                <Icon icon="linkedin2" color="white" width="30px" />
+                <Icon icon="linkedin2" color="white" width="25px" />
               </a>
             </li>
             <li>
               <a href="">
-                <Icon icon="instagram" color="white" width="30px" />
+                <Icon icon="instagram" color="white" width="25px" />
               </a>
             </li>
           </ul>
