@@ -6,22 +6,7 @@ const Footer = () => {
     <div className="footer">
       <div className="content-container">
         <div className="flex">
-          <ul className="left-menu">
-            <li>
-              <a href="">Facebook</a>
-            </li>
-            <li>
-              <a href="">Linkedin</a>
-            </li>
-            <li>
-              <a href="">Instagram</a>
-            </li>
-            <li>
-              <a href="">Twitter</a>
-            </li>
-          </ul>
-          <Icon icon="vivo-logo" size="150px" className="logo" />
-          <Icon icon="v-logo" size="30px" className="logo-small" />
+          <Icon icon="vivo-logo" width="150px" className="logo" />
           <ul className="right-menu">
             <li>
               <a href="">Home</a>
@@ -36,6 +21,40 @@ const Footer = () => {
               <a href="">Contact us</a>
             </li>
           </ul>
+          <ul className="social-menu">
+            <li>
+              <a href="">
+                <Icon icon="twitter" color="white" width="30px" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <Icon icon="facebook" color="white" width="30px" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <Icon icon="linkedin2" color="white" width="30px" />
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <Icon icon="instagram" color="white" width="30px" />
+              </a>
+            </li>
+          </ul>
+          <div className="lower">
+            <p>14 Mitchell Lane, Suite 2, 2, Glasgow, G1 3NU</p>
+            <a tel="0141 212 2533">0141 212 2533</a>
+            <ul>
+              <li>
+                <a href="">Cookie policy</a>
+              </li>
+              <li>
+                <a href="">Privacy policy</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
