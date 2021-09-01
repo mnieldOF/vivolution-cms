@@ -8,7 +8,7 @@ const Links = [
   { text: "Services", link: "/services" },
   { text: "Portfolio", link: "/portfolio" },
   { text: "About", link: "/about" },
-  { text: "Blog", link: "/contact" },
+  { text: "Blog", link: "/blog" },
   { text: "Contact", link: "/contact" },
 ];
 
