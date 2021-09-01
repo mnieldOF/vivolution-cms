@@ -25,11 +25,11 @@ const IndexPage = ({ data }) => {
         title={datoCmsHome.content[0].title}
         image={datoCmsHome.content[0].background}
       />
+      <HelpBlock data={data.allDatoCmsSector} />
       <TextBlock
         title={datoCmsHome.content[1].title}
         text={datoCmsHome.content[1].subText}
       />
-      <HelpBlock data={data.allDatoCmsSector} />
       <GrowthBlock
         data={data.allDatoCmsService}
         title="Supporting Growth"
