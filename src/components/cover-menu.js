@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import Icon from "./icon";
 
 const Links = [
-  { text: "Portfolio", link: "/portfolio" },
-  { text: "Services", link: "/services" },
-  { text: "About", link: "/about" },
   { text: "Sectors", link: "/sectors" },
+  { text: "Services", link: "/services" },
+  { text: "Portfolio", link: "/portfolio" },
+  { text: "About", link: "/about" },
+  { text: "Blog", link: "/contact" },
   { text: "Contact", link: "/contact" },
 ];
 
