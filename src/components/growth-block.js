@@ -1,6 +1,7 @@
 import React from "react";
 import Icon from "./icon";
 import { Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const GrowthBlock = ({ data, title, text }) => {
   return (
@@ -11,8 +12,14 @@ const GrowthBlock = ({ data, title, text }) => {
         <div className="grid">
           {data.edges.map(({ node: item }) => {
             console.log(item);
+            const cardImg = getImage(item.cardImage);
             return (
               <Link className="item" to={`services/${item.slug}`}>
+                <GatsbyImage
+                  image={cardImg}
+                  alt="card image"
+                  className="card-img"
+                />
                 <div className="logo-continaer">
                   <img src={item.logo.url} />
                 </div>

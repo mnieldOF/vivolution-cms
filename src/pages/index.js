@@ -32,9 +32,8 @@ const IndexPage = ({ data }) => {
       />
       <GrowthBlock
         data={data.allDatoCmsService}
-        title="Supporting Growth"
-        text="From Devs to Directors, bringing you a wealth of experience and expertise to build your business. On your terms. Invested in your business and there for the long term, no matter how bumpy the ride.
-"
+        title={datoCmsHome.content[2].title}
+        text={datoCmsHome.content[2].subText}
       />
       <Testimonial />
       <Partners />
@@ -84,6 +83,9 @@ export const query = graphql`
           slug
           logo {
             url
+          }
+          cardImage {
+            gatsbyImageData
           }
         }
       }
