@@ -40,9 +40,10 @@
     "react-datocms": "^1.5.5",
     "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
+    "react-helmet": "^6.1.0", 
     "react-select": "^4.2.1",
     "react-slick": "^0.28.1",
+    "react-visibility-sensor": "^5.1.1",
     "sass": "^1.32.8",
     "slick-carousel": "^1.8.1",
     "swiper": "^6.5.0"

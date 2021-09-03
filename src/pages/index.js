@@ -1,19 +1,14 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
-import ImageText from "../components/image-text";
 import Hero from "../components/hero";
 import TextBlock from "../components/text-block";
 import Partners from "../components/partners";
 import HelpBlock from "../components/help-block";
 import GrowthBlock from "../components/growth-block";
+import Numbers from "../components/numbers";
 import Testimonial from "../components/testimonial";
-import ImageGallery from "../components/image-gallery";
-import ProfileSlider from "../components/slider";
 import Test from "../components/test";
-import ContentReveal from "../components/content-reveal";
-import SubFooter from "../components/sub-footer";
-import Footer from "../components/footer";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
@@ -30,6 +25,7 @@ const IndexPage = ({ data }) => {
         title={datoCmsHome.content[1].title}
         text={datoCmsHome.content[1].subText}
       />
+      <Numbers />
       <GrowthBlock
         data={data.allDatoCmsService}
         title={datoCmsHome.content[2].title}
