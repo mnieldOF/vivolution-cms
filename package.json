@@ -36,6 +36,7 @@
     "icomoon-react": "^2.0.19",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
+    "react-countup": "^5.2.0",
     "react-datocms": "^1.5.5",
     "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.1",

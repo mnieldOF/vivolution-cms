@@ -18,7 +18,7 @@ const HelpBlock = () => {
             edges {
               node {
                 person
-                position
+                role
                 quote
                 company
               }
@@ -28,11 +28,6 @@ const HelpBlock = () => {
       `}
       render={(data) => (
         <div className="testimonials">
-          <picture>
-            <source media="(min-width: 960px)" srcset={img} />
-            <source media="(min-width: 0)" srcset={imgMob} />
-            <img className="img" src={img} />
-          </picture>
           <div className="content-container column">
             <h2 className="title">What our Customers Say</h2>
             <div className="grid">
@@ -43,7 +38,7 @@ const HelpBlock = () => {
                 <Swiper id="main" pagination>
                   {data.allDatoCmsQuote.edges.map(({ node: quote, i }) => (
                     <SwiperSlide key={`slide-${i}`} className="slide">
-                      <Icon icon="quote" size="45" color="white" />
+                      <Icon icon="quote" size="45" color="#494949" />
                       <p>{quote.quote}</p>
                       <div className="client">
                         <span className="name">{quote.person}</span>
