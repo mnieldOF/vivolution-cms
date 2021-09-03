@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
         title={datoCmsHome.content[1].title}
         text={datoCmsHome.content[1].subText}
       />
-      <Numbers />
+      <Numbers data={datoCmsHome.numbers} />
       <GrowthBlock
         data={data.allDatoCmsService}
         title={datoCmsHome.content[2].title}
@@ -56,6 +56,12 @@ export const query = graphql`
           subText
           title
         }
+      }
+      numbers {
+        number
+        prefix
+        suffix
+        text
       }
     }
     allDatoCmsCustomerProfile {
