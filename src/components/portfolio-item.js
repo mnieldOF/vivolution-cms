@@ -26,7 +26,7 @@ const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
             <p>{shortText}</p>
           </div>
           <div className="link">
-            <Link to={`/customer-profiles/${slug}`}>
+            <Link to={`${slug}`}>
               <Icon icon="right" size="20" />
               read more
             </Link>

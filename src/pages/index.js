@@ -86,6 +86,7 @@ export const query = graphql`
           logo {
             url
           }
+          shortDescription
           cardImage {
             gatsbyImageData
           }

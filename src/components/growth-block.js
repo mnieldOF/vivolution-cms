@@ -23,6 +23,7 @@ const GrowthBlock = ({ data, title, text }) => {
                 <div className="logo-continaer">
                   <img src={item.logo.url} />
                 </div>
+                <p className="desc">{item.shortDescription}</p>
                 <div className="content">
                   <Link to={`services/${item.slug}`}>
                     <Icon color="white" icon="right" size={20} />
