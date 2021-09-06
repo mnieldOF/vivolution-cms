@@ -10,6 +10,7 @@ const ProfileList = ({ profiles }) => {
           title,
           slug,
           logo,
+          excerpt,
           shortDescription,
         } = item.node;
         return (
@@ -18,7 +19,7 @@ const ProfileList = ({ profiles }) => {
             title={title}
             slug={slug}
             logo={logo}
-            shortText={shortDescription}
+            shortText={shortDescription || excerpt}
           />
         );
       })}

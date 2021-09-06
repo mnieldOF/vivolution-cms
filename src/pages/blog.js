@@ -35,12 +35,13 @@ const Section = styled.div`
 `;
 
 const Blog = ({ data }) => {
-  console.log(data);
   const [posts, setPosts] = React.useState(data.allDatoCmsBlog.edges);
 
   const allCategories = [
     ...new Set(posts.map((item) => item.node.category.category)),
   ];
+
+  console.log("posts", posts);
 
   const [buttons, setButton] = React.useState(allCategories);
 
@@ -57,7 +58,7 @@ const Blog = ({ data }) => {
   };
 
   const { hero, description } = data.datoCmsBlogLanding;
-  console.log(hero);
+  console.log(posts);
   return (
     <Layout>
       <Hero title={hero[0].title} image={hero[0].background} />
@@ -92,7 +93,7 @@ export const query = graphql`
     allDatoCmsBlog {
       edges {
         node {
-          image {
+          featuredImage {
             gatsbyImageData
           }
           category {
