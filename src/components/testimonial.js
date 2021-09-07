@@ -1,13 +1,11 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination } from "swiper";
+import SwiperCore, { Pagination, Autoplay } from "swiper";
 import Icon from "./icon";
-import img from "../images/help-bg.png";
-import imgMob from "../images/help-bg-mob.png";
 import img2 from "../images/ex-bg.png";
 
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination, Autoplay]);
 
 const HelpBlock = () => {
   return (
@@ -35,7 +33,14 @@ const HelpBlock = () => {
                 <img src={img2} />
               </div>
               <div className="right">
-                <Swiper id="main" pagination>
+                <Swiper
+                  id="main"
+                  pagination={{ clickable: true }}
+                  autoplay={{
+                    delay: 9000,
+                    disableOnInteraction: false,
+                  }}
+                >
                   {data.allDatoCmsQuote.edges.map(({ node: quote, i }) => (
                     <SwiperSlide key={`slide-${i}`} className="slide">
                       <Icon icon="quote" size="45" color="#494949" />
