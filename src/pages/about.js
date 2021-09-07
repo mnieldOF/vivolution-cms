@@ -87,6 +87,15 @@ export const query = graphql`
             }
           }
         }
+        ... on DatoCmsImageBlock {
+          id
+          model {
+            name
+          }
+          image {
+            gatsbyImageData
+          }
+        }
       }
     }
     allDatoCmsTeam(sort: { fields: position, order: ASC }) {

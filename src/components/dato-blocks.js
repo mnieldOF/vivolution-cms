@@ -55,6 +55,8 @@ const DatoBlocks = ({ blocks }) => {
       return <Hero title={block.title} image={block.background} />;
     } else if (block.model.name === "Title Text") {
       return <TextBlock title={block.title} text={block.subText} />;
+    } else if (block.model.name === "Image block") {
+      return <FullwidthImage image={block.image} />;
     } else return null;
   });
 };
