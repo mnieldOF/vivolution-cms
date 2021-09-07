@@ -4,9 +4,10 @@ import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
 import TeamMember from "../components/team-member";
 import GrowthBlock from "../components/growth-block";
+import Values from "../components/values";
 
 const About = ({ data }) => {
-  console.log(data);
+  console.log("data", data);
   const team = data.allDatoCmsTeam.edges;
   const { aboutUsBlocks } = data.datoCmsAboutPage;
   return (
@@ -69,6 +70,21 @@ export const query = graphql`
           title
           model {
             name
+          }
+        }
+        ... on DatoCmsValuesBlock {
+          id
+          model {
+            name
+          }
+          values {
+            links {
+              title
+              text
+              image {
+                url
+              }
+            }
           }
         }
       }

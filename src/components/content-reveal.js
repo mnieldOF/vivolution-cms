@@ -12,6 +12,7 @@ const Content = styled.div`
 `;
 
 const ContentReveal = ({ tabs, tabTitle }) => {
+  console.log(tabs);
   const [activeTab, setActiveTab] = useState(0);
 
   const renderLinkToRecord = ({ record, children }) => {

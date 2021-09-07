@@ -4,9 +4,10 @@ import TwocolText from "./twocol-text";
 import QuoteBlock from "./quote-block";
 import Hero from "./hero";
 import TextBlock from "./text-block";
+import Values from "./values";
 
 const DatoBlocks = ({ blocks }) => {
-  console.log(blocks);
+  console.log("blocks", blocks);
   return blocks.map((block) => {
     if (block.model.name === "Customer Profile Details") {
       return (
@@ -48,11 +49,13 @@ const DatoBlocks = ({ blocks }) => {
         const { logo, quote } = data;
         return <QuoteBlock data={data} companyImage={logo} quote={quote} />;
       });
+    } else if (block.model.name === "Values Block") {
+      return <Values data={block} />;
     } else if (block.model.name === "Hero Banner") {
       return <Hero title={block.title} image={block.background} />;
     } else if (block.model.name === "Title Text") {
       return <TextBlock title={block.title} text={block.subText} />;
-    }
+    } else return null;
   });
 };
 
