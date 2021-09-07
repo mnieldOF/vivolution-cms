@@ -5,6 +5,7 @@ import QuoteBlock from "./quote-block";
 import Hero from "./hero";
 import TextBlock from "./text-block";
 import Values from "./values";
+import History from "./history";
 
 const DatoBlocks = ({ blocks }) => {
   console.log("blocks", blocks);
@@ -57,6 +58,8 @@ const DatoBlocks = ({ blocks }) => {
       return <TextBlock title={block.title} text={block.subText} />;
     } else if (block.model.name === "Image block") {
       return <FullwidthImage image={block.image} />;
+    } else if (block.model.name === "History") {
+      return <History data={block} />;
     } else return null;
   });
 };

@@ -42,7 +42,6 @@ const About = ({ data }) => {
           </div>
         </div>
       </section>
-      <GrowthBlock data={data.allDatoCmsService} title="Explore Vivolution" />
     </Layout>
   );
 };
@@ -96,6 +95,17 @@ export const query = graphql`
             gatsbyImageData
           }
         }
+        ... on DatoCmsHistory {
+          id
+          model {
+            name
+          }
+          image {
+            url
+          }
+          text
+          title
+        }
       }
     }
     allDatoCmsTeam(sort: { fields: position, order: ASC }) {
@@ -117,16 +127,6 @@ export const query = graphql`
         }
         next {
           name
-        }
-      }
-    }
-    allDatoCmsService {
-      edges {
-        node {
-          slug
-          logo {
-            url
-          }
         }
       }
     }

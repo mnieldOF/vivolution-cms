@@ -1,0 +1,26 @@
+.history {
+  padding: 50px 0;
+  .grid {
+    display: grid;
+    grid-gap: 50px;
+    .left {
+      .title {
+        color: #494949;
+        font-weight: bold;
+        font-size: 23px;
+        margin-bottom: 20px;
+      }
+      p {
+        margin-bottom: 20px;
+        font-weight: 300;
+      }
+    }
+  }
+  @media screen and (min-width: 992px) {
+    padding: 100px 0;
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+  }
+}
