@@ -106,6 +106,15 @@ export const query = graphql`
           text
           title
         }
+        ... on DatoCmsImageGallery {
+          id
+          model {
+            name
+          }
+          images {
+            gatsbyImageData
+          }
+        }
       }
     }
     allDatoCmsTeam(sort: { fields: position, order: ASC }) {

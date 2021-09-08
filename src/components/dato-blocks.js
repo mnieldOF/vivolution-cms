@@ -6,6 +6,7 @@ import Hero from "./hero";
 import TextBlock from "./text-block";
 import Values from "./values";
 import History from "./history";
+import ImageGallery from "./image-gallery";
 
 const DatoBlocks = ({ blocks }) => {
   console.log("blocks", blocks);
@@ -60,6 +61,8 @@ const DatoBlocks = ({ blocks }) => {
       return <FullwidthImage image={block.image} />;
     } else if (block.model.name === "History") {
       return <History data={block} />;
+    } else if (block.model.name === "Image Gallery") {
+      return <ImageGallery data={block} />;
     } else return null;
   });
 };
