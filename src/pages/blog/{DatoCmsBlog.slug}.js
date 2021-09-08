@@ -4,15 +4,7 @@ import Layout from "../../components/layout";
 import Hero from "../../components/hero";
 
 const BlogPost = ({ data }) => {
-  console.log(data);
-  return (
-    <Layout>
-      <Hero
-        title={data.datoCmsBlog.blocks.background.title}
-        image={data.datoCmsBlog.blocks.background.gatsbyImageData}
-      />
-    </Layout>
-  );
+  return <Layout></Layout>;
 };
 
 export default BlogPost;
