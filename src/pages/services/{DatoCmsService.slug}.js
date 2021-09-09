@@ -5,6 +5,7 @@ import Hero from "../../components/hero";
 import ImageText from "../../components/image-text";
 import ContentReveal from "../../components/content-reveal";
 import Partners from "../../components/partners";
+import Test from "../../components/test";
 
 const Service = ({ data }) => {
   console.log(data);
@@ -25,6 +26,7 @@ const Service = ({ data }) => {
         tabTitle={data.datoCmsService.tabTitle}
       />
       <Partners />
+      {/* <Test data={relatedProfiles} /> */}
     </Layout>
   );
 };

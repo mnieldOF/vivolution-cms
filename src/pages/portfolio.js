@@ -44,7 +44,9 @@ const Portfolio = ({ data }) => {
     ...new Set(profiles.map((item) => item.node.customerCategory.category)),
   ];
 
-  const [buttons, setButton] = useState(allCategories);
+  let uniqueItems = [...new Set(allCategories)];
+
+  const [buttons, setButton] = useState(uniqueItems);
 
   const filter = (button) => {
     if (button === "All") {

@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
+
+const who = [
+  { value: "corporates", label: "Corporates" },
+  { value: "academia", label: "Academia" },
+  { value: "vivo-studios", label: "Government" },
+  { value: "start-up-scale-up", label: "Start-up/Scale-up," },
+  { value: "other", label: "Other" },
+];
 
 const options = [
   { value: "vivo-connect", label: "VivoConnect" },
@@ -11,6 +20,7 @@ const options = [
   { value: "vivo-tech", label: "VivoTech" },
   { value: "vivo-ventures", label: "VivoVentures" },
 ];
+
 const response = [
   { value: "woo-hoo", label: "WooHoo!" },
   { value: "thanks", label: "Thanks!" },
@@ -22,16 +32,27 @@ const response = [
 
 const Contact = ({ data }) => {
   console.log(data);
-  const [department, setDepartment] = useState("");
+
+  const [department, setDepartment] = useState([]);
   const [thanks, setThanks] = useState("");
   const blocks = data.datoCmsContact.blocks;
 
   const handleDepartment = (e) => {
-    setDepartment(e.value);
+    let selection = "";
+    e.map((e) => {
+      console.log("here", e);
+      selection += e.label + ", ";
+    });
+
+    selection = selection.replace(/,(\s+)?$/, "");
+
+    setDepartment(selection);
   };
   const handleResponse = (e) => {
     setThanks(e.value);
   };
+
+  console.log(department);
 
   return (
     <Layout>
@@ -43,9 +64,10 @@ const Contact = ({ data }) => {
               <h2 className="title">Hi, there!</h2>
               <div className="select">
                 <label htmlFor="department">
-                  <span>I’m contacting you about</span>
+                  <span>Who are you?</span>
                 </label>
                 <Select
+                  isMulti
                   options={options}
                   onChange={(e) => handleDepartment(e)}
                 />
@@ -73,16 +95,23 @@ const Contact = ({ data }) => {
                   placeholder="let us know how we can help you "
                 />
               </label>
-              <div className="select">
-                <label htmlFor="response">
-                  <span>One last thing</span>
-                </label>
-                <Select
-                  options={response}
-                  onChange={(e) => handleResponse(e)}
+              <label htmlFor="company-website">
+                <span>Company website</span>
+                <input
+                  name="company-website"
+                  type="text"
+                  placeholder="Add you company website here"
                 />
-                <input name="response" type="text" hidden value={thanks} />
-              </div>
+              </label>
+              <label htmlFor="linkedin">
+                <span>Linkedin profile</span>
+                <input
+                  name="linkedin"
+                  type="text"
+                  placeholder="Linkedin profile"
+                  required
+                />
+              </label>
               <button type="submit">Lets Go!</button>
             </form>
           </div>
