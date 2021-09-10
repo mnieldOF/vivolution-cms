@@ -18,7 +18,7 @@ const Service = ({ data }) => {
         image={data.datoCmsService.hero[0].background}
         logo={data.datoCmsService.logo}
       />
-      {data.datoCmsService.comingSoonBlock ? (
+      {data.datoCmsService.comingSoonBlock[0] ? (
         <>
           <ComingSoon data={data.datoCmsService.comingSoonBlock[0]} />
           <GrowthBlock data={data.allDatoCmsService} />
