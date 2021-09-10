@@ -2,9 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout.js";
 import Hero from "../components/hero";
-import ImageText from "../components/image-text";
-import ContentReveal from "../components/content-reveal";
+import HelpBlock from "../components/help-block";
 import Partners from "../components/partners";
+import TextBlock from "../components/text-block";
+import ImageGallery from "../components/image-gallery";
 
 const Sectors = ({ data }) => {
   console.log(data);
@@ -12,13 +13,14 @@ const Sectors = ({ data }) => {
     <Layout>
       <Hero
         image={data.datoCmsSectorSingle.hero[0].background}
-        title={data.datoCmsSectorSingle.hero[0].title}
+        title={data.datoCmsSectorSingle.title}
       />
-      <ImageText />
-      <ContentReveal
-        tabs={data.datoCmsSectorSingle.tabs}
-        tabTitle={data.datoCmsSectorSingle.tabTitle}
+      <TextBlock
+        title={data.datoCmsSectorSingle.content[0].title}
+        text={data.datoCmsSectorSingle.content[0].subText}
       />
+      <HelpBlock data={data.allDatoCmsSector} />
+      <ImageGallery data={data.datoCmsSectorSingle.content[1]} />
       <Partners />
     </Layout>
   );
@@ -29,19 +31,37 @@ export default Sectors;
 export const query = graphql`
   {
     datoCmsSectorSingle {
-      tabTitle
-      tabs {
-        title
-        tabContent {
-          value
-        }
-      }
       title
       hero {
         background {
           gatsbyImageData
+          title
         }
-        title
+      }
+      content {
+        ... on DatoCmsTitleText {
+          id
+          title
+          subText
+        }
+        ... on DatoCmsImageGallery {
+          id
+          images {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+    allDatoCmsSector {
+      edges {
+        node {
+          title
+          shortDescription
+          icon {
+            url
+          }
+          slug
+        }
       }
     }
   }

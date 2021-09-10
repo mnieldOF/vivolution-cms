@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
-import ImageText from "../components/image-text";
 import GrowthBlock from "../components/growth-block";
 import Partners from "../components/partners";
 import TextBlock from "../components/text-block";
