@@ -40,23 +40,26 @@ const Portfolio = ({ data }) => {
     data.allDatoCmsCustomerProfile.edges
   );
 
+  console.log("pro", profiles);
+
   const allCategories = [
-    ...new Set(profiles.map((item) => item.node.customerCategory.category)),
+    ...new Set(
+      data.allDatoCmsCustomerCategory.edges.map((item) => item.node.category)
+    ),
   ];
 
-  let uniqueItems = [...new Set(allCategories)];
-
-  const [buttons, setButton] = useState(uniqueItems);
+  const [buttons, setButton] = useState(allCategories);
 
   const filter = (button) => {
     if (button === "All") {
       setProfiles(data.allDatoCmsCustomerProfile.edges);
       return;
     }
-    const filteredData = data.allDatoCmsCustomerProfile.edges.filter(
-      (item) => item.node.customerCategory.category === button
+
+    const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
+      item.node.customerCategory.some((x) => x.category === button)
     );
-    console.log(filteredData);
+    console.log("hi", filteredData);
     setProfiles(filteredData);
   };
 
@@ -108,6 +111,13 @@ export const query = graphql`
             gatsbyImageData(width: 100)
           }
           shortDescription
+        }
+      }
+    }
+    allDatoCmsCustomerCategory {
+      edges {
+        node {
+          category
         }
       }
     }
