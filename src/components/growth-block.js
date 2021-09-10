@@ -25,7 +25,7 @@ const GrowthBlock = ({ data, title, text }) => {
                 </div>
                 <p className="desc">{item.shortDescription}</p>
                 <div className="content">
-                  <Link to={`services/${item.slug}`}>
+                  <Link to={`${item.slug}`}>
                     <Icon color="white" icon="right" size={20} />
                     Find out more
                   </Link>

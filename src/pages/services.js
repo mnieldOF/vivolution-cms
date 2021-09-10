@@ -3,26 +3,25 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import ImageText from "../components/image-text";
-import ContentReveal from "../components/content-reveal";
+import GrowthBlock from "../components/growth-block";
 import Partners from "../components/partners";
+import TextBlock from "../components/text-block";
+import ImageGallery from "../components/image-gallery";
 
 const Services = ({ data }) => {
   console.log(data);
   return (
     <Layout>
       <Hero
-        title={data.datoCmsServiceSingle.hero[0].title}
+        title={data.datoCmsServiceSingle.title}
         image={data.datoCmsServiceSingle.hero[0].background}
       />
-      <ImageText
-        title={data.datoCmsServiceSingle.textImage[0].title}
-        text={data.datoCmsServiceSingle.textImage[0].subText}
-        image={data.datoCmsServiceSingle.textImage[0].image}
+      <TextBlock
+        title={data.datoCmsServiceSingle.content[0].title}
+        text={data.datoCmsServiceSingle.content[0].subText}
       />
-      <ContentReveal
-        tabs={data.datoCmsServiceSingle.tab}
-        tabTitle={data.datoCmsServiceSingle.tabTitle}
-      />
+      <GrowthBlock data={data.allDatoCmsService} />
+      <ImageGallery data={data.datoCmsServiceSingle.content[1]} />
       <Partners />
     </Layout>
   );
@@ -33,24 +32,38 @@ export default Services;
 export const query = graphql`
   {
     datoCmsServiceSingle {
+      title
       hero {
         background {
           gatsbyImageData
           title
         }
       }
-      textImage {
-        image {
-          gatsbyImageData
+      content {
+        ... on DatoCmsTitleText {
+          id
+          title
+          subText
         }
-        subText
-        title
+        ... on DatoCmsImageGallery {
+          id
+          images {
+            gatsbyImageData
+          }
+        }
       }
-      tabTitle
-      tab {
-        title
-        tabContent {
-          value
+    }
+    allDatoCmsService {
+      edges {
+        node {
+          slug
+          logo {
+            url
+          }
+          shortDescription
+          cardImage {
+            gatsbyImageData
+          }
         }
       }
     }
