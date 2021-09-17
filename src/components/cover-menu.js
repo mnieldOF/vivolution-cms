@@ -145,7 +145,7 @@ const CoverMenu = ({ active }) => {
   };
 
   return (
-    <div className="prevent-container" style={{ position: "relative" }}>
+    <div className="prevent-container" style={{ position: "fixed", left: 0 }}>
       <motion.div
         initial="closed"
         animate={active ? "open" : "closed"}
@@ -173,9 +173,9 @@ const CoverMenu = ({ active }) => {
               </nav>
               <div className="company-info">
                 <div className="contact-cta">
-                  <a href="">hello@vivolution.com</a>
+                  <a href="mailto:hello@vivolution.com">hello@vivolution.com</a>
                   <br />
-                  <a href="">0141 212 2533</a>
+                  <a href="tel:01412122533">0141 212 2533</a>
                 </div>
                 <div className="address">
                   <p>

@@ -1,4 +1,4 @@
-.header {
+.vivo-header {
   position: fixed;
   width: 100%;
   z-index: 30;
@@ -9,10 +9,10 @@
     justify-content: space-between;
     align-items: center;
   }
-  nav {
+  .vivo-header-nav {
     display: flex;
     align-items: center;
-    a {
+    .chat-cta {
       font-weight: 500;
       text-transform: uppercase;
       color: white;
@@ -32,6 +32,7 @@
       opacity: 0;
       right: 0;
       position: relative;
+      width: 100px;
     }
     .logo-small {
       position: absolute;
@@ -57,12 +58,9 @@
       }
     }
   }
-  svg {
-    width: 100px;
-  }
   &.scrolled {
-    nav {
-      a {
+    .vivo-header-nav {
+      .chat-cta {
         background: radial-gradient(
             circle farthest-corner at center center,
             #3026dd,
@@ -92,6 +90,7 @@
         opacity: 1;
         right: 0;
         position: relative;
+        width: 200px;
       }
       .logo-small {
         position: absolute;
@@ -117,14 +116,11 @@
         }
       }
     }
-    svg {
-      width: 200px;
-    }
     ul {
       display: block;
       margin-left: auto;
       li {
-        a {
+        .chat-cta {
           color: white;
           margin-left: 19px;
           text-decoration: none;
