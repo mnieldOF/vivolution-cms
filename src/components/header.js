@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="header" id="header">
+      <div className="vivo-header" id="header">
         <div className="container">
           <div
             id="logo-id"
@@ -40,7 +40,7 @@ const Header = () => {
               <Icon icon="v-logo" size="30px" className="logo-small" />
             </Link>
           </div>
-          <nav>
+          <nav className="vivo-header-nav">
             <div>
               <a
                 href="/contact"
@@ -63,9 +63,9 @@ const Header = () => {
               <div className="click-layer" onClick={(e) => openMenu(e)}></div>
             </motion.div>
           </nav>
+          <CoverMenu active={active} />
         </div>
       </div>
-      <CoverMenu active={active} />
     </>
   );
 };
