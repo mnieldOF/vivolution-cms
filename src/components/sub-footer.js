@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "gatsby";
 
-const SubFooter = () => {
+const GetInTouchCTA = () => {
   return (
-    <div className="sub-footer">
-      <div className="container">
+    // <div className="sub-footer">
+      <div className="sub-footer container">
         <div className="box">
           <h2 className="title">Ready to kickstart your Venture?</h2>
           <p className="text">
@@ -19,8 +19,8 @@ const SubFooter = () => {
           </button>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
-export default SubFooter;
+export default GetInTouchCTA;

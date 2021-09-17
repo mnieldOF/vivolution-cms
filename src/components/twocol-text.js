@@ -1,6 +1,7 @@
 import React from "react";
 
 const TwocolText = ({ data }) => {
+  
   const { text, highlightedText, title } = data;
   return (
     <div className="twocol-text">

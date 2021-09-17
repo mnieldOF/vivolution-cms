@@ -1,11 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid*/
-
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import SubFooter from "../components/sub-footer";
-import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 
@@ -51,7 +47,7 @@ const TemplateWrapper = ({ children }) => {
             />
             <div>{children}</div>
           </div>
-          <SubFooter />
+          {/* <SubFooter /> */}
           <Footer />
         </>
       )}
@@ -64,4 +60,3 @@ TemplateWrapper.propTypes = {
 };
 
 export default TemplateWrapper;
-/* eslint-enable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid*/

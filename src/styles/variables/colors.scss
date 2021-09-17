@@ -1,0 +1,21 @@
+// UI Pattern Library Colour variables
+
+$light-bg-color: #f4f4f4;
+$dark-body-color: #111;
+$base-body-color: #444;
+$light-body-color: #777;
+$active-color: #9055a2;
+$border-color: #ccc;
+
+// Purple gradient colours and mix-ins
+$gradient-purple-start: #3026dd;
+$gradient-purple-end: #c1259a;
+
+// Pass in attribute ie 'background-color' to apply gradient
+@mixin purple-gradient($attribute) {
+    #{$attribute}: -webkit-linear-gradient(96.42deg, $gradient-purple-start -9.97%, $gradient-purple-end 107.69%);
+    #{$attribute}: -moz-linear-gradient(96.42deg, $gradient-purple-start -9.97%, $gradient-purple-end 107.69%);
+    #{$attribute}: -ms-linear-gradient(96.42deg, $gradient-purple-start -9.97%, $gradient-purple-end 107.69%);
+    #{$attribute}: -o-linear-gradient(96.42deg, $gradient-purple-start -9.97%, $gradient-purple-end 107.69%);
+    #{$attribute}: linear-gradient(96.42deg, $gradient-purple-start -9.97%, $gradient-purple-end 107.69%);
+}

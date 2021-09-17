@@ -6,6 +6,7 @@ import HelpBlock from "../components/help-block";
 import Partners from "../components/partners";
 import TextBlock from "../components/text-block";
 import ImageGallery from "../components/image-gallery";
+import SubFooter from "../components/sub-footer.js";
 
 const Sectors = ({ data }) => {
   console.log(data);
@@ -22,6 +23,7 @@ const Sectors = ({ data }) => {
       <HelpBlock data={data.allDatoCmsSector} />
       <ImageGallery data={data.datoCmsSectorSingle.content[1]} />
       <Partners />
+      <SubFooter />
     </Layout>
   );
 };

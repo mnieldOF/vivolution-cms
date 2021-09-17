@@ -6,6 +6,7 @@ import GrowthBlock from "../components/growth-block";
 import Partners from "../components/partners";
 import TextBlock from "../components/text-block";
 import ImageGallery from "../components/image-gallery";
+import SubFooter from "../components/sub-footer";
 
 const Services = ({ data }) => {
   console.log(data);
@@ -22,6 +23,7 @@ const Services = ({ data }) => {
       <GrowthBlock data={data.allDatoCmsService} />
       <ImageGallery data={data.datoCmsServiceSingle.content[1]} />
       <Partners />
+      <SubFooter />
     </Layout>
   );
 };
