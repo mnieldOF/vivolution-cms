@@ -175,7 +175,7 @@ const CoverMenu = ({ active }) => {
                 <div className="contact-cta">
                   <a href="">hello@vivolution.com</a>
                   <br />
-                  <a href="">01417777777</a>
+                  <a href="">0141 212 2533</a>
                 </div>
                 <div className="address">
                   <p>
