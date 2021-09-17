@@ -186,8 +186,6 @@ const CoverMenu = ({ active }) => {
                   </p>
                 </div>
                 <div className="social-cta">
-                  <Icon icon="instagram" size="20px" />
-                  <Icon icon="facebook" size="20px" />
                   <Icon icon="twitter" size="20px" />
                   <Icon icon="linkedin2" size="20px" />
                 </div>
