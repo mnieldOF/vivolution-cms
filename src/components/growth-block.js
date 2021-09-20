@@ -14,7 +14,7 @@ const GrowthBlock = ({ data, title, text }) => {
             console.log(item);
             const cardImg = getImage(item.cardImage);
             return (
-              <Link className="item" to={`services/${item.slug}`}>
+              <Link className="item" to={`/services/${item.slug}`}>
                 <GatsbyImage
                   image={cardImg}
                   alt="card image"
@@ -25,7 +25,7 @@ const GrowthBlock = ({ data, title, text }) => {
                 </div>
                 <p className="desc">{item.shortDescription}</p>
                 <div className="content">
-                  <Link className="button-text" to={`services/${item.slug}`}>
+                  <Link className="button-text" to={`/services/${item.slug}`}>
                     <Icon color="white" icon="right" className="link-icon" size={14} />
                     Find out more
                   </Link>
