@@ -23,7 +23,7 @@ const PortfolioFilter = ({ filter, buttons }) => {
         </div>
         <div className="cta">
           <button type="button" onClick={() => filter("All")}>
-            view all
+            View All
           </button>
         </div>
       </div>
