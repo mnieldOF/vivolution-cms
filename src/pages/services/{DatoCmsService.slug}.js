@@ -11,6 +11,10 @@ import Test from "../../components/test";
 
 const Service = ({ data }) => {
   console.log("here", data);
+  const filter = data.datoCmsService.title;
+  const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
+    item.node.serviceCategory.some((x) => x.title === filter)
+  );
   return (
     <Layout>
       <Hero
@@ -35,7 +39,7 @@ const Service = ({ data }) => {
             tabTitle={data.datoCmsService.tabTitle}
           />
           <Partners />
-          {/* <Test data={relatedProfiles} /> */}
+          <Test data={filteredData} />
         </>
       )}
     </Layout>
@@ -53,6 +57,7 @@ export const query = graphql`
           url
         }
       }
+      title
       tabTitle
       tabs {
         title
@@ -111,6 +116,24 @@ export const query = graphql`
           cardImage {
             gatsbyImageData
           }
+        }
+      }
+    }
+    allDatoCmsCustomerProfile {
+      edges {
+        node {
+          serviceCategory {
+            title
+          }
+          featuredImage {
+            gatsbyImageData
+          }
+          title
+          logo {
+            gatsbyImageData(width: 100)
+          }
+          slug
+          shortDescription
         }
       }
     }
