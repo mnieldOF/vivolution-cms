@@ -3,7 +3,6 @@
   background: #f9f9f9;
   .grid {
     display: grid;
-    grid-gap: 30px;
     grid-template-columns: repeat(2, 1fr);
   }
   .number {
@@ -37,7 +36,11 @@
     }
     .item {
       position: relative;
-      padding: 50px 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       &:after {
         content: "";
         position: absolute;
@@ -45,7 +48,7 @@
         width: 1px;
         display: block;
         top: 0;
-        right: 50px;
+        right: 0;
         background: -webkit-linear-gradient(45deg, #3026dd, #c1259a), no-repeat;
       }
       &:nth-last-of-type(1) {

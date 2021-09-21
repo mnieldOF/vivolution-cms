@@ -1,5 +1,6 @@
 import React from "react";
 import Icon from "./icon";
+import { Link } from "gatsby";
 import FooterImage1 from "../images/lw.png";
 import FooterImage2 from "../images/sbp.png";
 
@@ -12,19 +13,19 @@ const Footer = () => {
             <Icon icon="vivo-logo" width="150px" className="logo" />
             <ul className="menu">
               <li>
-                <a href="">Home</a>
+              <Link to={`/`}>Home</Link>
               </li>
               <li>
-                <a href="">About</a>
+              <Link to={`/about`}>About</Link>
               </li>
               <li>
-                <a href="">Service</a>
+              <Link to={`/services`}>Services</Link>
               </li>
               <li>
-                <a href="">Contact us</a>
+              <Link to={`/contact`}>Contact us</Link>
               </li>
               <li>
-                <a href="">Blog</a>
+              <Link to={`/blog`}>Blog</Link>
               </li>
             </ul>
             <ul className="social-menu">
@@ -52,10 +53,10 @@ const Footer = () => {
           <a href="tel:0141 212 2533">0141 212 2533</a>
           <ul>
             <li>
-              <a href="">Cookie policy</a>
+            <Link className="footer-link" to={`/`}>Cookie policy</Link>
             </li>
             <li>
-              <a href="">Privacy policy</a>
+            <Link className="footer-link" to={`/`}>Privacy policy</Link>
             </li>
           </ul>
         </div>

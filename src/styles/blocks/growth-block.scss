@@ -20,10 +20,11 @@
     overflow: auto hidden !important;
     scroll-snap-type: x mandatory !important;
     gap: 12px !important;
+
     .item {
       background: #1c0833;
       position: relative;
-      border-radius: 16px;
+      border-radius: 8px;
       height: 272px;
       width: 272px;
       display: flex;
@@ -32,6 +33,16 @@
       align-items: center;
       overflow: hidden;
       text-decoration: none;
+      transition: 0.1s ease-in-out;
+
+      &:hover {
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.35);
+      }
+
+      &:focus {
+        box-shadow: inset -2px -3px 5px rgba(14, 14, 14, 0.25);
+      }
+
       .logo-continaer {
         display: flex;
         flex-direction: column;
@@ -82,10 +93,24 @@
         }
         a {
           display: none;
-          align-items: center;
           color: white;
+          align-items: center;
+          .link-icon {
+            display: flex;
+            align-items: center;
+          }
           svg {
             margin-right: 5px;
+            transition: 0.2s ease-in-out;
+          }
+
+          &:hover svg {
+              margin-left: 3px;
+              margin-right: 2px;
+          }
+
+          &:focus {
+            opacity: 0.75;
           }
         }
       }

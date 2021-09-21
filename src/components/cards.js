@@ -1,6 +1,6 @@
-import React from 'react'
-import Img from '../images/oxford.png'
-import Icon from './icon'
+import React from 'react';
+import Img from '../images/oxford.png';
+import Icon from './icon';
 
 const Cards = () => {
     return(

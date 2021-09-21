@@ -12,6 +12,7 @@ const Numbers = ({ data }) => {
             console.log("here", item);
             return (
               <div className="item">
+                <div>
                 <CountUp
                   end={item.number}
                   redraw={true}
@@ -26,6 +27,7 @@ const Numbers = ({ data }) => {
                   )}
                 </CountUp>
                 <p className="text">{item.text}</p>
+                </div>
               </div>
             );
           })}

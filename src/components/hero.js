@@ -26,7 +26,7 @@ const Hero = ({ title, image, logo }) => {
             <img src={logo.url} alt="" className="logo" />
           </div>
         ) : (
-          <h2 className="title">{title}</h2>
+          <h1 className="title">{title}</h1>
         )}
       </div>
     </div>
