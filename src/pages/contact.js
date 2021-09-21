@@ -4,6 +4,7 @@ import Select from "react-select";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
+import Button from '../components/atoms/buttons/default-button';
 
 // const who = [
 //   { value: "corporates", label: "Corporates" },
@@ -112,7 +113,8 @@ const Contact = ({ data }) => {
                 required
               />
             </label>
-            <button type="submit">Lets Go!</button>
+            {/* <button type="submit">Lets Go!</button> */}
+            <Button>Let's Go!</Button>
           </form>
         </div>
       </section>
