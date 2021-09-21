@@ -1,16 +1,12 @@
 import React from "react";
-import styled from "@emotion/styled";
-import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
-import QuoteBlock from "../components/quote-block";
 import Cards from "../components/cards";
 import FullwidthImage from "../components/fullwidth-image";
 import TwocolText from "../components/twocol-text";
 import Slider from "../components/slider";
 
 const TemplateSeven = () => {
-  const profileQuote = null;
   return (
     <Layout>
       <Hero />

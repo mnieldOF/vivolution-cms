@@ -5,7 +5,6 @@ import Hero from "../../components/hero";
 import ImageText from "../../components/image-text";
 import ContentReveal from "../../components/content-reveal";
 import Partners from "../../components/partners";
-import Test from "../../components/test";
 
 const Sector = ({ data }) => {
   console.log(data);
