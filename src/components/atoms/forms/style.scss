@@ -1,0 +1,39 @@
+@import '../../../styles/variables/colors.scss';
+@import '../../../styles/variables/typography.scss';
+
+// Combining these placeholder selectors breaks them
+
+::-webkit-input-placeholder {
+    color: $light-grey;
+}
+
+:-moz-placeholder {
+    color: $light-grey;
+}
+
+::-moz-placeholder {
+    color: $light-grey;
+}
+
+:-ms-input-placeholder {
+    color: $light-grey;
+}
+
+
+.body1 {
+    color: $light-grey;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    color: $bright-pink;
+
+    input {
+        color: $light-grey;
+    }
+}
+
+:disabled {
+    opacity: 0.5;
+}

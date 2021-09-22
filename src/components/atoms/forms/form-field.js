@@ -12,12 +12,17 @@ const FormField = ({
   disabled,
   autocomplete,
 }) => {
-    let classes = ' ' + disabled + ' ';
+    let disabledClass = '';
+    if (disabled) {
+        disabledClass = 'disabled';
+    }
+    let labelClasses = 'label ' + disabledClass + ' ';
+    let inputClasses = 'body1 ' + disabledClass + ' ';
   return (
-    <section className={classes}>
-      <label htmlFor={key}>
+    <section>
+      <label htmlFor={key} className={labelClasses}>
         { label }
-        <input type={type} placeholder={placeholder} autoComplete={autocomplete} required={required}></input>
+        <input className={inputClasses} name={key} type={type} placeholder={placeholder} autoComplete={autocomplete} required={required} />
         {/* ET - TODO: password show/hide toggle */}
         {/* <span></span> */}
       </label>
@@ -35,6 +40,8 @@ FormField.propTypes = {
     required: PropTypes.bool.isRequired,
     type: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    autocomplete: PropTypes.string
 }
 
 export default FormField;
