@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import TextBlock from "../components/text-block";
@@ -31,7 +31,7 @@ const IndexPage = ({ data }) => {
         title={datoCmsHome.content[2].title}
         text={datoCmsHome.content[2].subText}
       />
-      <Testimonial />
+      <Testimonial image={datoCmsHome.image} />
       <Partners />
       <Test data={data.allDatoCmsCustomerProfile.edges} />
     </Layout>
@@ -62,6 +62,11 @@ export const query = graphql`
         prefix
         suffix
         text
+      }
+      image {
+        image {
+          gatsbyImageData
+        }
       }
     }
     allDatoCmsCustomerProfile {
