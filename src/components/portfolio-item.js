@@ -8,32 +8,41 @@ const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
   const featImg = getImage(image);
   const profileLogo = getImage(logo);
   return (
-    <div className="portfolio-item">
+    <Link to={`${slug}`} className="portfolio-item">
       <div className="top">
         <GatsbyImage className="hero-img" image={featImg} alt="test" />
       </div>
       <div className="bottom">
         <div className="inner">
-          <div className="flex">
-            <div className="left">
-              <h5>{title}</h5>
+            <div className="flex">
+              {
+                profileLogo? (
+                  <>
+                  <div className="left">
+                    <h4>{title}</h4>
+                  </div>
+                  <div className="right">
+                    <GatsbyImage image={profileLogo} alt="test" />
+                  </div>
+                  </>
+                ) : (
+                  <h4>{title}</h4>
+                )
+              }
+
             </div>
-            <div className="right">
-              <GatsbyImage image={profileLogo} alt="test" />
+            <div className="text body">
+              <p>{shortText}</p>
             </div>
-          </div>
-          <div className="text">
-            <p>{shortText}</p>
-          </div>
-          <div className="link">
+          <div className="link button-text">
             <Link to={`${slug}`}>
-              <Icon icon="right" size="20" />
-              read more
+              <Icon icon="right" size="14" />
+              Find Out More
             </Link>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -1,3 +1,5 @@
+
+
 .portfolio-item {
   display: flex;
   position: relative;
@@ -7,6 +9,12 @@
   overflow: hidden;
   height: 100%;
   flex-direction: column;
+  text-decoration: none;
+  color: var(  --color-title-text);
+  transition: box-shadow 0.1s ease-in-out;
+  &:hover, &:focus {
+    box-shadow: 0px 5px 5px rgba(89, 89, 89, 0.25);
+  }
   .top {
     position: relative;
     height: 250px;
@@ -22,11 +30,19 @@
     }
   }
   .bottom {
-    bottom: 10px;
-    left: 10px;
+    bottom: 0;
+    left: 0;
     position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(89, 89, 89, 0.25);
+    display: flex;
+    align-items: end;
     .inner {
-      padding: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .flex {
       display: flex;
@@ -37,12 +53,13 @@
         width: 100%;
         flex: 1;
       }
+      h4 {
+        color: var(--color-primary-white);
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
       .left {
         flex: 1;
-        h5 {
-          color: var(--color-primary-white);
-          font-weight: 700;
-        }
       }
       .right {
         display: none;
@@ -51,17 +68,28 @@
     }
     .text {
       display: none;
+      color: var(--color-primary-white);
     }
     .link {
-      margin-top: 20px;
       a {
         display: flex;
         align-items: center;
         text-decoration: none;
         color: var(--color-primary-white);
+        transition: 0.1s ease-in-out;
         svg {
           fill: var(--color-primary-white);
-          margin-right: 10px;
+          margin-right: 8px;
+          transition: 0.1s ease-in-out;
+        
+        }
+        &:hover svg {
+          margin-right: 4px;
+          margin-left: 4px;
+        }
+
+        &:focus {
+          opacity: 0.75;
         }
       }
     }
@@ -78,11 +106,19 @@
     }
     .bottom {
       position: relative;
+      bottom: 0;
+      left: 0;
+      background: none;
       .inner {
         padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 150px;
       }
       .text {
         display: block;
+        color: var( --color-body-text);
       }
       .flex {
         display: flex;
@@ -95,13 +131,13 @@
         }
         .left {
           flex: 1;
-          h5 {
-            color: var(--color-primary-black-2);
-          }
         }
         .right {
           display: block;
           text-align: center;
+        }
+        h4 {
+          color: var( --color-title-text);
         }
       }
       .link {
