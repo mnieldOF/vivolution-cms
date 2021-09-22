@@ -47,9 +47,9 @@ const DatoBlocks = ({ blocks }) => {
         </section>
       );
     } else if (block.model.name === "Quote select") {
-      return block.quote.links.map((data) => {
+      return block.quote.links.map((data, i) => {
         const { logo, quote } = data;
-        return <QuoteBlock data={data} companyImage={logo} quote={quote} />;
+        return <QuoteBlock key={'qb_' + i} data={data} companyImage={logo} quote={quote} />;
       });
     } else if (block.model.name === "Values Block") {
       return <Values data={block} />;
