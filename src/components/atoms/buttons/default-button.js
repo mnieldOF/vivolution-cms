@@ -1,5 +1,7 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import styles from './style.scss';
+import PropTypes from 'prop-types';
 
 // ET: Note that this component could be expanded ie add more styles etc
 // if there were more varied buttons in the design system
@@ -12,6 +14,7 @@ export const ButtonType = {
 
 export const ButtonStyle = {
     DEFAULT: 'default',
+    ROUND: 'round',
 }
 
 export const ButtonSize = {
@@ -20,30 +23,32 @@ export const ButtonSize = {
     LARGE: 'large',
 }
 
-export const hasFill = true;
-
-export const hasBorder = false;
-
-const Button = ({ props }) => {
-    const { type, onClick, children, size, disabled } = props;
-    let classes = 'button ' + size + ' ';
+const Button = ({ 
+    type = ButtonType.BUTTON,
+    buttonStyle = ButtonStyle.DEFAULT,
+    size = ButtonSize.MEDIUM,
+    disabled = false,
+    onClick,
+    children
+    }) => {
+    let classes = size + ' ' + buttonStyle + ' ';
     if (disabled) {
         classes += 'disabled ';
     }
     return (
-        <button type={type} onClick={onClick} className={classes}>
+        <button type={type} onClick={onClick} className={classes} disabled={disabled} buttonStyle={buttonStyle}>
             { children }
         </button>
     )
 }
 
-Button.defaultProps = {
-    type: ButtonType.BUTTON,
-    style: ButtonStyle.DEFAULT,
-    size: ButtonSize.MEDIUM,
-    onClick: () => {},
-    className: '',
-    disabled: false
+Button.propTypes = {
+    style: PropTypes.string,
+    size: PropTypes.string,
+    type: PropTypes.string,
+    children: PropTypes.node,
+    onClick: PropTypes.func.isRequired,
+    disabled: PropTypes.bool
 }
 
 export default Button;

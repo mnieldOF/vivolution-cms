@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
 import Button from '../components/atoms/buttons/default-button';
+import { ButtonType, ButtonStyle } from "../components/atoms/buttons/default-button";
 
 // const who = [
 //   { value: "corporates", label: "Corporates" },
@@ -113,8 +114,7 @@ const Contact = ({ data }) => {
                 required
               />
             </label>
-            {/* <button type="submit">Lets Go!</button> */}
-            <Button>Let's Go!</Button>
+            <Button type={ButtonType.SUBMIT} buttonStyle={ButtonStyle.DEFAULT}>Let&apos;s go</Button>
           </form>
         </div>
       </section>
