@@ -14,7 +14,7 @@ const History = ({ data }) => {
             />
           </div>
           <div className="right">
-            <img src={data.image.url} />
+            {data.image.url ? <img src={data.image.url} /> : null}
           </div>
         </div>
       </div>
