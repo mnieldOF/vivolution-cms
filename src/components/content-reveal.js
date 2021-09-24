@@ -9,6 +9,31 @@ const Content = styled.div`
   &.active {
     display: block;
   }
+  &.content {
+    h4 {
+      font-weight: 700;
+      font-size: 20px;
+      font-family: "Raleway";
+      margin-bottom: 20px;
+      color: #666666;
+    }
+    h5 {
+      font-weight: 700;
+      font-size: 16px;
+      font-family: "Raleway";
+      margin-bottom: 20px;
+      color: #666666;
+    }
+    img {
+      margin-bottom: 20px;
+    }
+    .flex {
+      display: flex;
+      margin-bottom: p {
+        font-weight: 300;
+      }
+    }
+  }
 `;
 
 const ContentReveal = ({ tabs, tabTitle }) => {
@@ -27,6 +52,7 @@ const ContentReveal = ({ tabs, tabTitle }) => {
   };
 
   const accordion = tabs.map((item, i) => {
+    console.log("item", item);
     return (
       <li className="item">
         <a
@@ -40,9 +66,14 @@ const ContentReveal = ({ tabs, tabTitle }) => {
           <Icon icon="down" size="20px" />
         </a>
         <Content className={`content ${activeTab === i ? "active" : "hidden"}`}>
-          <StructuredText
+          {/* <StructuredText
             data={item.tabContent}
             renderLinkToRecord={renderLinkToRecord}
+          /> */}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: item.tabNewContentNode.childMarkdownRemark.html,
+            }}
           />
         </Content>
       </li>
@@ -69,9 +100,14 @@ const ContentReveal = ({ tabs, tabTitle }) => {
   const tabText = tabs.map((tab, i) => {
     return (
       <Content className={`content ${activeTab === i ? "active" : "hidden"}`}>
-        <StructuredText
+        {/* <StructuredText
           data={tab.tabContent}
           renderLinkToRecord={renderLinkToRecord}
+        /> */}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: tab.tabNewContentNode.childMarkdownRemark.html,
+          }}
         />
       </Content>
     );

@@ -60,6 +60,11 @@ export const query = graphql`
             }
           }
         }
+        tabNewContentNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
       imageText {
         title
