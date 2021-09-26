@@ -29,7 +29,8 @@ const Content = styled.div`
     }
     .flex {
       display: flex;
-      margin-bottom: p {
+      margin-bottom: 20px;
+      p {
         font-weight: 300;
       }
     }
