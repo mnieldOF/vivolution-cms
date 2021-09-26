@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
-import { StructuredText } from "react-datocms";
+// import { StructuredText } from "react-datocms";
 import Icon from "../components/icon";
 
 const Content = styled.div`
@@ -55,7 +55,7 @@ const ContentReveal = ({ tabs, tabTitle }) => {
   const accordion = tabs.map((item, i) => {
     console.log("item", item);
     return (
-      <li className="item">
+      <li className="item" key={i}>
         <a
           className={activeTab === i ? "active" : " "}
           onClick={(e) => {
@@ -84,6 +84,7 @@ const ContentReveal = ({ tabs, tabTitle }) => {
   const tabTitles = tabs.map((tab, i) => {
     return (
       <li
+        key={i}
         className={activeTab === i ? "active" : " "}
         onClick={(e) => {
           e.preventDefault();
@@ -100,7 +101,10 @@ const ContentReveal = ({ tabs, tabTitle }) => {
 
   const tabText = tabs.map((tab, i) => {
     return (
-      <Content className={`content ${activeTab === i ? "active" : "hidden"}`}>
+      <Content
+        key={i}
+        className={`content ${activeTab === i ? "active" : "hidden"}`}
+      >
         {/* <StructuredText
           data={tab.tabContent}
           renderLinkToRecord={renderLinkToRecord}
