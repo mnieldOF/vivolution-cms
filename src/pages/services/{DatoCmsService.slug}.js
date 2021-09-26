@@ -77,6 +77,11 @@ export const query = graphql`
             }
           }
         }
+        tabNewContentNode {
+          childMarkdownRemark {
+            html
+          }
+        }
         model {
           name
         }
