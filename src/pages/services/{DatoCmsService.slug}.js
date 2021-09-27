@@ -15,6 +15,11 @@ const Service = ({ data }) => {
   const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
     item.node.serviceCategory.some((x) => x.title === filter)
   );
+
+  const partnerFilter = data.allDatoCmsPartner.edges.filter((item) =>
+    item.node.serviceCategory.some((x) => x.title === filter)
+  );
+
   return (
     <Layout>
       <Hero
@@ -38,7 +43,7 @@ const Service = ({ data }) => {
             tabs={data.datoCmsService.tabs}
             tabTitle={data.datoCmsService.tabTitle}
           />
-          <Partners related={data.allDatoCmsPartner.edges} />
+          <Partners related={partnerFilter} />
           <Test data={filteredData} />
         </>
       )}
@@ -145,7 +150,7 @@ export const query = graphql`
     allDatoCmsPartner {
       edges {
         node {
-          sectorCategory {
+          serviceCategory {
             title
           }
           partnerImage {

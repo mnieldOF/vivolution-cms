@@ -8,11 +8,11 @@ const GrowthBlock = ({ data }) => {
     <div className="growth-block">
       <div className="content-container column">
         <div className="grid">
-          {data.edges.map(({ node: item }) => {
+          {data.edges.map(({ node: item, i }) => {
             console.log(item);
             const cardImg = getImage(item.cardImage);
             return (
-              <Link className="item" to={`/services/${item.slug}`}>
+              <Link key={i} className="item" to={`/services/${item.slug}`}>
                 <GatsbyImage
                   image={cardImg}
                   alt="card image"
