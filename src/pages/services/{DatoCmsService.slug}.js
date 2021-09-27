@@ -44,7 +44,7 @@ const Service = ({ data }) => {
             tabTitle={data.datoCmsService.tabTitle}
           />
           <Partners related={partnerFilter} />
-          <Test data={filteredData} />
+          <Test image data={filteredData} />
         </>
       )}
     </Layout>

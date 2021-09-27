@@ -34,7 +34,7 @@ const Sector = ({ data }) => {
         tabTitle={data.datoCmsSector.tabTitle}
       />
       <Partners related={partnerFilter} />
-      <Test data={filteredData} />
+      <Test image data={filteredData} />
     </Layout>
   );
 };
