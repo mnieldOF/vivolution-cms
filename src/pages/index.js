@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
       <Numbers data={datoCmsHome.numbers} />
       <GrowthBlock data={data.allDatoCmsService} />
       <Testimonial image={datoCmsHome.image} />
-      <Partners />
+      <Partners related={data.allDatoCmsPartner.edges} />
       <Test data={data.allDatoCmsCustomerProfile.edges} />
     </Layout>
   );
@@ -103,6 +103,18 @@ export const query = graphql`
             url
           }
           slug
+        }
+      }
+    }
+    allDatoCmsPartner {
+      edges {
+        node {
+          sectorCategory {
+            title
+          }
+          partnerImage {
+            gatsbyImageData
+          }
         }
       }
     }

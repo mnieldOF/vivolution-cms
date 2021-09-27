@@ -14,6 +14,10 @@ const Sector = ({ data }) => {
     item.node.sectorCategory.some((x) => x.title === filter)
   );
 
+  const partnerFilter = data.allDatoCmsPartner.edges.filter((item) =>
+    item.node.sectorCategory.some((x) => x.title === filter)
+  );
+
   return (
     <Layout>
       <Hero
@@ -29,7 +33,7 @@ const Sector = ({ data }) => {
         tabs={data.datoCmsSector.tabs}
         tabTitle={data.datoCmsSector.tabTitle}
       />
-      <Partners />
+      <Partners related={partnerFilter} />
       <Test data={filteredData} />
     </Layout>
   );
@@ -81,6 +85,18 @@ export const query = graphql`
           gatsbyImageData
         }
         title
+      }
+    }
+    allDatoCmsPartner {
+      edges {
+        node {
+          sectorCategory {
+            title
+          }
+          partnerImage {
+            gatsbyImageData
+          }
+        }
       }
     }
     allDatoCmsCustomerProfile {

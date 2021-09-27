@@ -21,7 +21,7 @@ const Sectors = ({ data }) => {
       />
       <HelpBlock data={data.allDatoCmsSector} />
       <ImageGallery data={data.datoCmsSectorSingle.content[1]} />
-      <Partners />
+      <Partners related={data.allDatoCmsPartner.edges} />
     </Layout>
   );
 };
@@ -61,6 +61,18 @@ export const query = graphql`
             url
           }
           slug
+        }
+      }
+    }
+    allDatoCmsPartner {
+      edges {
+        node {
+          sectorCategory {
+            title
+          }
+          partnerImage {
+            gatsbyImageData
+          }
         }
       }
     }

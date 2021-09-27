@@ -38,7 +38,7 @@ const Service = ({ data }) => {
             tabs={data.datoCmsService.tabs}
             tabTitle={data.datoCmsService.tabTitle}
           />
-          <Partners />
+          <Partners related={data.allDatoCmsPartner.edges} />
           <Test data={filteredData} />
         </>
       )}
@@ -139,6 +139,18 @@ export const query = graphql`
           }
           slug
           shortDescription
+        }
+      }
+    }
+    allDatoCmsPartner {
+      edges {
+        node {
+          sectorCategory {
+            title
+          }
+          partnerImage {
+            gatsbyImageData
+          }
         }
       }
     }
