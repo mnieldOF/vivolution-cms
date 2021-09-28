@@ -3,8 +3,8 @@ import Icon from "./icon";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const Footer = ({ data }) => {
-  console.log(data);
+const Footer = ({ data, socials }) => {
+  console.log("socials", socials);
   return (
     <div className="footer">
       <div className="content-container">
@@ -29,16 +29,23 @@ const Footer = ({ data }) => {
               </li>
             </ul>
             <ul className="social-menu">
-              <li>
-                <a href="">
-                  <Icon icon="twitter" color="white" width="25px" />
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <Icon icon="linkedin2" color="white" width="25px" />
-                </a>
-              </li>
+              {socials.edges.map(({ node: item, i }) => {
+                return (
+                  <li key={i}>
+                    <a href={item.url}>
+                      <Icon
+                        icon={
+                          item.profileType === "Twitter"
+                            ? "twitter"
+                            : "linkedin2"
+                        }
+                        color="white"
+                        width="25px"
+                      />
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="right">

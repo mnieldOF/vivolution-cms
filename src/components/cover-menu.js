@@ -12,7 +12,7 @@ const Links = [
   { text: "Contact", link: "/contact" },
 ];
 
-const CoverMenu = ({ active }) => {
+const CoverMenu = ({ active, socials }) => {
   const OffCanvas = {
     closed: {
       x: "100vw",
@@ -126,6 +126,7 @@ const CoverMenu = ({ active }) => {
     return Links.map((link, index) => {
       return (
         <motion.li
+          key={index}
           variants={listItem}
           onMouseOver={(e) => {
             onHover(e, index);
@@ -186,8 +187,20 @@ const CoverMenu = ({ active }) => {
                   </p>
                 </div>
                 <div className="social-cta">
-                  <Icon icon="twitter" size="20px" />
-                  <Icon icon="linkedin2" size="20px" />
+                  {socials.edges.map(({ node: item, i }) => {
+                    return (
+                      <a key={i} href={item.url}>
+                        <Icon
+                          icon={
+                            item.profileType === "Twitter"
+                              ? "twitter"
+                              : "linkedin2"
+                          }
+                          width="20px"
+                        />
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </div>

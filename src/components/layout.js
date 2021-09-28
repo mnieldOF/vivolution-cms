@@ -49,7 +49,7 @@ const TemplateWrapper = ({ children }) => {
       render={(data) => {
         return (
           <>
-            <Header />
+            <Header socials={data.allDatoCmsSocialProfile} />
             <div>
               <HelmetDatoCms
                 favicon={data.datoCmsSite.faviconMetaTags}
@@ -58,7 +58,10 @@ const TemplateWrapper = ({ children }) => {
               <div>{children}</div>
             </div>
             <SubFooter />
-            <Footer data={data.datoCmsFooter} />
+            <Footer
+              data={data.datoCmsFooter}
+              socials={data.allDatoCmsSocialProfile}
+            />
           </>
         );
       }}

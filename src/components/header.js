@@ -4,7 +4,7 @@ import Icon from "./icon";
 import CoverMenu from "./cover-menu";
 import { motion } from "framer-motion";
 
-const Header = () => {
+const Header = ({ socials }) => {
   const [active, setActive] = useState(false);
   const [logoSwap, setLogoSwap] = useState(false);
 
@@ -63,7 +63,7 @@ const Header = () => {
               <div className="click-layer" onClick={(e) => openMenu(e)}></div>
             </motion.div>
           </nav>
-          <CoverMenu active={active} />
+          <CoverMenu active={active} socials={socials} />
         </div>
       </div>
     </>
