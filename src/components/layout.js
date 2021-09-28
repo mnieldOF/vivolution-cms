@@ -39,22 +39,29 @@ const TemplateWrapper = ({ children }) => {
               }
             }
           }
+          datoCmsFooter {
+            footerLogos {
+              gatsbyImageData
+            }
+          }
         }
       `}
-      render={(data) => (
-        <>
-          <Header />
-          <div>
-            <HelmetDatoCms
-              favicon={data.datoCmsSite.faviconMetaTags}
-              seo={data.datoCmsHome.seoMetaTags}
-            />
-            <div>{children}</div>
-          </div>
-          <SubFooter />
-          <Footer />
-        </>
-      )}
+      render={(data) => {
+        return (
+          <>
+            <Header />
+            <div>
+              <HelmetDatoCms
+                favicon={data.datoCmsSite.faviconMetaTags}
+                seo={data.datoCmsHome.seoMetaTags}
+              />
+              <div>{children}</div>
+            </div>
+            <SubFooter />
+            <Footer data={data.datoCmsFooter} />
+          </>
+        );
+      }}
     />
   );
 };
@@ -64,4 +71,3 @@ TemplateWrapper.propTypes = {
 };
 
 export default TemplateWrapper;
-/* eslint-enable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid*/

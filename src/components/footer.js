@@ -1,10 +1,10 @@
 import React from "react";
 import Icon from "./icon";
 import { Link } from "gatsby";
-import FooterImage1 from "../images/lw.png";
-import FooterImage2 from "../images/sbp.png";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const Footer = () => {
+const Footer = ({ data }) => {
+  console.log(data);
   return (
     <div className="footer">
       <div className="content-container">
@@ -13,19 +13,19 @@ const Footer = () => {
             <Icon icon="vivo-logo" width="150px" className="logo" />
             <ul className="menu">
               <li>
-              <Link to={`/`}>Home</Link>
+                <Link to={`/`}>Home</Link>
               </li>
               <li>
-              <Link to={`/about`}>About</Link>
+                <Link to={`/about`}>About</Link>
               </li>
               <li>
-              <Link to={`/services`}>Services</Link>
+                <Link to={`/services`}>Services</Link>
               </li>
               <li>
-              <Link to={`/contact`}>Contact us</Link>
+                <Link to={`/contact`}>Contact us</Link>
               </li>
               <li>
-              <Link to={`/blog`}>Blog</Link>
+                <Link to={`/blog`}>Blog</Link>
               </li>
             </ul>
             <ul className="social-menu">
@@ -43,8 +43,18 @@ const Footer = () => {
           </div>
           <div className="right">
             <div className="footer-logos">
-              <img src={FooterImage1} alt="" />
-              <img src={FooterImage2} alt="" />
+              {data.footerLogos.map((item, i) => {
+                const img = getImage(item);
+                return (
+                  <GatsbyImage
+                    key={i}
+                    className="hero-img"
+                    layout="fullWidth"
+                    image={img}
+                    alt="test"
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
@@ -53,10 +63,14 @@ const Footer = () => {
           <a href="tel:0141 212 2533">0141 212 2533</a>
           <ul>
             <li>
-            <Link className="footer-link" to={`/`}>Cookie policy</Link>
+              <Link className="footer-link" to={`/`}>
+                Cookie policy
+              </Link>
             </li>
             <li>
-            <Link className="footer-link" to={`/`}>Privacy policy</Link>
+              <Link className="footer-link" to={`/`}>
+                Privacy policy
+              </Link>
             </li>
           </ul>
         </div>
