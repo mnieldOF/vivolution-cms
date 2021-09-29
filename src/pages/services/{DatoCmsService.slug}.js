@@ -115,7 +115,7 @@ export const query = graphql`
       }
       slug
     }
-    allDatoCmsService {
+    allDatoCmsService(sort: { fields: position, order: ASC }) {
       edges {
         node {
           slug

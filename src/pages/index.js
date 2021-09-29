@@ -28,8 +28,7 @@ const IndexPage = ({ data }) => {
       <Numbers data={datoCmsHome.numbers} />
       <GrowthBlock data={data.allDatoCmsService} />
       <Testimonial image={datoCmsHome.image} />
-      <Partners related={data.allDatoCmsPartner.edges} />
-      <Test data={data.allDatoCmsCustomerProfile.edges} />
+      <Test image data={data.allDatoCmsCustomerProfile.edges} />
     </Layout>
   );
 };
@@ -80,7 +79,7 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsService {
+    allDatoCmsService(sort: { fields: position, order: ASC }) {
       edges {
         node {
           slug
