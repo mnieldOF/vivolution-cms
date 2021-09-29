@@ -8,7 +8,9 @@ const Values = ({ data }) => {
           {data.values.links.map((item, i) => {
             return (
               <div className="item" key={i}>
-                <img src={item.image.url} alt="" />
+                <div className="image">
+                  <img src={item.image.url} alt="" />
+                </div>
                 <h3 className="title">{item.title}</h3>
                 <p>{item.text}</p>
               </div>
