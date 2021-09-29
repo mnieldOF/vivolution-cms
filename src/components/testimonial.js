@@ -29,7 +29,6 @@ const HelpBlock = ({ image }) => {
       render={(data) => (
         <div className="testimonials">
           <div className="content-container column">
-            <h2 className="title">What our Customers Say</h2>
             <div className="grid">
               <div className="left">
                 <GatsbyImage
