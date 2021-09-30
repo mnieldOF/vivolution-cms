@@ -50,7 +50,12 @@ const DatoBlocks = ({ blocks }) => {
       return block.quote.links.map((data, i) => {
         const { logo, quote } = data;
         return (
-          <QuoteBlock key={i} data={data} companyImage={logo} quote={quote} />
+          <QuoteBlock
+            key={"qb_" + i}
+            data={data}
+            companyImage={logo}
+            quote={quote}
+          />
         );
       });
     } else if (block.model.name === "Values Block") {

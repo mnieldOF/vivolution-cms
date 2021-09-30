@@ -48,6 +48,7 @@
             overflow-y: scroll;
             scrollbar-width: thin;
             height: 100%;
+            text-align: center;
           }
           .client {
             margin-top: 40px;
@@ -55,6 +56,8 @@
             align-items: center;
             font-weight: 300;
             font-size: 14px;
+            flex-direction: column;
+            text-align: center;
             .position {
               font-weight: 300;
               margin-left: 10px;
@@ -95,6 +98,11 @@
         .swiper-container {
           width: 500px;
           height: 280px;
+          .slide p, .slide .client {
+            text-align: left;
+            flex-direction: row;
+
+          }
           .swiper-pagination {
             text-align: left;
           }

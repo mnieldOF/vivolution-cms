@@ -1,11 +1,23 @@
 // UI Pattern Library Colour variables
 
 $light-bg-color: #f4f4f4;
-$dark-body-color: #111;
-$base-body-color: #444;
-$light-body-color: #777;
-$active-color: #9055a2;
 $border-color: #ccc;
+$light-grey: #cbcbcb;
+$grey: #E9E9E9;
+$light-body-color: #777;
+$base-body-color: #444;
+$primary-text-grey: #494949;
+$dark-body-color: #111;
+
+$bright-pink: #C620B6;
+$active-color: #9055a2;
+$purple: #781BB1;
+$bright-orange: #FF9900;
+
+$vivo-light-blue: #27BDF0;
+$vivo-dark-blue: #065874;
+$vivo-heading-blue: #146380;
+$overlay-blue: #00365C;
 
 // Purple gradient colours and mix-ins
 $gradient-purple-start: #3026dd;
@@ -18,4 +30,16 @@ $gradient-purple-end: #c1259a;
     #{$attribute}: -ms-linear-gradient(96.42deg, $gradient-purple-start -9.97%, $gradient-purple-end 107.69%);
     #{$attribute}: -o-linear-gradient(96.42deg, $gradient-purple-start -9.97%, $gradient-purple-end 107.69%);
     #{$attribute}: linear-gradient(96.42deg, $gradient-purple-start -9.97%, $gradient-purple-end 107.69%);
+}
+
+// Dark blue gradient colours and mix-ins
+$gradient-blue-start: #5534C7;
+$gradient-blue-end: #0D068A;
+
+@mixin blue-gradient($attribute) {
+    #{$attribute}: -webkit-linear-gradient(96.42deg, $gradient-blue-start -9.97%, $gradient-blue-end 107.69%);
+    #{$attribute}: -moz-linear-gradient(96.42deg, $gradient-blue-start -9.97%, $gradient-blue-end 107.69%);
+    #{$attribute}: -ms-linear-gradient(96.42deg, $gradient-blue-start -9.97%, $gradient-blue-end 107.69%);
+    #{$attribute}: -o-linear-gradient(96.42deg, $gradient-blue-start -9.97%, $gradient-blue-end 107.69%);
+    #{$attribute}: linear-gradient(96.42deg, $gradient-blue-start -9.97%, $gradient-blue-end 107.69%);
 }

@@ -8,6 +8,7 @@ import PortfolioFilter from "../components/portfolio-filter";
 
 const Grid = styled.div`
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   padding: 30px 0;
   grid-gap: 20px;
   @media screen and (min-width: 900px) {

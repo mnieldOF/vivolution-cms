@@ -4,6 +4,8 @@ import Select from "react-select";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
+import Button from '../components/atoms/buttons/default-button';
+import FormField from "../components/atoms/forms/form-field";
 
 // const who = [
 //   { value: "corporates", label: "Corporates" },
@@ -33,6 +35,8 @@ const options = [
 
 const Contact = ({ data }) => {
   console.log(data);
+
+  const isDisabled = false;
 
   const [department, setDepartment] = useState([]);
   // const [thanks, setThanks] = useState("");
@@ -78,41 +82,43 @@ const Contact = ({ data }) => {
                 value={department}
               />
             </div>
-            <label htmlFor="email">
-              <span>You can reply to me at</span>
-              <input
-                name="email"
-                type="email"
-                placeholder="your email address"
-                required
-              />
-            </label>
-            <label htmlFor="subject">
-              <span>It would be great to have a chat about</span>
-              <input
-                name="subject"
-                type="text"
-                placeholder="let us know how we can help you "
-              />
-            </label>
-            <label htmlFor="company-website">
-              <span>Company website</span>
-              <input
-                name="company-website"
-                type="text"
-                placeholder="Add you company website here"
-              />
-            </label>
-            <label htmlFor="linkedin">
-              <span>Linkedin profile</span>
-              <input
-                name="linkedin"
-                type="text"
-                placeholder="Linkedin profile"
-                required
-              />
-            </label>
-            <button type="submit">Lets Go!</button>
+            <FormField 
+              key={'email'} 
+              label={'You can reply to me at'}
+              required={true}
+              type={'text'}
+              placeholder={'your email address'}
+              disabled={false}
+            >
+            </FormField>
+            <FormField 
+              key={'subject'} 
+              label={'It would be great to have a chat about'}
+              required={false}
+              type={'text'}
+              placeholder={'let us know how we can help you'}
+              disabled={false}
+            >
+            </FormField>
+            <FormField 
+              key={'company-website'} 
+              label={'Company website'}
+              required={false}
+              type={'text'}
+              placeholder={'Add you company website here'}
+              disabled={false}
+            >
+            </FormField>
+            <FormField 
+              key={'linkedin'} 
+              label={'LinkedIn profile'}
+              required={false}
+              type={'text'}
+              placeholder={'LinkedIn profile'}
+              disabled={false}
+            >
+            </FormField>
+            <Button type={'submit'} buttonStyle={'default'} disabled={isDisabled}>Let&apos;s go</Button>
           </form>
         </div>
       </section>

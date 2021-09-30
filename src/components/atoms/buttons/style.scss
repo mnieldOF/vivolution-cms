@@ -1,0 +1,54 @@
+@import '../../../styles/variables/colors.scss';
+
+button {
+    box-sizing: border-box;
+    color: #fff;
+
+    &.small {
+        
+    }
+
+    &.medium {
+        width: 205px;
+        padding: 15px;
+    }
+
+    &.large {
+
+    }
+
+    &.default {
+        @include purple-gradient(background);
+        border-radius: 8px;
+        border: 1px solid $border-color;
+    }
+
+    &.round {
+        background-color: turquoise;
+        border-radius: 50px;
+        border: 1px solid 
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: default;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 11px rgba(25, 23, 23, 0.9);
+      border: 1px solid transparent;
+    }
+
+    &:focus {
+        box-shadow: inset -2px -3px 5px rgba(14, 14, 14, 0.25);
+    }
+}
