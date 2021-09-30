@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import Icon from "./icon";
 import Slider from "react-slick";
 import PortfolioItem from "./portfolio-item";
+import Img from "../images/slider-bg.png";
 
-const Test = ({ data }) => {
+const Test = ({ data, image }) => {
   const sliderRef = useRef();
   console.log(sliderRef);
 
@@ -48,18 +49,20 @@ const Test = ({ data }) => {
     ],
   };
   return (
-    <section className="test">
+    <section className={`test ${image ? "image" : null}`}>
+      {image ? <img className="bgImage" src={Img} /> : null}
       <div className="content-container column">
         <div className="flex">
           <div className="left">
-            <h2>Profile</h2>
+            <h2 className="title">Profile</h2>
             {renderArrows()}
           </div>
           <div className="right">
             <div className="m-slider">
               <div className="grid">
-                {data.map(({ node: item }) => (
+                {data.map(({ node: item, i }) => (
                   <PortfolioItem
+                    key={i}
                     image={item.featuredImage}
                     title={item.title}
                     slug={item.slug}
@@ -69,8 +72,9 @@ const Test = ({ data }) => {
                 ))}
               </div>
               <Slider {...settings} ref={sliderRef}>
-                {data.map(({ node: item }) => (
+                {data.map(({ node: item, i }) => (
                   <PortfolioItem
+                    key={i}
                     image={item.featuredImage}
                     title={item.title}
                     slug={item.slug}

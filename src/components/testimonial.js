@@ -3,11 +3,13 @@ import { StaticQuery, graphql } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import Icon from "./icon";
-import img2 from "../images/ex-bg.png";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 SwiperCore.use([Pagination, Autoplay]);
 
-const HelpBlock = () => {
+const HelpBlock = ({ image }) => {
+  const img = getImage(image[0].image);
+
   return (
     <StaticQuery
       query={graphql`
@@ -27,10 +29,14 @@ const HelpBlock = () => {
       render={(data) => (
         <div className="testimonials">
           <div className="content-container column">
-            <h2 className="title">What our Customers Say</h2>
             <div className="grid">
               <div className="left">
-                <img src={img2} />
+                <GatsbyImage
+                  className="hero-img"
+                  layout="fullWidth"
+                  image={img}
+                  alt="test"
+                />
               </div>
               <div className="right">
                 <Swiper

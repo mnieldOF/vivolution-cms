@@ -5,9 +5,19 @@ import Hero from "../../components/hero";
 import ImageText from "../../components/image-text";
 import ContentReveal from "../../components/content-reveal";
 import Partners from "../../components/partners";
+import Test from "../../components/test";
 
 const Sector = ({ data }) => {
-  console.log(data);
+  console.log("sector", data);
+  const filter = data.datoCmsSector.title;
+  const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
+    item.node.sectorCategory.some((x) => x.title === filter)
+  );
+
+  const partnerFilter = data.allDatoCmsPartner.edges.filter((item) =>
+    item.node.sectorCategory.some((x) => x.title === filter)
+  );
+
   return (
     <Layout>
       <Hero
@@ -23,8 +33,8 @@ const Sector = ({ data }) => {
         tabs={data.datoCmsSector.tabs}
         tabTitle={data.datoCmsSector.tabTitle}
       />
-      <Partners />
-      {/* <Test data={} /> */}
+      <Partners related={partnerFilter} />
+      <Test image data={filteredData} />
     </Layout>
   );
 };
@@ -34,6 +44,7 @@ export default Sector;
 export const query = graphql`
   query($id: String!) {
     datoCmsSector(id: { eq: $id }) {
+      title
       tabTitle
       tabs {
         title
@@ -53,6 +64,11 @@ export const query = graphql`
             }
           }
         }
+        tabNewContentNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
       imageText {
         title
@@ -69,6 +85,36 @@ export const query = graphql`
           gatsbyImageData
         }
         title
+      }
+    }
+    allDatoCmsPartner {
+      edges {
+        node {
+          sectorCategory {
+            title
+          }
+          partnerImage {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+    allDatoCmsCustomerProfile {
+      edges {
+        node {
+          sectorCategory {
+            title
+          }
+          featuredImage {
+            gatsbyImageData
+          }
+          title
+          logo {
+            gatsbyImageData(width: 100)
+          }
+          slug
+          shortDescription
+        }
       }
     }
   }

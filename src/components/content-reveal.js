@@ -1,13 +1,39 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
-import { StructuredText } from "react-datocms";
+// import { StructuredText } from "react-datocms";
 import Icon from "../components/icon";
 
 const Content = styled.div`
   display: none;
   &.active {
     display: block;
+  }
+  &.content {
+    h4 {
+      font-weight: 700;
+      font-size: 20px;
+      font-family: "Raleway";
+      margin-bottom: 20px;
+      color: #666666;
+    }
+    h5 {
+      font-weight: 700;
+      font-size: 16px;
+      font-family: "Raleway";
+      margin-bottom: 20px;
+      color: #666666;
+    }
+    img {
+      margin-bottom: 20px;
+    }
+    .flex {
+      display: flex;
+      margin-bottom: 20px;
+      p {
+        font-weight: 300;
+      }
+    }
   }
 `;
 
@@ -27,8 +53,9 @@ const ContentReveal = ({ tabs, tabTitle }) => {
   };
 
   const accordion = tabs.map((item, i) => {
+    console.log("item", item);
     return (
-      <li className="item">
+      <li className="item" key={i}>
         <a
           className={activeTab === i ? "active" : " "}
           onClick={(e) => {
@@ -40,9 +67,14 @@ const ContentReveal = ({ tabs, tabTitle }) => {
           <Icon icon="down" size="20px" />
         </a>
         <Content className={`content ${activeTab === i ? "active" : "hidden"}`}>
-          <StructuredText
+          {/* <StructuredText
             data={item.tabContent}
             renderLinkToRecord={renderLinkToRecord}
+          /> */}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: item.tabNewContentNode.childMarkdownRemark.html,
+            }}
           />
         </Content>
       </li>
@@ -52,6 +84,7 @@ const ContentReveal = ({ tabs, tabTitle }) => {
   const tabTitles = tabs.map((tab, i) => {
     return (
       <li
+        key={i}
         className={activeTab === i ? "active" : " "}
         onClick={(e) => {
           e.preventDefault();
@@ -68,10 +101,18 @@ const ContentReveal = ({ tabs, tabTitle }) => {
 
   const tabText = tabs.map((tab, i) => {
     return (
-      <Content className={`content ${activeTab === i ? "active" : "hidden"}`}>
-        <StructuredText
+      <Content
+        key={i}
+        className={`content ${activeTab === i ? "active" : "hidden"}`}
+      >
+        {/* <StructuredText
           data={tab.tabContent}
           renderLinkToRecord={renderLinkToRecord}
+        /> */}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: tab.tabNewContentNode.childMarkdownRemark.html,
+          }}
         />
       </Content>
     );

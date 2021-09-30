@@ -1,6 +1,7 @@
 import * as React from "react";
 
 const History = ({ data }) => {
+  console.log("about", data);
   return (
     <div className="history">
       <div className="content-container">
@@ -14,7 +15,7 @@ const History = ({ data }) => {
             />
           </div>
           <div className="right">
-            <img src={data.image.url} />
+            {data.image !== null ? <img src={data.image.url} /> : null}
           </div>
         </div>
       </div>

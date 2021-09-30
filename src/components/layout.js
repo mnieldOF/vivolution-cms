@@ -35,22 +35,31 @@ const TemplateWrapper = ({ children }) => {
               }
             }
           }
+          datoCmsFooter {
+            footerLogos {
+              gatsbyImageData
+            }
+          }
         }
       `}
-      render={(data) => (
-        <>
-          <Header />
-          <div>
-            <HelmetDatoCms
-              favicon={data.datoCmsSite.faviconMetaTags}
-              seo={data.datoCmsHome.seoMetaTags}
+      render={(data) => {
+        return (
+          <>
+            <Header socials={data.allDatoCmsSocialProfile} />
+            <div>
+              <HelmetDatoCms
+                favicon={data.datoCmsSite.faviconMetaTags}
+                seo={data.datoCmsHome.seoMetaTags}
+              />
+              <div>{children}</div>
+            </div>
+            <Footer
+              data={data.datoCmsFooter}
+              socials={data.allDatoCmsSocialProfile}
             />
-            <div>{children}</div>
-          </div>
-          {/* <SubFooter /> */}
-          <Footer />
-        </>
-      )}
+          </>
+        );
+      }}
     />
   );
 };

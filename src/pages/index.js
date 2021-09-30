@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import TextBlock from "../components/text-block";
@@ -26,14 +26,9 @@ const IndexPage = ({ data }) => {
         text={datoCmsHome.content[1].subText}
       />
       <Numbers data={datoCmsHome.numbers} />
-      <GrowthBlock
-        data={data.allDatoCmsService}
-        title={datoCmsHome.content[2].title}
-        text={datoCmsHome.content[2].subText}
-      />
-      <Testimonial />
-      <Partners />
-      <Test data={data.allDatoCmsCustomerProfile.edges} />
+      <GrowthBlock data={data.allDatoCmsService} />
+      <Testimonial image={datoCmsHome.image} />
+      <Test image data={data.allDatoCmsCustomerProfile.edges} />
     </Layout>
   );
 };
@@ -63,6 +58,11 @@ export const query = graphql`
         suffix
         text
       }
+      image {
+        image {
+          gatsbyImageData
+        }
+      }
     }
     allDatoCmsCustomerProfile {
       edges {
@@ -79,7 +79,7 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsService {
+    allDatoCmsService(sort: { fields: position, order: ASC }) {
       edges {
         node {
           slug
@@ -102,6 +102,18 @@ export const query = graphql`
             url
           }
           slug
+        }
+      }
+    }
+    allDatoCmsPartner {
+      edges {
+        node {
+          sectorCategory {
+            title
+          }
+          partnerImage {
+            gatsbyImageData
+          }
         }
       }
     }

@@ -16,7 +16,28 @@ const BlogPost = ({ data }) => {
       />
       <Author author={data.datoCmsBlog.author} />
       <div className="content-container blog">
-        <StructuredText data={data.datoCmsBlog.content} />
+        <StructuredText
+          data={data.datoCmsBlog.content}
+          renderBlock={({ record }) => {
+            if (record.__typename === "DatoCmsImageBlock") {
+              const img = getImage(record.image);
+              return (
+                <GatsbyImage
+                  className="hero-img"
+                  layout="fullWidth"
+                  image={img}
+                  alt="test"
+                />
+              );
+            }
+            return (
+              <>
+                <p>Don't know how to render a block!</p>
+                <pre>{JSON.stringify(record, null, 2)}</pre>
+              </>
+            );
+          }}
+        />
       </div>
     </Layout>
   );
@@ -36,6 +57,15 @@ export const query = graphql`
       title
       content {
         value
+        blocks {
+          __typename
+          ... on DatoCmsImageBlock {
+            id: originalId
+            image {
+              gatsbyImageData
+            }
+          }
+        }
       }
       author {
         name

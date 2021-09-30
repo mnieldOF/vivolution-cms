@@ -3,8 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
 import TeamMember from "../components/team-member";
-import GrowthBlock from "../components/growth-block";
-import Values from "../components/values";
 
 const About = ({ data }) => {
   console.log("data", data);
@@ -17,7 +15,7 @@ const About = ({ data }) => {
         <div className="content-container column">
           <h3 className="title">Meet the Vivolution Team</h3>
           <div className="grid">
-            {team.map((member) => {
+            {team.map((member, i) => {
               const {
                 role,
                 description,
@@ -29,6 +27,7 @@ const About = ({ data }) => {
               const next = member.next !== null ? member.next : null;
               return (
                 <TeamMember
+                  key={i}
                   role={role}
                   description={description}
                   name={name}

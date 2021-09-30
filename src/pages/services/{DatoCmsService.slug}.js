@@ -11,6 +11,15 @@ import Test from "../../components/test";
 
 const Service = ({ data }) => {
   console.log("here", data);
+  const filter = data.datoCmsService.title;
+  const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
+    item.node.serviceCategory.some((x) => x.title === filter)
+  );
+
+  const partnerFilter = data.allDatoCmsPartner.edges.filter((item) =>
+    item.node.serviceCategory.some((x) => x.title === filter)
+  );
+
   return (
     <Layout>
       <Hero
@@ -34,8 +43,8 @@ const Service = ({ data }) => {
             tabs={data.datoCmsService.tabs}
             tabTitle={data.datoCmsService.tabTitle}
           />
-          <Partners />
-          {/* <Test data={relatedProfiles} /> */}
+          <Partners related={partnerFilter} />
+          <Test image data={filteredData} />
         </>
       )}
     </Layout>
@@ -53,6 +62,7 @@ export const query = graphql`
           url
         }
       }
+      title
       tabTitle
       tabs {
         title
@@ -70,6 +80,11 @@ export const query = graphql`
               slug
               title
             }
+          }
+        }
+        tabNewContentNode {
+          childMarkdownRemark {
+            html
           }
         }
         model {
@@ -100,7 +115,7 @@ export const query = graphql`
       }
       slug
     }
-    allDatoCmsService {
+    allDatoCmsService(sort: { fields: position, order: ASC }) {
       edges {
         node {
           slug
@@ -109,6 +124,36 @@ export const query = graphql`
           }
           shortDescription
           cardImage {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+    allDatoCmsCustomerProfile {
+      edges {
+        node {
+          serviceCategory {
+            title
+          }
+          featuredImage {
+            gatsbyImageData
+          }
+          title
+          logo {
+            gatsbyImageData(width: 100)
+          }
+          slug
+          shortDescription
+        }
+      }
+    }
+    allDatoCmsPartner {
+      edges {
+        node {
+          serviceCategory {
+            title
+          }
+          partnerImage {
             gatsbyImageData
           }
         }
