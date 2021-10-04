@@ -117,7 +117,7 @@ const CoverMenu = ({ active, socials }) => {
   const onMouseOut = (e) => {
     const siblings = e.currentTarget.parentNode.querySelectorAll(".menu-item");
 
-    siblings.forEach((elem, i) => {
+    siblings.forEach((elem) => {
       elem.classList.remove("focused", "focused-out");
     });
   };
@@ -126,7 +126,7 @@ const CoverMenu = ({ active, socials }) => {
     return Links.map((link, index) => {
       return (
         <motion.li
-          key={index}
+          key={"nl_" + index}
           variants={listItem}
           onMouseOver={(e) => {
             onHover(e, index);
