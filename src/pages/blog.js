@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
-import ProfileList from "../components/profile-list";
+import BlogList from "../components/blog-list";
 import PortfolioFilter from "../components/portfolio-filter";
 
 const Grid = styled.div`
@@ -69,7 +69,7 @@ const Blog = ({ data }) => {
         <div className="content-container column">
           <PortfolioFilter filter={filter} buttons={buttons} />
           <Grid>
-            <ProfileList profiles={posts} />
+            <BlogList profiles={posts} />
           </Grid>
         </div>
       </Section>

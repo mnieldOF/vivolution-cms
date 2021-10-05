@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Icon from "./icon";
 
-const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
+const BlogItem = ({ image, title, logo, shortText, slug }) => {
   console.log("slug", slug);
   console.log(shortText);
   const featImg = getImage(image);
@@ -27,7 +27,7 @@ const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
             <p>{shortText}</p>
           </div>
           <div className="link">
-            <Link to={`/portfolio/${slug}`}>
+            <Link to={`/blog/${slug}`}>
               <Icon icon="right" size="20" />
               read more
             </Link>
@@ -38,4 +38,4 @@ const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
   );
 };
 
-export default PortfolioItem;
+export default BlogItem;
