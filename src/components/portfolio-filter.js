@@ -2,7 +2,9 @@ import React from "react";
 import Select from "react-select";
 
 const PortfolioFilter = ({ filter, buttons }) => {
-  const [options, setOptions] = React.useState([]);
+  const [options, setOptions] = React.useState([
+    { value: "All", label: "View All" },
+  ]);
 
   function getOptions() {
     buttons.map((item) => {
