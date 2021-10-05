@@ -12,6 +12,9 @@
     .content-container {
       opacity: 1;
     }
+    .company-info {
+      opacity: 1;
+    }
   }
   .cover-background {
     position: absolute;
@@ -64,6 +67,7 @@
       transform-origin: left;
       letter-spacing: -0.01em;
       transform: none;
+      cursor: pointer;
       .menu-word {
         color: black;
         display: block;
@@ -72,6 +76,7 @@
         transition: all 0.75s var(--custom-ease-4);
         clip-path: inset(0 0 0 0);
         text-decoration: none;
+        cursor: pointer;
       }
       &.focused-out {
         .menu-word {
@@ -110,6 +115,8 @@
     margin-bottom: -38px;
     position: relative;
     z-index: 22;
+    opacity: 0;
+    transition: all 3s ease;
     .contact-cta {
       a {
         display: inline-block;
