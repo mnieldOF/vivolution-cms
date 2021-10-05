@@ -9,6 +9,7 @@ import GrowthBlock from "../components/growth-block";
 import Numbers from "../components/numbers";
 import Testimonial from "../components/testimonial";
 import Test from "../components/test";
+import Video from "../vivo.mp4";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
@@ -19,7 +20,9 @@ const IndexPage = ({ data }) => {
       <Hero
         title={datoCmsHome.content[0].title}
         image={datoCmsHome.content[0].background}
-      />
+      >
+        <video src={Video} muted loop autoPlay></video>
+      </Hero>
       <HelpBlock data={data.allDatoCmsSector} />
       <TextBlock
         title={datoCmsHome.content[1].title}

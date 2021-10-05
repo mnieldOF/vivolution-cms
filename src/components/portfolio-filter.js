@@ -1,21 +1,37 @@
 import React from "react";
 import Select from "react-select";
 
-const options = [
-  { value: "health-care", label: "Health care" },
-  { value: "fintech", label: "fintech" },
-  { value: "digital", label: "Digital" },
-];
-
 const PortfolioFilter = ({ filter, buttons }) => {
+  const [options, setOptions] = React.useState([
+    { value: "All", label: "View All" },
+  ]);
+
+  function getOptions() {
+    buttons.map((item) => {
+      setOptions((options) => [...options, { value: item, label: item }]);
+    });
+  }
+
+  React.useEffect(() => {
+    getOptions();
+  }, []);
+
   return (
     <div className="portfolio-filter">
-      <Select options={options} className="select" />
+      <Select
+        options={options}
+        className="select"
+        onChange={(e) => filter(e.value)}
+      />
       <div className="buttons">
         <div className="grid">
           {buttons.map((cat, i) => {
             return (
-              <button type="button" onClick={() => filter(cat)}>
+              <button
+                key={"fbtn_" + i}
+                type="button"
+                onClick={() => filter(cat)}
+              >
                 {cat}
               </button>
             );

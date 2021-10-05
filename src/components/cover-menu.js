@@ -67,6 +67,18 @@ const CoverMenu = ({ active, socials }) => {
     },
   };
 
+  const opacity = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        duration: 3,
+      },
+    },
+    show: {
+      opacity: 1,
+    },
+  };
+
   const listItem = {
     hidden: {
       opacity: 0,
@@ -117,7 +129,7 @@ const CoverMenu = ({ active, socials }) => {
   const onMouseOut = (e) => {
     const siblings = e.currentTarget.parentNode.querySelectorAll(".menu-item");
 
-    siblings.forEach((elem, i) => {
+    siblings.forEach((elem) => {
       elem.classList.remove("focused", "focused-out");
     });
   };
@@ -126,7 +138,7 @@ const CoverMenu = ({ active, socials }) => {
     return Links.map((link, index) => {
       return (
         <motion.li
-          key={index}
+          key={"nl_" + index}
           variants={listItem}
           onMouseOver={(e) => {
             onHover(e, index);
@@ -172,7 +184,12 @@ const CoverMenu = ({ active, socials }) => {
                   </motion.ul>
                 ) : null}
               </nav>
-              <div className="company-info">
+              <motion.div
+                className="company-info"
+                variants={opacity}
+                initial="hidden"
+                animate="show"
+              >
                 <div className="contact-cta">
                   <a href="mailto:hello@vivolution.com">hello@vivolution.com</a>
                   <br />
@@ -202,7 +219,7 @@ const CoverMenu = ({ active, socials }) => {
                     );
                   })}
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </Cover>

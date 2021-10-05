@@ -90,6 +90,7 @@
     .grid {
       gap: 50px;
       flex-direction: row;
+      grid-template-columns: 1fr 1fr;
       .left {
         display: block;
       }
@@ -97,12 +98,6 @@
         width: 100%;
         .swiper-container {
           width: 500px;
-          height: 280px;
-          .slide p, .slide .client {
-            text-align: left;
-            flex-direction: row;
-
-          }
           .swiper-pagination {
             text-align: left;
           }

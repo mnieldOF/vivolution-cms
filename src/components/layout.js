@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import SubFooter from "../components/sub-footer";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 
 import "../styles/index.sass";
 
 const TemplateWrapper = ({ children }) => {
-  const [showMenu, setShowMenu] = useState(false);
   return (
     <StaticQuery
       query={graphql`
@@ -62,10 +61,6 @@ const TemplateWrapper = ({ children }) => {
       }}
     />
   );
-};
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.object,
 };
 
 export default TemplateWrapper;

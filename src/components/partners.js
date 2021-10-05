@@ -8,7 +8,11 @@ const Partners = ({ related }) => {
         <div className="grid">
           {related.map(({ node: partner, i }) => {
             const image = getImage(partner.partnerImage);
-            return <GatsbyImage key={i} image={image} alt="test" />;
+            return (
+              <div className="partner-img" key={i}>
+                <GatsbyImage image={image} alt="test" />
+              </div>
+            );
           })}
         </div>
       </div>
