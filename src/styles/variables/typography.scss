@@ -36,6 +36,18 @@ p {
   strong {
     font-weight: bold;
   }
+  em {
+    font-style: italic;
+  }
+  u {
+    text-decoration: underline;
+  }
+  mark {
+    background-image: linear-gradient(120deg, #fceb6a, #faec7d);
+    background-repeat: no-repeat;
+    background-size: 100% 0.7em;
+    background-position: 0 45%;
+  }
 }
 
 .subheading {

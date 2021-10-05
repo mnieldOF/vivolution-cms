@@ -16,7 +16,11 @@ const PortfolioFilter = ({ filter, buttons }) => {
 
   return (
     <div className="portfolio-filter">
-      <Select options={options} className="select" />
+      <Select
+        options={options}
+        className="select"
+        onChange={(e) => filter(e.value)}
+      />
       <div className="buttons">
         <div className="grid">
           {buttons.map((cat, i) => {
