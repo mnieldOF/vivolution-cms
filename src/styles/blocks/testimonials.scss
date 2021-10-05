@@ -87,6 +87,7 @@
     .grid {
       gap: 50px;
       flex-direction: row;
+      grid-template-columns: 1fr 1fr;
       .left {
         display: block;
       }

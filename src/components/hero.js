@@ -2,12 +2,14 @@ import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Curve from "../images/Header-Curve-01.svg";
 
-const Hero = ({ title, image, logo }) => {
+const Hero = ({ title, image, logo, children }) => {
   const heroImg = getImage(image);
   return (
     <div className="hero">
       <div className="hero-image">
-        {heroImg ? (
+        {children ? (
+          children
+        ) : heroImg ? (
           <GatsbyImage
             className="hero-img"
             layout="fullWidth"
