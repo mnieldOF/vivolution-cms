@@ -12,9 +12,6 @@
     .content-container {
       opacity: 1;
     }
-    .company-info {
-      opacity: 1;
-    }
   }
   .cover-background {
     position: absolute;
@@ -115,7 +112,6 @@
     margin-bottom: -38px;
     position: relative;
     z-index: 22;
-    opacity: 0;
     transition: all 3s ease;
     .contact-cta {
       a {
