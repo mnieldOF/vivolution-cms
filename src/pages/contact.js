@@ -91,7 +91,12 @@ const Contact = ({ data }) => {
       <DatoBlocks blocks={blocks} />
       <section className="contact">
         <div className="content-container">
-          <form className="form" onSubmit={handleSubmit}>
+          <form
+            className="form"
+            onSubmit={handleSubmit}
+            method="post"
+            action="https://rake.red/api/vivo-contact/vivo"
+          >
             <div className="inner">
               <div className="form-field">
                 <CustomSelect
@@ -159,7 +164,7 @@ const Contact = ({ data }) => {
                 />
               </div>
               <div className="form-field">
-                <label htmlFor="website">You can reply to me at</label>
+                <label htmlFor="website">Company website</label>
                 <input
                   id="website"
                   name="website"

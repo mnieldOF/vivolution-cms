@@ -12,17 +12,17 @@ const Content = styled.div`
   &.content {
     h4 {
       font-weight: 700;
-      font-size: 20px;
-      font-family: "Raleway";
-      margin-bottom: 20px;
-      color: #666666;
-    }
-    h5 {
-      font-weight: 700;
       font-size: 16px;
       font-family: "Raleway";
       margin-bottom: 20px;
-      color: #666666;
+      color: #fff;
+    }
+    h5 {
+      font-weight: 700;
+      font-size: 14px;
+      font-family: "Raleway";
+      margin-bottom: 20px;
+      color: #fff;
     }
     img {
       margin-bottom: 20px;
@@ -32,6 +32,22 @@ const Content = styled.div`
       margin-bottom: 20px;
       p {
         font-weight: 300;
+      }
+    }
+    a {
+      display: inline-block;
+      margin-right: 5px;
+      width: auto;
+    }
+  }
+  @media screen and (min-width: 900px) {
+    &.content {
+      h4 {
+        color: #666666;
+        font-size: 20px;
+      }
+      h5 {
+        color: #666666;
       }
     }
   }
