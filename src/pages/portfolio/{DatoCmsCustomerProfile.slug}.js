@@ -56,7 +56,11 @@ export const query = graphql`
           image {
             gatsbyImageData
           }
-          text
+          textNode {
+            childMarkdownRemark {
+              html
+            }
+          }
           title
         }
         ... on DatoCmsQuoteSelect {

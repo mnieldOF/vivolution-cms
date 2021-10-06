@@ -1,7 +1,8 @@
 import React from "react";
 
 const TwocolText = ({ data }) => {
-  const { text, highlightedText, title } = data;
+  console.log("2 col", data);
+  const { textNode, highlightedText, title } = data;
   return (
     <div className="twocol-text">
       <div className="content-container">
@@ -11,7 +12,12 @@ const TwocolText = ({ data }) => {
           </div>
           <div className="right">
             <p className="description">{highlightedText}</p>
-            <p className="text">{text}</p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: textNode.childMarkdownRemark.html,
+              }}
+            />
+            {/* <p className="text">{text}</p> */}
           </div>
         </div>
       </div>
