@@ -50,7 +50,7 @@
       width: 100%;
     }
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1050px) {
     padding: 0;
     height: 100vh;
     .content-container {
@@ -73,6 +73,11 @@
       width: 500px;
       .logo {
         width: 100%;
+      }
+    }
+    video {
+      & + .gatsby-image-wrapper {
+        display: none;
       }
     }
   }
