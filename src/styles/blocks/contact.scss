@@ -9,6 +9,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .inner {
+      max-width: 800px;
+    }
     .title {
       color: var(--color-primary-pink);
       font-size: 25px;
@@ -17,8 +20,42 @@
     }
     .select {
       margin-bottom: 20px;
+    }
+    h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
       label {
         margin-bottom: 10px;
+        font-weight: bold;
+      }
+      input {
+        height: 35px;
+        border: 0px;
+        border-bottom: 1px solid #cbcbcb;
+        font-size: 16px;
+      }
+      span {
+        margin-top: 5px;
+        color: red;
+        font-size: 14px;
+      }
+      textarea {
+        border: 1px solid #cbcbcb;
+        padding: 20px;
+        font-size: 16px;
+      }
+      ::-webkit-input-placeholder {
+        /* Edge */
+        color: #cbcbcb;
+      }
+
+      ::placeholder {
+        color: #cbcbcb;
       }
     }
     button {
@@ -30,10 +67,6 @@
       box-shadow: inset -2px -3px 5px rgba(14, 14, 14, 0.25);
       border-radius: 8px;
       padding: 20px 0;
-    }
-    > div,
-    label {
-      margin-bottom: 20px;
     }
   }
   label {
