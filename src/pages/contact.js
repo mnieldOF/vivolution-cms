@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Select from "react-select";
+import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
-// import Button from "../components/atoms/buttons/default-button";
-import FormField from "../components/form-field";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import CustomSelect from "../components/custom-select";
 
 const options = [
   { value: "vivo-connect", label: "VivoConnect" },
@@ -15,83 +15,167 @@ const options = [
   { value: "vivo-global", label: "VivoGlobal" },
 ];
 
-const Contact = ({ data }) => {
-  console.log(data);
+const sectors = [
+  { value: "corporate", label: "Corporate" },
+  { value: "academia", label: "Academia" },
+  { value: "government", label: "Government" },
+  { value: "start-up-scale-up", label: "Start-up / Scale-up" },
+  { value: "0ther", label: "Other" },
+];
 
-  const [department, setDepartment] = useState([]);
+const validationSchema = Yup.object().shape({
+  sector: Yup.array()
+    .min(1, "Select at least 1 Sector")
+    .of(
+      Yup.object()
+        .shape({ label: Yup.string(), value: Yup.string() })
+        .nullable()
+    )
+    .nullable(),
+  name: Yup.string().required("Please enter your name"),
+  linkedin: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
+  help: Yup.string().required("Required"),
+});
+
+const Contact = ({ data }) => {
+  const {
+    handleSubmit,
+    setFieldValue,
+    handleChange,
+    values,
+    errors,
+  } = useFormik({
+    initialValues: {
+      name: "",
+      department: [],
+      sector: [],
+      email: "",
+      subject: "",
+      website: "",
+      linkedin: "",
+      help: "",
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
   const blocks = data.datoCmsContact.blocks;
 
   const handleDepartment = (e) => {
     let selection = "";
     e.map((e) => {
-      console.log("here", e);
       selection += e.label + ", ";
     });
 
     selection = selection.replace(/,(\s+)?$/, "");
 
-    setDepartment(selection);
+    setFieldValue("department", selection);
   };
 
-  console.log(department);
+  const handleSector = (e) => {
+    let selection = "";
+    e.map((e) => {
+      selection += e.label + ", ";
+    });
+
+    selection = selection.replace(/,(\s+)?$/, "");
+
+    setFieldValue("sector", selection);
+  };
 
   return (
     <Layout>
       <DatoBlocks blocks={blocks} />
       <section className="contact">
         <div className="content-container">
-          <form
-            className="form"
-            method="post"
-            action="https://rake.red/api/vivo-contact/vivo"
-          >
-            <h2 className="title">Hi, there!</h2>
-            <div className="select">
-              <label htmlFor="department">
-                <span>
-                  Which Vivolution services do you want to know more about?
-                </span>
-              </label>
-              <Select
-                isMulti
-                options={options}
-                onChange={(e) => handleDepartment(e)}
-              />
-              <input name="department" type="text" hidden value={department} />
-            </div>
-            <FormField
-              key={"email"}
-              label={"You can reply to me at"}
-              required={true}
-              type={"text"}
-              placeholder={"your email address"}
-              disabled={false}
-            ></FormField>
-            <FormField
-              key={"subject"}
-              label={"It would be great to have a chat about"}
-              required={false}
-              type={"text"}
-              placeholder={"let us know how we can help you"}
-              disabled={false}
-            ></FormField>
-            <FormField
-              key={"company-website"}
-              label={"Company website"}
-              required={false}
-              type={"text"}
-              placeholder={"Add you company website here"}
-              disabled={false}
-            ></FormField>
-            <FormField
-              key={"linkedin"}
-              label={"LinkedIn profile"}
-              required={false}
-              type={"text"}
-              placeholder={"LinkedIn profile"}
-              disabled={false}
-            ></FormField>
-            <button type={"submit"}>Let&apos;s go</button>
+          <form onSubmit={handleSubmit}>
+            <CustomSelect
+              isMulti
+              options={options}
+              id="department"
+              label={
+                "Which Vivolution services do you want to know more about?"
+              }
+              value={values.department}
+              onChange={(value) => {
+                handleDepartment(value);
+              }}
+            />
+            <CustomSelect
+              isMulti
+              options={sectors}
+              id="sector"
+              label={"What Sector are you from?"}
+              value={values.sector}
+              onChange={(value) => {
+                handleSector(value);
+              }}
+            />
+            {errors.sector ? errors.sector : null}
+            <h2>Please tell us more about yourself and your organisation:</h2>
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              onChange={handleChange}
+              value={values.name}
+              placeholder="Your name"
+            />
+            {errors.name ? errors.name : null}
+            <label htmlFor="email">You can reply to me at</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              onChange={handleChange}
+              value={values.email}
+              placeholder="your email address"
+            />
+            {errors.email ? errors.email : null}
+            <label htmlFor="subject">
+              It would be great to have a chat about
+            </label>
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              onChange={handleChange}
+              value={values.subject}
+              placeholder="let us know how we can help you"
+            />
+            <label htmlFor="website">You can reply to me at</label>
+            <input
+              id="website"
+              name="website"
+              type="text"
+              onChange={handleChange}
+              value={values.website}
+              placeholder="Add you company website here"
+            />
+            <label htmlFor="linkedin">LinkedIn profile</label>
+            <input
+              id="linkedin"
+              name="linkedin"
+              type="text"
+              onChange={handleChange}
+              value={values.linkedin}
+              placeholder="LinkedIn profile"
+            />
+            {errors.linkedin ? errors.linkedin : null}
+            <label htmlFor="help">How can we help?</label>
+            <textarea
+              id="help"
+              name="help"
+              onChange={handleChange}
+              value={values.help}
+              placeholder="How can we help you?"
+            />
+            {errors.help ? errors.help : null}
+            <button type="submit">Submit</button>
           </form>
         </div>
       </section>
