@@ -12,7 +12,7 @@ const Services = ({ data }) => {
   return (
     <Layout>
       <Hero
-        title={data.datoCmsServiceSingle.title}
+        title={data.datoCmsServiceSingle.hero[0].title}
         image={data.datoCmsServiceSingle.hero[0].background}
       />
       <TextBlock
@@ -35,8 +35,8 @@ export const query = graphql`
       hero {
         background {
           gatsbyImageData
-          title
         }
+        title
       }
       content {
         ... on DatoCmsTitleText {
