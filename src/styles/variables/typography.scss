@@ -50,6 +50,12 @@ p {
   }
 }
 
+ol,
+ul {
+  list-style: initial;
+  margin-left: 20px;
+}
+
 .subheading {
   font-weight: 700;
   font-size: 12px;
