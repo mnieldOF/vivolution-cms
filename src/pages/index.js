@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => {
         title={datoCmsHome.content[0].title}
         image={datoCmsHome.content[0].background}
       >
-        <video src={Video} muted loop autoPlay></video>
+        <video src={Video} muted loop autoPlay playsinline></video>
       </Hero>
       <HelpBlock data={data.allDatoCmsSector} />
       <TextBlock
