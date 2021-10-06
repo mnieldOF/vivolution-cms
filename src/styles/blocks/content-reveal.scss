@@ -125,6 +125,9 @@
           max-width: 500px;
           a {
             display: inline-block;
+            padding: 0;
+            width: auto;
+            margin-right: 5px;
             transition: opacity 0.3s ease-in-out;
             background: radial-gradient(
                 circle farthest-corner at center center,
