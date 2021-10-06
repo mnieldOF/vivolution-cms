@@ -13,7 +13,7 @@ const Sectors = ({ data }) => {
     <Layout>
       <Hero
         image={data.datoCmsSectorSingle.hero[0].background}
-        title={data.datoCmsSectorSingle.title}
+        title={data.datoCmsSectorSingle.hero[0].title}
       />
       <TextBlock
         title={data.datoCmsSectorSingle.content[0].title}
@@ -35,8 +35,8 @@ export const query = graphql`
       hero {
         background {
           gatsbyImageData
-          title
         }
+        title
       }
       content {
         ... on DatoCmsTitleText {

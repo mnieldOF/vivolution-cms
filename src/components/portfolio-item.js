@@ -9,7 +9,7 @@ const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
   const featImg = getImage(image);
   const profileLogo = getImage(logo);
   return (
-    <div className="portfolio-item">
+    <Link to={`/portfolio/${slug}`} className="portfolio-item">
       <div className="top">
         <GatsbyImage className="hero-img" image={featImg} alt="test" />
       </div>
@@ -34,7 +34,7 @@ const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
