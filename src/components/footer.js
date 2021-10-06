@@ -16,16 +16,22 @@ const Footer = ({ data, socials }) => {
                 <Link to={`/`}>Home</Link>
               </li>
               <li>
-                <Link to={`/about`}>About</Link>
+                <Link to={`/sectors`}>Sectors</Link>
               </li>
               <li>
                 <Link to={`/services`}>Services</Link>
               </li>
               <li>
-                <Link to={`/contact`}>Contact us</Link>
+                <Link to={`/portfolio`}>Portfolio</Link>
+              </li>
+              <li>
+                <Link to={`/about`}>About</Link>
               </li>
               <li>
                 <Link to={`/blog`}>Blog</Link>
+              </li>
+              <li>
+                <Link to={`/contact`}>Contact us</Link>
               </li>
             </ul>
             <ul className="social-menu">
