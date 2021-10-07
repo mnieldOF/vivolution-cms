@@ -39,6 +39,10 @@ const Content = styled.div`
       margin-right: 5px;
       width: auto;
     }
+    ul {
+      list-style: initial;
+      margin-left: 20px;
+    }
   }
   @media screen and (min-width: 900px) {
     &.content {
