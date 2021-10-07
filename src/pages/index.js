@@ -9,7 +9,7 @@ import GrowthBlock from "../components/growth-block";
 import Numbers from "../components/numbers";
 import Testimonial from "../components/testimonial";
 import Test from "../components/test";
-import Video from "../vivo.mp4";
+import Video from "../vivo-new.mp4";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
