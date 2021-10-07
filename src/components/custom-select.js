@@ -12,6 +12,7 @@ const CustomSelect = ({
   onBlur,
   error,
   touched,
+  required,
 }) => {
   const handleChane = (value) => {
     onChange(id, value);
@@ -23,7 +24,10 @@ const CustomSelect = ({
 
   return (
     <>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        {label}
+        {required ? "*" : null}
+      </label>
       <Select
         isMulti={isMulti}
         className={className}

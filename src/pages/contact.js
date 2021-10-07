@@ -44,28 +44,23 @@ const validationSchema = Yup.object().shape({
 const Contact = ({ data }) => {
   const blocks = data.datoCmsContact.blocks;
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (values) => {
+    console.log(values);
     try {
-      const res = await fetch(
-        "http://51.104.236.199/CUSTOMERAUTH/setCustomerProfile.pson",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            ...userData,
-            displayName: customerName,
-            customerRef: user.customerRef,
-            authToken: user.authToken,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await fetch("https://rake.red/api/vivo-contact/vivo", {
+        method: "POST",
+        body: JSON.stringify({
+          ...values,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       if (res.status === 200) {
-        const { errorCode } = await res.json();
-        if (errorCode === 1) {
-          navigate("/");
-        }
+        // const { errorCode } = await res.json();
+        // if (errorCode === 1) {
+        //   navigate("/");
+        // }
       }
     } catch (e) {
       console.log(e);
@@ -110,11 +105,8 @@ const Contact = ({ data }) => {
               help: "",
             }}
             validationSchema={validationSchema}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-              }, 400);
+            onSubmit={(values) => {
+              handleSubmit(values);
             }}
           >
             {({
@@ -154,6 +146,7 @@ const Contact = ({ data }) => {
                       onBlur={setFieldTouched}
                       error={errors.sector}
                       touched={touched.sector}
+                      required
                     />
                   </div>
                   <h3>
@@ -173,6 +166,7 @@ const Contact = ({ data }) => {
                       name="email"
                       type="email"
                       placeholder="Your email address"
+                      required
                     />
                   </div>
                   <div className="form-field">
@@ -189,10 +183,11 @@ const Contact = ({ data }) => {
                       name="linkedin"
                       type="url"
                       placeholder="LinkedIn Profile"
+                      required
                     />
                   </div>
                   <div className="form-field">
-                    <MyTextArea label="How can we help?" name="help" />
+                    <MyTextArea label="How can we help?" name="help" required />
                   </div>
                   <button
                     type="submit"
