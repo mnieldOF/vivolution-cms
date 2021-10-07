@@ -19,7 +19,6 @@ const Hero = ({ title, image, logo, children }) => {
         ) : (
           <img src={image} alt="" className="hero-img" />
         )}
-        s
       </div>
 
       <img src={Curve} className="curve" alt="" />
