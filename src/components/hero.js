@@ -7,8 +7,9 @@ const Hero = ({ title, image, logo, children }) => {
   return (
     <div className="hero">
       <div className="hero-image">
-        {children && children}
-        {heroImg ? (
+        {children ? (
+          children
+        ) : heroImg ? (
           <GatsbyImage
             className="hero-img"
             layout="fullWidth"
@@ -18,6 +19,7 @@ const Hero = ({ title, image, logo, children }) => {
         ) : (
           <img src={image} alt="" className="hero-img" />
         )}
+        s
       </div>
 
       <img src={Curve} className="curve" alt="" />

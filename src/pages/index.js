@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
           src={Video}
           loop
           preload="auto"
-          autoPlay=""
+          autoPlay
           webkit-playsinline="true"
           playsinline="true"
           muted="true"
