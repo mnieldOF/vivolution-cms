@@ -9,9 +9,16 @@ const CustomSelect = ({
   label,
   id,
   isMulti,
+  onBlur,
+  error,
+  touched,
 }) => {
-  const defaultValue = (options, value) => {
-    return options ? options.find((option) => option.value === value) : "";
+  const handleChane = (value) => {
+    onChange(id, value);
+  };
+
+  const handleBlur = () => {
+    onBlur(id, true);
   };
 
   return (
@@ -21,10 +28,14 @@ const CustomSelect = ({
         isMulti={isMulti}
         className={className}
         id={id}
-        value={defaultValue(options, value)}
-        onChange={(value) => onChange(value)}
+        value={value}
+        onBlur={handleBlur}
+        onChange={handleChane}
         options={options}
       />
+      {!!error && touched && (
+        <div style={{ color: "red", marginTop: ".5rem" }}>{error}</div>
+      )}
     </>
   );
 };

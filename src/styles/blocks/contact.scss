@@ -23,8 +23,9 @@
       margin-bottom: 20px;
     }
     h3 {
-      font-size: 22px;
+      font-size: 18px;
       margin-bottom: 20px;
+      font-weight: bold;
     }
     .form-field {
       display: flex;
@@ -69,6 +70,10 @@
       box-shadow: inset -2px -3px 5px rgba(14, 14, 14, 0.25);
       border-radius: 8px;
       padding: 20px 0;
+      &[disabled] {
+        background: #dddddd;
+        cursor: not-allowed;
+      }
     }
   }
   label {
@@ -83,6 +88,13 @@
       border: 0px;
       border-bottom: 1px solid #cbcbcb;
       padding: 10px 0;
+    }
+  }
+  @media screen and (min-width: 700px) {
+    .form {
+      h3 {
+        font-size: 23px;
+      }
     }
   }
 }

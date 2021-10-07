@@ -25,45 +25,45 @@ const sectors = [
   { value: "0ther", label: "Other" },
 ];
 
-const validationSchema = Yup.object().shape({
-  sector: Yup.array()
-    .min(1, "Select at least 1 option")
-    .of(
-      Yup.object()
-        .shape({ label: Yup.string(), value: Yup.string() })
-        .nullable()
-    )
-    .nullable(),
-  name: Yup.string().required("Please enter your name"),
-  linkedin: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
-  help: Yup.string().required("Required"),
-});
+// const validationSchema = Yup.object().shape({
+//   sector: Yup.array()
+//     .min(1, "Select at least 1 option")
+//     .of(
+//       Yup.object()
+//         .shape({ label: Yup.string(), value: Yup.string() })
+//         .nullable()
+//     )
+//     .nullable(),
+//   name: Yup.string().required("Please enter your name"),
+//   linkedin: Yup.string().required("Required"),
+//   email: Yup.string().email("Invalid email").required("Required"),
+//   help: Yup.string().required("Required"),
+// });
 
 const Contact = ({ data }) => {
   const blocks = data.datoCmsContact.blocks;
 
-  const handleDepartment = (e) => {
-    let selection = "";
-    e.map((e) => {
-      selection += e.label + ", ";
-    });
+  // const handleDepartment = (e) => {
+  //   let selection = "";
+  //   e.map((e) => {
+  //     selection += e.label + ", ";
+  //   });
 
-    selection = selection.replace(/,(\s+)?$/, "");
+  //   selection = selection.replace(/,(\s+)?$/, "");
 
-    setFieldValue("department", selection);
-  };
+  //   setFieldValue("department", selection);
+  // };
 
-  const handleSector = (e) => {
-    let selection = "";
-    e.map((e) => {
-      selection += e.label + ", ";
-    });
+  // const handleSector = (e) => {
+  //   let selection = "";
+  //   e.map((e) => {
+  //     selection += e.label + ", ";
+  //   });
 
-    selection = selection.replace(/,(\s+)?$/, "");
+  //   selection = selection.replace(/,(\s+)?$/, "");
 
-    setFieldValue("sector", selection);
-  };
+  //   setFieldValue("sector", selection);
+  // };
 
   return (
     <Layout>
@@ -76,22 +76,44 @@ const Contact = ({ data }) => {
               department: [],
               sector: [],
               email: "",
-              subject: "",
               website: "",
               linkedin: "",
               help: "",
             }}
-            validationSchema={validationSchema}
-            className="form"
+            validationSchema={Yup.object().shape({
+              sector: Yup.array()
+                .min(1, "Pick at least 1 tag")
+                .of(
+                  Yup.object().shape({
+                    label: Yup.string().required(),
+                    value: Yup.string().required(),
+                  })
+                ),
+              name: Yup.string().required("Please enter your name"),
+              linkedin: Yup.string()
+                .url("Invalid Linkedin URL")
+                .required("Required"),
+              email: Yup.string().email("Invalid email").required("Required"),
+              help: Yup.string().required("Required"),
+              website: Yup.string().url("Invalid URL"),
+            })}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
                 alert(JSON.stringify(values, null, 2));
                 setSubmitting(false);
               }, 400);
             }}
-          >
-            {(formik) => (
-              <Form className="form" onSubmit={formik.handleSubmit}>
+            render={({
+              setFieldValue,
+              values,
+              touched,
+              setFieldTouched,
+              errors,
+              isSubmitting,
+              dirty,
+              isValid,
+            }) => (
+              <Form className="form">
                 <div className="inner">
                   <div className="form-field">
                     <CustomSelect
@@ -101,10 +123,10 @@ const Contact = ({ data }) => {
                       label={
                         "Which Vivolution services do you want to know more about?"
                       }
-                      value={formik.values.department}
-                      onChange={(value) => {
-                        handleDepartment(value);
-                      }}
+                      value={values.department}
+                      onChange={setFieldValue}
+                      onBlur={setFieldTouched}
+                      touched={touched.department}
                     />
                   </div>
                   <div className="form-field">
@@ -113,14 +135,12 @@ const Contact = ({ data }) => {
                       options={sectors}
                       id="sector"
                       label={"What Sector are you from?"}
-                      value={formik.values.sector}
-                      onChange={(value) => {
-                        handleSector(value);
-                      }}
+                      value={values.sector}
+                      onChange={setFieldValue}
+                      onBlur={setFieldTouched}
+                      error={errors.sector}
+                      touched={touched.sector}
                     />
-                    {formik.touched.sector && formik.errors.sector ? (
-                      <span>{formik.errors.sector}</span>
-                    ) : null}
                   </div>
                   <h3>
                     Please tell us more about yourself and your organisation:
@@ -145,20 +165,31 @@ const Contact = ({ data }) => {
                     <MyTextInput
                       label="Company website"
                       name="website"
-                      type="text"
+                      type="url"
                       placeholder="Add you company website here"
+                    />
+                  </div>
+                  <div className="form-field">
+                    <MyTextInput
+                      label="LinkedIn Profile"
+                      name="linkedin"
+                      type="url"
+                      placeholder="LinkedIn Profile"
                     />
                   </div>
                   <div className="form-field">
                     <MyTextArea label="How can we help?" name="help" />
                   </div>
-                  <button disabled={!formik.isValid} type="submit">
+                  <button
+                    type="submit"
+                    disabled={!dirty || isSubmitting || !isValid}
+                  >
                     Submit
                   </button>
                 </div>
               </Form>
             )}
-          </Formik>
+          />
         </div>
       </section>
     </Layout>
