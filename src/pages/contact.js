@@ -26,14 +26,7 @@ const sectors = [
 ];
 
 const validationSchema = Yup.object().shape({
-  sector: Yup.array()
-    .min(1, "Pick at least 1 tag")
-    .of(
-      Yup.object().shape({
-        label: Yup.string().required(),
-        value: Yup.string().required(),
-      })
-    ),
+  sector: Yup.string().required("Please select an option"),
   name: Yup.string().required("Please enter your name"),
   linkedin: Yup.string().url("Invalid Linkedin URL").required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
@@ -66,29 +59,6 @@ const Contact = ({ data }) => {
       console.log(e);
     }
   };
-
-  // const handleDepartment = (e) => {
-  //   let selection = "";
-  //   e.map((e) => {
-  //     selection += e.label + ", ";
-  //   });
-
-  //   selection = selection.replace(/,(\s+)?$/, "");
-
-  //   setFieldValue("department", selection);
-  // };
-
-  // const handleSector = (e) => {
-  //   let selection = "";
-  //   e.map((e) => {
-  //     selection += e.label + ", ";
-  //   });
-
-  //   selection = selection.replace(/,(\s+)?$/, "");
-
-  //   setFieldValue("sector", selection);
-  // };
-
   return (
     <Layout>
       <DatoBlocks blocks={blocks} />
@@ -97,8 +67,8 @@ const Contact = ({ data }) => {
           <Formik
             initialValues={{
               name: "",
-              department: [],
-              sector: [],
+              department: "",
+              sector: "",
               email: "",
               website: "",
               linkedin: "",

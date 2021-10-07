@@ -14,8 +14,16 @@ const CustomSelect = ({
   touched,
   required,
 }) => {
-  const handleChane = (value) => {
-    onChange(id, value);
+  const handleChange = (value) => {
+    console.log(value);
+    let selection = "";
+    value.map((value) => {
+      selection += value.value + ", ";
+    });
+
+    selection = selection.replace(/,(\s+)?$/, "");
+
+    onChange(id, selection);
   };
 
   const handleBlur = () => {
@@ -32,9 +40,9 @@ const CustomSelect = ({
         isMulti={isMulti}
         className={className}
         id={id}
-        value={value}
+        value={value.value}
         onBlur={handleBlur}
-        onChange={handleChane}
+        onChange={handleChange}
         options={options}
       />
       {!!error && touched && (
