@@ -25,23 +25,52 @@ const sectors = [
   { value: "0ther", label: "Other" },
 ];
 
-// const validationSchema = Yup.object().shape({
-//   sector: Yup.array()
-//     .min(1, "Select at least 1 option")
-//     .of(
-//       Yup.object()
-//         .shape({ label: Yup.string(), value: Yup.string() })
-//         .nullable()
-//     )
-//     .nullable(),
-//   name: Yup.string().required("Please enter your name"),
-//   linkedin: Yup.string().required("Required"),
-//   email: Yup.string().email("Invalid email").required("Required"),
-//   help: Yup.string().required("Required"),
-// });
+const validationSchema = Yup.object().shape({
+  sector: Yup.array()
+    .min(1, "Pick at least 1 tag")
+    .of(
+      Yup.object().shape({
+        label: Yup.string().required(),
+        value: Yup.string().required(),
+      })
+    ),
+  name: Yup.string().required("Please enter your name"),
+  linkedin: Yup.string().url("Invalid Linkedin URL").required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
+  help: Yup.string().required("Required"),
+  website: Yup.string().url("Invalid URL"),
+});
 
 const Contact = ({ data }) => {
   const blocks = data.datoCmsContact.blocks;
+
+  const handleSubmit = async () => {
+    try {
+      const res = await fetch(
+        "http://51.104.236.199/CUSTOMERAUTH/setCustomerProfile.pson",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            ...userData,
+            displayName: customerName,
+            customerRef: user.customerRef,
+            authToken: user.authToken,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (res.status === 200) {
+        const { errorCode } = await res.json();
+        if (errorCode === 1) {
+          navigate("/");
+        }
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   // const handleDepartment = (e) => {
   //   let selection = "";
@@ -80,30 +109,15 @@ const Contact = ({ data }) => {
               linkedin: "",
               help: "",
             }}
-            validationSchema={Yup.object().shape({
-              sector: Yup.array()
-                .min(1, "Pick at least 1 tag")
-                .of(
-                  Yup.object().shape({
-                    label: Yup.string().required(),
-                    value: Yup.string().required(),
-                  })
-                ),
-              name: Yup.string().required("Please enter your name"),
-              linkedin: Yup.string()
-                .url("Invalid Linkedin URL")
-                .required("Required"),
-              email: Yup.string().email("Invalid email").required("Required"),
-              help: Yup.string().required("Required"),
-              website: Yup.string().url("Invalid URL"),
-            })}
+            validationSchema={validationSchema}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
                 alert(JSON.stringify(values, null, 2));
                 setSubmitting(false);
               }, 400);
             }}
-            render={({
+          >
+            {({
               setFieldValue,
               values,
               touched,
@@ -189,7 +203,7 @@ const Contact = ({ data }) => {
                 </div>
               </Form>
             )}
-          />
+          </Formik>
         </div>
       </section>
     </Layout>
