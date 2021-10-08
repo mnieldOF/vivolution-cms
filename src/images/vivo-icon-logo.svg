@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="189px" height="189px" viewBox="0 0 189 189" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Untitled 23</title>
+    <defs>
+        <linearGradient x1="79.9740335%" y1="102.808511%" x2="25.3418742%" y2="6.55851064%" id="linearGradient-1">
+            <stop stop-color="#3026DD" offset="0%"></stop>
+            <stop stop-color="#C1259A" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="97.1329787%" x2="50%" y2="-12.2978723%" id="linearGradient-2">
+            <stop stop-color="#FF1B6B" offset="0%"></stop>
+            <stop stop-color="#C44C9A" offset="24%"></stop>
+            <stop stop-color="#8E78C5" offset="50%"></stop>
+            <stop stop-color="#6699E5" offset="72%"></stop>
+            <stop stop-color="#4EADF8" offset="89%"></stop>
+            <stop stop-color="#45B4FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="56.0007266%" y1="56.5717061%" x2="44.9800717%" y2="44.674652%" id="linearGradient-3">
+            <stop stop-color="#0D5E9A" offset="0%"></stop>
+            <stop stop-color="#1375AF" stop-opacity="0.76" offset="10%"></stop>
+            <stop stop-color="#198BC3" stop-opacity="0.53" offset="22%"></stop>
+            <stop stop-color="#1E9DD3" stop-opacity="0.33" offset="35%"></stop>
+            <stop stop-color="#22ABE0" stop-opacity="0.19" offset="48%"></stop>
+            <stop stop-color="#25B5E9" stop-opacity="0.08" offset="62%"></stop>
+            <stop stop-color="#26BBEE" stop-opacity="0.02" offset="79%"></stop>
+            <stop stop-color="#27BDF0" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="vivo-icon-logo" fill-rule="nonzero">
+            <polygon id="Path" fill="url(#linearGradient-1)" points="63.06 188.5 125.94 188.5 63.06 0.5 0.18 0.5"></polygon>
+            <polygon id="Path" fill="url(#linearGradient-2)" points="125.94 188.5 63.06 188.5 125.94 0.5 188.82 0.5"></polygon>
+            <polygon id="Path" fill="url(#linearGradient-3)" style="mix-blend-mode: multiply;" points="94.5 94.5 84.61 64.94 53.81 160.85 63.06 188.5"></polygon>
+        </g>
+    </g>
+</svg>

@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import Icon from "./icon";
 import CoverMenu from "./cover-menu";
 import { motion } from "framer-motion";
+import SmallLogo from "../images/vivo-icon-logo.svg";
 
 const Header = ({ socials }) => {
   const [active, setActive] = useState(false);
@@ -36,8 +37,10 @@ const Header = ({ socials }) => {
             className={`logo-container ${active ? "active" : ""}`}
           >
             <Link to={`/`}>
-              <Icon icon="vivo-logo" width="100px" className="logo" />
-              <Icon icon="v-logo" size="30px" className="logo-small" />
+              <Icon icon="vivo-logo-white" width="100px" className="logo" />
+              <div className="logo-small">
+                <img src={SmallLogo} alt="" />
+              </div>
             </Link>
           </div>
           <nav className="vivo-header-nav">

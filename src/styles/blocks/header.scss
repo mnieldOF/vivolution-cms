@@ -38,9 +38,9 @@
       position: absolute;
       top: 30px;
       left: 20px;
-      svg {
+      img {
         transition: opacity 0.3s ease-in;
-        width: 50px;
+        width: 30px;
         opacity: 1;
       }
     }
@@ -52,7 +52,7 @@
       }
       .logo-small {
         display: block;
-        svg {
+        img {
           opacity: 1;
         }
       }
@@ -97,9 +97,9 @@
         position: absolute;
         top: 0;
         left: 0;
-        svg {
+        img {
           transition: opacity 0.3s ease-in;
-          width: 50px;
+          width: 30px;
           opacity: 0;
         }
       }
@@ -111,7 +111,7 @@
         }
         .logo-small {
           display: block;
-          svg {
+          img {
             opacity: 1;
           }
         }
