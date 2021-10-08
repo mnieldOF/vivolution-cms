@@ -11,7 +11,7 @@ import MapBlock from "../components/map-block";
 
 const options = [
   { value: "vivo-connect", label: "VivoConnect" },
-  { value: "vivo-inovate", label: "VivoInovate" },
+  { value: "vivo-innovate", label: "VivoInnovate" },
   { value: "vivo-studios", label: "VivoStudios" },
   { value: "vivo-tech", label: "VivoTech" },
   { value: "vivo-ventures", label: "VivoVentures" },
