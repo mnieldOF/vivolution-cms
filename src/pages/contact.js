@@ -28,7 +28,7 @@ const sectors = [
 const validationSchema = Yup.object().shape({
   sector: Yup.string().required("Please select an option"),
   name: Yup.string().required("Please enter your name"),
-  linkedin: Yup.string().url("Invalid Linkedin URL").required("Required"),
+  linkedin: Yup.string().url("Invalid Linkedin URL"),
   email: Yup.string().email("Invalid email").required("Required"),
   help: Yup.string().required("Required"),
   website: Yup.string().url("Invalid URL"),
@@ -153,7 +153,6 @@ const Contact = ({ data }) => {
                       name="linkedin"
                       type="url"
                       placeholder="LinkedIn Profile"
-                      required
                     />
                   </div>
                   <div className="form-field">
