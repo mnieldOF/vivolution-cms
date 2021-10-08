@@ -128,6 +128,7 @@ const Contact = ({ data }) => {
                       name="name"
                       type="text"
                       placeholder="Name"
+                      required
                     />
                   </div>
                   <div className="form-field">
