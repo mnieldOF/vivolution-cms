@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import CustomSelect from "../components/custom-select";
 import MyTextInput from "../components/form/text-input";
 import MyTextArea from "../components/form/teaxtarea";
+import MapBlock from "../components/map-block";
 
 const options = [
   { value: "vivo-connect", label: "VivoConnect" },
@@ -22,7 +23,7 @@ const sectors = [
   { value: "academia", label: "Academia" },
   { value: "government", label: "Government" },
   { value: "start-up-scale-up", label: "Start-up / Scale-up" },
-  { value: "0ther", label: "Other" },
+  { value: "other", label: "Other" },
 ];
 
 const validationSchema = Yup.object().shape({
@@ -34,8 +35,9 @@ const validationSchema = Yup.object().shape({
   website: Yup.string().url("Invalid URL"),
 });
 
-const Contact = ({ data }) => {
+const Contact = ({ data, location }) => {
   const blocks = data.datoCmsContact.blocks;
+  console.log("contact", data.datoCmsContact.contactInformation);
 
   const handleSubmit = async (values) => {
     console.log(values);
@@ -60,7 +62,7 @@ const Contact = ({ data }) => {
     }
   };
   return (
-    <Layout>
+    <Layout location={location}>
       <DatoBlocks blocks={blocks} />
       <section className="contact">
         <div className="content-container">
@@ -170,6 +172,7 @@ const Contact = ({ data }) => {
             )}
           </Formik>
         </div>
+        <MapBlock info={data.datoCmsContact.contactInformation} />
       </section>
     </Layout>
   );
@@ -188,6 +191,18 @@ export const query = graphql`
         model {
           name
         }
+      }
+      contactInformation {
+        addressNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+        mapImage {
+          gatsbyImageData
+          title
+        }
+        title
       }
     }
   }

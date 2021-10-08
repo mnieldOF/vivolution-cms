@@ -24,6 +24,10 @@ const CustomSelect = ({
     selection = selection.replace(/,(\s+)?$/, "");
 
     onChange(id, selection);
+
+    if (value === "other") {
+      console.log("other");
+    }
   };
 
   const handleBlur = () => {
