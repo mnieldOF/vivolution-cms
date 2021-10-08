@@ -7,7 +7,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 
 import "../styles/index.sass";
 
-const TemplateWrapper = ({ children, location }) => {
+const TemplateWrapper = ({ children, location, noFooter }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -53,11 +53,12 @@ const TemplateWrapper = ({ children, location }) => {
               <div>{children}</div>
             </div>
             {!location ? <SubFooter /> : null}
-
-            <Footer
-              data={data.datoCmsFooter}
-              socials={data.allDatoCmsSocialProfile}
-            />
+            {!noFooter ? (
+              <Footer
+                data={data.datoCmsFooter}
+                socials={data.allDatoCmsSocialProfile}
+              />
+            ) : null}
           </>
         );
       }}

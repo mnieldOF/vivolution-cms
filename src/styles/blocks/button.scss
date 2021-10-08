@@ -1,0 +1,21 @@
+.link-button {
+  background: linear-gradient(96.42deg, #3026dd -9.97%, #c1259a 107.69%);
+  color: var(--color-primary-white);
+  font-weight: bold;
+  border: 0px;
+  width: 200px;
+  box-shadow: inset -2px -3px 5px rgba(14, 14, 14, 0.25);
+  border-radius: 8px;
+  padding: 20px 0;
+  transition: opacity 0.3s ease-in-out;
+  text-decoration: none;
+  text-align: center;
+  &[disabled] {
+    background: #dddddd;
+    cursor: not-allowed;
+  }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}

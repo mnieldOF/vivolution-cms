@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
 import { Formik, Form } from "formik";
@@ -52,10 +52,7 @@ const Contact = ({ data, location }) => {
         },
       });
       if (res.status === 200) {
-        // const { errorCode } = await res.json();
-        // if (errorCode === 1) {
-        //   navigate("/");
-        // }
+        navigate("/form-complete");
       }
     } catch (e) {
       console.log(e);
