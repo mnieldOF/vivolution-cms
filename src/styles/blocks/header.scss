@@ -36,12 +36,13 @@
     }
     .logo-small {
       position: absolute;
-      top: 30px;
+      top: 35px;
       left: 20px;
       img {
         transition: opacity 0.3s ease-in;
         width: 30px;
         opacity: 1;
+        z-index: 35;
       }
     }
     &.active,
@@ -52,6 +53,7 @@
       }
       .logo-small {
         display: block;
+        z-index: 5;
         img {
           opacity: 1;
         }
@@ -97,6 +99,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 5;
         img {
           transition: opacity 0.3s ease-in;
           width: 30px;
@@ -111,6 +114,7 @@
         }
         .logo-small {
           display: block;
+          z-index: 5;
           img {
             opacity: 1;
           }
