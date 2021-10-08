@@ -23,7 +23,8 @@
     color: var(--color-primary-pink);
   }
   .title {
-    font-size: 35px;
+    font-size: 22px;
+    margin-bottom: 20px;
   }
   .sub-title {
     margin-bottom: 30px;
@@ -32,5 +33,10 @@
   .image-container {
     max-width: 200px;
     margin-bottom: 30px;
+  }
+  @media screen and (min-width: 576px) {
+    .title {
+      font-size: 35px;
+    }
   }
 }
