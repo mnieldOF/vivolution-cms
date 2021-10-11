@@ -5,7 +5,7 @@ import Icon from "./icon";
 
 const HelpBlock = ({ data }) => {
   return (
-    <div className="help-block">
+    <section className="help-block white">
       <div className="content-container column">
         <div className="grid">
           {data.edges.map(({ node: item, i }) => (
@@ -27,7 +27,7 @@ const HelpBlock = ({ data }) => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-const TextBlock = ({title, text}) => {
-    return(
-        <div className='text-block'>
-            <div className='content-container'>
-                <div className="box">
-                    <h2 className='title'>{title}</h2>
-                    <p className='text'>{text}</p>
-                </div>
-            </div>
+const TextBlock = ({ title, text }) => {
+  return (
+    <section className="text-block white">
+      <div className="content-container">
+        <div className="box">
+          <h2 className="title">{title}</h2>
+          <p className="text">{text}</p>
         </div>
-    )
-}
+      </div>
+    </section>
+  );
+};
 
 export default TextBlock;

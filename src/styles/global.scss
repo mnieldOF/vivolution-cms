@@ -1,0 +1,7 @@
+section {
+  &.white {
+    & + .white {
+      padding-top: 0;
+    }
+  }
+}
