@@ -1,5 +1,5 @@
 .text-block {
-  padding: 50px 0;
+  padding: 50px 0 0;
   background: white;
   .container {
     flex-direction: column;
@@ -22,7 +22,7 @@
     }
   }
   @media screen and (min-width: 900px) {
-    padding: 70px 0;
+    padding: 70px 0 0;
     .box {
       max-width: 850px;
       .title {
