@@ -181,6 +181,9 @@ const CoverMenu = ({ active, socials }) => {
                     animate="show"
                   >
                     <NavLink />
+                    <a href="/contact" className="mobile-contact">
+                      let&apos;s chat
+                    </a>
                   </motion.ul>
                 ) : null}
               </nav>

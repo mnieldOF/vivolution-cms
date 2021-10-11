@@ -49,7 +49,7 @@ const Header = ({ socials }) => {
                 href="/contact"
                 className={`chat-cta ${active ? "active" : ""}`}
               >
-                let's chat
+                let&apos;s chat
               </a>
             </div>
             <motion.div className={`hamburger ${active ? "active" : ""}`}>

@@ -91,6 +91,9 @@
           transform: translate3d(35px, 0, 0);
         }
       }
+      &:last-of-type {
+        display: none;
+      }
     }
     .grayed {
       position: absolute;
@@ -106,6 +109,27 @@
       text-transform: uppercase;
       transform: rotate(-90deg) translate3d(-45px, 0, 0);
       transform-origin: bottom left;
+    }
+    .mobile-contact {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #000;
+      margin-top: 30px;
+      text-decoration: none;
+      padding-bottom: 8px;
+      position: relative;
+      font-size: 13px;
+      letter-spacing: 1px;
+      &:after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+      }
     }
   }
 
@@ -148,6 +172,17 @@
     }
   }
   @media screen and (min-width: 768px) {
+    .primary-nav {
+      .menu-item {
+        &:last-of-type {
+          display: flex;
+        }
+      }
+      .mobile-contact {
+        display: none;
+        margin-top: 30px;
+      }
+    }
     .company-info {
       .address {
         display: flex;
