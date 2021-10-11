@@ -37,7 +37,11 @@ const Header = ({ socials }) => {
             className={`logo-container ${active ? "active" : ""}`}
           >
             <Link to={`/`}>
-              <Icon icon="vivo-logo-white" width="100px" className="logo" />
+              <Icon
+                icon="Vivolution_Text-Only---white-and-Blue"
+                width="100px"
+                className="logo"
+              />
               <div className="logo-small">
                 <img src={SmallLogo} alt="" />
               </div>

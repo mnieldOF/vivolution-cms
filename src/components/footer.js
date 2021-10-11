@@ -10,7 +10,11 @@ const Footer = ({ data, socials }) => {
       <div className="content-container">
         <div className="flex">
           <div className="left">
-            <Icon icon="vivo-logo-white" width="150px" className="logo" />
+            <Icon
+              icon="Vivolution_Text-Only---white-and-Blue"
+              width="150px"
+              className="logo"
+            />
             <ul className="menu">
               <li>
                 <Link to={`/`}>Home</Link>
