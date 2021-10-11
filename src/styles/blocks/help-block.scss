@@ -22,6 +22,11 @@
     overflow: auto hidden !important;
     scroll-snap-type: x mandatory !important;
     gap: 12px !important;
+    &:nth-child(n) {
+      & > * {
+        scroll-snap-align: start !important;
+      }
+    }
   }
   .help-card {
     border-radius: 16px;
