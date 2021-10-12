@@ -36,7 +36,7 @@ const Service = ({ data }) => {
         <>
           <ImageText
             title={data.datoCmsService.imageText[0].title}
-            text={data.datoCmsService.imageText[0].subText}
+            text={data.datoCmsService.imageText[0].subTextNode}
             image={data.datoCmsService.imageText[0].image}
           />
           <ContentReveal
@@ -93,7 +93,11 @@ export const query = graphql`
       }
       imageText {
         title
-        subText
+        subTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
         image {
           gatsbyImageData
         }

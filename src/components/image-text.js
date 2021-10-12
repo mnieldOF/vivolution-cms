@@ -9,7 +9,11 @@ const ImageText = ({ title, text, image }) => {
         <div className="grid">
           <div className="left">
             <h2 className="title">{title}</h2>
-            <p className="text">{text}</p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: text.childMarkdownRemark.html,
+              }}
+            />
           </div>
           <div className="right">
             <div className="image-container">
