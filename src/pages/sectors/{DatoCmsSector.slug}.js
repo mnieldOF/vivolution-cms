@@ -26,7 +26,7 @@ const Sector = ({ data }) => {
       />
       <ImageText
         title={data.datoCmsSector.imageText[0].title}
-        text={data.datoCmsService.imageText[0].subTextNode}
+        text={data.datoCmsSector.imageText[0].subTextNode}
         image={data.datoCmsSector.imageText[0].image}
       />
       <ContentReveal
