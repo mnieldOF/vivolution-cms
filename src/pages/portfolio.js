@@ -95,7 +95,7 @@ export const query = graphql`
       }
       description
     }
-    allDatoCmsCustomerProfile {
+    allDatoCmsCustomerProfile(sort: { fields: title, order: ASC }) {
       edges {
         node {
           featuredImage {
