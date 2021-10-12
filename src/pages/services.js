@@ -52,7 +52,7 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsService {
+    allDatoCmsService(sort: { fields: position, order: ASC }) {
       edges {
         node {
           slug
