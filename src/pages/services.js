@@ -21,7 +21,6 @@ const Services = ({ data }) => {
       />
       <GrowthBlock data={data.allDatoCmsService} />
       <ImageGallery data={data.datoCmsServiceSingle.content[1]} />
-      <Partners related={data.allDatoCmsPartner.edges} />
     </Layout>
   );
 };
@@ -61,18 +60,6 @@ export const query = graphql`
           }
           shortDescription
           cardImage {
-            gatsbyImageData
-          }
-        }
-      }
-    }
-    allDatoCmsPartner {
-      edges {
-        node {
-          sectorCategory {
-            title
-          }
-          partnerImage {
             gatsbyImageData
           }
         }
