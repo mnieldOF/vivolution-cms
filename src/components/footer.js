@@ -80,11 +80,6 @@ const Footer = ({ data, socials }) => {
           <a href="tel:0141 212 2533">0141 212 2533</a>
           <ul>
             <li>
-              <Link className="footer-link" to={`/policies/cookie-policy`}>
-                Cookie policy
-              </Link>
-            </li>
-            <li>
               <Link className="footer-link" to={`/policies/privacy-policy`}>
                 Privacy policy
               </Link>
