@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout";
 import Hero from "../../components/hero";
+import Icon from "../../components/icon";
 import Img from "../../images/bg.png";
 
 const Team = ({ data }) => {
@@ -11,7 +12,7 @@ const Team = ({ data }) => {
     name,
     role,
     profileImage,
-    description,
+    socialProfile,
     categories,
   } = data.datoCmsTeam;
   const ProfileImg = getImage(profileImage);
@@ -32,8 +33,12 @@ const Team = ({ data }) => {
               <h3 className="title">{name}</h3>
               <p className="role">{role}</p>
               <div className="flex">
-                {categories.map((cat) => {
-                  return <span className="category">{cat.category}</span>;
+                {categories.map((cat, i) => {
+                  return (
+                    <span key={"tm_" + i} className="category">
+                      {cat.category}
+                    </span>
+                  );
                 })}
               </div>
               <div
@@ -43,6 +48,14 @@ const Team = ({ data }) => {
                     data.datoCmsTeam.descriptionNode.childMarkdownRemark.html,
                 }}
               />
+              <a className="linkedin" href={socialProfile}>
+                <Icon
+                  className="linkedin"
+                  icon="linkedin2"
+                  width="20px"
+                  color="#000"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -70,6 +83,7 @@ export const query = graphql`
       categories {
         category
       }
+      socialProfile
     }
   }
 `;
