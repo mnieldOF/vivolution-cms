@@ -146,6 +146,7 @@ const Contact = ({ data, location }) => {
                       type="url"
                       placeholder="Add you company website here"
                     />
+                    <span>ex: https://www.vivolution.co.uk/</span>
                   </div>
                   <div className="form-field">
                     <MyTextInput
