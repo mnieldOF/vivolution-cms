@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout.js";
 import Hero from "../components/hero";
 import HelpBlock from "../components/help-block";
-import Partners from "../components/partners";
 import TextBlock from "../components/text-block";
 import ImageGallery from "../components/image-gallery";
 
