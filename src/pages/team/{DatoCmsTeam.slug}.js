@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout";
 import Hero from "../../components/hero";
 import Icon from "../../components/icon";
-import Img from "../../images/bg.png";
+import Img from "../../images/vivolution-about-us.jpeg";
 
 const Team = ({ data }) => {
   console.log(data);
