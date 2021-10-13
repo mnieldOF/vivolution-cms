@@ -109,7 +109,7 @@ const Contact = ({ data, location }) => {
                       isMulti
                       options={sectors}
                       id="sector"
-                      label={"What Sector are you from?"}
+                      label={"What sector are you from?"}
                       value={values.sector}
                       onChange={setFieldValue}
                       onBlur={setFieldTouched}
@@ -152,7 +152,7 @@ const Contact = ({ data, location }) => {
                   </div>
                   <div className="form-field">
                     <MyTextInput
-                      label="LinkedIn Profile"
+                      label="LinkedIn profile"
                       name="linkedin"
                       type="url"
                       placeholder="LinkedIn Profile"
