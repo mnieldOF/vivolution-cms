@@ -52,11 +52,15 @@
     }
   }
   @media screen and (min-width: 768px) {
+    padding: 200px 0;
     .title {
       color: white;
-      font-size: 50px;
-      line-height: 65px;
+      font-size: 40px;
+      line-height: 55px;
     }
+  }
+  @media screen and (min-width: 1024px) {
+    padding: 300px 0;
   }
   @media screen and (orientation: landscape) {
     padding: 180px 0;
