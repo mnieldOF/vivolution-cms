@@ -10,7 +10,6 @@ import GrowthBlock from "../../components/growth-block";
 import Test from "../../components/test";
 
 const Service = ({ data }) => {
-  console.log("here", data);
   const filter = data.datoCmsService.title;
   const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
     item.node.serviceCategory.some((x) => x.title === filter)
@@ -160,6 +159,7 @@ export const query = graphql`
           partnerImage {
             gatsbyImageData
           }
+          title
         }
       }
     }

@@ -2,6 +2,7 @@ import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Partners = ({ related }) => {
+  console.log("related", related);
   return (
     <div className="partners">
       <div className="content-container">
