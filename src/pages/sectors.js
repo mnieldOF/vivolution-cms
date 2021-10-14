@@ -50,7 +50,7 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsSector {
+    allDatoCmsSector(sort: { fields: [position], order: ASC }) {
       edges {
         node {
           title
