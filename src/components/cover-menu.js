@@ -55,6 +55,12 @@ const CoverMenu = ({ active, socials }) => {
       width: 220vw;
       height: 220vw;
     }
+    @media screen and (min-width: 900px) and (orientation: portrait) {
+      top: calc(90px - 160vw);
+      right: calc(100px - 160vw);
+      width: 330vw;
+      height: 330vw;
+    }
   `;
 
   const container = {
