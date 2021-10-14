@@ -6,7 +6,6 @@ import Img from "../images/slider-bg.png";
 
 const Test = ({ data, image }) => {
   const sliderRef = useRef();
-  console.log(sliderRef);
 
   const renderArrows = () => {
     return (
@@ -20,7 +19,6 @@ const Test = ({ data, image }) => {
       </div>
     );
   };
-  console.log(data);
   const settings = {
     dots: false,
     arrows: false,
@@ -60,9 +58,9 @@ const Test = ({ data, image }) => {
           <div className="right">
             <div className="m-slider">
               <div className="grid">
-                {data.map(({ node: item, i }) => (
+                {data.map(({ node: item }, i) => (
                   <PortfolioItem
-                    key={i}
+                    key={`slide-${i}`}
                     image={item.featuredImage}
                     title={item.title}
                     slug={item.slug}
@@ -72,9 +70,9 @@ const Test = ({ data, image }) => {
                 ))}
               </div>
               <Slider {...settings} ref={sliderRef}>
-                {data.map(({ node: item, i }) => (
+                {data.map(({ node: item }, i) => (
                   <PortfolioItem
-                    key={i}
+                    key={`slide-${i}`}
                     image={item.featuredImage}
                     title={item.title}
                     slug={item.slug}

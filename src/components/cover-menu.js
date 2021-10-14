@@ -213,9 +213,9 @@ const CoverMenu = ({ active, socials }) => {
                   </p>
                 </div>
                 <div className="social-cta">
-                  {socials.edges.map(({ node: item, i }) => {
+                  {socials.edges.map(({ node: item }, i) => {
                     return (
-                      <a key={i} href={item.url}>
+                      <a key={"sm_" + i} href={item.url}>
                         <Icon
                           icon={
                             item.profileType === "Twitter"

@@ -9,24 +9,23 @@ const Numbers = ({ data }) => {
       <div className="content-container column">
         <div className="grid">
           {data.map((item, i) => {
-            console.log("here", item);
             return (
-              <div className="item">
+              <div className="item" key={"nb_" + i}>
                 <div>
-                <CountUp
-                  end={item.number}
-                  redraw={true}
-                  duration={1}
-                  prefix={item.prefix ? item.prefix : ""}
-                  suffix={item.suffix ? item.suffix : ""}
-                >
-                  {({ countUpRef, start }) => (
-                    <VisibilitySensor onChange={start} delayedCall>
-                      <span className="number" ref={countUpRef} />
-                    </VisibilitySensor>
-                  )}
-                </CountUp>
-                <p className="text">{item.text}</p>
+                  <CountUp
+                    end={item.number}
+                    redraw={true}
+                    duration={1}
+                    prefix={item.prefix ? item.prefix : ""}
+                    suffix={item.suffix ? item.suffix : ""}
+                  >
+                    {({ countUpRef, start }) => (
+                      <VisibilitySensor onChange={start} delayedCall>
+                        <span className="number" ref={countUpRef} />
+                      </VisibilitySensor>
+                    )}
+                  </CountUp>
+                  <p className="text">{item.text}</p>
                 </div>
               </div>
             );

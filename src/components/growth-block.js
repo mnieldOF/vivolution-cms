@@ -8,11 +8,14 @@ const GrowthBlock = ({ data }) => {
     <div className="growth-block">
       <div className="content-container column">
         <div className="grid">
-          {data.edges.map(({ node: item, i }) => {
-            console.log(item);
+          {data.edges.map(({ node: item }, i) => {
             const cardImg = getImage(item.cardImage);
             return (
-              <Link key={i} className="item" to={`/services/${item.slug}`}>
+              <Link
+                key={"ci_" + i}
+                className="item"
+                to={`/services/${item.slug}`}
+              >
                 <GatsbyImage
                   image={cardImg}
                   alt="card image"
@@ -23,7 +26,7 @@ const GrowthBlock = ({ data }) => {
                 </div>
                 <p className="desc">{item.shortDescription}</p>
                 <div className="content">
-                  <Link className="button-text" to={`/services/${item.slug}`}>
+                  <div className="button-text">
                     <Icon
                       color="white"
                       icon="right"
@@ -31,7 +34,7 @@ const GrowthBlock = ({ data }) => {
                       size={14}
                     />
                     Find out more
-                  </Link>
+                  </div>
                 </div>
               </Link>
             );

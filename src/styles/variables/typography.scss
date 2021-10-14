@@ -85,6 +85,12 @@ ul {
   font-size: 9px;
   line-height: 12px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+  svg {
+    margin-right: 10px;
+  }
 }
 
 .highlight {

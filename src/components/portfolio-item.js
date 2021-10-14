@@ -4,8 +4,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Icon from "./icon";
 
 const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
-  console.log("slug", slug);
-  console.log(shortText);
   const featImg = getImage(image);
   const profileLogo = getImage(logo);
   return (
@@ -27,10 +25,8 @@ const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
             <p>{shortText}</p>
           </div>
           <div className="link">
-            <Link to={`/portfolio/${slug}`}>
-              <Icon icon="right" size="20" />
-              read more
-            </Link>
+            <Icon icon="right" size="20" />
+            read more
           </div>
         </div>
       </div>

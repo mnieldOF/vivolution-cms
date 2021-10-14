@@ -8,8 +8,12 @@ const HelpBlock = ({ data }) => {
     <section className="help-block white">
       <div className="content-container column">
         <div className="grid">
-          {data.edges.map(({ node: item, i }) => (
-            <Link key={i} to={`/sectors/${item.slug}`} className="help-card">
+          {data.edges.map(({ node: item }, i) => (
+            <Link
+              key={"hb_" + i}
+              to={`/sectors/${item.slug}`}
+              className="help-card"
+            >
               <div className="inner">
                 <div className="content">
                   <div className="icon">
@@ -17,10 +21,10 @@ const HelpBlock = ({ data }) => {
                   </div>
                   <h4 className="c-title">{item.title}</h4>
                   <p>{item.shortDescription}</p>
-                  <Link to={`/sectors/${item.slug}`}>
+                  <div className="fake">
                     <Icon icon="right" size="20" color="#146380" />
                     Find out more
-                  </Link>
+                  </div>
                 </div>
               </div>
             </Link>

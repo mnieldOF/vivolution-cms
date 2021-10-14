@@ -12,7 +12,6 @@ import Video from "../vivo-comp.mp4";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
-  console.log(datoCmsHome);
 
   return (
     <Layout>
@@ -26,8 +25,8 @@ const IndexPage = ({ data }) => {
           preload="auto"
           autoPlay
           webkit-playsinline="true"
-          playsinline="true"
-          muted="true"
+          playsInline={true}
+          muted={true}
           poster={datoCmsHome.videoPosterImage.url}
         ></video>
       </Hero>

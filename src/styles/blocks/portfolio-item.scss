@@ -59,15 +59,13 @@
     }
     .link {
       margin-top: auto;
-      a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: var(--color-primary-white);
-        svg {
-          fill: var(--color-primary-white);
-          margin-right: 10px;
-        }
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--color-primary-white);
+      svg {
+        fill: var(--color-primary-white);
+        margin-right: 10px;
       }
     }
   }
@@ -120,11 +118,9 @@
         }
       }
       .link {
-        a {
-          color: var(--color-primary-blue);
-          svg {
-            fill: var(--color-primary-blue);
-          }
+        color: var(--color-primary-blue);
+        svg {
+          fill: var(--color-primary-blue);
         }
       }
     }

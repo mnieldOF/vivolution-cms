@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Footer = ({ data, socials }) => {
-  console.log("socials", socials);
   return (
     <div className="footer">
       <div className="content-container">
@@ -39,9 +38,9 @@ const Footer = ({ data, socials }) => {
               </li>
             </ul>
             <ul className="social-menu">
-              {socials.edges.map(({ node: item, i }) => {
+              {socials.edges.map(({ node: item }, index) => {
                 return (
-                  <li key={i}>
+                  <li key={"sm_" + index}>
                     <a href={item.url}>
                       <Icon
                         icon={
@@ -64,7 +63,7 @@ const Footer = ({ data, socials }) => {
                 const img = getImage(item);
                 return (
                   <GatsbyImage
-                    key={i}
+                    key={"fi_" + i}
                     className="hero-img"
                     layout="fullWidth"
                     image={img}

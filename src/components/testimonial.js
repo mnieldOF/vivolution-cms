@@ -9,7 +9,6 @@ SwiperCore.use([Pagination, Autoplay]);
 
 const HelpBlock = ({ image }) => {
   const img = getImage(image[0].image);
-
   return (
     <StaticQuery
       query={graphql`
@@ -47,7 +46,7 @@ const HelpBlock = ({ image }) => {
                     disableOnInteraction: false,
                   }}
                 >
-                  {data.allDatoCmsQuote.edges.map(({ node: quote, i }) => (
+                  {data.allDatoCmsQuote.edges.map(({ node: quote }, i) => (
                     <SwiperSlide key={`slide-${i}`} className="slide">
                       <Icon icon="quote" size="45" color="#494949" />
                       <p>{quote.quote}</p>
