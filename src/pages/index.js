@@ -3,13 +3,12 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import TextBlock from "../components/text-block";
-import Partners from "../components/partners";
 import HelpBlock from "../components/help-block";
 import GrowthBlock from "../components/growth-block";
 import Numbers from "../components/numbers";
 import Testimonial from "../components/testimonial";
 import Test from "../components/test";
-import Video from "../vivo-new.mp4";
+import Video from "../vivo-comp.mp4";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
@@ -29,6 +28,7 @@ const IndexPage = ({ data }) => {
           webkit-playsinline="true"
           playsinline="true"
           muted="true"
+          poster={datoCmsHome.videoPosterImage.url}
         ></video>
       </Hero>
       <HelpBlock data={data.allDatoCmsSector} />
@@ -49,6 +49,9 @@ export default IndexPage;
 export const query = graphql`
   {
     datoCmsHome {
+      videoPosterImage {
+        url
+      }
       content {
         ... on DatoCmsHeroBanner {
           id
