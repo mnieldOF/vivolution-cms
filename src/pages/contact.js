@@ -37,10 +37,8 @@ const validationSchema = Yup.object().shape({
 
 const Contact = ({ data, location }) => {
   const blocks = data.datoCmsContact.blocks;
-  console.log("contact", data.datoCmsContact.contactInformation);
 
   const handleSubmit = async (values) => {
-    console.log(values);
     try {
       const res = await fetch("https://rake.red/api/vivo-contact/vivo", {
         method: "POST",

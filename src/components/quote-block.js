@@ -1,7 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "@emotion/styled";
-import Img from "../images/oxford.png";
 import Icon from "./icon";
 
 const RotateIcon = styled(Icon)`
@@ -15,11 +14,10 @@ const QuoteBlock = ({ companyImage, data }) => {
   const logo = getImage(companyImage);
   const { person, role, quote } = data;
 
-  console.log(person);
   return (
     <div className="quote-block">
       <div className="left">
-        <GatsbyImage image={logo} />
+        <GatsbyImage image={logo} alt="test" />
       </div>
       <div className="right">
         <div className="content-container">

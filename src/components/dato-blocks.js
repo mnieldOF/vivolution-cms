@@ -9,18 +9,17 @@ import History from "./history";
 import ImageGallery from "./image-gallery";
 
 const DatoBlocks = ({ blocks }) => {
-  console.log("blocks", blocks);
-  return blocks.map((block) => {
+  return blocks.map((block, i) => {
     if (block.model.name === "Customer Profile Details") {
       return (
         <>
-          <FullwidthImage image={block.image} />
-          <TwocolText data={block} />
+          <FullwidthImage key={`fwi${i}`} image={block.image} />
+          <TwocolText key={`tct-${i}`} data={block} />
         </>
       );
     } else if (block.model.name === "Three column text") {
       return (
-        <section className="case-about">
+        <section className="case-about" key={`tct-${i}`}>
           <div className="content-container column">
             <div className="meta">
               <h5 className="section-title">{block.sectionTitle}</h5>
@@ -50,21 +49,30 @@ const DatoBlocks = ({ blocks }) => {
       return block.quote.links.map((data, i) => {
         const { logo, quote } = data;
         return (
-          <QuoteBlock key={i} data={data} companyImage={logo} quote={quote} />
+          <QuoteBlock
+            key={`qb-${i}`}
+            data={data}
+            companyImage={logo}
+            quote={quote}
+          />
         );
       });
     } else if (block.model.name === "Values Block") {
-      return <Values data={block} />;
+      return <Values key={`v-${i}`} data={block} />;
     } else if (block.model.name === "Hero Banner") {
-      return <Hero title={block.title} image={block.background} />;
+      return (
+        <Hero key={`h-${i}`} title={block.title} image={block.background} />
+      );
     } else if (block.model.name === "Title Text") {
-      return <TextBlock title={block.title} text={block.subText} />;
+      return (
+        <TextBlock key={`tb-${i}`} title={block.title} text={block.subText} />
+      );
     } else if (block.model.name === "Image block") {
-      return <FullwidthImage image={block.image} />;
+      return <FullwidthImage key={`fwi-${i}`} image={block.image} />;
     } else if (block.model.name === "History") {
-      return <History data={block} />;
+      return <History key={`hb-${i}`} data={block} />;
     } else if (block.model.name === "Image Gallery") {
-      return <ImageGallery data={block} />;
+      return <ImageGallery key={`ig-${i}`} data={block} />;
     } else return null;
   });
 };

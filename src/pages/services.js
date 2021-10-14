@@ -7,7 +7,6 @@ import TextBlock from "../components/text-block";
 import ImageGallery from "../components/image-gallery";
 
 const Services = ({ data }) => {
-  console.log(data);
   return (
     <Layout>
       <Hero

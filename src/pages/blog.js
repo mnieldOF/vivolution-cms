@@ -41,8 +41,6 @@ const Blog = ({ data }) => {
     ...new Set(posts.map((item) => item.node.category.category)),
   ];
 
-  console.log("posts", posts);
-
   const [buttons, setButton] = React.useState(allCategories);
 
   const filter = (button) => {
@@ -53,12 +51,11 @@ const Blog = ({ data }) => {
     const filteredData = data.allDatoCmsBlog.edges.filter(
       (item) => item.node.category.category === button
     );
-    console.log(filteredData);
     setPosts(filteredData);
   };
 
   const { hero, description } = data.datoCmsBlogLanding;
-  console.log(posts);
+
   return (
     <Layout>
       <Hero title={hero[0].title} image={hero[0].background} />

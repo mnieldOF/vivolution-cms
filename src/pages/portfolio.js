@@ -35,12 +35,9 @@ const Section = styled.div`
 `;
 
 const Portfolio = ({ data }) => {
-  console.log(data);
   const [profiles, setProfiles] = useState(
     data.allDatoCmsCustomerProfile.edges
   );
-
-  console.log("pro", profiles);
 
   const allCategories = [
     ...new Set(

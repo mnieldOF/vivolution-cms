@@ -4,12 +4,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Icon from "./icon";
 
 const BlogItem = ({ image, title, logo, shortText, slug }) => {
-  console.log("slug", slug);
-  console.log(shortText);
   const featImg = getImage(image);
   const profileLogo = getImage(logo);
   return (
-    <div className="portfolio-item">
+    <Link to={`/blog/${slug}`} className="portfolio-item">
       <div className="top">
         <GatsbyImage className="hero-img" image={featImg} alt="test" />
       </div>
@@ -27,14 +25,12 @@ const BlogItem = ({ image, title, logo, shortText, slug }) => {
             <p>{shortText}</p>
           </div>
           <div className="link">
-            <Link to={`/blog/${slug}`}>
-              <Icon icon="right" size="20" />
-              read more
-            </Link>
+            <Icon icon="right" size="20" />
+            read more
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

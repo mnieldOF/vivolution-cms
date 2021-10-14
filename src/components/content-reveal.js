@@ -58,22 +58,20 @@ const Content = styled.div`
 `;
 
 const ContentReveal = ({ tabs, tabTitle }) => {
-  console.log(tabs);
   const [activeTab, setActiveTab] = useState(0);
 
-  const renderLinkToRecord = ({ record, children }) => {
-    switch (record.__typename) {
-      case "DatoCmsSector":
-        return <Link href={`/sectors/${record.slug}`}>{children[0]}</Link>;
-      case "DatoCmsService":
-        return <Link href={`/services/${record.slug}`}>{children[0]}</Link>;
-      default:
-        return "";
-    }
-  };
+  // const renderLinkToRecord = ({ record, children }) => {
+  //   switch (record.__typename) {
+  //     case "DatoCmsSector":
+  //       return <Link href={`/sectors/${record.slug}`}>{children[0]}</Link>;
+  //     case "DatoCmsService":
+  //       return <Link href={`/services/${record.slug}`}>{children[0]}</Link>;
+  //     default:
+  //       return "";
+  //   }
+  // };
 
   const accordion = tabs.map((item, i) => {
-    console.log("item", item);
     return (
       <li className="item" key={i}>
         <a

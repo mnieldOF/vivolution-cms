@@ -8,7 +8,6 @@ import Partners from "../../components/partners";
 import Test from "../../components/test";
 
 const Sector = ({ data }) => {
-  console.log("sector", data);
   const filter = data.datoCmsSector.title;
   const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
     item.node.sectorCategory.some((x) => x.title === filter)
@@ -42,7 +41,7 @@ const Sector = ({ data }) => {
 export default Sector;
 
 export const query = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     datoCmsSector(id: { eq: $id }) {
       title
       tabTitle

@@ -1,7 +1,6 @@
 import * as React from "react";
 
 const History = ({ data }) => {
-  console.log("about", data);
   return (
     <div className="history">
       <div className="content-container">

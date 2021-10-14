@@ -2,7 +2,6 @@ import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const MapBlock = ({ info }) => {
-  console.log(info);
   const img = getImage(info[0].mapImage);
   return (
     <section className="map-block">

@@ -1,7 +1,6 @@
 import React from "react";
 
 const TwocolText = ({ data }) => {
-  console.log("2 col", data);
   const { textNode, highlightedText, title } = data;
   return (
     <div className="twocol-text">
@@ -17,7 +16,6 @@ const TwocolText = ({ data }) => {
                 __html: textNode.childMarkdownRemark.html,
               }}
             />
-            {/* <p className="text">{text}</p> */}
           </div>
         </div>
       </div>

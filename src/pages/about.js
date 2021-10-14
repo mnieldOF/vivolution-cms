@@ -5,7 +5,6 @@ import DatoBlocks from "../components/dato-blocks";
 import TeamMember from "../components/team-member";
 
 const About = ({ data }) => {
-  console.log("data", data);
   const team = data.allDatoCmsTeam.edges;
   const { aboutUsBlocks } = data.datoCmsAboutPage;
   return (
