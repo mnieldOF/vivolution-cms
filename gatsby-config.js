@@ -13,6 +13,7 @@ module.exports = {
         // this option places the tracking script into the head of the DOM
         head: true,
         // other options
+        anonymize: true,
       },
     },
     `gatsby-plugin-react-helmet`,
