@@ -7,14 +7,8 @@ import Icon from "../../components/icon";
 import Img from "../../images/vivolution-about-us.jpeg";
 
 const Team = ({ data }) => {
-  console.log(data);
-  const {
-    name,
-    role,
-    profileImage,
-    socialProfile,
-    categories,
-  } = data.datoCmsTeam;
+  const { name, role, profileImage, socialProfile, categories } =
+    data.datoCmsTeam;
   const ProfileImg = getImage(profileImage);
   return (
     <Layout>
@@ -67,7 +61,7 @@ const Team = ({ data }) => {
 export default Team;
 
 export const query = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     datoCmsTeam(id: { eq: $id }) {
       id
       name
