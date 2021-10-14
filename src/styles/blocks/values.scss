@@ -2,13 +2,15 @@
   padding: 50px 0;
   .content-container {
     padding-right: 0px;
+    padding-left: 0;
   }
   .grid {
     display: grid;
     padding: 20px;
     padding-right: 50px;
+    padding-left: 20px;
     gap: 30px;
-    scroll-padding: 0px 24px;
+    scroll-padding: 0px 30px;
     grid-auto-flow: column !important;
     overflow: auto hidden !important;
     scroll-snap-type: x mandatory !important;
