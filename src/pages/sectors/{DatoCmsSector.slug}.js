@@ -103,7 +103,7 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsCustomerProfile {
+    allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
       edges {
         node {
           sectorCategory {
