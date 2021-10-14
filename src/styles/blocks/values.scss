@@ -2,7 +2,18 @@
   padding: 50px 0;
   .grid {
     display: grid;
+    padding: 20px 0;
     gap: 30px;
+    scroll-padding: 0px 24px;
+    grid-auto-flow: column !important;
+    overflow: auto hidden !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 12px !important;
+    &:nth-child(n) {
+      & > * {
+        scroll-snap-align: start !important;
+      }
+    }
     .item {
       display: flex;
       padding: 30px 0;
@@ -10,6 +21,8 @@
       align-items: center;
       box-shadow: 0px 0px 18px rgba(100, 100, 100, 0.25);
       border-radius: 8px;
+      width: 272px;
+      height: auto;
       .image {
         height: 120px;
         width: 100%;
@@ -40,9 +53,11 @@
     padding: 80px 0;
     .grid {
       grid-template-columns: repeat(3, 1fr);
-      grid-auto-flow: column;
-      grid-gap: 30px;
-      grid-auto-flow: row;
+      grid-auto-flow: column !important;
+      gap: 20px !important;
+      grid-auto-flow: initial !important;
+      overflow: none !important;
+      scroll-snap-type: none !important;
       .item {
         display: flex;
         padding: 30px 0;
