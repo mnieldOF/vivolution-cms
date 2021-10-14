@@ -1,8 +1,12 @@
 .values {
   padding: 50px 0;
+  .content-container {
+    padding-right: 0px;
+  }
   .grid {
     display: grid;
-    padding: 20px 0;
+    padding: 20px;
+    padding-right: 50px;
     gap: 30px;
     scroll-padding: 0px 24px;
     grid-auto-flow: column !important;
@@ -81,7 +85,11 @@
   }
   @media screen and (min-width: 900px) {
     .grid {
+      width: 100%;
+      padding: 30px;
+      gap: 30px !important;
       .item {
+        width: auto;
         h3 {
           font-size: 24px;
         }
