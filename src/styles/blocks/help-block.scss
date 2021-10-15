@@ -36,6 +36,7 @@
     padding: 25px;
     border-radius: 8px;
     width: 272px;
+    max-height: 322px;
     .inner {
       height: 100%;
     }
@@ -107,6 +108,7 @@
         padding: 40px 20px;
         width: auto;
         height: auto;
+        max-height: none;
       }
     }
     .slick-slider {
