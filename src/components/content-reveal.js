@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
 import styled from "@emotion/styled";
 // import { StructuredText } from "react-datocms";
 import Icon from "../components/icon";
