@@ -20,7 +20,6 @@ const IndexPage = ({ data }) => {
         image={datoCmsHome.content[0].background}
       >
         <video
-          src={Video}
           loop
           preload="auto"
           autoPlay
@@ -28,7 +27,9 @@ const IndexPage = ({ data }) => {
           playsInline={true}
           muted={true}
           poster={datoCmsHome.videoPosterImage.url}
-        ></video>
+        >
+          <source src={Video} />
+        </video>
       </Hero>
       <HelpBlock data={data.allDatoCmsSector} />
       <TextBlock
