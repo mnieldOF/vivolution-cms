@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import SubFooter from "../components/sub-footer";
+import CookieBanner from "./cookie-banner";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 
@@ -59,6 +60,8 @@ const TemplateWrapper = ({ children, location, noFooter }) => {
                 socials={data.allDatoCmsSocialProfile}
               />
             ) : null}
+
+            <CookieBanner debug={true} />
           </>
         );
       }}
