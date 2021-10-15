@@ -74,18 +74,9 @@
           font-size: 12px;
           font-weight: normal;
           margin-bottom: 0;
-        }
-        &:nth-of-type(1) {
-          position: relative;
-          display: flex;
-          align-items: center;
-          &:after {
-            content: "";
-            width: 1px;
-            height: 100%;
-            display: inline-block;
-            background: #494949;
-            margin: 0 10px;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            opacity: 0.5;
           }
         }
       }
