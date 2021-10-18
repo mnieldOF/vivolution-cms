@@ -29,10 +29,16 @@ const sectors = [
 const validationSchema = Yup.object().shape({
   sector: Yup.string().required("Please select an option"),
   name: Yup.string().required("Please enter your name"),
-  linkedin: Yup.string().url("Invalid Linkedin URL"),
+  linkedin: Yup.string().matches(
+    /((https?:\/\/)?((www|\w\w)\.)?linkedin\.com\/)((([\w]{2,3})?)|([^\/]+\/(([\w|\d-&#?=])+\/?){1,}))$/,
+    "Enter valid Linkedin URL"
+  ),
   email: Yup.string().email("Invalid email").required("Required"),
   help: Yup.string().required("Required"),
-  website: Yup.string().url("Invalid URL"),
+  website: Yup.string().matches(
+    /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+    "Enter correct url!"
+  ),
 });
 
 const Contact = ({ data, location }) => {
