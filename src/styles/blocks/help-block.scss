@@ -37,6 +37,9 @@
     border-radius: 8px;
     width: 272px;
     max-height: 322px;
+    a {
+      text-decoration: none;
+    }
     .inner {
       height: 100%;
     }
@@ -85,8 +88,14 @@
       align-self: center;
       margin-left: -20px;
       margin-top: auto;
+      transition: opacity 0.3s ease-in-out;
       svg {
         margin-right: 10px;
+      }
+    }
+    &:hover {
+      .fake {
+        opacity: 0.6;
       }
     }
   }

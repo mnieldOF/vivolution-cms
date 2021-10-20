@@ -12,7 +12,6 @@ import Video from "../vivo-comp.mp4";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
-
   return (
     <Layout>
       <Hero
