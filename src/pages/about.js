@@ -1,14 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/layout";
 import DatoBlocks from "../components/dato-blocks";
 import TeamMember from "../components/team-member";
 
 const About = ({ data }) => {
+  console.log(data);
   const team = data.allDatoCmsTeam.edges;
   const { aboutUsBlocks } = data.datoCmsAboutPage;
   return (
     <Layout>
+      <HelmetDatoCms seo={data.datoCmsAboutPage.metaData} />
       <DatoBlocks blocks={aboutUsBlocks} />
       <section className="team">
         <div className="content-container column">
@@ -113,6 +116,11 @@ export const query = graphql`
             gatsbyImageData
           }
         }
+      }
+      metaData {
+        description
+        title
+        twitterCard
       }
     }
     allDatoCmsTeam(sort: { fields: position, order: ASC }) {

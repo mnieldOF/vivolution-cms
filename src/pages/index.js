@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import TextBlock from "../components/text-block";
@@ -14,6 +15,7 @@ const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
   return (
     <Layout>
+      <HelmetDatoCms seo={data.datoCmsHome.seoSettings} />
       <Hero
         title={datoCmsHome.content[0].title}
         image={datoCmsHome.content[0].background}
@@ -75,6 +77,11 @@ export const query = graphql`
         image {
           gatsbyImageData
         }
+      }
+      seoSettings {
+        description
+        title
+        twitterCard
       }
     }
     allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
