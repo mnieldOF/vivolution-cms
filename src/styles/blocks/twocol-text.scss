@@ -24,6 +24,18 @@
     display: grid;
     grid-gap: 20px;
   }
+  a {
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(to right, #3026dd, #708fdc, #c1259a);
+    background-size: 150% 150%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: color 0.2s ease-in-out;
+    &:hover {
+      animation: rainbow 2s ease-in-out infinite;
+    }
+  }
   @media screen and (min-width: 900px) {
     padding: 70px 0;
     .description {
@@ -31,6 +43,18 @@
     }
     .grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @keyframes rainbow {
+    0% {
+      background-position: left;
+    }
+    50% {
+      background-position: right;
+    }
+    100% {
+      background-position: left;
     }
   }
 }
