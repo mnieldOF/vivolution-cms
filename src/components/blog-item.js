@@ -7,7 +7,7 @@ const BlogItem = ({ image, title, logo, shortText, slug }) => {
   const featImg = getImage(image);
   const profileLogo = getImage(logo);
   return (
-    <Link to={`/blog/${slug}`} className="portfolio-item">
+    <Link to={`/blog/${slug}`} className="portfolio-item blog">
       <div className="top">
         <GatsbyImage className="hero-img" image={featImg} alt="test" />
       </div>

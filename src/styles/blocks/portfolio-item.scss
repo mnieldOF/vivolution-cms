@@ -124,5 +124,12 @@
         }
       }
     }
+    &.blog {
+      .bottom {
+        .flex {
+          flex-direction: column;
+        }
+      }
+    }
   }
 }
