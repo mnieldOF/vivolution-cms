@@ -38,7 +38,9 @@ const Blog = ({ data }) => {
   const [posts, setPosts] = React.useState(data.allDatoCmsBlog.edges);
 
   const allCategories = [
-    ...new Set(posts.map((item) => item.node.category.category)),
+    ...new Set(
+      data.allDatoCmsBlogCategory.edges.map((item) => item.node.category)
+    ),
   ];
 
   const [buttons, setButton] = React.useState(allCategories);
@@ -48,8 +50,8 @@ const Blog = ({ data }) => {
       setPosts(data.allDatoCmsBlog.edges);
       return;
     }
-    const filteredData = data.allDatoCmsBlog.edges.filter(
-      (item) => item.node.category.category === button
+    const filteredData = data.allDatoCmsBlog.edges.filter((item) =>
+      item.node.category.some((x) => x.category === button)
     );
     setPosts(filteredData);
   };
@@ -100,6 +102,13 @@ export const query = graphql`
           title
           slug
           excerpt
+        }
+      }
+    }
+    allDatoCmsBlogCategory {
+      edges {
+        node {
+          category
         }
       }
     }

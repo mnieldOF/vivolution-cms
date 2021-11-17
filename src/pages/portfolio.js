@@ -56,7 +56,6 @@ const Portfolio = ({ data }) => {
     const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
       item.node.customerCategory.some((x) => x.category === button)
     );
-    console.log("hi", filteredData);
     setProfiles(filteredData);
   };
 
