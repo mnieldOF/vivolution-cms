@@ -1,23 +1,22 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/layout";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import DatoBlocks from "../../components/dato-blocks";
 import Hero from "../../components/hero";
 import Test from "../../components/test";
 
 const CustomerProfile = ({ data }) => {
-  const filter = data.datoCmsCustomerProfile.customerCategory.category;
+  const filter = data.profile.customerCategory?.category;
   const relatedProfiles = data.allDatoCmsCustomerProfile.edges.filter(
     (item) => item.node.customerCategory.category === filter
   );
 
   return (
     <Layout>
-      <Hero
-        title={data.datoCmsCustomerProfile.title}
-        image={data.datoCmsCustomerProfile.featuredImage}
-      />
-      <DatoBlocks blocks={data.datoCmsCustomerProfile.blocks} />
+      <HelmetDatoCms seo={data.profile.seo} />
+      <Hero title={data.profile.title} image={data.profile.featuredImage} />
+      <DatoBlocks blocks={data.profile.blocks} />
       <Test data={relatedProfiles} />
     </Layout>
   );
@@ -26,8 +25,8 @@ const CustomerProfile = ({ data }) => {
 export default CustomerProfile;
 
 export const query = graphql`
-  query($id: String!) {
-    datoCmsCustomerProfile(id: { eq: $id }) {
+  query ($id: String!) {
+    profile: datoCmsCustomerProfile(id: { eq: $id }) {
       title
       customerCategory {
         category
@@ -81,6 +80,9 @@ export const query = graphql`
             }
           }
         }
+      }
+      seo: seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
       }
     }
     allDatoCmsCustomerProfile {
