@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../../components/layout";
 import Hero from "../../components/hero";
 import ImageText from "../../components/image-text";
@@ -19,6 +20,7 @@ const Sector = ({ data }) => {
 
   return (
     <Layout>
+      <HelmetDatoCms seo={data.datoCmsSector.seo} />
       <Hero
         title={data.datoCmsSector.heroBanner[0].title}
         image={data.datoCmsSector.heroBanner[0].background}
@@ -88,6 +90,9 @@ export const query = graphql`
           gatsbyImageData
         }
         title
+      }
+      seo: seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
       }
     }
     allDatoCmsPartner {

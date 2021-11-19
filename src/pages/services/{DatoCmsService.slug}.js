@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../../components/layout";
 import Hero from "../../components/hero";
 import ImageText from "../../components/image-text";
@@ -21,6 +22,7 @@ const Service = ({ data }) => {
 
   return (
     <Layout>
+      <HelmetDatoCms seo={data.datoCmsService.seo} />
       <Hero
         title={data.datoCmsService.hero[0].title}
         image={data.datoCmsService.hero[0].background}
@@ -53,7 +55,7 @@ const Service = ({ data }) => {
 export default Service;
 
 export const query = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     datoCmsService(id: { eq: $id }) {
       comingSoonBlock {
         text
@@ -117,6 +119,9 @@ export const query = graphql`
         title
       }
       slug
+      seo: seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
     }
     allDatoCmsService(sort: { fields: position, order: ASC }) {
       edges {
