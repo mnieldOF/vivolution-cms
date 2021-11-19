@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout";
 import Hero from "../../components/hero";
@@ -12,6 +13,7 @@ const Team = ({ data }) => {
   const ProfileImg = getImage(profileImage);
   return (
     <Layout>
+      <HelmetDatoCms seo={data.datoCmsTeam.seo} />
       <Hero image={Img} title="Team" />
       <section className="team-member">
         <div className="content-container">
@@ -78,6 +80,9 @@ export const query = graphql`
         category
       }
       socialProfile
+      seo: seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
     }
   }
 `;
