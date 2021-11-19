@@ -11,7 +11,7 @@ const About = ({ data }) => {
   const { aboutUsBlocks } = data.datoCmsAboutPage;
   return (
     <Layout>
-      <HelmetDatoCms seo={data.datoCmsAboutPage.metaData} />
+      <HelmetDatoCms seo={data.datoCmsAboutPage.seo} />
       <DatoBlocks blocks={aboutUsBlocks} />
       <section className="team">
         <div className="content-container column">
@@ -117,10 +117,8 @@ export const query = graphql`
           }
         }
       }
-      metaData {
-        description
-        title
-        twitterCard
+      seo: seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
       }
     }
     allDatoCmsTeam(sort: { fields: position, order: ASC }) {
