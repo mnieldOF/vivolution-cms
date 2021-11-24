@@ -5,14 +5,8 @@ const ProfileList = ({ profiles }) => {
   return (
     <>
       {profiles.map((item, i) => {
-        const {
-          featuredImage,
-          title,
-          slug,
-          logo,
-          excerpt,
-          shortDescription,
-        } = item.node;
+        const { featuredImage, title, slug, logo, excerpt, shortDescription } =
+          item.node;
         return (
           <BlogItem
             key={"pi_" + i}

@@ -35,7 +35,7 @@ const Section = styled.div`
 `;
 
 const Blog = ({ data }) => {
-  const [posts, setPosts] = React.useState(data.allDatoCmsBlog.edges);
+  const [posts, setPosts] = React.useState(data.posts.edges);
 
   const allCategories = [
     ...new Set(
@@ -47,10 +47,10 @@ const Blog = ({ data }) => {
 
   const filter = (button) => {
     if (button === "All") {
-      setPosts(data.allDatoCmsBlog.edges);
+      setPosts(data.posts.edges);
       return;
     }
-    const filteredData = data.allDatoCmsBlog.edges.filter((item) =>
+    const filteredData = data.posts.edges.filter((item) =>
       item.node.category.some((x) => x.category === button)
     );
     setPosts(filteredData);
@@ -89,7 +89,7 @@ export const query = graphql`
       }
       description
     }
-    allDatoCmsBlog {
+    posts: allDatoCmsBlog(sort: { fields: date, order: DESC }) {
       edges {
         node {
           featuredImage {
