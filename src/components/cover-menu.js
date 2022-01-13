@@ -200,7 +200,7 @@ const CoverMenu = ({ active, socials }) => {
                 animate="show"
               >
                 <div className="contact-cta">
-                  <a href="mailto:hello@vivolution.com">hello@vivolution.com</a>
+                  <a href="mailto:hello@vivolution.co.uk">hello@vivolution.co.uk</a>
                   <br />
                   <a href="tel:01412122533">0141 212 2533</a>
                 </div>
