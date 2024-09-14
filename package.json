@@ -1,8 +1,8 @@
 {
   "name": "vivolution-website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
-  "description": "Testing",
+  "description": "Vivolution website",
   "author": "Michael Nield",
   "keywords": [
     "gatsby"
