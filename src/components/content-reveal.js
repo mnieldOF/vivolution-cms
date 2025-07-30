@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-// import { StructuredText } from "react-datocms";
 import Icon from "../components/icon";
 
 const Content = styled.div`
@@ -59,17 +58,6 @@ const Content = styled.div`
 const ContentReveal = ({ tabs, tabTitle }) => {
   const [activeTab, setActiveTab] = useState(0);
 
-  // const renderLinkToRecord = ({ record, children }) => {
-  //   switch (record.__typename) {
-  //     case "DatoCmsSector":
-  //       return <Link href={`/sectors/${record.slug}`}>{children[0]}</Link>;
-  //     case "DatoCmsService":
-  //       return <Link href={`/services/${record.slug}`}>{children[0]}</Link>;
-  //     default:
-  //       return "";
-  //   }
-  // };
-
   const accordion = tabs.map((item, i) => {
     return (
       <li className="item" key={i}>
@@ -84,10 +72,6 @@ const ContentReveal = ({ tabs, tabTitle }) => {
           <Icon icon="down" size="20px" />
         </a>
         <Content className={`content ${activeTab === i ? "active" : "hidden"}`}>
-          {/* <StructuredText
-            data={item.tabContent}
-            renderLinkToRecord={renderLinkToRecord}
-          /> */}
           <div
             dangerouslySetInnerHTML={{
               __html: item.tabNewContentNode.childMarkdownRemark.html,
@@ -122,10 +106,6 @@ const ContentReveal = ({ tabs, tabTitle }) => {
         key={i}
         className={`content ${activeTab === i ? "active" : "hidden"}`}
       >
-        {/* <StructuredText
-          data={tab.tabContent}
-          renderLinkToRecord={renderLinkToRecord}
-        /> */}
         <div
           dangerouslySetInnerHTML={{
             __html: tab.tabNewContentNode.childMarkdownRemark.html,

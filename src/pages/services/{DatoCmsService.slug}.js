@@ -67,22 +67,6 @@ export const query = graphql`
       tabTitle
       tabs {
         title
-        tabContent {
-          value
-          links {
-            __typename
-            ... on DatoCmsSector {
-              id: originalId
-              slug
-              title
-            }
-            ... on DatoCmsService {
-              id: originalId
-              slug
-              title
-            }
-          }
-        }
         tabNewContentNode {
           childMarkdownRemark {
             html
