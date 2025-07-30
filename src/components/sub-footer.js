@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 
 const SubFooter = () => {
@@ -10,8 +9,8 @@ const SubFooter = () => {
           datoCmsCtaContact {
             title
             subtext
-            buttonText
             mainText
+            contact
           }
         }
       `}
@@ -23,11 +22,10 @@ const SubFooter = () => {
                 <h2 className="title">{data.datoCmsCtaContact.title}</h2>
                 <p className="text">{data.datoCmsCtaContact.mainText}</p>
                 <span>{data.datoCmsCtaContact.subtext}</span>
-                <button>
-                  <Link to={`/contact`}>
-                    {data.datoCmsCtaContact.buttonText}
-                  </Link>
-                </button>
+                <p 
+                  className="text"
+                  dangerouslySetInnerHTML={{ __html: data.datoCmsCtaContact.contact }}
+                />
               </div>
             </div>
           </div>
