@@ -9,6 +9,7 @@ const SubFooter = () => {
           datoCmsCtaContact {
             title
             subtext
+            contact
             mainText
             contact
           }
@@ -22,10 +23,11 @@ const SubFooter = () => {
                 <h2 className="title">{data.datoCmsCtaContact.title}</h2>
                 <p className="text">{data.datoCmsCtaContact.mainText}</p>
                 <span>{data.datoCmsCtaContact.subtext}</span>
-                <p 
-                  className="text"
-                  dangerouslySetInnerHTML={{ __html: data.datoCmsCtaContact.contact }}
-                />
+                <button>
+                  <Link to={`/contact`}>
+                    {data.datoCmsCtaContact.contact}
+                  </Link>
+                </button>
               </div>
             </div>
           </div>
