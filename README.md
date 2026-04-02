@@ -46,7 +46,7 @@ This downloads all required packages into a `node_modules/` folder. Only needs t
 Create a file called `.env` in the project root with the DatoCMS API token:
 
 ```
-DATO_API_TOKEN=your_token_here
+DATO_API_TOKEN=your_token_here - This can be found in 1 pass.
 ```
 
 Get the token from the DatoCMS dashboard under **Settings → API Tokens**. This file is not committed to git and must be created manually on each machine.
