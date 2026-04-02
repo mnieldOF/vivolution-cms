@@ -10,9 +10,8 @@ Content (text, images, SEO metadata) is managed in DatoCMS. Gatsby reads that co
 
 Before you can run this project you need the following installed:
 
-- **Node.js v18** — the project requires this specific version
+- **Node.js v18** — the project requires this specific version (Node 24+ is not supported)
 - **nvm-windows** — recommended for managing Node versions on Windows ([download here](https://github.com/coreybutler/nvm-windows/releases))
-- **Yarn** — the package manager used by this project
 
 ### Install Node v18 via nvm
 
@@ -20,13 +19,6 @@ Before you can run this project you need the following installed:
 nvm install 18
 nvm use 18
 node --version  # should print v18.x.x
-```
-
-### Install Yarn
-
-```bash
-npm install -g yarn
-yarn --version  # should print 1.22.x
 ```
 
 ---
@@ -44,7 +36,7 @@ Always run commands from this folder, not from another directory.
 ### 2. Install dependencies
 
 ```bash
-yarn install
+npm install
 ```
 
 This downloads all required packages into a `node_modules/` folder. Only needs to be run once, or after pulling changes that update `package.json`.
@@ -62,7 +54,7 @@ Get the token from the DatoCMS dashboard under **Settings → API Tokens**. This
 ### 4. Start the development server
 
 ```bash
-yarn develop
+npm run develop
 ```
 
 After 30–60 seconds, the site will be available at `http://localhost:8000`.
@@ -75,10 +67,10 @@ The dev server has **live reload** — any changes you save to files will automa
 
 | Command | Description |
 |---|---|
-| `yarn develop` | Start local dev server at `http://localhost:8000` |
-| `yarn build` | Build the production-ready site into the `public/` folder |
-| `yarn serve` | Preview the production build locally |
-| `yarn clean` | Clear the `.cache` and `public` folders (run this if you get odd errors) |
+| `npm run develop` | Start local dev server at `http://localhost:8000` |
+| `npm run build` | Build the production-ready site into the `public/` folder |
+| `npm run serve` | Preview the production build locally |
+| `npm run clean` | Clear the `.cache` and `public` folders (run this if you get odd errors) |
 
 ---
 
@@ -130,7 +122,7 @@ Each page file contains a GraphQL query at the bottom that specifies what data t
 | [SCSS/SASS](https://sass-lang.com/) | Styling |
 | [Formik](https://formik.org/) + [Yup](https://github.com/jquense/yup) | Form handling and validation |
 | [Framer Motion](https://www.framer.com/motion/) | Animations |
-| [Yarn](https://yarnpkg.com/) | Package manager |
+| [npm](https://www.npmjs.com/) | Package manager |
 
 ---
 
@@ -138,9 +130,10 @@ Each page file contains a GraphQL query at the bottom that specifies what data t
 
 | Problem | Fix |
 |---|---|
-| `node` or `nvm` not recognised | Close and reopen terminal as Administrator, then retry |
-| `Couldn't find a package.json` error | You're in the wrong folder — run `cd C:\Users\Philippe\RiderProjects\vivolution-cms` first |
+| `node` or `nvm` not recognised | Close and reopen terminal, then retry. If using Rider, restart the IDE after installing nvm. |
+| `Couldn't find a package.json` error | You're in the wrong folder — run `cd C:\Users\{yourUsernameHere}\RiderProjects\vivolution-cms` first |
 | GraphQL field error on startup | A field name in the code doesn't match DatoCMS — check **Settings → Models** in DatoCMS and update the field name in the relevant component |
-| Strange errors after pulling new code | Run `yarn clean` then `yarn develop` |
-| `node_modules` errors | Delete the `node_modules` folder and run `yarn install` again |
+| Strange errors after pulling new code | Run `npm run clean` then `npm run develop` |
+| `node_modules` errors | Delete the `node_modules` folder and run `npm install` again |
+| LMDB / buffer errors on startup | You're likely on Node 24+. Switch to Node 18: `nvm use 18` then retry. |
 | Site builds but shows no content | Check your `.env` file exists and contains a valid `DATO_API_TOKEN` |
