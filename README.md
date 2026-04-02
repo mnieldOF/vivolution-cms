@@ -36,7 +36,7 @@ yarn --version  # should print 1.22.x
 ### 1. Navigate to the project folder
 
 ```bash
-cd C:\Users\Philippe\RiderProjects\vivolution-cms
+cd C:\Users\{yourUsernameHere}\RiderProjects\vivolution-cms
 ```
 
 Always run commands from this folder, not from another directory.
