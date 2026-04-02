@@ -1,52 +1,139 @@
-# Gatsby Portfolio Website
+# Vivolution Website
 
-This repo contains a static website written with [GatsbyJS](https://www.gatsbyjs.org/), integrated with content coming from [DatoCMS](https://www.datocms.com).
+The Vivolution company website, built with [Gatsby](https://www.gatsbyjs.com/) and powered by [DatoCMS](https://www.datocms.com).
 
-![Preview](preview.png)
+Content (text, images, SEO metadata) is managed in DatoCMS. Gatsby reads that content and generates a fast, static website.
 
-[See the live demo](https://demo-datocms-gatsby.netlify.com/)
+---
 
-If you want to use try this out yourself, you first need to set up a project on DatoCMS which will host your data.
+## Prerequisites
 
-You can [sign up for a free account](https://dashboard.datocms.com/signup) and then you can simply click this button:
+Before you can run this project you need the following installed:
 
-[![Deploy with DatoCMS](https://dashboard.datocms.com/deploy/button.svg)](https://dashboard.datocms.com/projects/new-from-template/static-website/gatsby-portfolio)
+- **Node.js v18** — the project requires this specific version (Node 24+ is not supported)
+- **nvm-windows** — recommended for managing Node versions on Windows ([download here](https://github.com/coreybutler/nvm-windows/releases))
 
-## Repo usage
+### Install Node v18 via nvm
 
-First, install the dependencies of this project:
-
+```bash
+nvm install 18
+nvm use 18
+node --version  # should print v18.x.x
 ```
+
+---
+
+## Getting Started
+
+### 1. Navigate to the project folder
+
+```bash
+cd C:\Users\{yourUsernameHere}\RiderProjects\vivolution-cms
+```
+
+Always run commands from this folder, not from another directory.
+
+### 2. Install dependencies
+
+```bash
 npm install
 ```
 
-Add an `.env` file containing the read-only API token of your DatoCMS site:
+This downloads all required packages into a `node_modules/` folder. Only needs to be run once, or after pulling changes that update `package.json`.
+
+### 3. Create the `.env` file
+
+Create a file called `.env` in the project root with the DatoCMS API token:
 
 ```
-echo 'DATO_API_TOKEN=abc123' >> .env
+DATO_API_TOKEN=your_token_here
 ```
 
-Then, to run this website in development mode (with live-reload):
+Get the token from the DatoCMS dashboard under **Settings → API Tokens**. This file is not committed to git and must be created manually on each machine.
 
-```
+### 4. Start the development server
+
+```bash
 npm run develop
 ```
 
-To build the final, production ready static website:
+After 30–60 seconds, the site will be available at `http://localhost:8000`.
+
+The dev server has **live reload** — any changes you save to files will automatically refresh the browser.
+
+---
+
+## Available Commands
+
+| Command | Description |
+|---|---|
+| `npm run develop` | Start local dev server at `http://localhost:8000` |
+| `npm run build` | Build the production-ready site into the `public/` folder |
+| `npm run serve` | Preview the production build locally |
+| `npm run clean` | Clear the `.cache` and `public` folders (run this if you get odd errors) |
+
+---
+
+## Project Structure
 
 ```
-npm run build
+vivolution-cms/
+├── src/
+│   ├── pages/          # One file per page (index.js = homepage, about.js = /about, etc.)
+│   ├── components/     # Reusable UI sections (header, footer, hero, etc.)
+│   ├── templates/      # Templates for dynamic pages (e.g. individual blog posts)
+│   └── styles/         # SCSS stylesheets organised by component
+├── gatsby-config.js    # Gatsby settings and plugin configuration
+├── gatsby-node.js      # Gatsby Node API (advanced build configuration)
+├── package.json        # Project dependencies and scripts
+└── .env                # Secret API keys — do NOT commit this file
 ```
 
-The final result will be saved in the `public` directory.
+### How pages work
 
-## About
+- Files in `src/pages/` automatically become routes. For example, `src/pages/about.js` is served at `/about`.
+- Dynamic pages (like `/blog/some-post-slug`) are generated from DatoCMS data using files like `src/pages/blog/{DatoCmsBlog.slug}.js`.
 
-The goal of this project is to show how easily you can create static sites using the content (text, images, links, etc.) stored on [DatoCMS](https://www.datocms.com). This project is configured to fetch data from a specific administrative area using [the API DatoCMS provides](https://www.datocms.com/docs/content-management-api).
+### How content works
 
-You can find further information about how to integrate DatoCMS with Gatsby in [our documentation](https://www.datocms.com/docs/static-generators/gatsbyjs).
+All copy, images, and metadata come from DatoCMS — not from the code. The flow is:
 
-This websites uses:
+```
+DatoCMS (editors update content)
+    ↓
+Gatsby fetches it via GraphQL at build time
+    ↓
+React components render it into HTML
+    ↓
+Users see the finished website
+```
 
-- [GatsbyJS](https://github.com/gatsbyjs/gatsby) as website generator;
-- [gatsby-source-datocms](https://github.com/datocms/gatsby-source-datocms) to integrate the website with DatoCMS.
+Each page file contains a GraphQL query at the bottom that specifies what data to fetch from DatoCMS. If a field name in the code doesn't match what exists in DatoCMS, you'll get a GraphQL validation error — fix it by checking the field names in DatoCMS under **Settings → Models**.
+
+---
+
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| [Gatsby v5](https://www.gatsbyjs.com/) | Static site generator |
+| [React 18](https://react.dev/) | UI component framework |
+| [DatoCMS](https://www.datocms.com/) | Headless CMS (content management) |
+| [SCSS/SASS](https://sass-lang.com/) | Styling |
+| [Formik](https://formik.org/) + [Yup](https://github.com/jquense/yup) | Form handling and validation |
+| [Framer Motion](https://www.framer.com/motion/) | Animations |
+| [npm](https://www.npmjs.com/) | Package manager |
+
+---
+
+## Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `node` or `nvm` not recognised | Close and reopen terminal, then retry. If using Rider, restart the IDE after installing nvm. |
+| `Couldn't find a package.json` error | You're in the wrong folder — run `cd C:\Users\{yourUsernameHere}\RiderProjects\vivolution-cms` first |
+| GraphQL field error on startup | A field name in the code doesn't match DatoCMS — check **Settings → Models** in DatoCMS and update the field name in the relevant component |
+| Strange errors after pulling new code | Run `npm run clean` then `npm run develop` |
+| `node_modules` errors | Delete the `node_modules` folder and run `npm install` again |
+| LMDB / buffer errors on startup | You're likely on Node 24+. Switch to Node 18: `nvm use 18` then retry. |
+| Site builds but shows no content | Check your `.env` file exists and contains a valid `DATO_API_TOKEN` |

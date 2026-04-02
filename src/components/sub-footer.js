@@ -10,7 +10,7 @@ const SubFooter = () => {
           datoCmsCtaContact {
             title
             subtext
-            buttonText
+            contact
             mainText
           }
         }
@@ -25,7 +25,7 @@ const SubFooter = () => {
                 <span>{data.datoCmsCtaContact.subtext}</span>
                 <button>
                   <Link to={`/contact`}>
-                    {data.datoCmsCtaContact.buttonText}
+                    {data.datoCmsCtaContact.contact}
                   </Link>
                 </button>
               </div>
