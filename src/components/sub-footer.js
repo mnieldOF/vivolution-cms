@@ -11,7 +11,6 @@ const SubFooter = () => {
             subtext
             contact
             mainText
-            contact
           }
         }
       `}
