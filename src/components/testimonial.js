@@ -1,11 +1,9 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Autoplay } from "swiper";
+import { Pagination, Autoplay } from "swiper/modules";
 import Icon from "./icon";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
-SwiperCore.use([Pagination, Autoplay]);
 
 const HelpBlock = ({ image }) => {
   const img = getImage(image[0].image);
@@ -40,6 +38,7 @@ const HelpBlock = ({ image }) => {
               <div className="right">
                 <Swiper
                   id="main"
+                  modules={[Pagination, Autoplay]}
                   pagination={{ clickable: true }}
                   autoplay={{
                     delay: 9000,

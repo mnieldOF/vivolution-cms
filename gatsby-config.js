@@ -7,13 +7,12 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: "UA-114464654-1",
-        // this option places the tracking script into the head of the DOM
+        // TODO: Replace with GA4 Measurement ID (format: G-XXXXXXXXX)
+        // Create a GA4 property at analytics.google.com to get this ID
+        trackingId: `G-XXXXXXXXX`,
         head: true,
-        // other options
-        anonymize: true,
       },
     },
     `gatsby-plugin-react-helmet`,

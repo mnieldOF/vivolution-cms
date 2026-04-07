@@ -10,15 +10,15 @@ Content (text, images, SEO metadata) is managed in DatoCMS. Gatsby reads that co
 
 Before you can run this project you need the following installed:
 
-- **Node.js v18** — the project requires this specific version (Node 24+ is not supported)
+- **Node.js v22** — the project requires v22 (Active LTS). Node 24+ is not supported due to LMDB/buffer errors.
 - **nvm-windows** — recommended for managing Node versions on Windows ([download here](https://github.com/coreybutler/nvm-windows/releases))
 
-### Install Node v18 via nvm
+### Install Node v22 via nvm
 
 ```bash
-nvm install 18
-nvm use 18
-node --version  # should print v18.x.x
+nvm install 22
+nvm use 22
+node --version  # should print v22.x.x
 ```
 
 ---
@@ -122,7 +122,7 @@ Each page file contains a GraphQL query at the bottom that specifies what data t
 | [SCSS/SASS](https://sass-lang.com/) | Styling |
 | [Formik](https://formik.org/) + [Yup](https://github.com/jquense/yup) | Form handling and validation |
 | [Framer Motion](https://www.framer.com/motion/) | Animations |
-| [npm](https://www.npmjs.com/) | Package manager |
+| [Yarn](https://yarnpkg.com/) | Package manager |
 
 ---
 
@@ -135,5 +135,5 @@ Each page file contains a GraphQL query at the bottom that specifies what data t
 | GraphQL field error on startup | A field name in the code doesn't match DatoCMS — check **Settings → Models** in DatoCMS and update the field name in the relevant component |
 | Strange errors after pulling new code | Run `npm run clean` then `npm run develop` |
 | `node_modules` errors | Delete the `node_modules` folder and run `npm install` again |
-| LMDB / buffer errors on startup | You're likely on Node 24+. Switch to Node 18: `nvm use 18` then retry. |
+| LMDB / buffer errors on startup | You're likely on Node 24+. Switch to Node 22: `nvm use 22` then retry. |
 | Site builds but shows no content | Check your `.env` file exists and contains a valid `DATO_API_TOKEN` |
