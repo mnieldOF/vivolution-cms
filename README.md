@@ -36,7 +36,7 @@ Always run commands from this folder, not from another directory.
 ### 2. Install dependencies
 
 ```bash
-npm install
+yarn install
 ```
 
 This downloads all required packages into a `node_modules/` folder. Only needs to be run once, or after pulling changes that update `package.json`.
@@ -54,7 +54,7 @@ Get the token from the DatoCMS dashboard under **Settings → API Tokens**. This
 ### 4. Start the development server
 
 ```bash
-npm run develop
+yarn develop
 ```
 
 After 30–60 seconds, the site will be available at `http://localhost:8000`.
@@ -67,10 +67,10 @@ The dev server has **live reload** — any changes you save to files will automa
 
 | Command | Description |
 |---|---|
-| `npm run develop` | Start local dev server at `http://localhost:8000` |
-| `npm run build` | Build the production-ready site into the `public/` folder |
-| `npm run serve` | Preview the production build locally |
-| `npm run clean` | Clear the `.cache` and `public` folders (run this if you get odd errors) |
+| `yarn develop` | Start local dev server at `http://localhost:8000` |
+| `yarn build` | Build the production-ready site into the `public/` folder |
+| `yarn serve` | Preview the production build locally |
+| `yarn clean` | Clear the `.cache` and `public` folders (run this if you get odd errors) |
 
 ---
 
@@ -81,7 +81,6 @@ vivolution-cms/
 ├── src/
 │   ├── pages/          # One file per page (index.js = homepage, about.js = /about, etc.)
 │   ├── components/     # Reusable UI sections (header, footer, hero, etc.)
-│   ├── templates/      # Templates for dynamic pages (e.g. individual blog posts)
 │   └── styles/         # SCSS stylesheets organised by component
 ├── gatsby-config.js    # Gatsby settings and plugin configuration
 ├── gatsby-node.js      # Gatsby Node API (advanced build configuration)
@@ -133,7 +132,7 @@ Each page file contains a GraphQL query at the bottom that specifies what data t
 | `node` or `nvm` not recognised | Close and reopen terminal, then retry. If using Rider, restart the IDE after installing nvm. |
 | `Couldn't find a package.json` error | You're in the wrong folder — run `cd C:\Users\{yourUsernameHere}\RiderProjects\vivolution-cms` first |
 | GraphQL field error on startup | A field name in the code doesn't match DatoCMS — check **Settings → Models** in DatoCMS and update the field name in the relevant component |
-| Strange errors after pulling new code | Run `npm run clean` then `npm run develop` |
-| `node_modules` errors | Delete the `node_modules` folder and run `npm install` again |
+| Strange errors after pulling new code | Run `yarn clean` then `yarn develop` |
+| `node_modules` errors | Delete the `node_modules` folder and run `yarn install` again |
 | LMDB / buffer errors on startup | You're likely on Node 24+. Switch to Node 22: `nvm use 22` then retry. |
 | Site builds but shows no content | Check your `.env` file exists and contains a valid `DATO_API_TOKEN` |
