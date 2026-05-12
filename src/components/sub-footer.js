@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
 const SubFooter = () => {
   return (
@@ -9,7 +9,11 @@ const SubFooter = () => {
           datoCmsCtaContact {
             title
             subtext
-            contact
+            contactNode {
+              childMarkdownRemark {
+                html
+              }
+            }
             mainText
           }
         }
@@ -22,11 +26,11 @@ const SubFooter = () => {
                 <h2 className="title">{data.datoCmsCtaContact.title}</h2>
                 <p className="text">{data.datoCmsCtaContact.mainText}</p>
                 <span>{data.datoCmsCtaContact.subtext}</span>
-                <button>
-                  <Link to={`/contact`}>
-                    {data.datoCmsCtaContact.contact}
-                  </Link>
-                </button>
+                <button
+                  dangerouslySetInnerHTML={{
+                    __html: data.datoCmsCtaContact.contactNode.childMarkdownRemark.html,
+                  }}
+                />
               </div>
             </div>
           </div>
