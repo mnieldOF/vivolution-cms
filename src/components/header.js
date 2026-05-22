@@ -2,77 +2,80 @@ import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import Icon from "./icon";
 import CoverMenu from "./cover-menu";
-import { motion } from "framer-motion";
 import SmallLogo from "../images/vivo-icon-logo.svg";
+
+const navLinks = [
+  { text: "Services", link: "/services" },
+  { text: "Tools", link: "/tools" },
+  { text: "Investment Programme", link: "/investment-programme" },
+  { text: "Portfolio", link: "/portfolio" },
+  { text: "Studios", link: "/studios" },
+  { text: "About Us", link: "/about" },
+  { text: "Contact", link: "/contact" },
+];
 
 const Header = ({ socials }) => {
   const [active, setActive] = useState(false);
-  const [logoSwap, setLogoSwap] = useState(false);
 
-  const openMenu = (e) => {
-    e.preventDefault();
-    setActive(!active);
+  const toggleMenu = () => {
+    const newActive = !active;
+    setActive(newActive);
+    document.body.style.overflow = newActive ? "hidden" : "";
   };
 
-  const changeLogo = () => {
-    if (window.scrollY >= 80 && window.screen.width >= 576) {
-      document.getElementById("logo-id").classList.add("scrolled");
-      document.getElementById("header").classList.add("scrolled");
-    } else {
-      document.getElementById("logo-id").classList.remove("scrolled");
-      document.getElementById("header").classList.remove("scrolled");
-    }
+  const closeMenu = () => {
+    setActive(false);
+    document.body.style.overflow = "";
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", changeLogo);
-  });
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 40;
+      document.getElementById("header")?.classList.toggle("scrolled", scrolled);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <div className="vivo-header" id="header">
-        <div className="container">
-          <div
-            id="logo-id"
-            className={`logo-container ${active ? "active" : ""}`}
-          >
-            <Link to={`/`}>
-              <Icon
-                icon="Vivolution_Text-Only---white-and-Blue"
-                width="100px"
-                className="logo"
-              />
-              <div className="logo-small">
-                <img src={SmallLogo} alt="" />
-              </div>
+      <header className="vivo-header" id="header">
+        <div className="header-inner">
+          <Link to="/" className="logo-wrap" aria-label="Vivolution home">
+            <Icon
+              icon="vivo-logo-white"
+              className="logo-full"
+              color="#e8336a"
+            />
+            <img src={SmallLogo} alt="Vivolution" className="logo-v" />
+          </Link>
+
+          <div className="header-right">
+            <nav>
+              {navLinks.map((item) => (
+                <Link key={item.link} to={item.link}>
+                  {item.text}
+                </Link>
+              ))}
+            </nav>
+            <Link to="/contact" className="btn-cta">
+              Let&apos;s chat
             </Link>
           </div>
-          <nav className="vivo-header-nav">
-            <div>
-              <a
-                href="/contact"
-                className={`chat-cta ${active ? "active" : ""}`}
-              >
-                let&apos;s chat
-              </a>
-            </div>
-            <motion.div className={`hamburger ${active ? "active" : ""}`}>
-              <div className="hamburger-wrapper">
-                <div className="button">
-                  <button>
-                    <div className="background-hamburger"></div>
-                    <div className="icon-hamburger">
-                      <div className="line-center"></div>
-                    </div>
-                  </button>
-                </div>
-              </div>
-              <div className="click-layer" onClick={(e) => openMenu(e)}></div>
-            </motion.div>
-          </nav>
-          <CoverMenu active={active} socials={socials} />
+
+          <button
+            className={`hamburger ${active ? "open" : ""}`}
+            aria-label="Toggle menu"
+            aria-expanded={active}
+            onClick={toggleMenu}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
-      </div>
+      </header>
+      <CoverMenu active={active} socials={socials} onClose={closeMenu} />
     </>
   );
 };
