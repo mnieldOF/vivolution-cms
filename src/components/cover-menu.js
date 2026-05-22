@@ -213,16 +213,16 @@ const CoverMenu = ({ active, socials }) => {
                   </p>
                 </div>
                 <div className="social-cta">
-                  {socials.edges.map(({ node: item }, i) => {
-                    return (
-                      <a key={"sm_" + i} href={item.url}>
+                  {(socials?.edges ?? [])
+                    .filter(({ node }) => node.url && node.profileType === "LinkedIn")
+                    .map(({ node: item }, i) => (
+                      <a key={"sm_" + i} href={item.url} aria-label={item.profileType}>
                         <Icon
                           icon="linkedin2"
                           width="20px"
                         />
                       </a>
-                    );
-                  })}
+                    ))}
                 </div>
               </motion.div>
             </div>

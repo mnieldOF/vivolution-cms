@@ -25,7 +25,6 @@ const TemplateWrapper = ({ children, location, noFooter }) => {
             seoMetaTags {
               ...GatsbyDatoCmsSeoMetaTags
             }
-            copyright
           }
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
             edges {
