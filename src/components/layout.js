@@ -35,11 +35,6 @@ const TemplateWrapper = ({ children, location, noFooter }) => {
               }
             }
           }
-          datoCmsFooter {
-            footerLogos {
-              gatsbyImageData
-            }
-          }
         }
       `}
       render={(data) => {
@@ -56,7 +51,6 @@ const TemplateWrapper = ({ children, location, noFooter }) => {
             {!location ? <SubFooter /> : null}
             {!noFooter ? (
               <Footer
-                data={data.datoCmsFooter}
                 socials={data.allDatoCmsSocialProfile}
               />
             ) : null}

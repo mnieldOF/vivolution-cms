@@ -217,11 +217,7 @@ const CoverMenu = ({ active, socials }) => {
                     return (
                       <a key={"sm_" + i} href={item.url}>
                         <Icon
-                          icon={
-                            item.profileType === "Twitter"
-                              ? "twitter"
-                              : "linkedin2"
-                          }
+                          icon="linkedin2"
                           width="20px"
                         />
                       </a>
