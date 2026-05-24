@@ -25,11 +25,6 @@ export const useLayoutData = () => {
           }
         }
       }
-      datoCmsFooter {
-        footerLogos {
-          gatsbyImageData
-        }
-      }
     }
   `);
 };

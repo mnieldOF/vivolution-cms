@@ -81,17 +81,17 @@ const Footer = ({ socials }) => {
   );
 };
 
-Footer.propTypes = {
-  socials: PropTypes.shape({
-    edges: PropTypes.arrayOf(
-      PropTypes.shape({
-        node: PropTypes.shape({
-          url: PropTypes.string.isRequired,
-          profileType: PropTypes.string.isRequired,
-        }),
-      })
-    ).isRequired,
-  }).isRequired,
-};
+// Footer.propTypes = {
+//   socials: PropTypes.shape({
+//     edges: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         node: PropTypes.shape({
+//           url: PropTypes.string.isRequired,
+//           profileType: PropTypes.string.isRequired,
+//         }),
+//       })
+//     ).isRequired,
+//   }).isRequired,
+// };
 
 export default Footer;

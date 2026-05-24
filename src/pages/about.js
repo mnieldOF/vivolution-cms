@@ -1,5 +1,4 @@
 import React from "react";
-import "./about.scss";
 import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/layout/layout";
@@ -9,18 +8,10 @@ import TeamMember from "../components/blocks/team-member";
 const About = ({ data }) => {
   const team = data.allDatoCmsTeam.edges;
   const { aboutUsBlocks } = data.datoCmsAboutPage;
-  const heroBlock = aboutUsBlocks[0];
   return (
     <Layout cta={data.datoCmsAboutPage.cta}>
       <HelmetDatoCms seo={data.datoCmsAboutPage.seo} />
-      <section className="profile-hero">
-        <div className="profile-hero-inner">
-          <p className="profile-eyebrow">{heroBlock.subtitle}</p>
-          <h1 className="profile-hero-headline">{heroBlock.title}</h1>
-          {heroBlock.subText && <p className="profile-hero-title">{heroBlock.subText}</p>}
-        </div>
-      </section>
-      <DatoBlocks blocks={aboutUsBlocks.slice(1)} />
+      <DatoBlocks blocks={aboutUsBlocks} dark />
       <section className="team">
         <div className="team-inner">
           <div className="team-header">

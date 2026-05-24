@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout/layout";
+import Hero from "../../components/blocks/hero";
 import Icon from "../../components/ui/icon";
 
 const Team = ({ data }) => {
@@ -14,13 +15,7 @@ const Team = ({ data }) => {
     <Layout cta={data.datoCmsTeam.cta}>
       <HelmetDatoCms seo={data.datoCmsTeam.seo} />
 
-      <section className="profile-hero">
-        <div className="profile-hero-inner">
-          <p className="profile-eyebrow">Meet the Team</p>
-          <h1 className="profile-hero-headline">{name}</h1>
-          <p className="profile-hero-title">{role}</p>
-        </div>
-      </section>
+      <Hero title={name} subtitle="Meet the Team" subtext={role} dark />
 
       <section className="profile-body">
         <div className="profile-body-inner">

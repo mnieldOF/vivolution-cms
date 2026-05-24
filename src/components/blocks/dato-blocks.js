@@ -8,7 +8,7 @@ import Values from "./values";
 import History from "./history";
 import ImageGallery from "./image-gallery";
 
-const DatoBlocks = ({ blocks }) => {
+const DatoBlocks = ({ blocks, dark }) => {
   return blocks.map((block, i) => {
     if (block.model.name === "Customer Profile Details") {
       return (
@@ -61,7 +61,7 @@ const DatoBlocks = ({ blocks }) => {
       return <Values key={`v-${i}`} data={block} />;
     } else if (block.model.name === "Hero Banner") {
       return (
-        <Hero key={`h-${i}`} title={block.title} subtitle={block.subtitle} subtext={block.subText} image={block.background} />
+        <Hero key={`h-${i}`} title={block.title} subtitle={block.subtitle} subtext={block.subText} image={block.background} dark={dark} />
       );
     } else if (block.model.name === "Title Text") {
       return (
