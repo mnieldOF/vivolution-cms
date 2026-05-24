@@ -7,7 +7,7 @@ import { StructuredText } from "react-datocms";
 const PrivacyPolicy = ({ data }) => {
   const { title, content } = data.datoCmsPrivacyPolicy;
   return (
-    <Layout>
+    <Layout cta={data.datoCmsPrivacyPolicy.cta}>
       <Hero
         title={data.datoCmsPrivacyPolicy.heroBanner[0].title}
         image={data.datoCmsPrivacyPolicy.heroBanner[0].background}

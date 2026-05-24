@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Icon from "../ui/icon";
 
 const Links = [
-  { text: "Sectors", link: "/sectors" },
   { text: "Services", link: "/services" },
   { text: "Portfolio", link: "/portfolio" },
   { text: "About", link: "/about" },

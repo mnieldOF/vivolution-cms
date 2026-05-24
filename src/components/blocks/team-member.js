@@ -6,14 +6,12 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 const TeamMember = ({ role, image, name, slug }) => {
   const profileImg = getImage(image);
   return (
-    <Link className="item" to={`/team/${slug}`}>
-      <div className="image-container">
-        <GatsbyImage className="profile-img" image={profileImg} alt="test" />
+    <Link className="team-card" to={`/team/${slug}`}>
+      <div className="team-photo">
+        <GatsbyImage image={profileImg} alt={name} />
       </div>
-      <div className="meta">
-        <h4 className="name">{name}</h4>
-        <p className="role">{role}</p>
-      </div>
+      <p className="team-name">{name}</p>
+      <p className="team-title">{role}</p>
     </Link>
   );
 };

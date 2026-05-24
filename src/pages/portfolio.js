@@ -61,7 +61,7 @@ const Portfolio = ({ data }) => {
 
   const { blocks, description } = data.datoCmsPortfolio;
   return (
-    <Layout>
+    <Layout cta={data.datoCmsPortfolio.cta}>
       <Hero title={blocks[0].title} image={blocks[0].background} />
       <TextBlock>
         <div className="content-container">{description}</div>
@@ -83,6 +83,16 @@ export default Portfolio;
 export const query = graphql`
   {
     datoCmsPortfolio {
+      cta {
+        title
+        maintext
+        subtext
+        contactNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
       blocks {
         background {
           gatsbyImageData

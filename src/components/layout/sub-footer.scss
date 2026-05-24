@@ -1,69 +1,66 @@
 .sub-footer {
-  padding: 30px 0;
-  .box {
-    width: 100%;
+  background: #faf9f7;
+  padding: 120px 40px;
+  text-align: center;
+
+  .cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .cta-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary-pink);
+    margin-bottom: 20px;
+  }
+
+  .cta-headline {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 600;
+    color: var(--color-primary-black-2);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .cta-subtext {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(17, 17, 24, 0.55);
+    margin-bottom: 40px;
+  }
+
+  .cta-actions {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    .title {
-      color: #494949;
-      font-weight: 700;
-      font-size: 22px;
-      line-height: 30px;
-      margin-bottom: 20px;
-    }
-    .text {
-      color: #494949;
-      font-weight: 400;
-      margin-bottom: 34px;
-    }
-    span {
-      color: #494949;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
-    button {
-      background: linear-gradient(96.42deg, #3026dd -9.97%, #c1259a 107.69%);
+    gap: 24px;
+    flex-wrap: wrap;
+
+    a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #faf9f7;
+      background: var(--color-primary-pink);
+      border: none;
       border-radius: 8px;
-      border: 1px solid #ecf2fe;
-      box-sizing: border-box;
-      padding: 15px;
-      width: 205px;
-      color: #fff;
-      transition: opacity 0.3s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      p {
-        margin: 0;
-        line-height: 1.4;
-      }
-      a {
-        display: block;
-        text-decoration: none;
-        color: white;
-        line-height: 1.4;
-      }
+      padding: 10px 22px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+
       &:hover {
-        cursor: pointer;
-        opacity: 0.8;
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 20px rgba(190, 0, 171, 0.35);
       }
     }
   }
-  @media screen and (min-width: 900px) {
-    padding: 50px 0 100px;
-    .box {
-      .title {
-        font-size: 40px;
-        line-height: 40px;
-        margin-bottom: 28px;
-      }
-      .text {
-        max-width: 800px;
-      }
-    }
+
+  @media screen and (max-width: 768px) {
+    padding: 80px 24px;
   }
 }

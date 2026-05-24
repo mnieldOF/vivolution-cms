@@ -1,25 +1,19 @@
 import React from "react";
 import "./sub-footer.scss";
-import { useSubFooterData } from "../../hooks/useSubFooterData";
 
-const SubFooter = () => {
-  const data = useSubFooterData();
-  const cta = data.datoCmsCtaContact;
+const SubFooter = ({ cta }) => {
+  if (!cta) return null;
   return (
-    <div className="sub-footer">
-      <div className="container">
-        <div className="box">
-          <h2 className="title">{cta.title}</h2>
-          <p className="text">{cta.mainText}</p>
-          <span>{cta.subtext}</span>
-          <button
-            dangerouslySetInnerHTML={{
-              __html: cta.contactNode.childMarkdownRemark.html,
-            }}
-          />
+    <section className="sub-footer">
+      <div className="cta-inner">
+        {cta.subtext && <p className="cta-eyebrow">{cta.subtext}</p>}
+        <h2 className="cta-headline">{cta.title}</h2>
+        {cta.maintext && <p className="cta-subtext">{cta.maintext}</p>}
+        <div className="cta-actions">
+          <a href="mailto:hello@vivolution.co.uk">Let&apos;s chat</a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

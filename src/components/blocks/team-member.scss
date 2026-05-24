@@ -1,115 +1,104 @@
 .team {
-  padding: 30px 0;
-  background: var(--color-primary-white);
-  .title {
-    color: var(--color-primary-pink);
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  background: #faf9f7;
+  padding: 100px 40px;
+
+  .team-inner {
+    max-width: 1200px;
+    margin: 0 auto;
   }
-  .grid {
+
+  .team-header {
+    margin-bottom: 56px;
+
+    .team-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary-pink);
+      margin-bottom: 16px;
+    }
+
+    .team-headline {
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 600;
+      color: #111118;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+  }
+
+  .team-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    .item {
-      text-decoration: none;
-      transition: all 0.3s ease-in-out;
-      .image-container {
-        height: 150px;
-        position: relative;
-        overflow: hidden;
-        img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 100%;
-          height: auto;
-        }
-      }
-      .meta {
-        padding: 10px 0;
-      }
-      .name {
-        text-align: center;
-        font-size: 21px;
-        font-weight: bold;
-        color: var(--color-primary-pink);
-        margin-bottom: 10px;
-      }
-      .role {
-        text-align: center;
-        color: black;
-        font-weight: 300;
-      }
-      &:hover {
-        transform: translateY(-20px);
-        .name {
-          color: black;
-        }
+    gap: 24px;
+  }
+
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+
+    .team-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      background: #e8e6e0;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      .gatsby-image-wrapper {
+        width: 100%;
+        height: 100%;
       }
     }
-  }
-  @media screen and (min-width: 450px) {
-    .grid {
-      .item {
-        .image-container {
-          height: 200px;
-        }
-      }
+
+    .team-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111118;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+      transition: color 0.3s ease;
+    }
+
+    .team-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-primary-pink);
+    }
+
+    &:hover .team-photo {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(190, 0, 171, 0.15);
+    }
+
+    &:hover .team-name {
+      color: var(--color-primary-pink);
     }
   }
+
   @media screen and (min-width: 576px) {
-    .grid {
-      .item {
-        .image-container {
-          height: 250px;
-        }
-      }
-    }
-  }
-  @media screen and (min-width: 630px) {
-    .grid {
-      .item {
-        .image-container {
-          height: 300px;
-        }
-      }
-    }
-  }
-  @media screen and (min-width: 768px) {
-    padding: 60px 0;
-    .title {
-      font-size: 48px;
-      margin-bottom: 50px;
-    }
-    .grid {
+    .team-grid {
       grid-template-columns: repeat(3, 1fr);
-      .item {
-        .image-container {
-          height: 230px;
-        }
-      }
     }
   }
-  @media screen and (min-width: 900px) {
-    .grid {
-      grid-template-columns: repeat(3, 1fr);
-      .item {
-        .image-container {
-          height: 270px;
-        }
-      }
-    }
-  }
+
   @media screen and (min-width: 992px) {
-    .grid {
+    .team-grid {
       grid-template-columns: repeat(4, 1fr);
-      .item {
-        .image-container {
-          height: 230px;
-        }
-      }
     }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .team-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 64px 24px;
   }
 }

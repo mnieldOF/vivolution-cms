@@ -61,7 +61,7 @@ const DatoBlocks = ({ blocks }) => {
       return <Values key={`v-${i}`} data={block} />;
     } else if (block.model.name === "Hero Banner") {
       return (
-        <Hero key={`h-${i}`} title={block.title} image={block.background} />
+        <Hero key={`h-${i}`} title={block.title} subtitle={block.subtitle} subtext={block.subText} image={block.background} />
       );
     } else if (block.model.name === "Title Text") {
       return (

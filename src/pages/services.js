@@ -8,7 +8,7 @@ import ImageGallery from "../components/blocks/image-gallery";
 
 const Services = ({ data }) => {
   return (
-    <Layout>
+    <Layout cta={data.datoCmsServiceSingle.cta}>
       <Hero
         title={data.datoCmsServiceSingle.hero[0].title}
         image={data.datoCmsServiceSingle.hero[0].background}
@@ -28,6 +28,16 @@ export default Services;
 export const query = graphql`
   {
     datoCmsServiceSingle {
+      cta {
+        title
+        maintext
+        subtext
+        contactNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
       title
       hero {
         background {

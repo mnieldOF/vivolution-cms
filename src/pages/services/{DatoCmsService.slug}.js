@@ -21,7 +21,7 @@ const Service = ({ data }) => {
   );
 
   return (
-    <Layout>
+    <Layout cta={data.datoCmsService.cta}>
       <HelmetDatoCms seo={data.datoCmsService.seo} />
       <Hero
         title={data.datoCmsService.hero[0].title}
@@ -57,6 +57,16 @@ export default Service;
 export const query = graphql`
   query ($id: String!) {
     datoCmsService(id: { eq: $id }) {
+      cta {
+        title
+        maintext
+        subtext
+        contactNode {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
       comingSoonBlock {
         text
         logo {

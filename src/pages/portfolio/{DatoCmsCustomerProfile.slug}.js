@@ -13,7 +13,7 @@ const CustomerProfile = ({ data }) => {
   );
 
   return (
-    <Layout>
+    <Layout cta={data.profile.cta}>
       <HelmetDatoCms seo={data.profile.seo} />
       <Hero title={data.profile.title} image={data.profile.featuredImage} />
       <DatoBlocks blocks={data.profile.blocks} />

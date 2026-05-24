@@ -7,7 +7,8 @@ const History = ({ data }) => {
       <div className="content-container">
         <div className="grid">
           <div className="left">
-            <h3 className="title">{data.title}</h3>
+            <p className="team-eyebrow">Our story</p>
+            <h3 className="team-headline">{data.title}</h3>
             <div
               dangerouslySetInnerHTML={{
                 __html: data.text,

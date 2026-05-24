@@ -1,104 +1,40 @@
 .hero {
-  padding: 104px 0;
-  position: relative;
-  overflow: hidden;
-  .hero-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    .hero-img {
-      width: 100%;
-      height: 100%;
-    }
-    &:after {
-      content: " ";
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 2;
-    }
+  background: #faf9f7;
+  padding: 160px 40px 120px;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+
+  .hero-inner {
+    max-width: 720px;
   }
-  video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary-pink);
+    margin-bottom: 24px;
   }
-  .curve {
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    z-index: 2;
-    width: 100%;
-    pointer-events: none;
+
+  .hero-headline {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-primary-black-2);
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
   }
-  .title {
-    color: white;
-    font-size: 25px;
-    line-height: 35px;
+
+  .hero-body {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(17, 17, 24, 0.6);
   }
-  .logo-container {
-    width: 200px;
-    .logo {
-      width: 100%;
-    }
-  }
-  @media screen and (orientation: landscape) {
-    padding: 180px 0;
-  }
-  @media screen and (min-width: 768px) {
-    padding: 200px 0;
-    .title {
-      color: white;
-      font-size: 40px;
-      line-height: 55px;
-    }
-  }
-  @media screen and (min-width: 1024px) {
-    padding: 300px 0;
-  }
-  @media screen and (min-width: 1024px) and (orientation: portrait) {
-    padding: 288px 0;
-  }
-  @media screen and (min-width: 1050px) {
-    padding: 0;
-    height: 100vh;
-    .content-container {
-      position: relative;
-      z-index: 9;
-      height: 100%;
-      align-items: center;
-    }
-    .curve {
-      position: absolute;
-      left: 0;
-      bottom: -20px;
-      z-index: 2;
-    }
-    .title {
-      color: white;
-      font-size: 60px;
-      line-height: 75px;
-    }
-    .logo-container {
-      width: 500px;
-      .logo {
-        width: 100%;
-      }
-    }
-    video {
-      width: 100%;
-      & + .gatsby-image-wrapper {
-        display: none;
-      }
-    }
+
+  @media screen and (max-width: 768px) {
+    padding: 120px 24px 80px;
+    min-height: auto;
   }
 }

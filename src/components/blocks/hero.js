@@ -1,38 +1,16 @@
 import "./hero.scss";
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import Curve from "../../images/Header-Curve-01.svg";
 
-const Hero = ({ title, image, logo, children }) => {
-  const heroImg = getImage(image);
+const Hero = ({ title, subtitle, subtext, children }) => {
   return (
-    <div className="hero">
-      <div className="hero-image">
-        {children ? (
-          children
-        ) : heroImg ? (
-          <GatsbyImage
-            className="hero-img"
-            layout="fullWidth"
-            image={heroImg}
-            alt="test"
-          />
-        ) : (
-          <img src={image} alt="" className="hero-img" />
-        )}
+    <section className="hero">
+      <div className="hero-inner">
+        {subtitle && <p className="hero-eyebrow">{subtitle}</p>}
+        <h1 className="hero-headline">{title}</h1>
+        {subtext && <p className="hero-body">{subtext}</p>}
+        {children}
       </div>
-
-      <img src={Curve} className="curve" alt="" />
-      <div className="content-container">
-        {logo ? (
-          <div className="logo-container">
-            <img src={logo.url} alt="" className="logo" />
-          </div>
-        ) : (
-          <h1 className="title">{title}</h1>
-        )}
-      </div>
-    </div>
+    </section>
   );
 };
 

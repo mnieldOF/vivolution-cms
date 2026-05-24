@@ -8,7 +8,7 @@ import { useLayoutData } from "../../hooks/useLayoutData";
 
 import "../../styles/index.scss";
 
-const TemplateWrapper = ({ children, location, noFooter }) => {
+const TemplateWrapper = ({ children, location, noFooter, cta }) => {
   const data = useLayoutData();
   return (
     <>
@@ -20,7 +20,7 @@ const TemplateWrapper = ({ children, location, noFooter }) => {
         />
         <div>{children}</div>
       </div>
-      {!location ? <SubFooter /> : null}
+      {!location ? <SubFooter cta={cta} /> : null}
       {!noFooter ? (
         <Footer
           data={data.datoCmsFooter}
