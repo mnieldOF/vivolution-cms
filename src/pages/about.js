@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import Layout from "../components/layout";
-import DatoBlocks from "../components/dato-blocks";
-import TeamMember from "../components/team-member";
+import Layout from "../components/layout/layout";
+import DatoBlocks from "../components/blocks/dato-blocks";
+import TeamMember from "../components/blocks/team-member";
 
 const About = ({ data }) => {
   console.log(data);

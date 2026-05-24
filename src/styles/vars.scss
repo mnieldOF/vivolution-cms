@@ -25,6 +25,13 @@
   --custom-ease-4: cubic-bezier(0.63, 0.03, 0.21, 1);
   --primary-ease: var(--custom-ease-1);
   --desktop-content-width: 1200px;
+
+  --color-light-bg: #f4f4f4;
+  --color-dark-body: #111;
+  --color-base-body: #444;
+  --color-light-body: #777;
+  --color-active: #9055a2;
+  --color-border: #ccc;
   --laptop-content-width: 1080px;
   --small-laptop-content-width: 960px;
   --background-blue-gradient: linear-gradient(

@@ -1,15 +1,15 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import Layout from "../components/layout";
-import Hero from "../components/hero";
-import TextBlock from "../components/text-block";
-import HelpBlock from "../components/help-block";
-import GrowthBlock from "../components/growth-block";
-import Numbers from "../components/numbers";
-import Testimonial from "../components/testimonial";
-import Test from "../components/test";
-import Video from "../vivo-comp.mp4";
+import Layout from "../components/layout/layout";
+import Hero from "../components/blocks/hero";
+import TextBlock from "../components/blocks/text-block";
+import HelpBlock from "../components/blocks/help-block";
+import GrowthBlock from "../components/blocks/growth-block";
+import Numbers from "../components/blocks/numbers";
+import Testimonial from "../components/blocks/testimonial";
+import CustomerProfileSlider from "../components/portfolio/customer-profile-slider";
+import Video from "../assets/vivo-comp.mp4";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
       <Numbers data={datoCmsHome.numbers} />
       <GrowthBlock data={data.allDatoCmsService} />
       <Testimonial image={datoCmsHome.image} />
-      <Test image data={data.allDatoCmsCustomerProfile.edges} />
+      <CustomerProfileSlider image data={data.allDatoCmsCustomerProfile.edges} />
     </Layout>
   );
 };
@@ -85,41 +85,21 @@ export const query = graphql`
     allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
       edges {
         node {
-          featuredImage {
-            gatsbyImageData
-          }
-          title
-          logo {
-            gatsbyImageData(width: 100)
-          }
-          slug
-          shortDescription
+          ...CustomerProfileCard
         }
       }
     }
     allDatoCmsService(sort: { fields: position, order: ASC }) {
       edges {
         node {
-          slug
-          logo {
-            url
-          }
-          shortDescription
-          cardImage {
-            gatsbyImageData
-          }
+          ...ServiceCard
         }
       }
     }
     allDatoCmsSector(sort: { fields: [position], order: ASC }) {
       edges {
         node {
-          title
-          shortDescription
-          icon {
-            url
-          }
-          slug
+          ...SectorCard
         }
       }
     }
@@ -129,9 +109,7 @@ export const query = graphql`
           sectorCategory {
             title
           }
-          partnerImage {
-            gatsbyImageData
-          }
+          ...PartnerCard
         }
       }
     }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import Layout from "../../components/layout";
-import Hero from "../../components/hero";
+import Layout from "../../components/layout/layout";
+import Hero from "../../components/blocks/hero";
 import { StructuredText } from "react-datocms";
 
 const PrivacyPolicy = ({ data }) => {

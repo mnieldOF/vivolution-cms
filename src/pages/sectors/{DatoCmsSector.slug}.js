@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import Layout from "../../components/layout";
-import Hero from "../../components/hero";
-import ImageText from "../../components/image-text";
-import ContentReveal from "../../components/content-reveal";
-import Partners from "../../components/partners";
-import Test from "../../components/test";
+import Layout from "../../components/layout/layout";
+import Hero from "../../components/blocks/hero";
+import ImageText from "../../components/blocks/image-text";
+import ContentReveal from "../../components/blocks/content-reveal";
+import Partners from "../../components/blocks/partners";
+import CustomerProfileSlider from "../../components/portfolio/customer-profile-slider";
 
 const Sector = ({ data }) => {
   const filter = data.datoCmsSector.title;
@@ -35,7 +35,7 @@ const Sector = ({ data }) => {
         tabTitle={data.datoCmsSector.tabTitle}
       />
       <Partners related={partnerFilter} />
-      <Test image data={filteredData} />
+      <CustomerProfileSlider image data={filteredData} />
     </Layout>
   );
 };
@@ -85,27 +85,17 @@ export const query = graphql`
           sectorCategory {
             title
           }
-          partnerImage {
-            gatsbyImageData
-          }
+          ...PartnerCard
         }
       }
     }
     allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
       edges {
         node {
+          ...CustomerProfileCard
           sectorCategory {
             title
           }
-          featuredImage {
-            gatsbyImageData
-          }
-          title
-          logo {
-            gatsbyImageData(width: 100)
-          }
-          slug
-          shortDescription
         }
       }
     }

@@ -1,14 +1,14 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import Layout from "../../components/layout";
-import Hero from "../../components/hero";
-import ImageText from "../../components/image-text";
-import ContentReveal from "../../components/content-reveal";
-import Partners from "../../components/partners";
-import ComingSoon from "../../components/coming-soon";
-import GrowthBlock from "../../components/growth-block";
-import Test from "../../components/test";
+import Layout from "../../components/layout/layout";
+import Hero from "../../components/blocks/hero";
+import ImageText from "../../components/blocks/image-text";
+import ContentReveal from "../../components/blocks/content-reveal";
+import Partners from "../../components/blocks/partners";
+import ComingSoon from "../../components/blocks/coming-soon";
+import GrowthBlock from "../../components/blocks/growth-block";
+import CustomerProfileSlider from "../../components/portfolio/customer-profile-slider";
 
 const Service = ({ data }) => {
   const filter = data.datoCmsService.title;
@@ -45,7 +45,7 @@ const Service = ({ data }) => {
             tabTitle={data.datoCmsService.tabTitle}
           />
           <Partners related={partnerFilter} />
-          <Test image data={filteredData} />
+          <CustomerProfileSlider image data={filteredData} />
         </>
       )}
     </Layout>
@@ -110,32 +110,17 @@ export const query = graphql`
     allDatoCmsService(sort: { fields: position, order: ASC }) {
       edges {
         node {
-          slug
-          logo {
-            url
-          }
-          shortDescription
-          cardImage {
-            gatsbyImageData
-          }
+          ...ServiceCard
         }
       }
     }
     allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
       edges {
         node {
+          ...CustomerProfileCard
           serviceCategory {
             title
           }
-          featuredImage {
-            gatsbyImageData
-          }
-          title
-          logo {
-            gatsbyImageData(width: 100)
-          }
-          slug
-          shortDescription
         }
       }
     }
@@ -145,9 +130,7 @@ export const query = graphql`
           serviceCategory {
             title
           }
-          partnerImage {
-            gatsbyImageData
-          }
+          ...PartnerCard
           title
         }
       }

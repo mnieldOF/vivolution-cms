@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout.js";
-import Hero from "../components/hero";
-import HelpBlock from "../components/help-block";
-import TextBlock from "../components/text-block";
-import ImageGallery from "../components/image-gallery";
+import Layout from "../components/layout/layout";
+import Hero from "../components/blocks/hero";
+import HelpBlock from "../components/blocks/help-block";
+import TextBlock from "../components/blocks/text-block";
+import ImageGallery from "../components/blocks/image-gallery";
 
 const Sectors = ({ data }) => {
   return (

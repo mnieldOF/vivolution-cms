@@ -1,13 +1,14 @@
 import React from "react";
+import "./contact.scss";
 import { graphql, navigate } from "gatsby";
-import Layout from "../components/layout";
-import DatoBlocks from "../components/dato-blocks";
+import Layout from "../components/layout/layout";
+import DatoBlocks from "../components/blocks/dato-blocks";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import CustomSelect from "../components/custom-select";
+import CustomSelect from "../components/ui/custom-select";
 import MyTextInput from "../components/form/text-input";
-import MyTextArea from "../components/form/teaxtarea";
-import MapBlock from "../components/map-block";
+import MyTextArea from "../components/form/textarea";
+import MapBlock from "../components/blocks/map-block";
 
 const options = [
   { value: "vivo-connect", label: "VivoConnect" },

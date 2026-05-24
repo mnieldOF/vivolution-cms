@@ -1,5 +1,6 @@
 import React from "react";
-import Layout from "../components/layout";
+import "./form-complete.scss";
+import Layout from "../components/layout/layout";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 

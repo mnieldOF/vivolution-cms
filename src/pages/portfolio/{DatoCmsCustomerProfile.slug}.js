@@ -1,10 +1,10 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import Layout from "../../components/layout";
+import Layout from "../../components/layout/layout";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import DatoBlocks from "../../components/dato-blocks";
-import Hero from "../../components/hero";
-import Test from "../../components/test";
+import DatoBlocks from "../../components/blocks/dato-blocks";
+import Hero from "../../components/blocks/hero";
+import CustomerProfileSlider from "../../components/portfolio/customer-profile-slider";
 
 const CustomerProfile = ({ data }) => {
   const filter = data.profile.customerCategory?.category;
@@ -17,7 +17,7 @@ const CustomerProfile = ({ data }) => {
       <HelmetDatoCms seo={data.profile.seo} />
       <Hero title={data.profile.title} image={data.profile.featuredImage} />
       <DatoBlocks blocks={data.profile.blocks} />
-      <Test data={relatedProfiles} />
+      <CustomerProfileSlider data={relatedProfiles} />
     </Layout>
   );
 };
@@ -88,18 +88,10 @@ export const query = graphql`
     allDatoCmsCustomerProfile {
       edges {
         node {
+          ...CustomerProfileCard
           customerCategory {
             category
           }
-          featuredImage {
-            gatsbyImageData
-          }
-          title
-          logo {
-            gatsbyImageData(width: 100)
-          }
-          slug
-          shortDescription
         }
       }
     }

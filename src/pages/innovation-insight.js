@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
-import Layout from "../components/layout";
-import Hero from "../components/hero";
-import FullwidthImage from "../components/fullwidth-image";
+import Layout from "../components/layout/layout";
+import Hero from "../components/blocks/hero";
+import FullwidthImage from "../components/blocks/fullwidth-image";
 import { StructuredText } from "react-datocms";
 import { Link } from "gatsby";
-import DatoBlocks from "../components/dato-blocks";
+import DatoBlocks from "../components/blocks/dato-blocks";
 import HubspotForm from 'react-hubspot-form';
 
 

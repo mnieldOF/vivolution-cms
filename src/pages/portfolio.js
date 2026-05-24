@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
-import Layout from "../components/layout";
-import Hero from "../components/hero";
-import ProfileList from "../components/profile-list";
-import PortfolioFilter from "../components/portfolio-filter";
+import Layout from "../components/layout/layout";
+import Hero from "../components/blocks/hero";
+import ProfileList from "../components/portfolio/profile-list";
+import PortfolioFilter from "../components/portfolio/portfolio-filter";
 
 const Grid = styled.div`
   display: grid;
@@ -94,19 +94,11 @@ export const query = graphql`
     allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
       edges {
         node {
-          featuredImage {
-            gatsbyImageData
-          }
+          ...CustomerProfileCard
           customerCategory {
             id
             category
           }
-          title
-          slug
-          logo {
-            gatsbyImageData(width: 100)
-          }
-          shortDescription
         }
       }
     }
