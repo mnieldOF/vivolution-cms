@@ -30,9 +30,6 @@ export const query = graphql`
         title
         subtitle
         subText
-        background {
-          gatsbyImageData
-        }
       }
       contactInformation {
         addressNode {

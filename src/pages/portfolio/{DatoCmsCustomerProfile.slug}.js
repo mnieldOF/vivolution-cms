@@ -42,9 +42,6 @@ export const query = graphql`
     profile: datoCmsCustomerProfile(id: { eq: $id }) {
       hero {
         title
-        background {
-          gatsbyImageData
-        }
         subtitle
         subText
       }

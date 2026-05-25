@@ -38,9 +38,6 @@ export const query = graphql`
       link
       heroBanner {
         title
-        background {
-          gatsbyImageData
-        }
         subtitle
         subText
       }

@@ -8,7 +8,6 @@ import Tagline from "../components/blocks/tagline";
 
 const Studios = ({ data, location }) => {
   const hero = data.datoCmsStudioPage.blocks;
-  // console.log(hero);
   const studioInfo = data.allDatoCmsOffice.edges;
   console.log(studioInfo);
   return (
@@ -83,9 +82,6 @@ export const query = graphql`
         title
         subtitle
         subText
-        background {
-          gatsbyImageData
-        }
       }
       mapBlock {
         addressNode {

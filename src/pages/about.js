@@ -68,10 +68,6 @@ export const query = graphql`
       aboutUsBlocks {
         ... on DatoCmsHeroBanner {
           id
-          background {
-            gatsbyImageData
-            title
-          }
           model {
             name
           }

@@ -20,6 +20,11 @@
   aspect-ratio: 16 / 9;
 }
 
+
+.detail-body-inner .detail-text-block:first-child .detail-divider {
+  display: none;
+}
+
 .detail-body .fullwidth-image {
   border-radius: 12px;
   overflow: hidden;

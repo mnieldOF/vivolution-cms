@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import Layout from "../components/layout/layout";
 import Hero from "../components/blocks/hero";
-import ProfileList from "../components/portfolio/profile-list";
+import ToolList from "../components/tools/tool-list";
 import PortfolioFilter from "../components/portfolio/portfolio-filter";
 
 const Grid = styled.div`
@@ -24,14 +24,12 @@ const Section = styled.div`
   }
 `;
 
-const Portfolio = ({ data }) => {
-  const [profiles, setProfiles] = useState(
-    data.allDatoCmsCustomerProfile.edges,
-  );
+const Tools = ({ data }) => {
+  const [tools, setTools] = useState(data.allDatoCmsTool.edges);
 
   const allCategories = [
     ...new Set(
-      data.allDatoCmsCustomerCategory.edges.map((item) => item.node.category),
+      data.allDatoCmsToolCategory.edges.map((item) => item.node.category),
     ),
   ];
 
@@ -39,31 +37,31 @@ const Portfolio = ({ data }) => {
 
   const filter = (button) => {
     if (button === "All") {
-      setProfiles(data.allDatoCmsCustomerProfile.edges);
+      setTools(data.allDatoCmsTool.edges);
       return;
     }
 
-    const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
-      item.node.customerCategory.some((x) => x.category === button),
+    const filteredData = data.allDatoCmsTool.edges.filter(
+      (item) => item.node.toolCategory?.category === button,
     );
-    setProfiles(filteredData);
+    setTools(filteredData);
   };
 
-  const { blocks } = data.datoCmsPortfolioPage;
+  const { hero, cta } = data.datoCmsToolsPage;
   return (
-    <Layout cta={data.datoCmsPortfolioPage.cta}>
+    <Layout cta={cta}>
       <Hero
-        title={blocks[0].title}
-        image={blocks[0].background}
-        subtitle={blocks[0].subtitle}
-        subtext={blocks[0].subText}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        subtext={hero.subText}
+        image={hero.background}
         dark
       />
       <Section>
         <div className="content-container column">
           <PortfolioFilter filter={filter} buttons={buttons} />
           <Grid>
-            <ProfileList profiles={profiles} />
+            <ToolList tools={tools} />
           </Grid>
         </div>
       </Section>
@@ -71,39 +69,42 @@ const Portfolio = ({ data }) => {
   );
 };
 
-export default Portfolio;
+export default Tools;
 
 export const query = graphql`
   {
-    datoCmsPortfolioPage {
+    datoCmsToolsPage {
+      hero {
+        title
+        subtitle
+        subText
+      }
       cta {
         title
-        maintext
         subtext
+        maintext
         contactNode {
           childMarkdownRemark {
             html
           }
         }
       }
-      blocks {
-        title
-        subtitle
-        subText
-      }
     }
-    allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
+    allDatoCmsTool(sort: { fields: slug, order: ASC }) {
       edges {
         node {
-          ...CustomerProfileCard
-          customerCategory {
+          title
+          slug
+          shortDescription
+          subtitle
+          toolCategory {
             id
             category
           }
         }
       }
     }
-    allDatoCmsCustomerCategory {
+    allDatoCmsToolCategory {
       edges {
         node {
           category

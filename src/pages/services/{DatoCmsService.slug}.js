@@ -21,34 +21,35 @@ const Service = ({ data }) => {
   );
 
   return (
-    <Layout cta={data.datoCmsService.cta}>
-      <HelmetDatoCms seo={data.datoCmsService.seo} />
-      <Hero
-        title={data.datoCmsService.hero[0].title}
-        image={data.datoCmsService.hero[0].background}
-        logo={data.datoCmsService.logo}
-      />
-      {data.datoCmsService.comingSoonBlock[0] ? (
-        <>
-          <ComingSoon data={data.datoCmsService.comingSoonBlock[0]} />
-          <GrowthBlock data={data.allDatoCmsService} />
-        </>
-      ) : (
-        <>
-          <ImageText
-            title={data.datoCmsService.imageText[0].title}
-            text={data.datoCmsService.imageText[0].subTextNode}
-            image={data.datoCmsService.imageText[0].image}
-          />
-          <ContentReveal
-            tabs={data.datoCmsService.tabs}
-            tabTitle={data.datoCmsService.tabTitle}
-          />
-          <Partners related={partnerFilter} />
-          <CustomerProfileSlider image data={filteredData} />
-        </>
-      )}
-    </Layout>
+    <div>hi</div>
+    // <Layout cta={data.datoCmsService.cta}>
+    //   <HelmetDatoCms seo={data.datoCmsService.seo} />
+    //   <Hero
+    //     title={data.datoCmsService.hero[0].title}
+    //     image={data.datoCmsService.hero[0].background}
+    //     logo={data.datoCmsService.logo}
+    //   />
+    //   {data.datoCmsService.comingSoonBlock[0] ? (
+    //     <>
+    //       <ComingSoon data={data.datoCmsService.comingSoonBlock[0]} />
+    //       <GrowthBlock data={data.allDatoCmsService} />
+    //     </>
+    //   ) : (
+    //     <>
+    //       <ImageText
+    //         title={data.datoCmsService.imageText[0].title}
+    //         text={data.datoCmsService.imageText[0].subTextNode}
+    //         image={data.datoCmsService.imageText[0].image}
+    //       />
+    //       <ContentReveal
+    //         tabs={data.datoCmsService.tabs}
+    //         tabTitle={data.datoCmsService.tabTitle}
+    //       />
+    //       <Partners related={partnerFilter} />
+    //       <CustomerProfileSlider image data={filteredData} />
+    //     </>
+    //   )}
+    // </Layout>
   );
 };
 
@@ -104,9 +105,6 @@ export const query = graphql`
         url
       }
       hero {
-        background {
-          gatsbyImageData
-        }
         model {
           name
         }
