@@ -2,18 +2,18 @@ import React from "react";
 import FullwidthImage from "./fullwidth-image";
 import TwocolText from "./twocol-text";
 import QuoteBlock from "./quote-block";
+import DetailQuote from "./detail-quote";
 import Hero from "./hero";
 import TextBlock from "./text-block";
 import Values from "./values";
 import History from "./history";
 import ImageGallery from "./image-gallery";
 
-const DatoBlocks = ({ blocks, dark }) => {
+const DatoBlocks = ({ blocks, dark, detail }) => {
   return blocks.map((block, i) => {
     if (block.model.name === "Customer Profile Details") {
       return (
         <>
-          <FullwidthImage key={`fwi${i}`} image={block.image} />
           <TwocolText key={`tct-${i}`} data={block} />
         </>
       );
@@ -47,13 +47,23 @@ const DatoBlocks = ({ blocks, dark }) => {
       );
     } else if (block.model.name === "Quote select") {
       return block.quote.links.map((data, i) => {
-        const { logo, quote } = data;
+        if (detail) {
+          return (
+            <DetailQuote
+              key={`dq-${i}`}
+              quote={data.quote}
+              person={data.person}
+              role={data.role}
+              company={data.company}
+            />
+          );
+        }
         return (
           <QuoteBlock
             key={`qb-${i}`}
             data={data}
-            companyImage={logo}
-            quote={quote}
+            companyImage={data.logo}
+            quote={data.quote}
           />
         );
       });

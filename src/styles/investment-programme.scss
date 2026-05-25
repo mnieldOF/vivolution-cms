@@ -1,0 +1,226 @@
+.invest-body {
+  background: var(--color-warm-white);
+  padding: 100px 40px;
+
+  @media (max-width: 768px) {
+    padding: 64px 24px;
+  }
+}
+
+.invest-body-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.invest-section {
+  margin-bottom: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid rgba(17, 17, 24, 0.08);
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+.invest-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-magenta);
+  margin-bottom: 16px;
+}
+
+.invest-section-headline {
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 600;
+  color: var(--color-near-black);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.invest-section-subtext {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(17, 17, 24, 0.6);
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+// About the Programme
+.invest-about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: start;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.invest-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+
+  @media (max-width: 1024px) {
+    padding-top: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .invest-stat-card {
+      flex: 1;
+      min-width: 200px;
+    }
+  }
+}
+
+.invest-stat-card {
+  background: rgba(232, 51, 106, 0.06);
+  border: 1px solid rgba(232, 51, 106, 0.15);
+  border-radius: 14px;
+  padding: 24px 28px;
+
+  .invest-stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-magenta);
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+
+  .invest-stat-desc {
+    font-size: 13px;
+    color: rgba(17, 17, 24, 0.55);
+    line-height: 1.5;
+  }
+}
+
+// What's Included
+.invest-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.invest-feature-card {
+  background: var(--color-warm-white);
+  border: 1px solid rgba(17, 17, 24, 0.08);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(17, 17, 24, 0.08);
+    border-color: rgba(232, 51, 106, 0.2);
+  }
+
+  .invest-feature-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-magenta);
+  }
+
+  .invest-feature-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-near-black);
+    letter-spacing: -0.01em;
+  }
+
+  .invest-feature-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(17, 17, 24, 0.55);
+  }
+}
+
+// Programme Partners
+.invest-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.invest-partner-card {
+  background: var(--color-warm-white);
+  border: 1px solid rgba(17, 17, 24, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 2 / 1;
+
+  .invest-partner-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(17, 17, 24, 0.4);
+    text-align: center;
+  }
+}
+
+// Eligibility Criteria
+.invest-criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.invest-criteria-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(232, 51, 106, 0.04);
+  border: 1px solid rgba(232, 51, 106, 0.1);
+  border-radius: 10px;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(17, 17, 24, 0.7);
+  }
+}

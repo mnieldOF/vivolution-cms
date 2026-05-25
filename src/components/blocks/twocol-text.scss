@@ -1,60 +1,44 @@
-.twocol-text {
-  background: var(--color-primary-white);
-  padding: 30px 0;
-  .title {
-    font-size: 18px;
-    font-weight: 700;
-    background: linear-gradient(96.42deg, #3026dd -9.97%, #c1259a 107.69%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .description {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--color-gray);
-  }
-  br {
-    display: block;
-    margin: 10px 0;
-    line-height: 22px;
-    content: " ";
-  }
-  .grid {
-    display: grid;
-    grid-gap: 20px;
-  }
-  a {
-    font-size: 16px;
-    font-weight: 700;
-    background: linear-gradient(to right, #3026dd, #708fdc, #c1259a);
-    background-size: 150% 150%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: color 0.2s ease-in-out;
-    &:hover {
-      animation: rainbow 2s ease-in-out infinite;
-    }
-  }
-  @media screen and (min-width: 900px) {
-    padding: 70px 0;
-    .description {
-      font-size: 20px;
-    }
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+.detail-text-block {
+  .detail-divider {
+    border: none;
+    border-top: 1px solid rgba(17, 17, 24, 0.08);
+    margin: 48px 0;
   }
 
-  @keyframes rainbow {
-    0% {
-      background-position: left;
+  .detail-section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-magenta);
+    margin-bottom: 16px;
+  }
+
+  .detail-section-headline {
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 600;
+    color: var(--color-near-black);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .detail-prose {
+    font-size: 15px;
+    line-height: 1.85;
+    color: rgba(17, 17, 24, 0.65);
+
+    p {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
-    50% {
-      background-position: right;
-    }
-    100% {
-      background-position: left;
+
+    a {
+      color: var(--color-magenta);
+      text-decoration: underline;
     }
   }
 }

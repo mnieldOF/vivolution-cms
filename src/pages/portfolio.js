@@ -49,9 +49,9 @@ const Portfolio = ({ data }) => {
     setProfiles(filteredData);
   };
 
-  const { blocks } = data.datoCmsPortfolio;
+  const { blocks } = data.datoCmsPortfolioPage;
   return (
-    <Layout cta={data.datoCmsPortfolio.cta}>
+    <Layout cta={data.datoCmsPortfolioPage.cta}>
       <Hero
         title={blocks[0].title}
         image={blocks[0].background}
@@ -75,7 +75,7 @@ export default Portfolio;
 
 export const query = graphql`
   {
-    datoCmsPortfolio {
+    datoCmsPortfolioPage {
       cta {
         title
         maintext
@@ -94,7 +94,6 @@ export const query = graphql`
         subtitle
         subText
       }
-      description
     }
     allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
       edges {

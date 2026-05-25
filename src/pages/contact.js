@@ -5,7 +5,7 @@ import MapBlock from "../components/blocks/map-block";
 import Hero from "../components/blocks/hero";
 
 const Contact = ({ data, location }) => {
-  const hero = data.datoCmsContact.blocks[0];
+  const hero = data.datoCmsContactPage.blocks[0];
 
   return (
     <Layout location={location}>
@@ -16,7 +16,7 @@ const Contact = ({ data, location }) => {
         image={hero.background}
         dark
       />
-      <MapBlock info={data.datoCmsContact.contactInformation} />
+      <MapBlock info={data.datoCmsContactPage.contactInformation} />
     </Layout>
   );
 };
@@ -25,7 +25,7 @@ export default Contact;
 
 export const query = graphql`
   {
-    datoCmsContact {
+    datoCmsContactPage {
       blocks {
         title
         subtitle
