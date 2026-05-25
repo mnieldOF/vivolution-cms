@@ -1,48 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./portfolio-filter.scss";
-import Select from "react-select";
 
 const PortfolioFilter = ({ filter, buttons }) => {
-  const [options, setOptions] = React.useState([
-    { value: "All", label: "View All" },
-  ]);
+  const [activeTab, setActiveTab] = useState("All");
 
-  function getOptions() {
-    buttons.map((item) => {
-      setOptions((options) => [...options, { value: item, label: item }]);
-    });
-  }
-
-  React.useEffect(() => {
-    getOptions();
-  }, []);
+  const handleFilter = (value) => {
+    setActiveTab(value);
+    filter(value);
+  };
 
   return (
     <div className="portfolio-filter">
-      <Select
-        options={options}
-        className="select"
-        onChange={(e) => filter(e.value)}
-      />
-      <div className="buttons">
-        <div className="grid">
-          {buttons.map((cat, i) => {
-            return (
-              <button
-                key={"fbtn_" + i}
-                type="button"
-                onClick={() => filter(cat)}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
-        <div className="cta">
-          <button type="button" onClick={() => filter("All")}>
-            view all
+      <div className="filter-tabs">
+        <button
+          type="button"
+          className={`filter-tab${activeTab === "All" ? " active" : ""}`}
+          onClick={() => handleFilter("All")}
+        >
+          View all
+        </button>
+        {buttons.map((cat, i) => (
+          <button
+            key={"fbtn_" + i}
+            type="button"
+            className={`filter-tab${activeTab === cat ? " active" : ""}`}
+            onClick={() => handleFilter(cat)}
+          >
+            {cat}
           </button>
-        </div>
+        ))}
       </div>
     </div>
   );

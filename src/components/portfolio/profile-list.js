@@ -12,6 +12,7 @@ const ProfileList = ({ profiles }) => {
           logo,
           excerpt,
           shortDescription,
+          customerCategory,
         } = item.node;
         return (
           <PortfolioItem
@@ -21,6 +22,7 @@ const ProfileList = ({ profiles }) => {
             slug={slug}
             logo={logo}
             shortText={shortDescription || excerpt}
+            categories={customerCategory}
           />
         );
       })}

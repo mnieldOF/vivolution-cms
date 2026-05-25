@@ -16,18 +16,8 @@ const Grid = styled.div`
   }
 `;
 
-const TextBlock = styled.div`
-  padding: 30px 0;
-  background: var(--color-primary-white);
-  max-width: 875px;
-  margin: 0 auto;
-  @media screen and (min-width: 900px) {
-    padding: 60px 0;
-  }
-`;
-
 const Section = styled.div`
-  background: var(--color-primary-white);
+  background: var(--color-warm-white);
   padding: 30px 0;
   @media screen and (min-width: 900px) {
     padding: 60px 0;
@@ -36,16 +26,16 @@ const Section = styled.div`
 
 const Portfolio = ({ data }) => {
   const [profiles, setProfiles] = useState(
-    data.allDatoCmsCustomerProfile.edges
+    data.allDatoCmsCustomerProfile.edges,
   );
 
   const allCategories = [
     ...new Set(
-      data.allDatoCmsCustomerCategory.edges.map((item) => item.node.category)
+      data.allDatoCmsCustomerCategory.edges.map((item) => item.node.category),
     ),
   ];
 
-  const [buttons, setButton] = useState(allCategories);
+  const [buttons] = useState(allCategories);
 
   const filter = (button) => {
     if (button === "All") {
@@ -54,18 +44,21 @@ const Portfolio = ({ data }) => {
     }
 
     const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
-      item.node.customerCategory.some((x) => x.category === button)
+      item.node.customerCategory.some((x) => x.category === button),
     );
     setProfiles(filteredData);
   };
 
-  const { blocks, description } = data.datoCmsPortfolio;
+  const { blocks } = data.datoCmsPortfolio;
   return (
     <Layout cta={data.datoCmsPortfolio.cta}>
-      <Hero title={blocks[0].title} image={blocks[0].background} />
-      <TextBlock>
-        <div className="content-container">{description}</div>
-      </TextBlock>
+      <Hero
+        title={blocks[0].title}
+        image={blocks[0].background}
+        subtitle={blocks[0].subtitle}
+        subtext={blocks[0].subText}
+        dark
+      />
       <Section>
         <div className="content-container column">
           <PortfolioFilter filter={filter} buttons={buttons} />
@@ -98,6 +91,8 @@ export const query = graphql`
           gatsbyImageData
         }
         title
+        subtitle
+        subText
       }
       description
     }
