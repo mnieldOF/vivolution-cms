@@ -1,5 +1,6 @@
 import "./history.scss";
 import * as React from "react";
+import Timeline from "./timeline";
 
 const History = ({ data }) => {
   return (
@@ -16,7 +17,7 @@ const History = ({ data }) => {
             />
           </div>
           <div className="right">
-            {data.image !== null ? <img src={data.image.url} /> : null}
+            <Timeline />
           </div>
         </div>
       </div>

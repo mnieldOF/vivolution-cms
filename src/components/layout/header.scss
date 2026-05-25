@@ -1,144 +1,245 @@
+// HEADER
+// Fixed dark bar at the top of every page.
+// JS adds .scrolled when window.scrollY > 40.
+
 .vivo-header {
   position: fixed;
-  width: 100%;
-  z-index: 30;
-  padding: 30px 0;
-  transition: transform 1.25s var(--primary-ease),
-    -webkit-transform 1.25s var(--primary-ease);
-  .container {
-    justify-content: space-between;
-    align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  // Fixed pixel height lets us transition it on scroll.
+  // Whatever sits directly below the header needs a matching
+  // padding-top (72px) so content doesn't hide behind it.
+  height: 72px;
+  display: flex;
+  align-items: center;
+
+  background: var(--color-near-black);
+  border-bottom: 1px solid transparent;
+
+  // All visual properties that change on scroll are listed here
+  // so the browser knows to animate them.
+  transition: height 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+
+  // Scrolled state
+  // backdrop-filter creates the frosted-glass blur effect.
+  // It only works when the background has some transparency,
+  // hence rgba() instead of a solid colour.
+  &.scrolled {
+    height: 60px;
+    background: rgba(17, 17, 24, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px); // Safari prefix
+    border-bottom-color: rgba(250, 249, 247, 0.08);
   }
-  .vivo-header-nav {
+
+  // Inner layout
+  // max-width centres content on wide screens.
+  // justify-content: space-between pushes logo left, nav right.
+  .header-inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
     display: flex;
     align-items: center;
-    .chat-cta {
-      display: none;
-      font-weight: 500;
-      text-transform: uppercase;
-      color: white;
-      text-decoration: none;
-      margin-right: 30px;
-      letter-spacing: 2px;
-      transition: all 0.45s var(--primary-ease);
-      &.active,
-      &:hover {
-        color: black;
-      }
-    }
+    justify-content: space-between;
+    gap: 32px;
   }
-  .logo-container {
-    .logo {
-      transition: all 0.3s ease-in;
-      opacity: 0;
-      right: 0;
-      position: relative;
-      width: 100px;
-    }
-    .logo-small {
-      position: absolute;
-      top: 35px;
-      left: 20px;
-      img {
-        transition: opacity 0.3s ease-in;
-        width: 30px;
-        opacity: 1;
-        z-index: 35;
-      }
-    }
-    &.active,
-    &.scrolled {
-      .logo {
-        opacity: 0;
-        right: 300%;
-      }
-      .logo-small {
-        display: block;
-        z-index: 5;
-        img {
-          opacity: 1;
-        }
-      }
-    }
-  }
-  &.scrolled {
-    background: rgba(255, 255, 255, 0.8);
-    .vivo-header-nav {
-      .chat-cta {
-        background: radial-gradient(
-            circle farthest-corner at center center,
-            #3026dd,
-            #c1259a
-          )
-          no-repeat;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        &:hover {
-          background: radial-gradient(
-              circle farthest-corner at center center,
-              #c1259a,
-              #3026dd
-            )
-            no-repeat;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-      }
-    }
-  }
-  @media screen and (min-width: 768px) {
-    .vivo-header-nav {
-      .chat-cta {
-        display: flex;
-      }
-    }
-  }
-  @media screen and (min-width: 900px) {
-    padding: 40px 0;
-    .logo-container {
-      .logo {
-        transition: all 0.3s ease-in;
-        opacity: 1;
-        right: 0;
-        position: relative;
-        width: 200px;
-      }
-      .logo-small {
-        position: absolute;
-        top: 0;
 
-        z-index: 5;
-        img {
-          transition: opacity 0.3s ease-in;
-          width: 30px;
-          opacity: 0;
-        }
-      }
-      &.active,
-      &.scrolled {
-        .logo {
-          opacity: 0;
-          right: 300%;
-        }
-        .logo-small {
-          display: block;
-          z-index: 5;
-          img {
-            opacity: 1;
-          }
-        }
+  // Logo area
+  // The wrap is a fixed-height box. Both logos (full wordmark
+  // and V mark) sit inside it with position: absolute so they
+  // occupy the same space and can cross-fade.
+  // The width transitions from 160px to 28px on scroll so the
+  // layout does not jump when the wide logo disappears.
+  .logo-wrap {
+    position: relative;
+    height: 28px;
+    width: 160px;
+    flex-shrink: 0;
+    transition: width 0.35s ease;
+    text-decoration: none;
+    display: block;
+  }
+
+  &.scrolled .logo-wrap {
+    width: 28px;
+  }
+
+  // Full wordmark (IcomoonReact Icon component).
+  // The Icon component renders a wrapper div then an svg inside,
+  // so we target both to enforce the height we want.
+  .logo-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 28px;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    opacity: 1;
+    transform: translateX(0);
+
+    > div {
+      width: auto !important;
+      height: 28px;
+    }
+
+    svg {
+      height: 28px !important;
+      width: auto !important;
+
+      path {
+        fill: var(--color-magenta) !important;
       }
     }
-    ul {
-      display: block;
-      margin-left: auto;
-      li {
-        .chat-cta {
-          color: white;
-          margin-left: 19px;
-          text-decoration: none;
-        }
+  }
+
+  &.scrolled .logo-full {
+    opacity: 0;
+    transform: translateX(6px); // slides right as it fades out
+  }
+
+  // Small V mark (plain img SVG).
+  // Starts invisible and slightly left, then slides and fades
+  // in when scrolled.
+  .logo-v {
+    height: 28px;
+    width: 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    opacity: 0;
+    transform: translateX(-6px);
+    object-fit: contain;
+  }
+
+  &.scrolled .logo-v {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  // Desktop nav and CTA wrapper
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  // Nav links
+  // gap: 4px between links; each link has its own padding
+  // so the hover background does not look cramped.
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(250, 249, 247, 0.61); // muted white
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      transition: color 0.2s, background 0.2s;
+
+      &:hover {
+        color: var(--color-warm-white);
+        background: rgba(250, 249, 247, 0.06);
       }
+    }
+  }
+
+  // CTA button
+  // Solid accent pill. The box-shadow on hover gives a subtle
+  // glow that matches the brand colour.
+  .btn-cta {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-warm-white);
+    background: var(--color-magenta);
+    border-radius: 8px;
+    padding: 10px 22px;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    margin-left: 8px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+
+    &:hover {
+      background: #f03d78;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(232, 51, 106, 0.35);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Hamburger
+  // Hidden on desktop, shown on mobile via the media query below.
+  // Three span elements become an X when .open is added.
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    border: none;
+    background: none;
+    flex-shrink: 0;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-warm-white);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    // When open: top bar rotates +45deg, middle fades out,
+    // bottom bar rotates -45deg. Combined they form an X.
+    &.open {
+      span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+
+  // Slightly tighter nav padding on mid-size screens so all
+  // links still fit before switching to hamburger.
+  @media screen and (max-width: 1100px) {
+    nav a {
+      padding: 8px 8px;
+      font-size: 13px;
+    }
+  }
+
+  // Below 900px: hide the desktop nav, show the hamburger.
+  @media screen and (max-width: 900px) {
+    .header-right {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .header-inner {
+      padding: 0 24px;
     }
   }
 }

@@ -1,15 +1,21 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
-import DatoBlocks from "../components/blocks/dato-blocks";
 import MapBlock from "../components/blocks/map-block";
+import Hero from "../components/blocks/hero";
 
 const Contact = ({ data, location }) => {
-  const blocks = data.datoCmsContact.blocks;
+  const hero = data.datoCmsContact.blocks[0];
 
   return (
     <Layout location={location}>
-      <DatoBlocks blocks={blocks} />
+      <Hero
+        title={hero.title}
+        subtitle={hero.subtitle}
+        subtext={hero.subText}
+        image={hero.background}
+        dark
+      />
       <MapBlock info={data.datoCmsContact.contactInformation} />
     </Layout>
   );
@@ -21,12 +27,11 @@ export const query = graphql`
   {
     datoCmsContact {
       blocks {
+        title
+        subtitle
+        subText
         background {
           gatsbyImageData
-        }
-        title
-        model {
-          name
         }
       }
       contactInformation {

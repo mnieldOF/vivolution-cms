@@ -92,9 +92,6 @@ export const query = graphql`
           model {
             name
           }
-          image {
-            url
-          }
           text
           title
         }
