@@ -2,21 +2,22 @@ import React from "react";
 import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/layout/layout";
-import Hero from "../components/blocks/hero";
-import TextBlock from "../components/blocks/text-block";
+import HomeHero from "../components/blocks/home-hero";
 import Numbers from "../components/blocks/numbers";
+import ToolSlider from "../components/tools/tool-slider";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
   return (
     <Layout cta={data.datoCmsHome.cta}>
       <HelmetDatoCms seo={data.datoCmsHome.seo} />
-      <Hero title={datoCmsHome.content[0].title} />
-      <TextBlock
-        title={datoCmsHome.content[1].title}
-        text={datoCmsHome.content[1].subText}
-      />
+      <HomeHero
+          eyebrow={datoCmsHome.content[0].subtitle}
+          title={datoCmsHome.content[0].title}
+          body={datoCmsHome.content[0].subText}
+        />
       <Numbers data={datoCmsHome.numbers} />
+      <ToolSlider data={data.allDatoCmsTool.edges} />
     </Layout>
   );
 };
@@ -30,6 +31,8 @@ export const query = graphql`
         ... on DatoCmsHeroBanner {
           id
           title
+          subtitle
+          subText
         }
         ... on DatoCmsTitleText {
           id
@@ -54,6 +57,13 @@ export const query = graphql`
           childMarkdownRemark {
             html
           }
+        }
+      }
+    }
+    allDatoCmsTool(sort: { fields: slug, order: ASC }) {
+      edges {
+        node {
+          ...ToolCard
         }
       }
     }

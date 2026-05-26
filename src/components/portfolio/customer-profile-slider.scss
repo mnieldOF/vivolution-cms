@@ -89,6 +89,52 @@
   }
 }
 
+.detail-related--light {
+  background: var(--color-warm-white);
+
+  .detail-related-headline {
+    color: var(--color-near-black);
+  }
+
+  .detail-related-all {
+    color: rgba(17, 17, 24, 0.4);
+
+    &:hover {
+      color: var(--color-magenta);
+    }
+  }
+
+  .arrow-btn {
+    border-color: rgba(17, 17, 24, 0.15);
+    background: transparent;
+    color: var(--color-near-black);
+
+    &:hover {
+      background: rgba(17, 17, 24, 0.05);
+      border-color: rgba(17, 17, 24, 0.3);
+    }
+  }
+
+  .tool-card {
+    background: var(--color-warm-white);
+    border-color: rgba(17, 17, 24, 0.08);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(17, 17, 24, 0.1);
+      border-color: rgba(232, 51, 106, 0.2);
+    }
+
+    .tool-card-name {
+      color: var(--color-near-black);
+    }
+
+    .tool-card-tagline {
+      color: rgba(17, 17, 24, 0.55);
+    }
+  }
+}
+
 .detail-related .slick-track {
   display: flex;
 }

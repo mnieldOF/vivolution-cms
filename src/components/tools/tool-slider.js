@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import Slider from "react-slick";
 import ToolItem from "./tool-item";
 
-const ToolSlider = ({ data }) => {
+const ToolSlider = ({ data, light }) => {
   const sliderRef = useRef();
 
   if (!data?.length) return null;
@@ -31,7 +31,7 @@ const ToolSlider = ({ data }) => {
   };
 
   return (
-    <section className="detail-related">
+    <section className={`detail-related${light ? " detail-related--light" : ""}`}>
       <div className="detail-related-inner">
         <div className="detail-related-header">
           <div>

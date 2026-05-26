@@ -1,12 +1,14 @@
 .hero {
   background: #faf9f7;
-  padding: 160px 40px 120px;
+  padding: 100px 40px 80px;
   min-height: 90vh;
   display: flex;
   align-items: center;
 
   .hero-inner {
+    width: 100%;
     max-width: 720px;
+    margin: 0 auto;
   }
 
   .hero-eyebrow {
@@ -31,10 +33,59 @@
     font-size: 18px;
     line-height: 1.7;
     color: rgba(17, 17, 24, 0.6);
+    margin-bottom: 40px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta {
+    font-size: 14px;
+    font-weight: 600;
+    color: #faf9f7;
+    background: var(--color-magenta);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+
+    &:hover {
+      background: #f03d78;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(232, 51, 106, 0.35);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .btn-ghost {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-near-black);
+    background: transparent;
+    border: 1.5px solid rgba(17, 17, 24, 0.2);
+    border-radius: 8px;
+    padding: 10px 22px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: border-color 0.2s, color 0.2s;
+
+    &:hover {
+      border-color: var(--color-near-black);
+      color: var(--color-near-black);
+    }
   }
 
   @media screen and (max-width: 768px) {
-    padding: 120px 24px 80px;
+    padding: 80px 24px 60px;
     min-height: auto;
   }
 }
