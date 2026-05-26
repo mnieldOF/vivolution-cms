@@ -1,0 +1,242 @@
+.cover-menu {
+  color: var(--color-warm-white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  overflow: hidden;
+
+  &.active {
+    .content-container {
+      opacity: 1;
+    }
+  }
+
+  .content-container {
+    opacity: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .primary-nav {
+    margin-bottom: 80px;
+
+    ul {
+      list-style: none;
+      margin-left: 0px;
+      transform: translate3d(0, -20px, 0);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .menu-item {
+      transition: color 0.45s var(--primary-ease);
+      position: relative;
+      backface-visibility: hidden;
+      box-sizing: border-box;
+      font-size: 40px;
+      line-height: 55px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      transform: none;
+      cursor: pointer;
+
+      .menu-word {
+        color: var(--color-warm-white);
+        display: block;
+        position: relative;
+        z-index: 3;
+        transition: all 0.75s var(--custom-ease-4);
+        clip-path: inset(0 0 0 0);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      &.focused-out {
+        .menu-word {
+          clip-path: inset(0 100% 0 0);
+        }
+      }
+
+      &.focused {
+        .menu-word {
+          clip-path: inset(0 0 0 0);
+          transform: translate3d(35px, 0, 0);
+        }
+        .menu-word,
+        .grayed {
+          transform: translate3d(35px, 0, 0);
+        }
+      }
+
+      &:last-of-type {
+        display: none;
+      }
+    }
+
+    // Ghost copy of the link text that sits behind the active item.
+    // On a dark background this needs to be very faint so it
+    // blends in rather than standing out.
+    .grayed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      color: rgba(250, 249, 247, 0.1);
+      z-index: 1;
+      transition: transform 0.75s var(--custom-ease-4);
+    }
+
+    .label {
+      display: none;
+      text-transform: uppercase;
+      color: rgba(250, 249, 247, 0.4);
+      transform: rotate(-90deg) translate3d(-45px, 0, 0);
+      transform-origin: bottom left;
+    }
+
+    .mobile-contact {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: var(--color-warm-white);
+      margin-top: 30px;
+      text-decoration: none;
+      padding-bottom: 8px;
+      position: relative;
+      font-size: 13px;
+      letter-spacing: 1px;
+
+      &:after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color-warm-white);
+      }
+    }
+  }
+
+  .company-info {
+    margin-bottom: -38px;
+    position: relative;
+    z-index: 22;
+    transition: all 3s ease;
+
+    .contact-cta {
+      a {
+        display: inline-block;
+        font-size: 17px;
+        margin-bottom: 6px;
+        text-decoration: none;
+        color: var(--color-magenta);
+        position: relative;
+        letter-spacing: 0.05em;
+        pointer-events: all;
+
+        &:after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: var(--color-magenta);
+          margin-top: -2px;
+        }
+
+        &:hover {
+          &:after {
+            animation: swipe-line 1.25s var(--primary-ease) forwards;
+          }
+        }
+      }
+    }
+
+    .address {
+      display: none;
+      color: rgba(250, 249, 247, 0.6);
+    }
+
+    .social-cta {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .primary-nav {
+      .menu-item {
+        &:last-of-type {
+          display: flex;
+        }
+      }
+      .mobile-contact {
+        display: none;
+        margin-top: 30px;
+      }
+    }
+    .company-info {
+      .address {
+        display: flex;
+        margin-top: 30px;
+      }
+      .social-cta {
+        display: flex;
+        a {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    .content-container {
+      max-width: 1080px;
+    }
+    .content-wrapper {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+    .primary-nav {
+      margin-bottom: 0;
+      ul {
+        margin-left: 60px;
+      }
+      .menu-item {
+        font-size: 59px;
+        line-height: 79px;
+      }
+      .label {
+        display: inline-block;
+      }
+    }
+    .company-info {
+      align-self: flex-end;
+      .social-cta {
+        display: flex;
+        margin-top: 30px;
+        svg {
+          margin-right: 20px;
+          fill: rgba(250, 249, 247, 0.5);
+        }
+      }
+    }
+  }
+}

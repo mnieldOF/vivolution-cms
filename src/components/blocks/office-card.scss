@@ -1,0 +1,230 @@
+.studios-intro {
+  background: #faf9f7;
+  padding: 80px 40px;
+  border-bottom: 1px solid rgba(17, 17, 24, 0.08);
+}
+
+.studios-intro-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.studios-intro-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-magenta);
+  margin-bottom: 16px;
+}
+
+.studios-intro-headline {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  color: var(--color-near-black);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.studios-intro-text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(17, 17, 24, 0.65);
+
+  p {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .studios-intro {
+    padding: 56px 24px;
+  }
+}
+
+.offices {
+  background: #faf9f7;
+  padding: 80px 40px 0;
+}
+
+.offices-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.offices-header {
+  margin-bottom: 48px;
+}
+
+.offices-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-magenta);
+  margin-bottom: 16px;
+}
+
+.offices-headline {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 600;
+  color: var(--color-near-black);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid rgba(17, 17, 24, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    .office-card:nth-child(2) {
+      border-right: none;
+    }
+
+    .office-card:nth-child(1),
+    .office-card:nth-child(2) {
+      border-bottom: 1px solid rgba(17, 17, 24, 0.08);
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+
+    .office-card {
+      border-right: none;
+      border-bottom: 1px solid rgba(17, 17, 24, 0.08);
+    }
+
+    .office-card:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.office-card {
+  background: #faf9f7;
+  border-right: 1px solid rgba(17, 17, 24, 0.08);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover {
+    background: #f5f3f0;
+  }
+}
+
+.office-card-capacity {
+  font-size: 40px;
+  font-weight: 700;
+  color: rgba(17, 17, 24, 0.08);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  position: absolute;
+  top: 24px;
+  right: 20px;
+}
+
+.office-card-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-magenta);
+}
+
+.office-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-near-black);
+  letter-spacing: -0.01em;
+}
+
+.office-card-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(17, 17, 24, 0.55);
+  flex: 1;
+}
+
+.office-card-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(17, 17, 24, 0.08);
+
+  li {
+    font-size: 12px;
+    color: rgba(17, 17, 24, 0.55);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-magenta);
+      flex-shrink: 0;
+    }
+  }
+}
+
+.office-card-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-magenta);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s;
+  margin-top: 4px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  svg {
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

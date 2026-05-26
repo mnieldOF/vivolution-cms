@@ -1,0 +1,24 @@
+/* Dark card overrides for tool cards inside the related section */
+.detail-related .slick-slide > div .tool-card {
+  height: 100%;
+}
+
+.detail-related .tool-card {
+  background: rgba(250, 249, 247, 0.03);
+  border-color: rgba(250, 249, 247, 0.07);
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(232, 51, 106, 0.3);
+    background: rgba(250, 249, 247, 0.05);
+  }
+
+  .tool-card-name {
+    color: var(--color-warm-white);
+  }
+
+  .tool-card-tagline {
+    color: rgba(250, 249, 247, 0.4);
+  }
+}
