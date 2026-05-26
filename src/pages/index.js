@@ -5,6 +5,7 @@ import Layout from "../components/layout/layout";
 import HomeHero from "../components/blocks/home-hero";
 import Numbers from "../components/blocks/numbers";
 import ToolSlider from "../components/tools/tool-slider";
+import SectorCards from "../components/blocks/sector-cards";
 
 const IndexPage = ({ data }) => {
   const { datoCmsHome } = data;
@@ -17,6 +18,7 @@ const IndexPage = ({ data }) => {
           body={datoCmsHome.content[0].subText}
         />
       <Numbers data={datoCmsHome.numbers} />
+      <SectorCards />
       <ToolSlider data={data.allDatoCmsTool.edges} />
     </Layout>
   );
@@ -78,14 +80,6 @@ export const query = graphql`
       edges {
         node {
           ...ServiceCard
-        }
-      }
-    }
-    allDatoCmsPartner {
-      edges {
-        node {
-          sectorCategory
-          ...PartnerCard
         }
       }
     }

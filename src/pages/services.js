@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 import Layout from "../components/layout/layout";
 import Hero from "../components/blocks/hero";
 import ServiceList from "../components/services/service-list";
-import PortfolioFilter from "../components/portfolio/portfolio-filter";
 
 const Grid = styled.div`
   display: grid;
@@ -20,33 +19,11 @@ const Section = styled.div`
   background: var(--color-warm-white);
   padding: 30px 0;
   @media screen and (min-width: 900px) {
-    padding: 60px 0;
+    padding: 50px 0 0;
   }
 `;
 
 const Services = ({ data }) => {
-  const [services, setServices] = useState(data.allDatoCmsNewService.edges);
-
-  const allCategories = [
-    ...new Set(
-      data.allDatoCmsServiceCategory.edges.map((item) => item.node.category),
-    ),
-  ];
-
-  const [buttons] = useState(allCategories);
-
-  const filter = (button) => {
-    if (button === "All") {
-      setServices(data.allDatoCmsNewService.edges);
-      return;
-    }
-
-    const filteredData = data.allDatoCmsNewService.edges.filter(
-      (item) => item.node.serviceCategory?.category === button,
-    );
-    setServices(filteredData);
-  };
-
   const { hero, cta } = data.datoCmsServicePage;
   return (
     <Layout cta={cta}>
@@ -59,9 +36,8 @@ const Services = ({ data }) => {
       />
       <Section>
         <div className="content-container column">
-          <PortfolioFilter filter={filter} buttons={buttons} />
           <Grid>
-            <ServiceList services={services} />
+            <ServiceList services={data.allDatoCmsServiceCard.edges} />
           </Grid>
         </div>
       </Section>
@@ -90,23 +66,12 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsNewService(sort: { fields: position, order: ASC }) {
+    allDatoCmsServiceCard(sort: { fields: position, order: ASC }) {
       edges {
         node {
           title
           slug
           shortDescription
-          serviceCategory {
-            id
-            category
-          }
-        }
-      }
-    }
-    allDatoCmsServiceCategory {
-      edges {
-        node {
-          category
         }
       }
     }

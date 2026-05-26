@@ -5,14 +5,13 @@ const ServiceList = ({ services }) => {
   return (
     <>
       {services.map((item, i) => {
-        const { title, slug, shortDescription, serviceCategory } = item.node;
+        const { title, slug, shortDescription } = item.node;
         return (
           <ServiceItem
             key={"si_" + i}
             title={title}
             slug={slug}
             shortText={shortDescription}
-            category={serviceCategory?.category}
           />
         );
       })}
