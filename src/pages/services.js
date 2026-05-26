@@ -10,7 +10,7 @@ const Grid = styled.div`
   padding: 30px 0;
   grid-gap: 20px;
   @media screen and (min-width: 900px) {
-    padding: 100px 0;
+    padding: 50px 0 0;
     grid-template-columns: repeat(3, 1fr);
   }
 `;
