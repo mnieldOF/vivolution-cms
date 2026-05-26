@@ -1,14 +1,8 @@
 import { graphql } from "gatsby";
 
 export const serviceCardFragment = graphql`
-  fragment ServiceCard on DatoCmsService {
+  fragment ServiceCard on DatoCmsServiceCard {
     slug
-    logo {
-      url
-    }
     shortDescription
-    cardImage {
-      gatsbyImageData
-    }
   }
 `;
