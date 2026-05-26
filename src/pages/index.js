@@ -69,19 +69,5 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
-      edges {
-        node {
-          ...CustomerProfileCard
-        }
-      }
-    }
-    allDatoCmsService(sort: { fields: position, order: ASC }) {
-      edges {
-        node {
-          ...ServiceCard
-        }
-      }
-    }
   }
 `;
