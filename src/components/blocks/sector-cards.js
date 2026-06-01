@@ -29,9 +29,9 @@ const SECTORS = [
   },
   {
     number: "05",
-    label: "Portfolio / Acquirer",
-    text: "You're backing or managing businesses and you need a team that can get in alongside them — not just advise from a distance.",
-    slug: "portfolio-acquirer",
+    label: "Portfolio Management & Acquisition",
+    text: "You’re backing or managing businesses and you need a team that can get in alongside them, not just advise from a distance.",
+    slug: "portfolio-management-and-acquisition",
   },
 ];
 
