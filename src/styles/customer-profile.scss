@@ -34,3 +34,24 @@
     border-radius: 12px;
   }
 }
+
+.detail-prose {
+  strong {
+    color: var(--color-near-black);
+    font-weight: 600;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 20px;
+    padding-left: 22px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li {
+    margin: 6px 0;
+  }
+}
