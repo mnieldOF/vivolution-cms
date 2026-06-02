@@ -173,20 +173,33 @@
   justify-content: center;
 
   &:hover,
-  &:focus-visible,
-  &.is-active {
+  &:focus-visible {
     transform: translate(-50%, -50%) scale(1.08);
+    border-radius: 46% 54% 57% 43% / 52% 45% 55% 48%;
+    background:
+      radial-gradient(
+        circle at 30% 22%,
+        var(--color-warm-white),
+        transparent 36%
+      ),
+      var(--color-pale-lilac);
     border-color: var(--color-magenta);
     color: var(--color-near-black);
     box-shadow: 0 18px 48px
       color-mix(in srgb, var(--color-magenta) 20%, transparent);
+    animation: sector-node-wobble var(--node-wobble-duration, 2.7s) ease-in-out
+      var(--node-wobble-delay, 0s) infinite alternate;
     outline: none;
   }
 
   &.is-active {
+    transform: translate(-50%, -50%) scale(1.08);
+    border-radius: 50%;
     background: var(--color-near-black);
     border-color: var(--color-magenta);
     color: var(--color-warm-white);
+    box-shadow: 0 18px 48px
+      color-mix(in srgb, var(--color-magenta) 20%, transparent);
     animation: sector-node-pop 0.28s ease both;
   }
 }
@@ -418,12 +431,36 @@
   }
 }
 
+@keyframes sector-node-wobble {
+  0% {
+    border-radius: 46% 54% 57% 43% / 52% 45% 55% 48%;
+  }
+
+  22% {
+    border-radius: 58% 42% 47% 53% / 44% 57% 43% 56%;
+  }
+
+  47% {
+    border-radius: 42% 58% 62% 38% / 59% 39% 61% 41%;
+  }
+
+  73% {
+    border-radius: 61% 39% 44% 56% / 48% 62% 38% 52%;
+  }
+
+  100% {
+    border-radius: 49% 51% 39% 61% / 61% 43% 57% 39%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sector-map-lines path.is-active,
   .sector-centre-node,
   .sector-centre-node::before,
   .sector-centre-node::after,
-  .sector-node.is-active {
+  .sector-node.is-active,
+  .sector-node:hover,
+  .sector-node:focus-visible {
     animation: none;
   }
 }

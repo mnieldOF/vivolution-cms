@@ -135,8 +135,11 @@ const SectorDetail = ({ data }) => {
                     <button
                       type="button"
                       className={`sector-node ${i === activeIndex ? "is-active" : ""}`}
-                      style={getNodePosition(i)}
-                      onMouseEnter={() => setActiveIndex(i)}
+                      style={{
+                        ...getNodePosition(i),
+                        "--node-wobble-duration": `${5.4 + (i % 4) * 0.4}s`,
+                        "--node-wobble-delay": `${i * -0.34}s`,
+                      }}
                       onFocus={() => setActiveIndex(i)}
                       onClick={() => setActiveIndex(i)}
                       aria-pressed={i === activeIndex}
