@@ -72,6 +72,11 @@ export const query = graphql`
           title
           slug
           shortDescription
+          shortDescriptionNode {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }

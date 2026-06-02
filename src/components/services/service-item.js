@@ -2,7 +2,7 @@ import React from "react";
 import "./service-item.scss";
 import { Link } from "gatsby";
 
-const ServiceItem = ({ title, shortText, slug, category }) => {
+const ServiceItem = ({ title, shortText, shortTextHtml, slug, category }) => {
   return (
     <Link to={`/services/${slug}`} className="service-card">
       <div className="service-card-body">
@@ -10,7 +10,14 @@ const ServiceItem = ({ title, shortText, slug, category }) => {
           <h3 className="service-card-name">{title}</h3>
           {category && <span className="service-category-chip">{category}</span>}
         </div>
-        {shortText && <p className="service-card-tagline">{shortText}</p>}
+        {shortTextHtml ? (
+          <div
+            className="service-card-tagline"
+            dangerouslySetInnerHTML={{ __html: shortTextHtml }}
+          />
+        ) : (
+          shortText && <p className="service-card-tagline">{shortText}</p>
+        )}
       </div>
       <div className="service-card-footer">
         <span className="service-read-more">

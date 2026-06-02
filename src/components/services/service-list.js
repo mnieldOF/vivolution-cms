@@ -5,13 +5,14 @@ const ServiceList = ({ services }) => {
   return (
     <>
       {services.map((item, i) => {
-        const { title, slug, shortDescription } = item.node;
+        const { title, slug, shortDescription, shortDescriptionNode } = item.node;
         return (
           <ServiceItem
             key={"si_" + i}
             title={title}
             slug={slug}
             shortText={shortDescription}
+            shortTextHtml={shortDescriptionNode?.childMarkdownRemark?.html}
           />
         );
       })}
