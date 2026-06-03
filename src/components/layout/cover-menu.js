@@ -167,7 +167,11 @@ const CoverMenu = ({ active, socials, onClose }) => {
                     animate="show"
                   >
                     <NavLink onClose={onClose} />
-                    <a href="/contact" className="mobile-contact" onClick={onClose}>
+                    <a
+                      href="/contact"
+                      className="mobile-contact"
+                      onClick={onClose}
+                    >
                       let&apos;s chat
                     </a>
                   </motion.ul>
@@ -180,9 +184,9 @@ const CoverMenu = ({ active, socials, onClose }) => {
                 animate="show"
               >
                 <div className="contact-cta">
-                  <a href="mailto:hello@vivolution.co.uk">hello@vivolution.co.uk</a>
-                  <br />
-                  <a href="tel:01412122533">0141 212 2533</a>
+                  <a href="mailto:hello@vivolution.co.uk">
+                    hello@vivolution.co.uk
+                  </a>
                 </div>
                 <div className="address">
                   <p>
@@ -194,13 +198,16 @@ const CoverMenu = ({ active, socials, onClose }) => {
                 </div>
                 <div className="social-cta">
                   {(socials?.edges ?? [])
-                    .filter(({ node }) => node.url && node.profileType === "LinkedIn")
+                    .filter(
+                      ({ node }) => node.url && node.profileType === "LinkedIn",
+                    )
                     .map(({ node: item }, i) => (
-                      <a key={"sm_" + i} href={item.url} aria-label={item.profileType}>
-                        <Icon
-                          icon="linkedin2"
-                          width="20px"
-                        />
+                      <a
+                        key={"sm_" + i}
+                        href={item.url}
+                        aria-label={item.profileType}
+                      >
+                        <Icon icon="linkedin2" width="20px" />
                       </a>
                     ))}
                 </div>
