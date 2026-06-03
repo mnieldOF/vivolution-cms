@@ -62,9 +62,9 @@ const Header = ({ socials }) => {
                 </Link>
               ))}
             </nav>
-            <Link to="/contact" className="btn-cta">
+            <a href="mailto:hello@vivolution.co.uk" className="btn-cta">
               Let&apos;s chat
-            </Link>
+            </a>
           </div>
 
           <button

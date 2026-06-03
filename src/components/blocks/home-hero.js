@@ -10,8 +10,12 @@ const HomeHero = ({ eyebrow, title, body }) => {
         <h1 className="hero-headline">{title}</h1>
         {body && <p className="hero-body">{body}</p>}
         <div className="hero-actions">
-          <Link to="/contact" className="btn-cta">Let&apos;s chat</Link>
-          <Link to="/services" className="btn-ghost">Our services</Link>
+          <a href="mailto:hello@vivolution.co.uk" className="btn-cta">
+            Let&apos;s chat
+          </a>
+          <Link to="/services" className="btn-ghost">
+            Our services
+          </Link>
         </div>
       </div>
     </section>

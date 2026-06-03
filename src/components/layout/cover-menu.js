@@ -169,7 +169,7 @@ const CoverMenu = ({ active, socials, onClose }) => {
                   >
                     <NavLink onClose={onClose} />
                     <a
-                      href="/contact"
+                      href="mailto:hello@vivolution.co.uk"
                       className="mobile-contact"
                       onClick={onClose}
                     >
