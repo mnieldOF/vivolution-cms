@@ -41,11 +41,17 @@ const SectorCards = () => {
       <div className="sector-cards-inner">
         <div className="sector-cards-header">
           <p className="sector-cards-eyebrow">Who We Work With</p>
-          <h2 className="sector-cards-headline">Where are you on your journey?</h2>
+          <h2 className="sector-cards-headline">
+            Where are you on your journey?
+          </h2>
         </div>
         <div className="sector-cards-grid">
           {SECTORS.map((sector) => (
-            <Link key={sector.slug} to={`/${sector.slug}`} className="sector-card">
+            <Link
+              key={sector.slug}
+              to={`/sectors?sector=${sector.slug}`}
+              className="sector-card"
+            >
               <div className="sector-card-content">
                 <span className="sector-card-number">{sector.number}</span>
                 <div className="sector-card-body">
@@ -54,7 +60,13 @@ const SectorCards = () => {
                 </div>
                 <div className="sector-card-arrow">
                   <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
               </div>

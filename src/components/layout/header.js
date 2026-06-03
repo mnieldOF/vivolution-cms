@@ -8,6 +8,7 @@ import CoverMenu from "./cover-menu";
 import SmallLogo from "../../images/vivo-icon-logo.svg";
 
 const navLinks = [
+  { text: "Sectors", link: "/sectors" },
   { text: "Services", link: "/services" },
   { text: "Tools", link: "/tools" },
   { text: "Investment Programme", link: "/investment-programme" },

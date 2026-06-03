@@ -7,6 +7,7 @@ import Icon from "../ui/icon";
 // Updated to match the new site navigation structure.
 // Routes without pages yet use "#" as a placeholder.
 const Links = [
+  { text: "Sectors", link: "/sectors" },
   { text: "Services", link: "/services" },
   { text: "Tools", link: "/tools" },
   { text: "Investment Programme", link: "/investment-programme" },
