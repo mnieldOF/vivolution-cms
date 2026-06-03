@@ -21,6 +21,8 @@
   .brand-logo {
     margin-bottom: 20px;
     display: block;
+    width: 150px;
+    height: auto;
   }
 }
 
@@ -50,7 +52,10 @@
   border-radius: 8px;
   color: var(--color-muted);
   text-decoration: none;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s;
   &:hover {
     border-color: var(--color-magenta);
     color: var(--color-magenta);
