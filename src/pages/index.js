@@ -13,12 +13,12 @@ const IndexPage = ({ data }) => {
     <Layout cta={data.datoCmsHome.cta}>
       <HelmetDatoCms seo={data.datoCmsHome.seo} />
       <HomeHero
-          eyebrow={datoCmsHome.content[0].subtitle}
-          title={datoCmsHome.content[0].title}
-          body={datoCmsHome.content[0].subText}
-        />
-      <Numbers data={datoCmsHome.numbers} />
+        eyebrow={datoCmsHome.content[0].subtitle}
+        title={datoCmsHome.content[0].title}
+        body={datoCmsHome.content[0].subText}
+      />
       <SectorCards />
+      <Numbers data={datoCmsHome.numbers} />
       <ToolSlider data={data.allDatoCmsTool.edges} />
     </Layout>
   );
