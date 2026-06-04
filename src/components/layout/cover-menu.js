@@ -51,6 +51,9 @@ const CoverMenu = ({ active, socials, onClose }) => {
   const StyledCircle = styled(motion.div)`
     position: absolute;
     background: #111118;
+    box-shadow:
+      0 26px 70px rgba(232, 51, 106, 0.16),
+      0 8px 26px rgba(0, 0, 0, 0.28);
     transform-origin: center;
     top: calc(90px - 140vw);
     right: calc(100px - 140vw);
@@ -192,11 +195,6 @@ const CoverMenu = ({ active, socials, onClose }) => {
                 initial="hidden"
                 animate="show"
               >
-                <div className="contact-cta">
-                  <a href="mailto:hello@vivolution.co.uk">
-                    hello@vivolution.co.uk
-                  </a>
-                </div>
                 <div className="address">
                   <p>
                     Suite 2/2, 14 Mitchell Lane, <br />
