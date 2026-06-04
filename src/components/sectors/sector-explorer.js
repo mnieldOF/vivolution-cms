@@ -1,17 +1,10 @@
 import React from "react";
 import { Link } from "gatsby";
+import { normaliseTitle, slugifyTitle } from "../../utils/slugify-title";
 import "../../styles/sector-explorer.scss";
 
 const MAP_CENTER = 50;
 const FALLBACK_NODE_RADIUS = 39;
-
-const normaliseTitle = (title) =>
-  (title || "").toLowerCase().replace(/&/g, "and").replace(/\s+/g, " ").trim();
-
-const slugifyTitle = (title) =>
-  normaliseTitle(title)
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
 
 const sevenNodeLayout = [
   { left: 50, top: 13 },
@@ -29,7 +22,13 @@ const getServiceSlugByTitle = (services) =>
     return serviceSlugs;
   }, {});
 
-const SectorDetailPanel = ({ block, className, sectorTitle, serviceSlug }) => (
+const SectorDetailPanel = ({
+  block,
+  className,
+  sectorTitle,
+  sectorSlug,
+  serviceSlug,
+}) => (
   <article className={className}>
     <span className="sector-detail-kicker">{sectorTitle}</span>
     <h2>{block.title}</h2>
@@ -41,7 +40,10 @@ const SectorDetailPanel = ({ block, className, sectorTitle, serviceSlug }) => (
         }}
       />
     )}
-    <Link className="sector-detail-link" to={`/services/${serviceSlug}`}>
+    <Link
+      className="sector-detail-link"
+      to={`/services/${serviceSlug}?sector=${encodeURIComponent(sectorSlug)}`}
+    >
       View service
     </Link>
   </article>
@@ -52,6 +54,7 @@ const SectorExplorer = ({ sector, serviceCards }) => {
   const blocks = sector.blocks;
   const activeBlock = blocks[activeIndex];
   const sectorTitle = sector.hero.title;
+  const sectorSlug = sector.slug || slugifyTitle(sectorTitle);
   const serviceSlugByTitle = getServiceSlugByTitle(serviceCards);
   const activeServiceSlug =
     serviceSlugByTitle[normaliseTitle(activeBlock.title)] ||
@@ -137,6 +140,7 @@ const SectorExplorer = ({ sector, serviceCards }) => {
                   block={activeBlock}
                   className="sector-detail-panel sector-detail-panel-mobile"
                   sectorTitle={sectorTitle}
+                  sectorSlug={sectorSlug}
                   serviceSlug={activeServiceSlug}
                 />
               )}
@@ -148,6 +152,7 @@ const SectorExplorer = ({ sector, serviceCards }) => {
         block={activeBlock}
         className="sector-detail-panel sector-detail-panel-desktop"
         sectorTitle={sectorTitle}
+        sectorSlug={sectorSlug}
         serviceSlug={activeServiceSlug}
       />
     </div>

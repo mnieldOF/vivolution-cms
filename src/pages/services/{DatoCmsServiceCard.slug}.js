@@ -4,9 +4,40 @@ import Layout from "../../components/layout/layout";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Hero from "../../components/blocks/hero";
 import MarkdownText from "../../components/blocks/markdown-text";
+import { slugifyTitle } from "../../utils/slugify-title";
 import "../../styles/customer-profile.scss";
 
-const ServiceDetail = ({ data }) => {
+const getSectorParam = (location) => {
+  const params = new URLSearchParams(location.search);
+  return params.get("sector");
+};
+
+const ServiceDetail = ({ data, location }) => {
+  React.useEffect(() => {
+    const requestedSector = getSectorParam(location);
+
+    if (!requestedSector) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      const target = document.getElementById(`sector-${requestedSector}`);
+
+      if (!target) {
+        return;
+      }
+
+      const headerOffset = 96;
+      const targetTop =
+        target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: targetTop,
+        behavior: "smooth",
+      });
+    });
+  }, [location]);
+
   return (
     <Layout cta={data.datoCmsServicePage.cta}>
       <HelmetDatoCms seo={data.service.seo} />
@@ -20,7 +51,13 @@ const ServiceDetail = ({ data }) => {
       <section className="detail-body">
         <div className="detail-body-inner">
           {data.service.blocks.map((block, i) => (
-            <div key={i} className="detail-text-block">
+            <div
+              key={i}
+              id={
+                block.title ? `sector-${slugifyTitle(block.title)}` : undefined
+              }
+              className="detail-text-block"
+            >
               <hr className="detail-divider" />
               {block.title && (
                 <h2 className="detail-section-headline">{block.title}</h2>
