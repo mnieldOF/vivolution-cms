@@ -1,42 +1,49 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import Layout from "../../components/layout/layout";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Hero from "../../components/blocks/hero";
 import MarkdownText from "../../components/blocks/markdown-text";
 import { slugifyTitle } from "../../utils/slugify-title";
+import "../../components/portfolio/portfolio-filter.scss";
 import "../../styles/customer-profile.scss";
 
 const getSectorParam = (location) => {
-  const params = new URLSearchParams(location.search);
+  const params = new URLSearchParams(location?.search || "");
   return params.get("sector");
 };
 
 const ServiceDetail = ({ data, location }) => {
-  React.useEffect(() => {
+  const blocks = data.service.blocks || [];
+  const sectorTabs = React.useMemo(
+    () =>
+      blocks.map((block, index) => ({
+        ...block,
+        id: block.title ? slugifyTitle(block.title) : `section-${index}`,
+      })),
+    [blocks],
+  );
+
+  const getSelectedSector = React.useCallback(() => {
     const requestedSector = getSectorParam(location);
+    const requestedTab = sectorTabs.find((tab) => tab.id === requestedSector);
 
-    if (!requestedSector) {
-      return;
-    }
+    return requestedTab?.id || sectorTabs[0]?.id;
+  }, [location, sectorTabs]);
 
-    window.requestAnimationFrame(() => {
-      const target = document.getElementById(`sector-${requestedSector}`);
+  const [selectedSector, setSelectedSector] = React.useState(getSelectedSector);
 
-      if (!target) {
-        return;
-      }
+  React.useEffect(() => {
+    setSelectedSector(getSelectedSector());
+  }, [getSelectedSector]);
 
-      const headerOffset = 96;
-      const targetTop =
-        target.getBoundingClientRect().top + window.scrollY - headerOffset;
+  const activeBlock =
+    sectorTabs.find((tab) => tab.id === selectedSector) || sectorTabs[0];
 
-      window.scrollTo({
-        top: targetTop,
-        behavior: "smooth",
-      });
-    });
-  }, [location]);
+  const selectSector = (sectorId) => {
+    setSelectedSector(sectorId);
+    navigate(`${location.pathname}?sector=${sectorId}`, { replace: true });
+  };
 
   return (
     <Layout cta={data.datoCmsServicePage.cta}>
@@ -50,26 +57,36 @@ const ServiceDetail = ({ data, location }) => {
       />
       <section className="detail-body">
         <div className="detail-body-inner">
-          {data.service.blocks.map((block, i) => (
-            <div
-              key={i}
-              id={
-                block.title ? `sector-${slugifyTitle(block.title)}` : undefined
-              }
-              className="detail-text-block"
-            >
-              <hr className="detail-divider" />
-              {block.title && (
-                <h2 className="detail-section-headline">{block.title}</h2>
+          {sectorTabs.length > 1 && (
+            <div className="portfolio-filter service-detail-filter">
+              <div className="filter-tabs">
+                {sectorTabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    className={`filter-tab${selectedSector === tab.id ? " active" : ""}`}
+                    onClick={() => selectSector(tab.id)}
+                  >
+                    {tab.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeBlock && (
+            <div className="detail-text-block">
+              {activeBlock.title && (
+                <h2 className="detail-section-headline">{activeBlock.title}</h2>
               )}
               <MarkdownText
                 className="detail-prose"
-                html={block.descriptionNode?.childMarkdownRemark?.html}
-                text={block.description}
+                html={activeBlock.descriptionNode?.childMarkdownRemark?.html}
+                text={activeBlock.description}
                 clean
               />
             </div>
-          ))}
+          )}
         </div>
       </section>
     </Layout>
