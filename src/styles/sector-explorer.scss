@@ -354,6 +354,16 @@
     &:focus-visible,
     &.is-active {
       transform: none;
+      border-radius: 8px;
+      animation: none;
+    }
+
+    &.is-active {
+      background: var(--color-near-black);
+      border-color: var(--color-magenta);
+      color: var(--color-warm-white);
+      box-shadow: 0 12px 34px
+        color-mix(in srgb, var(--color-magenta) 18%, transparent);
     }
   }
 

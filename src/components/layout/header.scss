@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1100;
 
   // Fixed pixel height lets us transition it on scroll.
   // Whatever sits directly below the header needs a matching
@@ -21,7 +21,10 @@
 
   // All visual properties that change on scroll are listed here
   // so the browser knows to animate them.
-  transition: height 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+  transition:
+    height 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
 
   // Scrolled state
   // backdrop-filter creates the frosted-glass blur effect.
@@ -77,7 +80,9 @@
     top: 0;
     left: 0;
     height: 28px;
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
     opacity: 1;
     transform: translateX(0);
 
@@ -110,7 +115,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    transition: opacity 0.35s ease, transform 0.35s ease;
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
     opacity: 0;
     transform: translateX(-6px);
     object-fit: contain;
@@ -145,7 +152,9 @@
       border-radius: 6px;
       letter-spacing: 0.01em;
       white-space: nowrap;
-      transition: color 0.2s, background 0.2s;
+      transition:
+        color 0.2s,
+        background 0.2s;
 
       &:hover {
         color: var(--color-warm-white);
@@ -169,7 +178,10 @@
     white-space: nowrap;
     letter-spacing: 0.01em;
     margin-left: 8px;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    transition:
+      background 0.2s,
+      transform 0.15s,
+      box-shadow 0.2s;
 
     &:hover {
       background: #f03d78;
@@ -201,7 +213,9 @@
       height: 2px;
       background: var(--color-warm-white);
       border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
+      transition:
+        transform 0.3s,
+        opacity 0.3s;
     }
 
     // When open: top bar rotates +45deg, middle fades out,

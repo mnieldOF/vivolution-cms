@@ -33,9 +33,9 @@ const CoverMenu = ({ active, socials, onClose }) => {
     },
   };
 
-  // Cover is the full-screen fixed container. z-index 99 keeps it
-  // below the header (z-index 100) so the hamburger stays
-  // tappable while the menu is open.
+  // Cover is the full-screen fixed container. It sits above page
+  // content, while the header remains one layer higher so the
+  // hamburger stays tappable while the menu is open.
   const Cover = styled.div`
     position: fixed;
     width: 100vw;
@@ -43,7 +43,7 @@ const CoverMenu = ({ active, socials, onClose }) => {
     top: 0;
     left: 0;
     overflow: hidden;
-    z-index: 99;
+    z-index: 1000;
   `;
 
   // The circle that expands from the top-right corner.
@@ -145,12 +145,20 @@ const CoverMenu = ({ active, socials, onClose }) => {
   };
 
   return (
-    <div className="prevent-container" style={{ position: "fixed", left: 0 }}>
+    <div
+      className="prevent-container"
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 1000,
+        pointerEvents: active ? "auto" : "none",
+      }}
+    >
       <motion.div
         initial="closed"
         animate={active ? "open" : "closed"}
         variants={OffCanvas}
-        style={{ position: "fixed", top: 0, zIndex: 99 }}
+        style={{ position: "fixed", top: 0, zIndex: 1000 }}
       >
         <Cover className={`cover-menu ${active ? "active" : ""}`}>
           <StyledCircle
