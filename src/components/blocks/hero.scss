@@ -152,8 +152,20 @@
   }
 
   @media screen and (max-width: 768px) {
-    padding: 80px 24px 60px;
+    padding: 104px 24px 42px;
     min-height: auto;
+
+    .hero-headline {
+      margin-bottom: 24px;
+    }
+
+    .hero-body {
+      margin-bottom: 34px;
+    }
+
+    .hero-scroll-cue {
+      display: none;
+    }
   }
 }
 
