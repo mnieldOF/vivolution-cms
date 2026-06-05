@@ -1,5 +1,5 @@
 import * as React from "react";
-import { graphql, navigate } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../../components/layout/layout";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Hero from "../../components/blocks/hero";
@@ -42,7 +42,11 @@ const ServiceDetail = ({ data, location }) => {
 
   const selectSector = (sectorId) => {
     setSelectedSector(sectorId);
-    navigate(`${location.pathname}?sector=${sectorId}`, { replace: true });
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${location.pathname}?sector=${encodeURIComponent(sectorId)}`,
+    );
   };
 
   return (
