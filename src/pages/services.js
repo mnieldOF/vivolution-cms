@@ -1,27 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import styled from "@emotion/styled";
 import Layout from "../components/layout/layout";
 import Hero from "../components/blocks/hero";
 import ServiceList from "../components/services/service-list";
-
-const Grid = styled.div`
-  display: grid;
-  padding: 30px 0;
-  grid-gap: 20px;
-  @media screen and (min-width: 900px) {
-    padding: 50px 0 0;
-    grid-template-columns: repeat(3, 1fr);
-  }
-`;
-
-const Section = styled.div`
-  background: var(--color-warm-white);
-  padding: 30px 0;
-  @media screen and (min-width: 900px) {
-    padding: 50px 0 0;
-  }
-`;
 
 const Services = ({ data }) => {
   const { hero, cta } = data.datoCmsServicePage;
@@ -34,13 +15,11 @@ const Services = ({ data }) => {
         image={hero.background}
         dark
       />
-      <Section>
+      <section className="services-section">
         <div className="content-container column">
-          <Grid>
-            <ServiceList services={data.allDatoCmsServiceCard.edges} />
-          </Grid>
+          <ServiceList services={data.allDatoCmsServiceCard.edges} />
         </div>
-      </Section>
+      </section>
     </Layout>
   );
 };

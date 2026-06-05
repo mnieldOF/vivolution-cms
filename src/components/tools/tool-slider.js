@@ -31,7 +31,9 @@ const ToolSlider = ({ data, light }) => {
   };
 
   return (
-    <section className={`detail-related${light ? " detail-related--light" : ""}`}>
+    <section
+      className={`detail-related detail-related-tools${light ? " detail-related--light" : ""}`}
+    >
       <div className="detail-related-inner">
         <div className="detail-related-header">
           <div>
@@ -73,6 +75,16 @@ const ToolSlider = ({ data, light }) => {
             </div>
           ))}
         </Slider>
+        <div className="tool-mobile-list">
+          {data.map(({ node: item }, i) => (
+            <ToolItem
+              key={item.slug || i}
+              title={item.title}
+              slug={item.slug}
+              shortText={item.shortDescription}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

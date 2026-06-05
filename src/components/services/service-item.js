@@ -1,11 +1,14 @@
 import React from "react";
 import "./service-item.scss";
-import { Link } from "gatsby";
-import MarkdownText from "../blocks/markdown-text";
 
-const ServiceItem = ({ title, shortText, shortTextHtml, slug, category }) => {
+const ServiceItem = ({ title, teaser, category, isActive, onSelect }) => {
   return (
-    <Link to={`/services/${slug}`} className="service-card">
+    <button
+      type="button"
+      className={`service-card${isActive ? " is-active" : ""}`}
+      onClick={onSelect}
+      aria-pressed={isActive}
+    >
       <div className="service-card-body">
         <div className="service-card-title-row">
           <h3 className="service-card-name">{title}</h3>
@@ -13,15 +16,11 @@ const ServiceItem = ({ title, shortText, shortTextHtml, slug, category }) => {
             <span className="service-category-chip">{category}</span>
           )}
         </div>
-        <MarkdownText
-          className="service-card-tagline"
-          html={shortTextHtml}
-          text={shortText}
-        />
+        {teaser && <p className="service-card-tagline">{teaser}</p>}
       </div>
       <div className="service-card-footer">
         <span className="service-read-more">
-          Read more
+          View details
           <svg
             viewBox="0 0 24 24"
             strokeWidth="2"
@@ -36,7 +35,7 @@ const ServiceItem = ({ title, shortText, shortTextHtml, slug, category }) => {
           </svg>
         </span>
       </div>
-    </Link>
+    </button>
   );
 };
 

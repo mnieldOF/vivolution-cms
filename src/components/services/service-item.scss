@@ -1,21 +1,71 @@
+.services-section {
+  background: var(--color-warm-white);
+  padding: 56px 0 80px;
+
+  @media screen and (max-width: 768px) {
+    padding: 40px 0 64px;
+  }
+}
+
+.service-selector-layout {
+  display: grid;
+  gap: 28px;
+  width: 100%;
+
+  @media screen and (min-width: 980px) {
+    grid-template-columns: minmax(300px, 0.62fr) minmax(420px, 1fr);
+    align-items: start;
+  }
+}
+
+.service-selector-list {
+  display: grid;
+  gap: 12px;
+}
+
 .service-card {
   background: var(--color-warm-white);
   border: 1px solid rgba(17, 17, 24, 0.08);
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  color: inherit;
+  font: inherit;
   text-decoration: none;
+  text-align: left;
+  cursor: pointer;
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(17, 17, 24, 0.1);
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px rgba(17, 17, 24, 0.08);
     border-color: rgba(232, 51, 106, 0.2);
+    outline: none;
+  }
+
+  &.is-active {
+    background: var(--color-near-black);
+    border-color: var(--color-magenta);
+    box-shadow: 0 16px 44px rgba(232, 51, 106, 0.14);
+
+    .service-card-name {
+      color: var(--color-warm-white);
+    }
+
+    .service-card-tagline {
+      color: rgba(250, 249, 247, 0.62);
+    }
   }
 
   .service-card-body {
-    padding: 20px 24px 16px;
+    padding: 20px 22px 12px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -44,7 +94,7 @@
   }
 
   .service-card-name {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 1.25;
     color: var(--color-near-black);
@@ -54,37 +104,13 @@
 
   .service-card-tagline {
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.55;
     color: rgba(17, 17, 24, 0.55);
     margin: 0;
-
-    p,
-    ul,
-    ol {
-      margin: 0 0 10px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    strong {
-      color: var(--color-near-black);
-      font-weight: 600;
-    }
-
-    ul,
-    ol {
-      padding-left: 18px;
-    }
-
-    li {
-      margin: 4px 0;
-    }
   }
 
   .service-card-footer {
-    padding: 0 24px 24px;
+    padding: 0 22px 20px;
     display: flex;
     align-items: center;
   }
@@ -107,6 +133,108 @@
   }
 
   &:hover .service-read-more svg {
+    transform: translate(2px, -2px);
+  }
+}
+
+.service-detail-preview {
+  border: 1px solid rgba(17, 17, 24, 0.08);
+  border-radius: 8px;
+  background: var(--color-warm-white);
+  padding: 34px;
+  box-shadow: 0 18px 52px rgba(17, 17, 24, 0.06);
+
+  h2 {
+    margin: 0 0 22px;
+    color: var(--color-near-black);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 600;
+    line-height: 1.08;
+  }
+
+  @media screen and (min-width: 980px) {
+    position: sticky;
+    top: 96px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 26px 22px;
+  }
+}
+
+.service-detail-preview-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 979px) {
+  .service-detail-preview-desktop {
+    display: none;
+  }
+
+  .service-detail-preview-mobile {
+    display: block;
+  }
+}
+
+.service-detail-preview-kicker {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--color-magenta);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.service-detail-preview-copy {
+  color: rgba(17, 17, 24, 0.62);
+  font-size: 15px;
+  line-height: 1.75;
+
+  p,
+  ul,
+  ol {
+    margin: 0 0 18px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    color: var(--color-near-black);
+    font-weight: 600;
+  }
+
+  ul,
+  ol {
+    padding-left: 22px;
+  }
+
+  li {
+    margin: 6px 0;
+  }
+}
+
+.service-detail-preview-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--color-magenta);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+
+  svg {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover svg,
+  &:focus-visible svg {
     transform: translate(2px, -2px);
   }
 }

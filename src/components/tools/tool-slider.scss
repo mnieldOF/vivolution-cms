@@ -22,3 +22,52 @@
     color: rgba(250, 249, 247, 0.4);
   }
 }
+
+.tool-mobile-list {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .detail-related-tools {
+    padding: 56px 24px;
+  }
+
+  .detail-related-tools .detail-related-header {
+    padding: 0;
+  }
+
+  .detail-related-tools .slick-slider,
+  .detail-related-tools .detail-related-arrows {
+    display: none;
+  }
+
+  .tool-mobile-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .detail-related .tool-card {
+    border-radius: 14px;
+    min-height: 0;
+
+    .tool-card-body {
+      padding: 22px 22px 12px;
+    }
+
+    .tool-card-name {
+      font-size: 18px;
+      line-height: 1.18;
+      overflow-wrap: normal;
+    }
+
+    .tool-card-tagline {
+      font-size: 13px;
+      line-height: 1.45;
+      -webkit-line-clamp: 3;
+    }
+
+    .tool-card-footer {
+      padding: 0 22px 22px;
+    }
+  }
+}
