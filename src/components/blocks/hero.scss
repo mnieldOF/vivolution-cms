@@ -4,6 +4,7 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
+  position: relative;
 
   .hero-inner {
     width: 100%;
@@ -41,6 +42,67 @@
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
+  }
+
+  .hero-scroll-cue {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-top: 34px;
+    gap: 12px;
+    color: var(--color-magenta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-near-black);
+      transform: translateY(-2px);
+      outline: none;
+
+      .hero-scroll-cue-mark {
+        border-color: var(--color-near-black);
+      }
+    }
+  }
+
+  .hero-scroll-cue-mark {
+    position: relative;
+    width: 22px;
+    height: 34px;
+    color: currentColor;
+    animation: hero-scroll-cue-arrow 1.6s ease-in-out infinite;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      top: 0;
+      width: 2px;
+      height: 34px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    &::after {
+      bottom: 0;
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateX(-50%) rotate(45deg);
+    }
   }
 
   .btn-cta {
@@ -92,6 +154,23 @@
   @media screen and (max-width: 768px) {
     padding: 80px 24px 60px;
     min-height: auto;
+  }
+}
+
+#sector-selector {
+  scroll-margin-top: 72px;
+}
+
+@keyframes hero-scroll-cue-arrow {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: translateY(-3px);
+  }
+
+  45% {
+    opacity: 1;
+    transform: translateY(4px);
   }
 }
 

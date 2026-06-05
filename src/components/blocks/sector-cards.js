@@ -37,7 +37,7 @@ const SECTORS = [
 
 const SectorCards = () => {
   return (
-    <section className="sector-cards">
+    <section className="sector-cards" id="sector-selector">
       <div className="sector-cards-inner">
         <div className="sector-cards-header">
           <p className="sector-cards-eyebrow">Who We Work With</p>
