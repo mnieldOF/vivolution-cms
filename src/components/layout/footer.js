@@ -44,10 +44,10 @@ const Footer = ({ socials }) => {
             <h4>Sitemap</h4>
             <ul>
               <li>
-                <Link to="/services">Services</Link>
+                <Link to="/sectors">Sectors</Link>
               </li>
               <li>
-                <Link to="/sectors">Sectors</Link>
+                <Link to="/services">Services</Link>
               </li>
               <li>
                 <Link to="/tools">Tools</Link>
