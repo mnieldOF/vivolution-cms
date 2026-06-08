@@ -13,6 +13,7 @@ const Hero = ({ title, subtitle, subtext, subtextHtml, dark, children }) => {
             className="profile-hero-title"
             html={subtextHtml}
             text={subtext}
+            clean
           />
         </div>
       </section>
@@ -24,7 +25,12 @@ const Hero = ({ title, subtitle, subtext, subtextHtml, dark, children }) => {
       <div className="hero-inner">
         {subtitle && <p className="hero-eyebrow">{subtitle}</p>}
         <h1 className="hero-headline">{title}</h1>
-        <MarkdownText className="hero-body" html={subtextHtml} text={subtext} />
+        <MarkdownText
+          className="hero-body"
+          html={subtextHtml}
+          text={subtext}
+          clean
+        />
         {children}
       </div>
     </section>

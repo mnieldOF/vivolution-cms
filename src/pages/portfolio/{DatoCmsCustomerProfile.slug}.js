@@ -17,7 +17,14 @@ const CustomerProfile = ({ data }) => {
   return (
     <Layout cta={data.datoCmsPortfolioPage.cta}>
       <HelmetDatoCms seo={data.profile.seo} />
-      <Hero title={data.profile.hero.title} subtitle={data.profile.hero.subtitle} subtext={data.profile.hero.subText} image={data.profile.hero.background} dark/>
+      <Hero
+        title={data.profile.hero.title}
+        subtitle={data.profile.hero.subtitle}
+        subtext={data.profile.hero.subText}
+        subtextHtml={data.profile.hero.subTextNode?.childMarkdownRemark?.html}
+        image={data.profile.hero.background}
+        dark
+      />
       <section className="detail-body">
         <div className="detail-body-inner">
           {data.profile.featuredImage && (
@@ -44,6 +51,11 @@ export const query = graphql`
         title
         subtitle
         subText
+        subTextNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
       title
       customerCategory {
