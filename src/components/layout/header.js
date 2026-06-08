@@ -3,9 +3,9 @@ import "./header.scss";
 import "./hamburger.scss";
 import "./mobile-header.scss";
 import { Link } from "gatsby";
-import Icon from "../ui/icon";
 import CoverMenu from "./cover-menu";
-import SmallLogo from "../../images/vivo-icon-logo.svg";
+import SmallLogo from "../../images/vivolution-logo-icon.svg";
+import FullLogo from "../../images/vivolution-logo-full.svg";
 
 const navLinks = [
   { text: "Sectors", link: "/sectors" },
@@ -46,11 +46,7 @@ const Header = ({ socials }) => {
       <header className="vivo-header" id="header">
         <div className="header-inner">
           <Link to="/" className="logo-wrap" aria-label="Vivolution home">
-            <Icon
-              icon="vivo-logo-white"
-              className="logo-full"
-              color="#e8336a"
-            />
+            <img src={FullLogo} alt="Vivolution" className="logo-full" />
             <img src={SmallLogo} alt="Vivolution" className="logo-v" />
           </Link>
 
