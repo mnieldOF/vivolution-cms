@@ -26,6 +26,8 @@ const Footer = ({ socials }) => {
                       href={item.url}
                       className="social-link"
                       aria-label={item.profileType}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Icon
                         icon="linkedin2"
