@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
-import Layout from "../components/layout";
-import Hero from "../components/hero";
-import ProfileList from "../components/profile-list";
-import PortfolioFilter from "../components/portfolio-filter";
+import Layout from "../components/layout/layout";
+import Hero from "../components/blocks/hero";
+import ProfileList from "../components/portfolio/profile-list";
+import PortfolioFilter from "../components/portfolio/portfolio-filter";
 
 const Grid = styled.div`
   display: grid;
@@ -16,18 +16,8 @@ const Grid = styled.div`
   }
 `;
 
-const TextBlock = styled.div`
-  padding: 30px 0;
-  background: var(--color-primary-white);
-  max-width: 875px;
-  margin: 0 auto;
-  @media screen and (min-width: 900px) {
-    padding: 60px 0;
-  }
-`;
-
 const Section = styled.div`
-  background: var(--color-primary-white);
+  background: var(--color-warm-white);
   padding: 30px 0;
   @media screen and (min-width: 900px) {
     padding: 60px 0;
@@ -36,16 +26,16 @@ const Section = styled.div`
 
 const Portfolio = ({ data }) => {
   const [profiles, setProfiles] = useState(
-    data.allDatoCmsCustomerProfile.edges
+    data.allDatoCmsCustomerProfile.edges,
   );
 
   const allCategories = [
     ...new Set(
-      data.allDatoCmsCustomerCategory.edges.map((item) => item.node.category)
+      data.allDatoCmsCustomerCategory.edges.map((item) => item.node.category),
     ),
   ];
 
-  const [buttons, setButton] = useState(allCategories);
+  const [buttons] = useState(allCategories);
 
   const filter = (button) => {
     if (button === "All") {
@@ -54,18 +44,21 @@ const Portfolio = ({ data }) => {
     }
 
     const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
-      item.node.customerCategory.some((x) => x.category === button)
+      item.node.customerCategory.some((x) => x.category === button),
     );
     setProfiles(filteredData);
   };
 
-  const { blocks, description } = data.datoCmsPortfolio;
+  const { blocks } = data.datoCmsPortfolioPage;
   return (
-    <Layout>
-      <Hero title={blocks[0].title} image={blocks[0].background} />
-      <TextBlock>
-        <div className="content-container">{description}</div>
-      </TextBlock>
+    <Layout cta={data.datoCmsPortfolioPage.cta}>
+      <Hero
+        title={blocks[0].title}
+        image={blocks[0].background}
+        subtitle={blocks[0].subtitle}
+        subtext={blocks[0].subText}
+        dark
+      />
       <Section>
         <div className="content-container column">
           <PortfolioFilter filter={filter} buttons={buttons} />
@@ -82,31 +75,31 @@ export default Portfolio;
 
 export const query = graphql`
   {
-    datoCmsPortfolio {
-      blocks {
-        background {
-          gatsbyImageData
-        }
+    datoCmsPortfolioPage {
+      cta {
         title
+        maintext
+        subtext
+        contactNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
-      description
+      blocks {
+        title
+        subtitle
+        subText
+      }
     }
     allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
       edges {
         node {
-          featuredImage {
-            gatsbyImageData
-          }
+          ...CustomerProfileCard
           customerCategory {
             id
             category
           }
-          title
-          slug
-          logo {
-            gatsbyImageData(width: 100)
-          }
-          shortDescription
         }
       }
     }

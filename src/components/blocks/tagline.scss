@@ -1,0 +1,43 @@
+.tagline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.tagline-perk {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(17, 17, 24, 0.7);
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--color-magenta);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  &--pink {
+    padding: 16px 20px;
+    background: rgba(232, 51, 106, 0.04);
+    border: 1px solid rgba(232, 51, 106, 0.1);
+    border-radius: 10px;
+  }
+}

@@ -1,24 +1,25 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import Hero from "../components/hero";
-import GrowthBlock from "../components/growth-block";
-import TextBlock from "../components/text-block";
-import ImageGallery from "../components/image-gallery";
+import Layout from "../components/layout/layout";
+import Hero from "../components/blocks/hero";
+import ServiceList from "../components/services/service-list";
 
 const Services = ({ data }) => {
+  const { hero, cta } = data.datoCmsServicePage;
   return (
-    <Layout>
+    <Layout cta={cta}>
       <Hero
-        title={data.datoCmsServiceSingle.hero[0].title}
-        image={data.datoCmsServiceSingle.hero[0].background}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        subtext={hero.subText}
+        image={hero.background}
+        dark
       />
-      <TextBlock
-        title={data.datoCmsServiceSingle.content[0].title}
-        text={data.datoCmsServiceSingle.content[0].subText}
-      />
-      <GrowthBlock data={data.allDatoCmsService} />
-      <ImageGallery data={data.datoCmsServiceSingle.content[1]} />
+      <section className="services-section">
+        <div className="content-container column">
+          <ServiceList services={data.allDatoCmsServiceCard.edges} />
+        </div>
+      </section>
     </Layout>
   );
 };
@@ -27,38 +28,33 @@ export default Services;
 
 export const query = graphql`
   {
-    datoCmsServiceSingle {
-      title
+    datoCmsServicePage {
       hero {
-        background {
-          gatsbyImageData
-        }
         title
+        subtitle
+        subText
       }
-      content {
-        ... on DatoCmsTitleText {
-          id
-          title
-          subText
-        }
-        ... on DatoCmsImageGallery {
-          id
-          images {
-            gatsbyImageData
+      cta {
+        title
+        subtext
+        maintext
+        contactNode {
+          childMarkdownRemark {
+            html
           }
         }
       }
     }
-    allDatoCmsService(sort: { fields: position, order: ASC }) {
+    allDatoCmsServiceCard(sort: { fields: position, order: ASC }) {
       edges {
         node {
+          title
           slug
-          logo {
-            url
-          }
           shortDescription
-          cardImage {
-            gatsbyImageData
+          shortDescriptionNode {
+            childMarkdownRemark {
+              html
+            }
           }
         }
       }

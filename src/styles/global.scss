@@ -5,3 +5,158 @@ section {
     }
   }
 }
+
+// Layout utilities
+.container {
+  display: flex;
+  padding: 0 30px;
+}
+
+.content-container {
+  max-width: 1150px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  position: relative;
+  padding: 0 24px;
+}
+
+.content-container.column {
+  flex-direction: column;
+}
+
+.content-container.blog {
+  max-width: 900px;
+  display: block;
+}
+
+@media screen and (max-width: 899px) {
+  .container__sidebar {
+    box-sizing: border-box;
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    transform: translate3d(-200px, 0, 0);
+    transition: transform 0.2s ease-in-out;
+    padding: 20px;
+  }
+
+  .container__body {
+    transform: translate3d(0px, 0, 0);
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    display: flex;
+    max-width: 1300px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+    padding: 0 30px;
+  }
+
+  .container__mobile-header {
+    display: none;
+  }
+
+  .container__sidebar {
+    display: block;
+    width: 30%;
+    min-width: 320px;
+    box-sizing: border-box;
+    padding: 40px;
+  }
+
+  .container__body {
+    flex: 1;
+  }
+
+  .container__body--white {
+    background-color: white;
+  }
+}
+
+// Shared button
+.link-button {
+  background: linear-gradient(96.42deg, #3026dd -9.97%, #c1259a 107.69%);
+  color: var(--color-primary-white);
+  font-weight: bold;
+  border: 0px;
+  width: 200px;
+  box-shadow: inset -2px -3px 5px rgba(14, 14, 14, 0.25);
+  border-radius: 8px;
+  padding: 20px 0;
+  transition: opacity 0.3s ease-in-out;
+  text-decoration: none;
+  text-align: center;
+
+  &[disabled] {
+    background: #dddddd;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+// Shared section block
+.case-about {
+  padding: 30px 0;
+  background: var(--color-primary-white);
+
+  .meta {
+    margin-bottom: 20px;
+
+    .section-title {
+      color: var(--color-gray);
+      font-weight: 700;
+    }
+
+    .title {
+      color: var(--color-primary-pink);
+      font-weight: 700;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-gap: 20px;
+  }
+
+  @media screen and (min-width: 900px) {
+    padding: 80px 0;
+    background: #13002b;
+
+    .meta {
+      .section-title {
+        color: var(--color-primary-white);
+      }
+
+      .title {
+        font-size: 35px;
+      }
+    }
+
+    ul {
+      color: white;
+    }
+
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px;
+
+      p {
+        color: var(--color-primary-white);
+      }
+    }
+  }
+}

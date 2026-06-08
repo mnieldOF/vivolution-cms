@@ -1,53 +1,79 @@
-import * as React from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import Layout from "../components/layout";
-import Hero from "../components/hero";
-import ImageText from "../components/image-text";
-import ContentReveal from "../components/content-reveal";
-import Partners from "../components/partners";
-import ComingSoon from "../components/coming-soon";
-import GrowthBlock from "../components/growth-block";
-import Test from "../components/test";
+import Layout from "../components/layout/layout";
+import Hero from "../components/blocks/hero";
+import "../styles/investment-programme.scss";
+import Tagline from "../components/blocks/tagline";
+import PartnerCard from "../components/blocks/partner-card";
+import InvestmentCard from "../components/blocks/investment-card";
 
 const InvestmentProgramme = ({ data }) => {
-  const filter = data.datoCmsService.title;
-  const filteredData = data.allDatoCmsCustomerProfile.edges.filter((item) =>
-    item.node.serviceCategory.some((x) => x.title === filter)
-  );
-
-  const partnerFilter = data.allDatoCmsPartner.edges.filter((item) =>
-    item.node.serviceCategory.some((x) => x.title === filter)
-  );
-
+  const { hero, cta, seo, blocks, cards } = data.datoCmsInvestmentProgrammePage;
+  const partners = data.allDatoCmsInvestmentPartner.edges;
   return (
-    <Layout>
-      <HelmetDatoCms seo={data.datoCmsService.seo} />
+    <Layout cta={cta}>
+      <HelmetDatoCms seo={seo} />
       <Hero
-        title={data.datoCmsService.hero[0].title}
-        image={data.datoCmsService.hero[0].background}
-        logo={data.datoCmsService.logo}
+        title={hero.title}
+        image={hero.background}
+        subtitle={hero.subtitle}
+        subtext={hero.subText}
+        dark
       />
-      {data.datoCmsService.comingSoonBlock[0] ? (
-        <>
-          <ComingSoon data={data.datoCmsService.comingSoonBlock[0]} />
-          <GrowthBlock data={data.allDatoCmsService} />
-        </>
-      ) : (
-        <>
-          <ImageText
-            title={data.datoCmsService.imageText[0].title}
-            text={data.datoCmsService.imageText[0].subTextNode}
-            image={data.datoCmsService.imageText[0].image}
-          />
-          <ContentReveal
-            tabs={data.datoCmsService.tabs}
-            tabTitle={data.datoCmsService.tabTitle}
-          />
-          <Partners related={partnerFilter} />
-          <Test image data={filteredData} />
-        </>
-      )}
+      {blocks?.map((block) => (
+        <section className="invest-body" key={block.title}>
+          <div className="invest-body-inner">
+            <div className="invest-section">
+              {block.title === "About the Programme" && cards ? (
+                <div className="invest-about-grid">
+                  <div>
+                    <p className="invest-section-label">{block.title}</p>
+                    <h2 className="invest-section-headline">
+                      {block.headline}
+                    </h2>
+                    <p className="invest-section-subtext">
+                      {block.description}
+                    </p>
+                    {block.bulletPoints && (
+                      <Tagline perks={block.bulletPoints} pink />
+                    )}
+                  </div>
+                  <div className="invest-stats">
+                    {cards.map(({ heading, description }) => (
+                      <InvestmentCard
+                        key={heading}
+                        heading={heading}
+                        description={description}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <p className="invest-section-label">{block.title}</p>
+                  <h2 className="invest-section-headline">{block.headline}</h2>
+                  <p className="invest-section-subtext">{block.description}</p>
+                  {block.title === "Programme Partners" && (
+                    <div className="invest-partners-grid">
+                      {partners.map(({ node }) => (
+                        <PartnerCard
+                          key={node.title}
+                          title={node.title}
+                          image={node.partnerImage}
+                        />
+                      ))}
+                    </div>
+                  )}
+                  {block.bulletPoints && (
+                    <Tagline perks={block.bulletPoints} pink />
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+        </section>
+      ))}
     </Layout>
   );
 };
@@ -56,99 +82,40 @@ export default InvestmentProgramme;
 
 export const query = graphql`
   {
-    datoCmsService(slug: { eq: "vivoventures" }) {
-      comingSoonBlock {
-        text
-        logo {
-          url
-        }
-      }
-      title
-      tabTitle
-      tabs {
-        title
-        tabNewContentNode {
-          childMarkdownRemark {
-            html
-          }
-        }
-        model {
-          name
-        }
-      }
-      imageText {
-        title
-        subTextNode {
-          childMarkdownRemark {
-            html
-          }
-        }
-        image {
-          gatsbyImageData
-        }
-        model {
-          name
-        }
-      }
-      logo {
-        url
-      }
+    datoCmsInvestmentProgrammePage {
       hero {
-        background {
-          gatsbyImageData
-        }
-        model {
-          name
-        }
+        subtitle
         title
+        subText
       }
-      slug
-      seo: seoMetaTags {
-        ...GatsbyDatoCmsSeoMetaTags
-      }
-    }
-    allDatoCmsService(sort: { fields: position, order: ASC }) {
-      edges {
-        node {
-          slug
-          logo {
-            url
-          }
-          shortDescription
-          cardImage {
-            gatsbyImageData
+      cta {
+        title
+        maintext
+        subtext
+        contactNode {
+          childMarkdownRemark {
+            html
           }
         }
       }
+      blocks {
+        title
+        headline
+        description
+        bulletPoints
+      }
+      cards {
+        heading
+        description
+      }
     }
-    allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {
+    allDatoCmsInvestmentPartner(sort: { fields: position, order: ASC }) {
       edges {
         node {
-          serviceCategory {
-            title
-          }
-          featuredImage {
-            gatsbyImageData
-          }
           title
-          logo {
-            gatsbyImageData(width: 100)
-          }
-          slug
-          shortDescription
-        }
-      }
-    }
-    allDatoCmsPartner {
-      edges {
-        node {
-          serviceCategory {
-            title
-          }
           partnerImage {
-            gatsbyImageData
+            gatsbyImageData(width: 280)
           }
-          title
         }
       }
     }

@@ -1,4 +1,10 @@
 :root {
+  --color-warm-white: #faf9f7;
+  --color-near-black: #111118;
+  --color-magenta: #e8336a;
+  --color-dark-muted: #4a4858;
+  --color-pale-lilac: #f0edf5;
+
   --color-primary-black-1: #1f1e1d;
   --color-primary-black-2: #111;
   --color-primary-black-3: #171615;
@@ -19,12 +25,26 @@
   --color-sub-gray-4: #bbb;
   --color-sub-white-1: #f2f2f2;
   --color-sub-white-2: #f6f6f6;
+  --color-warm-white: #FAF9F7;
+  --color-near-black: #111118;
+  --color-magenta: #E8336A;
+  --color-muted: rgba(250, 249, 247, 0.61);
+  --color-border: rgba(250, 249, 247, 0.08);
+  --color-dark-muted: #4A4858;
+  --color-pale-lilac: #F0EDF5;
   --custom-ease-1: cubic-bezier(0.475, 0.425, 0, 0.995);
   --custom-ease-2: cubic-bezier(0.835, -0.005, 0.06, 1);
   --custom-ease-3: cubic-bezier(0.19, 1, 0.22, 1);
   --custom-ease-4: cubic-bezier(0.63, 0.03, 0.21, 1);
   --primary-ease: var(--custom-ease-1);
   --desktop-content-width: 1200px;
+
+  --color-light-bg: #f4f4f4;
+  --color-dark-body: #111;
+  --color-base-body: #444;
+  --color-light-body: #777;
+  --color-active: #9055a2;
+  --color-border: #ccc;
   --laptop-content-width: 1080px;
   --small-laptop-content-width: 960px;
   --background-blue-gradient: linear-gradient(
