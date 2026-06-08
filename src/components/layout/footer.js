@@ -50,7 +50,16 @@ const Footer = ({ socials }) => {
                 <Link to="/sectors">Sectors</Link>
               </li>
               <li>
+                <Link to="/tools">Tools</Link>
+              </li>
+              <li>
+                <Link to="/investment-programme">Investment Programme</Link>
+              </li>
+              <li>
                 <Link to="/portfolio">Portfolio</Link>
+              </li>
+              <li>
+                <Link to="/studios">Studios</Link>
               </li>
               <li>
                 <Link to="/about">About Us</Link>
