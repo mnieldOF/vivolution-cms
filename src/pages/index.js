@@ -17,7 +17,7 @@ const IndexPage = ({ data }) => {
         title={datoCmsHome.content[0].title}
         body={datoCmsHome.content[0].subText}
       />
-      <SectorCards />
+      <SectorCards sectors={data.allDatoCmsSector.edges} />
       <Numbers data={datoCmsHome.numbers} />
       <ToolSlider data={data.allDatoCmsTool.edges} />
     </Layout>
@@ -66,6 +66,15 @@ export const query = graphql`
       edges {
         node {
           ...ToolCard
+        }
+      }
+    }
+    allDatoCmsSector {
+      edges {
+        node {
+          slug
+          cardTitle
+          cardDescription
         }
       }
     }
