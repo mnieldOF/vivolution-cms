@@ -29,13 +29,23 @@ const InvestmentProgramme = ({ data }) => {
                 <div className="invest-about-grid">
                   <div>
                     <p className="invest-section-label">{block.title}</p>
-                    <h2 className="invest-section-headline">{block.headline}</h2>
-                    <p className="invest-section-subtext">{block.description}</p>
-                    {block.bulletPoints && <Tagline perks={block.bulletPoints} pink />}
+                    <h2 className="invest-section-headline">
+                      {block.headline}
+                    </h2>
+                    <p className="invest-section-subtext">
+                      {block.description}
+                    </p>
+                    {block.bulletPoints && (
+                      <Tagline perks={block.bulletPoints} pink />
+                    )}
                   </div>
                   <div className="invest-stats">
                     {cards.map(({ heading, description }) => (
-                      <InvestmentCard key={heading} heading={heading} description={description} />
+                      <InvestmentCard
+                        key={heading}
+                        heading={heading}
+                        description={description}
+                      />
                     ))}
                   </div>
                 </div>
@@ -47,11 +57,17 @@ const InvestmentProgramme = ({ data }) => {
                   {block.title === "Programme Partners" && (
                     <div className="invest-partners-grid">
                       {partners.map(({ node }) => (
-                        <PartnerCard key={node.title} title={node.title} />
+                        <PartnerCard
+                          key={node.title}
+                          title={node.title}
+                          image={node.partnerImage}
+                        />
                       ))}
                     </div>
                   )}
-                  {block.bulletPoints && <Tagline perks={block.bulletPoints} pink />}
+                  {block.bulletPoints && (
+                    <Tagline perks={block.bulletPoints} pink />
+                  )}
                 </>
               )}
             </div>
@@ -93,10 +109,13 @@ export const query = graphql`
         description
       }
     }
-    allDatoCmsInvestmentPartner {
+    allDatoCmsInvestmentPartner(sort: { fields: position, order: ASC }) {
       edges {
         node {
           title
+          partnerImage {
+            gatsbyImageData(width: 280)
+          }
         }
       }
     }
