@@ -16,7 +16,9 @@ const About = ({ data }) => {
         <div className="team-inner">
           <div className="team-header">
             <p className="team-eyebrow">The team</p>
-            <h3 className="team-headline">Meet the people behind Vivolution.</h3>
+            <h3 className="team-headline">
+              Meet the people behind Vivolution.
+            </h3>
           </div>
           <div className="team-grid">
             {team.map((member, i) => {
@@ -45,7 +47,6 @@ const About = ({ data }) => {
           </div>
         </div>
       </section>
-
     </Layout>
   );
 };
@@ -78,6 +79,11 @@ export const query = graphql`
         ... on DatoCmsTitleText {
           id
           subText
+          subTextNode {
+            childMarkdownRemark {
+              html
+            }
+          }
           title
           model {
             name

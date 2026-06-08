@@ -71,11 +71,23 @@ const DatoBlocks = ({ blocks, dark, detail }) => {
       return <Values key={`v-${i}`} data={block} />;
     } else if (block.model.name === "Hero Banner") {
       return (
-        <Hero key={`h-${i}`} title={block.title} subtitle={block.subtitle} subtext={block.subText} image={block.background} dark={dark} />
+        <Hero
+          key={`h-${i}`}
+          title={block.title}
+          subtitle={block.subtitle}
+          subtext={block.subText}
+          image={block.background}
+          dark={dark}
+        />
       );
     } else if (block.model.name === "Title Text") {
       return (
-        <TextBlock key={`tb-${i}`} title={block.title} text={block.subText} />
+        <TextBlock
+          key={`tb-${i}`}
+          title={block.title}
+          text={block.subText}
+          textHtml={block.subTextNode?.childMarkdownRemark?.html}
+        />
       );
     } else if (block.model.name === "Image block") {
       return <FullwidthImage key={`fwi-${i}`} image={block.image} />;
