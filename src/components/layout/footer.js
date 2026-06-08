@@ -2,7 +2,7 @@ import React from "react";
 import "./footer.scss";
 import Icon from "../ui/icon";
 import { Link } from "gatsby";
-import FooterLogo from "../../images/vivolution-logo-footer.svg";
+import FullLogo from "../../images/vivolution-logo-full.svg";
 
 const Footer = ({ socials }) => {
   return (
@@ -10,7 +10,7 @@ const Footer = ({ socials }) => {
       <div className="footer-inner">
         <div className="footer-top">
           <div className="brand-col">
-            <img src={FooterLogo} alt="Vivolution" className="brand-logo" />
+            <img src={FullLogo} alt="Vivolution" className="brand-logo" />
             <p className="brand-tagline">
               We bring a wealth of experience and expertise to build your
               business and connect you with our wider ecosystem.
