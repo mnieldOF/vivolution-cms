@@ -7,31 +7,22 @@
     margin: 0 auto;
   }
 
-  .timeline-eyebrow {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-magenta);
-    margin-bottom: 16px;
-  }
-
-  .timeline-headline {
-    font-size: clamp(26px, 3vw, 38px);
-    font-weight: 600;
-    color: var(--color-near-black);
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-bottom: 48px;
-  }
-
   svg {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
   }
 
   @media screen and (max-width: 768px) {
-    padding: 64px 24px;
+    padding: 64px 0;
+
+    .timeline-inner {
+      width: 680px;
+      max-width: none;
+      margin-left: 50%;
+      transform: translateX(-50%) scale(0.62);
+      transform-origin: top center;
+      margin-bottom: calc(-38% * 2);
+    }
   }
 }
