@@ -1,6 +1,7 @@
 .timeline-section {
   background: var(--color-warm-white);
   padding: 80px 40px;
+  overflow-x: hidden;
 
   .timeline-inner {
     max-width: 680px;
@@ -17,12 +18,10 @@
     padding: 64px 0;
 
     .timeline-inner {
-      width: 680px;
-      max-width: none;
-      margin-left: 50%;
-      transform: translateX(-50%) scale(0.62);
-      transform-origin: top center;
-      margin-bottom: calc(-38% * 2);
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      transform: none;
     }
   }
 }

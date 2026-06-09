@@ -1,16 +1,25 @@
 .history {
   background: #faf9f7;
   padding: 50px 0;
+  overflow-x: hidden;
+
   .grid {
     display: grid;
     grid-gap: 50px;
+    min-width: 0;
+
     .right {
+      min-width: 0;
+
       .timeline-section {
         padding: 0;
         background: transparent;
       }
     }
+
     .left {
+      min-width: 0;
+
       .team-eyebrow {
         font-size: 12px;
         font-weight: 600;
@@ -30,6 +39,8 @@
       p {
         margin-bottom: 20px;
         font-weight: 300;
+        max-width: 100%;
+        overflow-wrap: break-word;
       }
     }
   }
