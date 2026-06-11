@@ -42,7 +42,7 @@ const SectorDetailPanel = ({
     )}
     <Link
       className="sector-detail-link"
-      to={`/services/${serviceSlug}?sector=${encodeURIComponent(sectorSlug)}`}
+      to={`/how-we-help/${serviceSlug}?sector=${encodeURIComponent(sectorSlug)}`}
     >
       View service
     </Link>

@@ -4,7 +4,7 @@ import Layout from "../components/layout/layout";
 import Hero from "../components/blocks/hero";
 import ServiceList from "../components/services/service-list";
 
-const Services = ({ data }) => {
+const HowWeHelp = ({ data }) => {
   const { hero, cta } = data.datoCmsServicePage;
   return (
     <Layout cta={cta}>
@@ -24,7 +24,7 @@ const Services = ({ data }) => {
   );
 };
 
-export default Services;
+export default HowWeHelp;
 
 export const query = graphql`
   {

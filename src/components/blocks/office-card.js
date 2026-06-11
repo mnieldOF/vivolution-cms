@@ -18,7 +18,7 @@ const OfficeCard = ({ title, description, features, capacity, index }) => {
           ))}
         </ul>
       )}
-      <Link to="/contact" className="office-card-link">
+      <Link to="/find-us" className="office-card-link">
         Enquire
         <svg viewBox="0 0 24 24">
           <path d="M7 17L17 7M17 7H7M17 7V17" />

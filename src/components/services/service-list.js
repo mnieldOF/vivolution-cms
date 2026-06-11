@@ -32,7 +32,7 @@ const ServiceDetailPanel = ({ service, className = "" }) => (
     />
     <Link
       className="service-detail-preview-link"
-      to={`/services/${service.slug}`}
+      to={`/how-we-help/${service.slug}`}
     >
       Read more
       <svg

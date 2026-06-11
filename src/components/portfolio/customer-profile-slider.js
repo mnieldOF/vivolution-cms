@@ -40,8 +40,8 @@ const CustomerProfileSlider = ({ data }) => {
             </h2>
           </div>
           <div className="detail-related-right">
-            <Link to="/portfolio" className="detail-related-all">
-              View all portfolio →
+            <Link to="/our-work" className="detail-related-all">
+              View our work →
             </Link>
             <div className="detail-related-arrows">
               <button

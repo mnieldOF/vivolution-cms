@@ -13,7 +13,7 @@ const getSectorParam = (location) => {
   return params.get("sector");
 };
 
-const ServiceDetail = ({ data, location }) => {
+const HowWeHelpDetail = ({ data, location }) => {
   const blocks = data.service.blocks || [];
   const sectorTabs = React.useMemo(
     () =>
@@ -97,7 +97,7 @@ const ServiceDetail = ({ data, location }) => {
   );
 };
 
-export default ServiceDetail;
+export default HowWeHelpDetail;
 
 export const query = graphql`
   query ($id: String!) {

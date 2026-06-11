@@ -15,7 +15,7 @@ const GrowthBlock = ({ data }) => {
               <Link
                 key={"ci_" + i}
                 className="item"
-                to={`/services/${item.slug}`}
+                to={`/how-we-help/${item.slug}`}
               >
                 <GatsbyImage
                   image={cardImg}

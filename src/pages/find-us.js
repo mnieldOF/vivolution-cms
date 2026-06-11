@@ -4,7 +4,7 @@ import Layout from "../components/layout/layout";
 import MapBlock from "../components/blocks/map-block";
 import Hero from "../components/blocks/hero";
 
-const Contact = ({ data, location }) => {
+const FindUs = ({ data, location }) => {
   const hero = data.datoCmsContactPage.blocks[0];
 
   return (
@@ -21,7 +21,7 @@ const Contact = ({ data, location }) => {
   );
 };
 
-export default Contact;
+export default FindUs;
 
 export const query = graphql`
   {

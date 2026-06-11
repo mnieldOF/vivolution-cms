@@ -33,8 +33,8 @@ const HomeHero = ({ eyebrow, title, body }) => {
           <a href="mailto:hello@vivolution.co.uk" className="btn-cta">
             Let&apos;s chat
           </a>
-          <Link to="/services" className="btn-ghost">
-            Our services
+          <Link to="/how-we-help" className="btn-ghost">
+            How we help
           </Link>
         </div>
         <a
@@ -42,7 +42,7 @@ const HomeHero = ({ eyebrow, title, body }) => {
           className="hero-scroll-cue"
           onClick={scrollToSectors}
         >
-          <span>Explore by sector</span>
+          <span>Explore your journey</span>
           <span className="hero-scroll-cue-mark" aria-hidden="true" />
         </a>
       </div>
