@@ -9,7 +9,7 @@ import Icon from "../ui/icon";
 const Links = [
   { text: "Sectors", link: "/sectors" },
   { text: "Services", link: "/services" },
-  { text: "Tools", link: "/tools" },
+  { text: "Toolbox", link: "/toolbox" },
   { text: "Investment Programme", link: "/investment-programme" },
   { text: "Portfolio", link: "/portfolio" },
   { text: "Studios", link: "/studios" },
