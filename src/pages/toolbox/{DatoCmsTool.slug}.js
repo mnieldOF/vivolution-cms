@@ -7,7 +7,7 @@ import Hero from "../../components/blocks/hero";
 import ToolSlider from "../../components/tools/tool-slider";
 import "../../styles/customer-profile.scss";
 
-const ToolDetail = ({ data }) => {
+const ToolboxDetail = ({ data }) => {
   const filter = data.tool.toolCategory?.category;
   const relatedTools = data.allDatoCmsTool.edges.filter(
     (item) =>
@@ -34,7 +34,7 @@ const ToolDetail = ({ data }) => {
   );
 };
 
-export default ToolDetail;
+export default ToolboxDetail;
 
 export const query = graphql`
   query ($id: String!) {
