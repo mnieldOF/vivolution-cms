@@ -24,7 +24,7 @@ const Section = styled.div`
   }
 `;
 
-const Tools = ({ data }) => {
+const ToolboxPage = ({ data }) => {
   const [tools, setTools] = useState(data.allDatoCmsTool.edges);
 
   const allCategories = [
@@ -69,7 +69,7 @@ const Tools = ({ data }) => {
   );
 };
 
-export default Tools;
+export default ToolboxPage;
 
 export const query = graphql`
   {

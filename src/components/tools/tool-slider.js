@@ -37,14 +37,14 @@ const ToolSlider = ({ data, light }) => {
       <div className="detail-related-inner">
         <div className="detail-related-header">
           <div>
-            <p className="detail-related-eyebrow">More Tools</p>
+            <p className="detail-related-eyebrow">More from the Toolbox</p>
             <h2 className="detail-related-headline">
-              Other tools you might find useful.
+              Other resources you might find useful.
             </h2>
           </div>
           <div className="detail-related-right">
-            <Link to="/tools" className="detail-related-all">
-              View all tools →
+            <Link to="/toolbox" className="detail-related-all">
+              View the Toolbox →
             </Link>
             <div className="detail-related-arrows">
               <button

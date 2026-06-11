@@ -10,7 +10,7 @@ import FullLogo from "../../images/vivolution-logo-full.svg";
 const navLinks = [
   { text: "Sectors", link: "/sectors" },
   { text: "Services", link: "/services" },
-  { text: "Tools", link: "/tools" },
+  { text: "Toolbox", link: "/toolbox" },
   { text: "Investment Programme", link: "/investment-programme" },
   { text: "Portfolio", link: "/portfolio" },
   { text: "Studios", link: "/studios" },

@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 
 const ToolItem = ({ title, shortText, slug, subtitle }) => {
   return (
-    <Link to={`/tools/${slug}`} className="tool-card">
+    <Link to={`/toolbox/${slug}`} className="tool-card">
       <div className="tool-card-body">
         <h3 className="tool-card-name">{title}</h3>
         {shortText && <p className="tool-card-tagline">{shortText}</p>}

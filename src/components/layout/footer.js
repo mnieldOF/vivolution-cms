@@ -50,7 +50,7 @@ const Footer = ({ socials }) => {
                 <Link to="/services">Services</Link>
               </li>
               <li>
-                <Link to="/tools">Tools</Link>
+                <Link to="/toolbox">Toolbox</Link>
               </li>
               <li>
                 <Link to="/investment-programme">Investment Programme</Link>
