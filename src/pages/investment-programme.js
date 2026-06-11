@@ -8,9 +8,27 @@ import Tagline from "../components/blocks/tagline";
 import PartnerCard from "../components/blocks/partner-card";
 import InvestmentCard from "../components/blocks/investment-card";
 
+const PARTNER_ORDER = [
+  "SFC Capital",
+  "Deepbridge Capital",
+  "IBM Ecosystem",
+  "TES Enterprise Solutions",
+];
+
+const sortPartners = (partners) =>
+  [...partners].sort((a, b) => {
+    const aIndex = PARTNER_ORDER.indexOf(a.node.title);
+    const bIndex = PARTNER_ORDER.indexOf(b.node.title);
+
+    return (
+      (aIndex === -1 ? PARTNER_ORDER.length : aIndex) -
+      (bIndex === -1 ? PARTNER_ORDER.length : bIndex)
+    );
+  });
+
 const InvestmentProgramme = ({ data }) => {
   const { hero, cta, seo, blocks, cards } = data.datoCmsInvestmentProgrammePage;
-  const partners = data.allDatoCmsInvestmentPartner.edges;
+  const partners = sortPartners(data.allDatoCmsInvestmentPartner.edges);
   return (
     <Layout cta={cta}>
       <HelmetDatoCms seo={seo} />
@@ -109,7 +127,7 @@ export const query = graphql`
         description
       }
     }
-    allDatoCmsInvestmentPartner(sort: { fields: position, order: ASC }) {
+    allDatoCmsInvestmentPartner {
       edges {
         node {
           title

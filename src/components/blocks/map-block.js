@@ -35,7 +35,7 @@ const MapBlock = ({ info }) => {
         </div>
         <div className="map-embed">
           <iframe
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-4.2620%2C55.8585%2C-4.2520%2C55.8621&layer=mapnik&marker=55.8603%2C-4.2553"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-4.261085987091065%2C55.85719594756384%2C-4.249767065048219%2C55.8623922747338&amp;layer=mapnik&amp;marker=55.85979419802539%2C-4.255426526069641"
             allowFullScreen
             loading="lazy"
             title="Vivolution office — 14 Mitchell Lane Glasgow"

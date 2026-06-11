@@ -75,7 +75,7 @@ const Footer = ({ socials }) => {
             <address className="address">
               14 Mitchell Lane
               <br />
-              Suite 2<br />
+              Suite 2/2<br />
               Glasgow
               <br />
               G1 3NU
