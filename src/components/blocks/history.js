@@ -16,9 +16,7 @@ const History = ({ data }) => {
               }}
             />
           </div>
-          <div className="right">
-            <Timeline />
-          </div>
+          <Timeline />
         </div>
       </div>
     </div>
