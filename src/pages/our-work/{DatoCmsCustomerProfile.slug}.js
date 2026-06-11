@@ -8,7 +8,7 @@ import CustomerProfileSlider from "../../components/portfolio/customer-profile-s
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "../../styles/customer-profile.scss";
 
-const CustomerProfile = ({ data }) => {
+const OurWorkDetail = ({ data }) => {
   const filter = data.profile.customerCategory?.category;
   const relatedProfiles = data.allDatoCmsCustomerProfile.edges.filter(
     (item) => item.node.customerCategory.category === filter,
@@ -42,7 +42,7 @@ const CustomerProfile = ({ data }) => {
   );
 };
 
-export default CustomerProfile;
+export default OurWorkDetail;
 
 export const query = graphql`
   query ($id: String!) {

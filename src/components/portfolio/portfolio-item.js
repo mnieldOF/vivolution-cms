@@ -8,7 +8,7 @@ const PortfolioItem = ({ image, title, logo, shortText, slug }) => {
   const profileLogo = getImage(logo);
 
   return (
-    <Link to={`/portfolio/${slug}`} className="portfolio-card">
+    <Link to={`/our-work/${slug}`} className="portfolio-card">
       <div className="portfolio-card-image">
         {featImg && (
           <GatsbyImage image={featImg} alt={title} className="portfolio-card-gatsby-image" />

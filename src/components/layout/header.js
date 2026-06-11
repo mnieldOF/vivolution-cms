@@ -8,14 +8,14 @@ import SmallLogo from "../../images/vivolution-logo-icon.svg";
 import FullLogo from "../../images/vivolution-logo-full.svg";
 
 const navLinks = [
-  { text: "Sectors", link: "/sectors" },
-  { text: "Services", link: "/services" },
-  { text: "Toolbox", link: "/toolbox" },
+  { text: "Your Journey", link: "/your-journey" },
+  { text: "How We Help", link: "/how-we-help" },
+  { text: "Our Work", link: "/our-work" },
+  { text: "Our Story", link: "/our-story" },
   { text: "Investment Programme", link: "/investment-programme" },
-  { text: "Portfolio", link: "/portfolio" },
+  { text: "Toolbox", link: "/toolbox" },
   { text: "Studios", link: "/studios" },
-  { text: "About", link: "/about" },
-  { text: "Contact", link: "/contact" },
+  { text: "Find Us", link: "/find-us" },
 ];
 
 const Header = ({ socials }) => {

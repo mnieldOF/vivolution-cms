@@ -5,7 +5,7 @@ import Layout from "../components/layout/layout";
 import DatoBlocks from "../components/blocks/dato-blocks";
 import TeamMember from "../components/blocks/team-member";
 
-const About = ({ data }) => {
+const OurStory = ({ data }) => {
   const team = data.allDatoCmsTeam.edges;
   const { aboutUsBlocks } = data.datoCmsAboutPage;
   return (
@@ -51,7 +51,7 @@ const About = ({ data }) => {
   );
 };
 
-export default About;
+export default OurStory;
 
 export const query = graphql`
   {

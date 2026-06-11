@@ -11,7 +11,7 @@ const HelpBlock = ({ data }) => {
         <div className="grid">
           {data.edges.map(({ node: item }, i) => (
             <div className="help-card" key={"hb_" + i}>
-              <Link to={`/sectors/${item.slug}`}>
+              <Link to={`/your-journey?sector=${item.slug}`}>
                 <div className="inner">
                   <div className="content">
                     <div className="icon">

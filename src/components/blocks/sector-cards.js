@@ -34,7 +34,7 @@ const SectorCards = ({ sectors }) => {
           {orderedSectors.map(({ node: sector }, index) => (
             <Link
               key={sector.slug}
-              to={`/sectors?sector=${sector.slug}`}
+              to={`/your-journey?sector=${sector.slug}`}
               className="sector-card"
             >
               <div className="sector-card-content">

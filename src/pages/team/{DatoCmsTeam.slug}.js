@@ -19,7 +19,7 @@ const Team = ({ data }) => {
       <section className="profile-body">
         <div className="profile-body-inner">
           <div className="profile-sidebar">
-            <Link to="/about" className="profile-back">
+            <Link to="/our-story" className="profile-back">
               <svg viewBox="0 0 24 24"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
               Back to the team
             </Link>

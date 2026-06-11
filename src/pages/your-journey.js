@@ -45,7 +45,7 @@ const getSelectedSlug = (location, sectors) => {
   return sectors[0]?.node.slug;
 };
 
-const Sectors = ({ data, location }) => {
+const YourJourney = ({ data, location }) => {
   const sectors = React.useMemo(
     () => sortSectors(data.allDatoCmsSector.edges),
     [data.allDatoCmsSector.edges],
@@ -63,7 +63,7 @@ const Sectors = ({ data, location }) => {
 
   const selectSector = (slug) => {
     setSelectedSlug(slug);
-    navigate(`/sectors?sector=${slug}`);
+    navigate(`/your-journey?sector=${slug}`);
   };
 
   return (
@@ -101,7 +101,7 @@ const Sectors = ({ data, location }) => {
   );
 };
 
-export default Sectors;
+export default YourJourney;
 
 export const query = graphql`
   {

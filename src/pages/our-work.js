@@ -24,7 +24,7 @@ const Section = styled.div`
   }
 `;
 
-const Portfolio = ({ data }) => {
+const OurWork = ({ data }) => {
   const [profiles, setProfiles] = useState(
     data.allDatoCmsCustomerProfile.edges,
   );
@@ -71,7 +71,7 @@ const Portfolio = ({ data }) => {
   );
 };
 
-export default Portfolio;
+export default OurWork;
 
 export const query = graphql`
   {

@@ -44,28 +44,28 @@ const Footer = ({ socials }) => {
             <h4>Sitemap</h4>
             <ul>
               <li>
-                <Link to="/sectors">Sectors</Link>
+                <Link to="/your-journey">Your Journey</Link>
               </li>
               <li>
-                <Link to="/services">Services</Link>
+                <Link to="/how-we-help">How We Help</Link>
               </li>
               <li>
-                <Link to="/toolbox">Toolbox</Link>
+                <Link to="/our-work">Our Work</Link>
+              </li>
+              <li>
+                <Link to="/our-story">Our Story</Link>
               </li>
               <li>
                 <Link to="/investment-programme">Investment Programme</Link>
               </li>
               <li>
-                <Link to="/portfolio">Portfolio</Link>
+                <Link to="/toolbox">Toolbox</Link>
               </li>
               <li>
                 <Link to="/studios">Studios</Link>
               </li>
               <li>
-                <Link to="/about">About Us</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/find-us">Find Us</Link>
               </li>
             </ul>
           </nav>

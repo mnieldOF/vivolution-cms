@@ -7,14 +7,14 @@ import Icon from "../ui/icon";
 // Updated to match the new site navigation structure.
 // Routes without pages yet use "#" as a placeholder.
 const Links = [
-  { text: "Sectors", link: "/sectors" },
-  { text: "Services", link: "/services" },
-  { text: "Toolbox", link: "/toolbox" },
+  { text: "Your Journey", link: "/your-journey" },
+  { text: "How We Help", link: "/how-we-help" },
+  { text: "Our Work", link: "/our-work" },
+  { text: "Our Story", link: "/our-story" },
   { text: "Investment Programme", link: "/investment-programme" },
-  { text: "Portfolio", link: "/portfolio" },
+  { text: "Toolbox", link: "/toolbox" },
   { text: "Studios", link: "/studios" },
-  { text: "About", link: "/about" },
-  { text: "Contact", link: "/contact" },
+  { text: "Find Us", link: "/find-us" },
 ];
 
 const CoverMenu = ({ active, socials, onClose }) => {
