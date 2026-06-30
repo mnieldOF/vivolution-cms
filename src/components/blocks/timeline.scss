@@ -14,6 +14,28 @@
     height: auto;
   }
 
+  .timeline-milestone {
+    .timeline-dot {
+      opacity: 0.2;
+      transition: opacity 0.9s ease;
+    }
+
+    text {
+      opacity: 0;
+      transition: opacity 0.9s ease 0.2s;
+    }
+
+    &--visible {
+      .timeline-dot {
+        opacity: 1;
+      }
+
+      text {
+        opacity: 1;
+      }
+    }
+  }
+
   @media screen and (max-width: 768px) {
     padding: 64px 0;
 

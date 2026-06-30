@@ -9,7 +9,7 @@ import Tagline from "../components/blocks/tagline";
 const Studios = ({ data, location }) => {
   const hero = data.datoCmsStudioPage.blocks;
   const studioInfo = data.allDatoCmsOffice.edges;
-  console.log(studioInfo);
+
   return (
     <Layout location={location}>
       <Hero
