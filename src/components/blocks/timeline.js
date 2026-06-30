@@ -94,23 +94,30 @@ const Timeline = () => {
   const sectionRef = useRef();
 
   useEffect(() => {
-    const milestones = sectionRef.current?.querySelectorAll(".timeline-milestone");
-    if (!milestones?.length) return;
+    const section = sectionRef.current;
+    if (!section) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("timeline-milestone--visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+    const milestones = Array.from(section.querySelectorAll(".timeline-milestone"));
+    if (!milestones.length) return;
 
-    milestones.forEach((milestone) => observer.observe(milestone));
-    return () => observer.disconnect();
+    const checkVisibility = () => {
+      const sectionRect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      milestones.forEach((milestone, index) => {
+        const milestoneYRatio = (START_Y + index * ITEM_GAP) / HEIGHT;
+        const milestoneAbsY = sectionRect.top + milestoneYRatio * sectionRect.height;
+
+        if (milestoneAbsY < viewportHeight * 0.85) {
+          milestone.classList.add("timeline-milestone--visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", checkVisibility, { passive: true });
+    checkVisibility();
+
+    return () => window.removeEventListener("scroll", checkVisibility);
   }, []);
 
   return (
