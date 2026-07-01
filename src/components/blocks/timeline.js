@@ -1,5 +1,5 @@
 import "./timeline.scss";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const MILESTONES = [
   {
@@ -90,8 +90,38 @@ const START_Y = 70;
 const ITEM_GAP = 96;
 const HEIGHT = START_Y * 2 + (MILESTONES.length - 1) * ITEM_GAP;
 
-const Timeline = () => (
-  <section className="timeline-section">
+const Timeline = () => {
+  const sectionRef = useRef();
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const milestones = Array.from(section.querySelectorAll(".timeline-milestone"));
+    if (!milestones.length) return;
+
+    const checkVisibility = () => {
+      const sectionRect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      milestones.forEach((milestone, index) => {
+        const milestoneYRatio = (START_Y + index * ITEM_GAP) / HEIGHT;
+        const milestoneAbsY = sectionRect.top + milestoneYRatio * sectionRect.height;
+
+        if (milestoneAbsY < viewportHeight * 0.85) {
+          milestone.classList.add("timeline-milestone--visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", checkVisibility, { passive: true });
+    checkVisibility();
+
+    return () => window.removeEventListener("scroll", checkVisibility);
+  }, []);
+
+  return (
+  <section className="timeline-section" ref={sectionRef}>
     <div className="timeline-inner">
       <svg
         width="100%"
@@ -120,8 +150,8 @@ const Timeline = () => (
           const anchor = isLeft ? "end" : "start";
 
           return (
-            <g key={`${milestone.date}-${milestone.lines[0]}`}>
-              <circle cx={CENTRE_X} cy={y} r="7" fill="#E8336A" />
+            <g key={`${milestone.date}-${milestone.lines[0]}`} className="timeline-milestone">
+              <circle className="timeline-dot" cx={CENTRE_X} cy={y} r="7" fill="#E8336A" />
               <path
                 d={`M ${isLeft ? CENTRE_X - 7 : CENTRE_X + 7} ${y} Q ${
                   isLeft ? 280 : 400
@@ -161,6 +191,7 @@ const Timeline = () => (
       </svg>
     </div>
   </section>
-);
+  );
+};
 
 export default Timeline;

@@ -42,19 +42,38 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(250, 249, 247, 0.15);
+  border: 1px solid rgba(250, 249, 247, 0.4);
   background: rgba(250, 249, 247, 0.06);
   color: var(--color-warm-white);
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    background: rgba(250, 249, 247, 0.12);
-    border-color: rgba(250, 249, 247, 0.3);
+    background: #f1456c;
+    border-color: #f1456c;
+    color: #ffffff; 
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: #f1456c;
+    box-shadow: 0 0 0 3px rgba(241, 69, 108, 0.35);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 }
 
@@ -78,14 +97,18 @@
 .detail-related-all {
   font-size: 13px;
   font-weight: 600;
-  color: rgba(250, 249, 247, 0.35);
+  color: var(--color-magenta);
   text-decoration: none;
   white-space: nowrap;
   letter-spacing: 0.02em;
-  transition: color 0.2s;
 
-  &:hover {
-    color: var(--color-magenta);
+  .detail-related-all-arrow {
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  &:hover .detail-related-all-arrow {
+    transform: translateX(4px);
   }
 }
 

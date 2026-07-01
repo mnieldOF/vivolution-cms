@@ -1,11 +1,25 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./customer-profile-slider.scss";
 import { Link } from "gatsby";
 import Slider from "react-slick";
 import PortfolioItem from "./portfolio-item";
 
+const getSlidesToShow = () => {
+  if (typeof window === "undefined") return 1;
+  if (window.innerWidth >= 1024) return 3;
+  if (window.innerWidth >= 600) return 2;
+  return 1;
+};
+
 const CustomerProfileSlider = ({ data }) => {
   const sliderRef = useRef();
+  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow);
+
+  useEffect(() => {
+    const handleResize = () => setSlidesToShow(getSlidesToShow());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   if (!data?.length) return null;
 
@@ -14,19 +28,9 @@ const CustomerProfileSlider = ({ data }) => {
     arrows: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow,
     swipeToSlide: true,
     slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2, slidesToScroll: 1 },
-      },
-      {
-        breakpoint: 600,
-        settings: { slidesToShow: 1, slidesToScroll: 1 },
-      },
-    ],
   };
 
   return (
@@ -41,7 +45,7 @@ const CustomerProfileSlider = ({ data }) => {
           </div>
           <div className="detail-related-right">
             <Link to="/our-work" className="detail-related-all">
-              View our work →
+              View our work <span className="detail-related-all-arrow">→</span>
             </Link>
             <div className="detail-related-arrows">
               <button
