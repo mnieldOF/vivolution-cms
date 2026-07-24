@@ -2,7 +2,7 @@ import "./hero-carousel.scss";
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "gatsby";
 
-const AUTO_ADVANCE_MS = 8000;
+const AUTO_ADVANCE_MS = 10000;
 
 const HeroCarousel = ({ content = [] }) => {
   const slides = content
