@@ -257,6 +257,27 @@
     }
   }
 
+  @media (orientation: landscape) and (max-height: 520px) {
+    .hc-content {
+      justify-content: flex-start;
+      padding-top: 60px;
+      padding-bottom: 80px;
+      min-height: unset;
+    }
+
+    .hc-eyebrow {
+      margin-bottom: 10px;
+    }
+
+    .hc-headline {
+      margin-bottom: 12px;
+    }
+
+    .hc-sub {
+      margin-bottom: 18px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hc-slide {
       transition: none;
