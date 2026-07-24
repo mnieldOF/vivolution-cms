@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/layout/layout";
-import HomeHero from "../components/blocks/home-hero";
+import HeroCarousel from "../components/blocks/hero-carousel";
 import Numbers from "../components/blocks/numbers";
 import ToolSlider from "../components/tools/tool-slider";
 import SectorCards from "../components/blocks/sector-cards";
@@ -12,11 +12,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout cta={data.datoCmsHome.cta}>
       <HelmetDatoCms seo={data.datoCmsHome.seo} />
-      <HomeHero
-        eyebrow={datoCmsHome.content[0].subtitle}
-        title={datoCmsHome.content[0].title}
-        body={datoCmsHome.content[0].subText}
-      />
+      <HeroCarousel content={datoCmsHome.content} />
       <SectorCards sectors={data.allDatoCmsSector.edges} />
       <Numbers data={datoCmsHome.numbers} />
       <ToolSlider data={data.allDatoCmsTool.edges} />
@@ -32,9 +28,13 @@ export const query = graphql`
       content {
         ... on DatoCmsHeroBanner {
           id
+          __typename
           title
           subtitle
           subText
+          image {
+            url
+          }
         }
         ... on DatoCmsTitleText {
           id
