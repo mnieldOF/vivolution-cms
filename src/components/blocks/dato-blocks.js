@@ -76,7 +76,7 @@ const DatoBlocks = ({ blocks, dark, detail }) => {
           title={block.title}
           subtitle={block.subtitle}
           subtext={block.subText}
-          image={block.background}
+          image={block.image}
           dark={dark}
         />
       );

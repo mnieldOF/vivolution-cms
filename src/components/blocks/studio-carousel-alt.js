@@ -82,6 +82,11 @@ const StudioCarouselAlt = ({ images = [] }) => {
                 {img.title && (
                   <div className="sca-caption">{img.title}</div>
                 )}
+                {img.customData?.status && (
+                  <div className={`sca-status sca-status--${img.customData.status.toLowerCase()}`}>
+                    {img.customData.status}
+                  </div>
+                )}
               </div>
             );
           })}

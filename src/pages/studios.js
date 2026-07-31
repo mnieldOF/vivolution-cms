@@ -65,9 +65,7 @@ const Studios = ({ data, location }) => {
         <div className="offices-inner">
           <div className="offices-header">
             <p className="offices-eyebrow">Vivostudios</p>
-            <h3 className="offices-headline">
-              Take a look inside.
-            </h3>
+            <h3 className="offices-headline">Take a look inside.</h3>
           </div>
           <StudioCarouselAlt images={data.datoCmsStudioPage.gallery} />
         </div>
@@ -120,6 +118,7 @@ export const query = graphql`
         url
         title
         alt
+        customData
       }
     }
     allDatoCmsOffice(sort: { fields: position, order: ASC }) {

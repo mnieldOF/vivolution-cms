@@ -13,7 +13,7 @@ const FindUs = ({ data, location }) => {
         title={hero.title}
         subtitle={hero.subtitle}
         subtext={hero.subText}
-        image={hero.background}
+        image={hero.image}
         dark
       />
       <MapBlock info={data.datoCmsContactPage.contactInformation} />
@@ -30,6 +30,9 @@ export const query = graphql`
         title
         subtitle
         subText
+        image {
+          url
+        }
       }
       contactInformation {
         addressNode {

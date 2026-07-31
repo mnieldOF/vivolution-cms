@@ -12,7 +12,7 @@ const HowWeHelp = ({ data }) => {
         title={hero.title}
         subtitle={hero.subtitle}
         subtext={hero.subText}
-        image={hero.background}
+        image={hero.image}
         dark
       />
       <section className="services-section">
@@ -33,6 +33,9 @@ export const query = graphql`
         title
         subtitle
         subText
+        image {
+          url
+        }
       }
       cta {
         title

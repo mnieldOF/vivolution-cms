@@ -75,6 +75,9 @@ export const query = graphql`
           title
           subtitle
           subText
+          image {
+            url
+          }
         }
         ... on DatoCmsTitleText {
           id

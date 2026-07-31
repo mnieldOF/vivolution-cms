@@ -34,7 +34,7 @@ const InvestmentProgramme = ({ data }) => {
       <HelmetDatoCms seo={seo} />
       <Hero
         title={hero.title}
-        image={hero.background}
+        image={hero.image}
         subtitle={hero.subtitle}
         subtext={hero.subText}
         dark
@@ -105,6 +105,9 @@ export const query = graphql`
         subtitle
         title
         subText
+        image {
+          url
+        }
       }
       cta {
         title
