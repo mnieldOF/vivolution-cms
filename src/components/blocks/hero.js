@@ -2,10 +2,14 @@ import "./hero.scss";
 import React from "react";
 import MarkdownText from "./markdown-text";
 
-const Hero = ({ title, subtitle, subtext, subtextHtml, dark, children }) => {
+const Hero = ({ title, subtitle, subtext, subtextHtml, image, dark, children }) => {
   if (dark) {
     return (
       <section className="profile-hero">
+        {image?.url && (
+          <img className="profile-hero-bg" src={image.url} alt="" aria-hidden="true" />
+        )}
+        <div className="profile-hero-scrim" />
         <div className="profile-hero-inner">
           {subtitle && <p className="profile-eyebrow">{subtitle}</p>}
           <h1 className="profile-hero-headline">{title}</h1>

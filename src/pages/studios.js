@@ -5,6 +5,7 @@ import MapBlock from "../components/blocks/map-block";
 import Hero from "../components/blocks/hero";
 import OfficeCard from "../components/blocks/office-card";
 import Tagline from "../components/blocks/tagline";
+import StudioCarouselAlt from "../components/blocks/studio-carousel-alt";
 
 const Studios = ({ data, location }) => {
   const hero = data.datoCmsStudioPage.blocks;
@@ -16,13 +17,15 @@ const Studios = ({ data, location }) => {
         title={hero.title}
         subtitle={hero.subtitle}
         subtext={hero.subText}
-        image={hero.background}
+        image={hero.image}
         dark
       />
       <section className="studios-intro">
         <div className="studios-intro-inner">
           <div>
-            <p className="studios-intro-eyebrow">{data.datoCmsStudioPage.title}</p>
+            <p className="studios-intro-eyebrow">
+              {data.datoCmsStudioPage.title}
+            </p>
             <h2 className="studios-intro-headline">
               {data.datoCmsStudioPage.headline}
             </h2>
@@ -58,6 +61,17 @@ const Studios = ({ data, location }) => {
           </div>
         </div>
       </section>
+      <section className="offices offices--gallery">
+        <div className="offices-inner">
+          <div className="offices-header">
+            <p className="offices-eyebrow">Vivostudios</p>
+            <h3 className="offices-headline">
+              Take a look inside.
+            </h3>
+          </div>
+          <StudioCarouselAlt images={data.datoCmsStudioPage.gallery} />
+        </div>
+      </section>
       <MapBlock info={[data.datoCmsStudioPage.mapBlock]} />
     </Layout>
   );
@@ -82,6 +96,9 @@ export const query = graphql`
         title
         subtitle
         subText
+        image {
+          url
+        }
       }
       mapBlock {
         addressNode {
@@ -99,6 +116,11 @@ export const query = graphql`
       headline
       introduction
       perks
+      gallery {
+        url
+        title
+        alt
+      }
     }
     allDatoCmsOffice(sort: { fields: position, order: ASC }) {
       edges {
