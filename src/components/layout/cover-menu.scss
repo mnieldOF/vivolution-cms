@@ -86,9 +86,6 @@
         }
       }
 
-      &:last-of-type {
-        display: none;
-      }
     }
 
     // Ghost copy of the link text that sits behind the active item.
@@ -154,11 +151,6 @@
 
   @media screen and (min-width: 768px) {
     .primary-nav {
-      .menu-item {
-        &:last-of-type {
-          display: flex;
-        }
-      }
       .mobile-contact {
         display: none;
         margin-top: 30px;

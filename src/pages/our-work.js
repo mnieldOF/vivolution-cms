@@ -54,7 +54,7 @@ const OurWork = ({ data }) => {
     <Layout cta={data.datoCmsPortfolioPage.cta}>
       <Hero
         title={blocks[0].title}
-        image={blocks[0].background}
+        image={blocks[0].image}
         subtitle={blocks[0].subtitle}
         subtext={blocks[0].subText}
         dark
@@ -90,6 +90,9 @@ export const query = graphql`
         title
         subtitle
         subText
+        image {
+          url
+        }
       }
     }
     allDatoCmsCustomerProfile(sort: { fields: slug, order: ASC }) {

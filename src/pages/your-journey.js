@@ -73,6 +73,7 @@ const YourJourney = ({ data, location }) => {
         title={selectedSector.hero.title}
         subtitle={selectedSector.hero.subtitle}
         subtext={selectedSector.hero.subText}
+        image={selectedSector.hero.image}
         dark
       />
       <section className="sector-explorer">
@@ -114,6 +115,9 @@ export const query = graphql`
             title
             subtitle
             subText
+            image {
+              url
+            }
           }
           seo: seoMetaTags {
             ...GatsbyDatoCmsSeoMetaTags
