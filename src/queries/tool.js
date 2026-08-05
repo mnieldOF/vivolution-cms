@@ -5,5 +5,8 @@ export const toolCardFragment = graphql`
     title
     slug
     shortDescription
+    subtitle
+    available
+    iconName
   }
 `;

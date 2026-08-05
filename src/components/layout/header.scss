@@ -146,7 +146,7 @@
     a {
       font-size: 14px;
       font-weight: 500;
-      color: rgba(250, 249, 247, 0.61); // muted white
+      color: rgba(250, 249, 247, 0.75); // muted white
       text-decoration: none;
       padding: 8px 12px;
       border-radius: 6px;
@@ -184,9 +184,9 @@
       box-shadow 0.2s;
 
     &:hover {
-      background: #f03d78;
+      background: var(--color-magenta-hover);
       transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(232, 51, 106, 0.35);
+      box-shadow: 0 4px 20px var(--color-magenta-glow);
     }
 
     &:active {

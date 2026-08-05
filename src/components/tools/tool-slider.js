@@ -71,6 +71,9 @@ const ToolSlider = ({ data, light }) => {
                 title={item.title}
                 slug={item.slug}
                 shortText={item.shortDescription}
+                subtitle={item.subtitle}
+                available={item.available}
+                iconName={item.iconName}
               />
             </div>
           ))}
@@ -82,6 +85,8 @@ const ToolSlider = ({ data, light }) => {
               title={item.title}
               slug={item.slug}
               shortText={item.shortDescription}
+              available={item.available}
+              iconName={item.iconName}
             />
           ))}
         </div>

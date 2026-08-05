@@ -5,7 +5,7 @@ const ToolList = ({ tools }) => {
   return (
     <>
       {tools.map((item, i) => {
-        const { title, slug, shortDescription, subtitle, toolCategory } = item.node;
+        const { title, slug, shortDescription, subtitle, available, iconName } = item.node;
         return (
           <ToolItem
             key={"ti_" + i}
@@ -13,7 +13,8 @@ const ToolList = ({ tools }) => {
             slug={slug}
             shortText={shortDescription}
             subtitle={subtitle}
-            categories={toolCategory}
+            available={available}
+            iconName={iconName}
           />
         );
       })}

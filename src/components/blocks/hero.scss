@@ -1,5 +1,5 @@
 .hero {
-  background: #faf9f7;
+  background: var(--color-warm-white);
   padding: 100px 40px 80px;
   min-height: 90vh;
   display: flex;
@@ -108,7 +108,7 @@
   .btn-cta {
     font-size: 14px;
     font-weight: 600;
-    color: #faf9f7;
+    color: var(--color-warm-white);
     background: var(--color-magenta);
     border: none;
     border-radius: 8px;
@@ -121,9 +121,9 @@
       box-shadow 0.2s;
 
     &:hover {
-      background: #f03d78;
+      background: var(--color-magenta-hover);
       transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(232, 51, 106, 0.35);
+      box-shadow: 0 4px 20px var(--color-magenta-glow);
     }
 
     &:active {
@@ -187,7 +187,7 @@
 }
 
 .profile-hero {
-  background: #111118;
+  background: var(--color-near-black);
   padding: 160px 40px 80px;
   position: relative;
   overflow: hidden;
@@ -255,7 +255,7 @@
   .profile-hero-headline {
     font-size: clamp(36px, 4vw, 56px);
     font-weight: 600;
-    color: #faf9f7;
+    color: var(--color-warm-white);
     letter-spacing: -0.03em;
     line-height: 1.05;
     margin-bottom: 8px;
@@ -265,7 +265,7 @@
   .profile-hero-title {
     font-size: 18px;
     font-weight: 400;
-    color: rgba(250, 249, 247, 0.5);
+    color: rgba(250, 249, 247, 0.88);
     max-width: 700px;
 
     p {
@@ -277,7 +277,7 @@
     }
 
     strong {
-      color: #faf9f7;
+      color: var(--color-warm-white);
       font-weight: 600;
     }
   }
