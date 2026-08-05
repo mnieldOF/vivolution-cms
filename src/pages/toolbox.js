@@ -100,6 +100,8 @@ export const query = graphql`
           slug
           shortDescription
           subtitle
+          available
+          iconName
           toolCategory {
             id
             category

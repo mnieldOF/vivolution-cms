@@ -1,0 +1,162 @@
+.studio-carousel {
+  width: 60%;
+  outline: none;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+
+  .sc-stage {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--color-near-black);
+
+    @media (max-width: 768px) {
+      border-radius: 12px;
+    }
+  }
+
+  .sc-slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  .sc-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .sc-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 48px 24px 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.45));
+  }
+
+  .sc-status {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 2;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: #fff;
+    pointer-events: none;
+
+    &--available {
+      background: rgba(34, 197, 94, 0.9);
+    }
+
+    &--occupied {
+      background: rgba(249, 115, 22, 0.9);
+    }
+  }
+
+  .sc-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.15s;
+    padding: 0;
+
+    &:hover {
+      background: #fff;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-near-black);
+    }
+
+    &.sc-arrow--prev { left: 14px; }
+    &.sc-arrow--next { right: 14px; }
+  }
+
+  .sc-thumbs {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .sc-thumb {
+    flex: 1;
+    min-width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+    background: none;
+    transition: border-color 0.15s;
+
+    &.is-active {
+      border-color: var(--color-magenta);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .sc-dots {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .sc-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: rgba(17, 17, 24, 0.15);
+    transition: background 0.15s;
+
+    &.is-active {
+      background: var(--color-near-black);
+    }
+  }
+}

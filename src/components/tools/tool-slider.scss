@@ -1,17 +1,39 @@
-/* Dark card overrides for tool cards inside the related section */
-.detail-related .slick-slide > div .tool-card {
-  height: 100%;
+
+/* padding-top gives cards room to lift on hover without being clipped by
+   slick-list's overflow:hidden. margin-top offsets so layout spacing is unchanged.
+   The doubled class prevents customer-profile-slider.scss's margin shorthand
+   from zeroing the offset if CSS chunk order shifts. */
+.detail-related-tools.detail-related .slick-list {
+  padding-top: 8px;
+  margin-top: -8px;
+  padding-bottom: 8px;
+  margin-bottom: -8px;
 }
 
+/* Dark card overrides — tool cards inside the homepage / detail slider. */
+
 .detail-related .tool-card {
-  background: rgba(250, 249, 247, 0.03);
-  border-color: rgba(250, 249, 247, 0.07);
+  background: var(--color-card-dark);
+  border-color: rgba(250, 249, 247, 0.08);
+  color: var(--color-warm-white);
 
   &:hover {
-    transform: none;
-    box-shadow: none;
-    border-color: rgba(232, 51, 106, 0.3);
-    background: rgba(250, 249, 247, 0.05);
+    background: var(--color-card-dark-hover);
+  }
+
+  .tool-icon {
+    background: rgba(232, 51, 106, 0.14);
+    color: var(--color-magenta-light);
+  }
+
+  &:hover .tool-icon {
+    background: rgba(232, 51, 106, 0.22);
+  }
+
+  .tool-badge--soon {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-text-muted-dark);
+    border-color: rgba(255, 255, 255, 0.08);
   }
 
   .tool-card-name {
@@ -19,7 +41,22 @@
   }
 
   .tool-card-tagline {
-    color: rgba(250, 249, 247, 0.4);
+    color: var(--color-text-muted-dark);
+    // Clamp keeps cards a consistent height regardless of description length
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+
+  .tool-read-more {
+    color: var(--color-warm-white);
+  }
+
+  &:hover .tool-read-more {
+    color: var(--color-magenta-light);
+    border-color: var(--color-magenta-light);
   }
 }
 
@@ -47,27 +84,17 @@
   }
 
   .detail-related .tool-card {
-    border-radius: 14px;
-    min-height: 0;
-
-    .tool-card-body {
-      padding: 22px 22px 12px;
-    }
+    border-radius: 12px;
+    padding: 22px 22px;
 
     .tool-card-name {
       font-size: 18px;
-      line-height: 1.18;
-      overflow-wrap: normal;
+      line-height: 1.2;
     }
 
     .tool-card-tagline {
       font-size: 13px;
-      line-height: 1.45;
-      -webkit-line-clamp: 3;
-    }
-
-    .tool-card-footer {
-      padding: 0 22px 22px;
+      line-height: 1.5;
     }
   }
 }
