@@ -57,6 +57,7 @@ const HowWeHelpDetail = ({ data, location }) => {
         subtitle={data.service.hero.subtitle}
         subtext={data.service.hero.subText}
         subtextHtml={data.service.hero.subTextNode?.childMarkdownRemark?.html}
+        image={data.service.hero.image}
         dark
       />
       <section className="detail-body">
@@ -122,6 +123,10 @@ export const query = graphql`
           childMarkdownRemark {
             html
           }
+        }
+        image {
+          url
+          alt
         }
       }
       title
