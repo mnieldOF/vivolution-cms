@@ -21,6 +21,16 @@
   @media (max-width: 767px) {
     padding: 28px 24px;
   }
+
+  .help-panel-label {
+    font-weight: 600;
+    margin-bottom: 16px;
+    font-size: 12px;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-magenta);
+  }
 }
 
 // Two equal-width columns for the Tagline list
