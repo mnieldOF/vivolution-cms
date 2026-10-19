@@ -4,9 +4,10 @@ import Layout from "../../components/layout/layout";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Hero from "../../components/blocks/hero";
 import MarkdownText from "../../components/blocks/markdown-text";
+import Tagline from "../../components/blocks/tagline";
 import { slugifyTitle } from "../../utils/slugify-title";
 import "../../components/portfolio/portfolio-filter.scss";
-import "../../styles/customer-profile.scss";
+import "./service.scss";
 
 const getSectorParam = (location) => {
   const params = new URLSearchParams(location?.search || "");
@@ -57,7 +58,6 @@ const HowWeHelpDetail = ({ data, location }) => {
         subtitle={data.service.hero.subtitle}
         subtext={data.service.hero.subText}
         subtextHtml={data.service.hero.subTextNode?.childMarkdownRemark?.html}
-        image={data.service.hero.image}
         dark
       />
       <section className="detail-body">
@@ -78,18 +78,32 @@ const HowWeHelpDetail = ({ data, location }) => {
               </div>
             </div>
           )}
-
           {activeBlock && (
-            <div className="detail-text-block">
-              {activeBlock.title && (
-                <h2 className="detail-section-headline">{activeBlock.title}</h2>
+            <div className="stage-panel" role="tabpanel">
+              <div className="stage-panel-copy">
+                <div className="detail-text-block">
+                  {activeBlock.title && (
+                    <h2 className="detail-section-headline">
+                      {activeBlock.title}
+                    </h2>
+                  )}
+                  <MarkdownText
+                    className="detail-prose"
+                    html={
+                      activeBlock.descriptionNode?.childMarkdownRemark?.html
+                    }
+                    text={activeBlock.description}
+                    clean
+                  />
+                </div>
+              </div>
+
+              {activeBlock.whatWeHelpWith && (
+                <div className="help-panel">
+                  <p className="help-panel-label">What we help with</p>
+                  <Tagline perks={activeBlock.whatWeHelpWith} />
+                </div>
               )}
-              <MarkdownText
-                className="detail-prose"
-                html={activeBlock.descriptionNode?.childMarkdownRemark?.html}
-                text={activeBlock.description}
-                clean
-              />
             </div>
           )}
         </div>
@@ -124,10 +138,6 @@ export const query = graphql`
             html
           }
         }
-        image {
-          url
-          alt
-        }
       }
       title
       slug
@@ -142,6 +152,7 @@ export const query = graphql`
             html
           }
         }
+        whatWeHelpWith
       }
     }
   }

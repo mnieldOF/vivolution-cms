@@ -1,0 +1,43 @@
+// Two equal columns: copy left, panel right; stacks on smaller screens
+.stage-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 48px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+
+// "What we help with" panel
+.help-panel {
+  background: #fff;
+  border: 1px solid #e7e4df;
+  border-radius: 12px;
+  padding: 36px;
+
+  @media (max-width: 767px) {
+    padding: 28px 24px;
+  }
+}
+
+// Two equal-width columns for the Tagline list
+.help-panel > :not(.help-panel-label) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: 480px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.detail-body-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
